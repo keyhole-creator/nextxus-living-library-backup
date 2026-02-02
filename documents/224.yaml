@@ -1,0 +1,513 @@
+id: 224
+title: Software development proposal
+author: Roger Keyserling
+collection_id: 2
+summary: null
+full_text: "﻿SOFTWARE DEVELOPMENT PROPOSAL  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  PREPARED FOR\r
+
+  Client’s name\r
+
+  Client’s company name\r
+
+  PREPARED BY\r
+
+  Your name\r
+
+  Your company name\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  [YOUR COMPANY’S LETTERHEAD]\r
+
+  \r
+
+  \r
+
+  JUN 07, 20XX\r
+
+  \r
+
+  \r
+
+  CLIENT’S NAME\r
+
+  CLIENT’S COMPANY NAME\r
+
+  \r
+
+  \r
+
+  \ 123 CLIENT STREET\r
+
+  CLIENT CITY, ST 12345\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Dear [CLIENT’S NAME],\r
+
+  Re: Enclosed Software Development Proposal\r
+
+  Please find enclosed our detailed software proposal for your kind
+  consideration.\r
+
+  At [YOUR COMPANY’S NAME] we are aware that creating client-oriented software
+  takes a mixture of technical excellence and clear communication and our firm
+  hires only the very best to ensure you receive both. We know that every client
+  is unique and we strive to deliver an individual, innovative and affordable
+  proposal every time and to follow it through with an outstanding delivery
+  which is both on time and within budget.\r
+
+  We have over [YEARS] of development in this area and our previous clients
+  include [PREVIOUS CLIENTS]. Please let us know if you would like to get in
+  touch with our existing clients from whom you will receive nothing but
+  positive endorsements. You may also wish to review our website at [WEBSITE] to
+  see our portfolio of previous work and learn more about our organization. \r
+
+  We also pride ourselves on our after-sales client-care including our
+  guarantees, staff-training and onsite and offsite support.\r
+
+  Finally, we realize that you are very busy and wanted to thank you in advance
+  for your time spent reviewing our proposal.\r
+
+  \r
+
+  \r
+
+  Yours Truly,\r
+
+  [YOUR NAME]\r
+
+  \r
+
+  \r
+
+  EXECUTIVE SUMMARY  \r
+
+  \r
+
+  \r
+
+  [150-600 word summary of the report that provides a high-level overview of the
+  project]\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Signed as accepted by client:\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \t\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \t[NAME], [TITLE]     \r
+
+  \t[DATE]\r
+
+  \t1. Project Overview\r
+
+  [A detailed description of the project stating the aims, scope and intended
+  operation]\r
+
+  \r
+
+  \r
+
+  2. Obstacles\r
+
+  [A description of the possible risks involved with the project and how you
+  will manage them]\r
+
+  \r
+
+  \r
+
+  3. Technical Obstacles\r
+
+  [Any technical obstacles like integration between different systems, as well
+  as mitigation strategies]\r
+
+  \r
+
+  \r
+
+  4. Industry and Market Risks\r
+
+  [Any industry or market-related risks] Tip9A.png \r
+
+  \r
+
+  \r
+
+  5. Budgetary Risks\r
+
+  [Budgetary risks] Tip10.jpg \r
+
+  \r
+
+  \r
+
+  6. Hardware\r
+
+  [The hardware that the proposed software will be compatible with]\r
+
+  \r
+
+  \r
+
+  7. Software\r
+
+  [A list of software technologies that will be used in the development of the
+  proposed software]\r
+
+  \r
+
+  \r
+
+  8. Milestones and Reporting\r
+
+  Total estimation of man hours: 226\r
+
+  Milestone\r
+
+  \tTasks\r
+
+  \tReporting\r
+
+  \tHrs\r
+
+  \tDate\r
+
+  \t1 - Analysis\r
+
+  \t1.1\r
+
+  \tAnalysis and design stage, gather data and create system mockup\r
+
+  \tNone\r
+
+  \t20\r
+
+  \t20/01/15\r
+
+  \t1.2\r
+
+  \tArchitecture design\r
+
+  \tNone\r
+
+  \t4\r
+
+  \t01/02/15\r
+
+  \t1.3\r
+
+  \tDesign work plan (distribution of tasks to development teams)\r
+
+  \tClient meeting to review work  plan\r
+
+  \t10\r
+
+  \t07/02/15\r
+
+  \t2 - Development\r
+
+  \t2.1\r
+
+  \tCreate database\r
+
+  \tNone\r
+
+  \t5\r
+
+  \t14/02/15\r
+
+  \t2.2\r
+
+  \tImport existing client data\r
+
+  \tNone\r
+
+  \t5\r
+
+  \t21/02/15\r
+
+  \t2.3\r
+
+  \tClean data\r
+
+  \tNone\r
+
+  \t5\r
+
+  \t28/02/15\r
+
+  \t2.4\r
+
+  \tCreate GUI\r
+
+  \tClient meeting to review GUI\r
+
+  \t30\r
+
+  \t01/04/15\r
+
+  \t2.5\r
+
+  \tIntegration with PaperlessOffice.net\r
+
+  \tNone\r
+
+  \t10\r
+
+  \t14/04/15\r
+
+  \t2.6\r
+
+  \tIntegration with smartphone network\r
+
+  \tEmail report\r
+
+  \t10\r
+
+  \t21/04/15\r
+
+  \t3 - Testing\r
+
+  \t3.1\r
+
+  \tAlpha testing desktop application (Closed)\r
+
+  \tEmail report\r
+
+  \t25\r
+
+  \t07/05/15\r
+
+  \t3.2\r
+
+  \tAlpha testing smartphone application (Closed)\r
+
+  \tNone\r
+
+  \t25\r
+
+  \t14/05/15\r
+
+  \t3.3\r
+
+  \tOpen Beta (volunteer employees)\r
+
+  \tClient meeting\r
+
+  \t22\r
+
+  \t21/05/15\r
+
+  \t3.4\r
+
+  \tFinalise documentation\r
+
+  \tNone\r
+
+  \t20\r
+
+  \t28/05/15\r
+
+  \t4 - Deployment\r
+
+  \t4.1\r
+
+  \tDeployment to desktops\r
+
+  \tNone\r
+
+  \t5\r
+
+  \t01/06/15\r
+
+  \t4.2\r
+
+  \tDeployment to smartphones\r
+
+  \tNone\r
+
+  \t10\r
+
+  \t07/06/15\r
+
+  \t5 - Training\r
+
+  \t5.1\r
+
+  \tInhouse training\r
+
+  \tClient meeting\r
+
+  \t16\r
+
+  \t14/06/15\r
+
+  \t5.2\r
+
+  \tAdHoc training\r
+
+  \tNone\r
+
+  \t4\r
+
+  \t30/06/15"
+tags: null
+source_url: https://docs.google.com/document/d/1oj2kBoOb9oLMoEs7EgcDBBguT1MHz9jpmEkwvfnqCHQ/edit?usp=drivesdk
+document_type: text
+description: ﻿SOFTWARE DEVELOPMENT PROPOSAL   PREPARED FOR Client’s name
+  Client’s company name PREPARED BY Your name Your company name [YOUR COMPANY’S
+  LETTERHEAD] JUN 07, 20XX CLIENT’S NAME CLIENT’S COMPANY NAME  ...
+created_at: 2026-01-19T20:15:41.775Z
+updated_at: 2026-01-19T20:20:18.025Z

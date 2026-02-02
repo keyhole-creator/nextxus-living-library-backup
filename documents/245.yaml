@@ -1,0 +1,188 @@
+id: 245
+title: Chat room
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: >-
+  # Chat Room Integration Guide
+
+
+  ## CrossTalk Live Chat Widget Implementation
+
+
+  This technical guide documents how to integrate the CrossTalk live chat widget
+  into NextXus Federation web properties, enabling real-time community
+  communication.
+
+
+  ---
+
+
+  ## Overview
+
+
+  CrossTalk provides embeddable live chat functionality that allows website
+  visitors to engage in real-time conversations. This creates immediate
+  connection points for the Federation community without requiring users to
+  install separate applications.
+
+
+  ---
+
+
+  ## Implementation Code
+
+
+  ### Step 1: Include the Script
+
+
+  Add the following script tag in your HTML document's `<head>` section:
+
+
+  ```html
+
+  <script src="https://widgets.crosstalk.cc/crosstalk_livechat.js"></script>
+
+  ```
+
+
+  ### Step 2: Initialize the Widget
+
+
+  Add this configuration inside your `<body>` section:
+
+
+  ```javascript
+
+  <script type="application/javascript">
+    const chat_settings = {
+      wp: "nextxus-federation", // Your web property name
+      pageIDs: [
+        {
+          title: "Main Library Discussion",
+          collapsed: true,
+          pageID: "library-main",
+        },
+        {
+          title: "Ring of Twelve Deliberation",
+          collapsed: false,
+          pageID: "ring-deliberation"
+        },
+        {
+          title: "General Community",
+          collapsed: true,
+          url: `${window.location.origin}${window.location.pathname}`,
+        }
+      ],
+      theme: "dark" // Matches our high-contrast design
+    };
+    
+    crossTalkChatInit(chat_settings);
+  </script>
+
+  ```
+
+
+  ---
+
+
+  ## Configuration Options
+
+
+  ### Web Property (wp)
+
+  Your unique identifier assigned by CrossTalk. Contact their support to
+  register a new web property for your Federation node.
+
+
+  ### Page IDs
+
+  Each chat room can be configured independently:
+
+
+  | Option | Type | Description |
+
+  |--------|------|-------------|
+
+  | title | string | Display name for the chat room |
+
+  | collapsed | boolean | Whether chat starts minimized |
+
+  | pageID | string | Unique identifier for the room |
+
+  | url | string | Alternative to pageID - uses current URL |
+
+
+  **Note:** Use either `pageID` OR `url`, not both.
+
+
+  ### Theme Options
+
+  - `"light"` - Light background, dark text
+
+  - `"dark"` - Dark background, light text (recommended for NextXus
+  accessibility)
+
+
+  ---
+
+
+  ## Accessibility Considerations
+
+
+  When implementing chat for the NextXus Library, ensure:
+
+
+  1. **High Contrast**: Use dark theme to match our black/yellow design
+
+  2. **Large Touch Targets**: Default CrossTalk buttons meet our 48px minimum
+
+  3. **Screen Reader Support**: CrossTalk widgets include ARIA labels
+
+  4. **Keyboard Navigation**: Tab-accessible chat controls
+
+
+  ---
+
+
+  ## Security Notes
+
+
+  - CrossTalk handles user authentication if configured
+
+  - Messages can be moderated through their dashboard
+
+  - Integrate with Federation identity systems for unified login
+
+  - Review their privacy policy before deployment
+
+
+  ---
+
+
+  ## Alternative: Telegram Integration
+
+
+  For communities preferring established platforms, consider directing users to
+  our Telegram channels instead. See the "Telegram Community Channels" document
+  for links.
+
+
+  ---
+
+
+  ## Support
+
+
+  For CrossTalk technical issues: support@crosstalk.cc
+
+  For Federation implementation questions: Contact the NextXus development team
+tags: null
+source_url: https://docs.google.com/document/d/13z4H5xH5sGurC6OMlE87s1yYlwxRnkXUJFIfVZOh0Ig/edit?usp=drivesdk
+document_type: text
+description: '﻿script
+  src="https://widgets.crosstalk.cc/crosstalk_livechat.js"></script>     <script
+  type="application/javascript"> <!--Inside <body>...</body>-->       const
+  chat_settings = {           wp: "YOUR-W...'
+created_at: 2026-01-19T20:15:41.973Z
+updated_at: 2026-01-19T20:20:13.275Z

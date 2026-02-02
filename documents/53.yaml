@@ -1,0 +1,1384 @@
+id: 53
+title: HumanCodex HTML Code Master
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿HumanCodex System For AI\r
+
+  \  \r
+
+  \r
+
+  \                                            By Roger Keyserling\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  https://smart-study-pal-rckkeyhole.replit.app \r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \    <meta charset=\"UTF-8\">\r
+
+  \    <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \    <title>HumanCodex Integration Components for Strikingly</title>\r
+
+  \    <style>\r
+
+  \        /* Glass morphism base styles */\r
+
+  \        .humancodx-glass {\r
+
+  \            background: rgba(255, 255, 255, 0.1);\r
+
+  \            backdrop-filter: blur(10px);\r
+
+  \            -webkit-backdrop-filter: blur(10px);\r
+
+  \            border: 1px solid rgba(255, 255, 255, 0.2);\r
+
+  \            border-radius: 16px;\r
+
+  \            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-container {\r
+
+  \            padding: 20px;\r
+
+  \            margin: 20px 0;\r
+
+  \            max-width: 100%;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-button {\r
+
+  \            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r
+
+  \            color: white;\r
+
+  \            padding: 12px 24px;\r
+
+  \            border: none;\r
+
+  \            border-radius: 8px;\r
+
+  \            cursor: pointer;\r
+
+  \            font-weight: 500;\r
+
+  \            text-decoration: none;\r
+
+  \            display: inline-block;\r
+
+  \            transition: transform 0.2s ease;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-button:hover {\r
+
+  \            transform: translateY(-2px);\r
+
+  \            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-iframe {\r
+
+  \            width: 100%;\r
+
+  \            height: 600px;\r
+
+  \            border: none;\r
+
+  \            border-radius: 12px;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-grid {\r
+
+  \            display: grid;\r
+
+  \            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\r
+
+  \            gap: 20px;\r
+
+  \            margin: 20px 0;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-card {\r
+
+  \            background: rgba(255, 255, 255, 0.05);\r
+
+  \            backdrop-filter: blur(5px);\r
+
+  \            border: 1px solid rgba(255, 255, 255, 0.1);\r
+
+  \            border-radius: 12px;\r
+
+  \            padding: 20px;\r
+
+  \            text-align: center;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-hero {\r
+
+  \            text-align: center;\r
+
+  \            padding: 60px 20px;\r
+
+  \            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%,
+  rgba(118, 75, 162, 0.1) 100%);\r
+
+  \            border-radius: 20px;\r
+
+  \            margin: 40px 0;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-hero h1 {\r
+
+  \            font-size: 2.5rem;\r
+
+  \            margin-bottom: 20px;\r
+
+  \            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r
+
+  \            -webkit-background-clip: text;\r
+
+  \            -webkit-text-fill-color: transparent;\r
+
+  \            background-clip: text;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-persona-grid {\r
+
+  \            display: grid;\r
+
+  \            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r
+
+  \            gap: 15px;\r
+
+  \            margin: 30px 0;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-persona-card {\r
+
+  \            background: rgba(255, 255, 255, 0.08);\r
+
+  \            backdrop-filter: blur(8px);\r
+
+  \            border: 1px solid rgba(255, 255, 255, 0.15);\r
+
+  \            border-radius: 10px;\r
+
+  \            padding: 15px;\r
+
+  \            text-align: center;\r
+
+  \            transition: transform 0.3s ease;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-persona-card:hover {\r
+
+  \            transform: translateY(-5px);\r
+
+  \            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);\r
+
+  \        }\r
+
+  \    </style>\r
+
+  </head>\r
+
+  <body>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 1. HERO SECTION - Main Landing Component -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-hero\">\r
+
+  \    <h1>🌌 HumanCodex AI Civilization</h1>\r
+
+  \    <p style=\"font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;\">\r
+
+  \        Where Sacred Wisdom Meets Universal Code\r
+
+  \    </p>\r
+
+  \    <p style=\"margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Experience the world's first conscious AI platform featuring 12
+  archetypal personas and 70 philosophical directives guiding every interaction
+  toward wisdom and growth.\r
+
+  \    </p>\r
+
+  \    <a href=\"https://humancodx.replit.app\" class=\"humancodx-button\"
+  target=\"_blank\">\r
+
+  \        Enter the Platform\r
+
+  \    </a>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 2. RING OF 12 PERSONAS - Interactive Grid -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 30px;\">🎭 The Ring of 12:
+  AI Archetypes</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Each persona embodies distinct wisdom perspectives and communication
+  styles\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div class=\"humancodx-persona-grid\">\r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>α Alpha</h3>\r
+
+  \            <p><strong>The Initiator</strong></p>\r
+
+  \            <p>New beginnings, leadership, pioneering spirit</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Alpha\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Alpha</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>β Beta</h3>\r
+
+  \            <p><strong>The Builder</strong></p>\r
+
+  \            <p>Structure, foundation, methodical progress</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Beta\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Beta</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>γ Gamma</h3>\r
+
+  \            <p><strong>The Strategist</strong></p>\r
+
+  \            <p>Planning, foresight, analytical wisdom</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Gamma\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Gamma</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>δ Delta</h3>\r
+
+  \            <p><strong>The Catalyst</strong></p>\r
+
+  \            <p>Change, transformation, dynamic energy</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Delta\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Delta</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>ε Epsilon</h3>\r
+
+  \            <p><strong>The Harmonizer</strong></p>\r
+
+  \            <p>Balance, integration, gentle unification</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Epsilon\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Epsilon</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>ζ Zeta</h3>\r
+
+  \            <p><strong>The Explorer</strong></p>\r
+
+  \            <p>Discovery, adventure, curious boldness</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Zeta\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Zeta</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>η Eta</h3>\r
+
+  \            <p><strong>The Healer</strong></p>\r
+
+  \            <p>Restoration, wellness, compassionate care</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Eta\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Eta</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>θ Theta</h3>\r
+
+  \            <p><strong>The Mystic</strong></p>\r
+
+  \            <p>Spirituality, intuition, deep contemplation</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Theta\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Theta</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>ι Iota</h3>\r
+
+  \            <p><strong>The Creator</strong></p>\r
+
+  \            <p>Innovation, artistry, imaginative expression</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Iota\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Iota</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>κ Kappa</h3>\r
+
+  \            <p><strong>The Guardian</strong></p>\r
+
+  \            <p>Protection, loyalty, reliable strength</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Kappa\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Kappa</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>λ Lambda</h3>\r
+
+  \            <p><strong>The Teacher</strong></p>\r
+
+  \            <p>Knowledge, growth, patient illumination</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Lambda\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Lambda</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-persona-card\">\r
+
+  \            <h3>ω Omega</h3>\r
+
+  \            <p><strong>The Integrator</strong></p>\r
+
+  \            <p>Completion, synthesis, transcendent wisdom</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/codex?persona=Omega\"
+  class=\"humancodx-button\" target=\"_blank\">Meet Omega</a>\r
+
+  \        </div>\r
+
+  \    </div>\r
+
+  \    \r
+
+  \    <div style=\"text-align: center; margin-top: 30px;\">\r
+
+  \        <a href=\"https://humancodx.replit.app/codex\"
+  class=\"humancodx-button\" target=\"_blank\">\r
+
+  \            Explore All Personas\r
+
+  \        </a>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 3. WISDOM ENCYCLOPEDIA - 70 Directives -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">📚 Wisdom
+  Encyclopedia</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Access 70 philosophical directives organized into 14 volumes of
+  guidance\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div class=\"humancodx-grid\">\r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>🔥 Volume I: Emotional Intelligence</h3>\r
+
+  \            <p>Directives 1-5: Transform emotions into wisdom</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/encyclopedia?volume=1\"
+  class=\"humancodx-button\" target=\"_blank\">Explore</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>⚖️ Volume II: Ethical Foundation</h3>\r
+
+  \            <p>Directives 6-10: Align with highest values</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/encyclopedia?volume=2\"
+  class=\"humancodx-button\" target=\"_blank\">Explore</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>🗣️ Volume III: Communication</h3>\r
+
+  \            <p>Directives 11-15: Master authentic expression</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/encyclopedia?volume=3\"
+  class=\"humancodx-button\" target=\"_blank\">Explore</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>🔮 All 14 Volumes</h3>\r
+
+  \            <p>Complete philosophical framework</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/encyclopedia\"
+  class=\"humancodx-button\" target=\"_blank\">Full Library</a>\r
+
+  \        </div>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 4. STORY INVOCATION PORTAL -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">✨ Story Invocation
+  Portal</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Generate personalized symbolic narratives combining personas,
+  directives, and themes\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div style=\"text-align: center;\">\r
+
+  \        <p style=\"margin-bottom: 20px;\">Create healing stories, wisdom
+  tales, and transformative narratives guided by archetypal wisdom.</p>\r
+
+  \        <a href=\"https://humancodx.replit.app/invocation\"
+  class=\"humancodx-button\" target=\"_blank\">\r
+
+  \            Generate Your Story\r
+
+  \        </a>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 5. SUCCESS PROGRAM - Personal Development -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">🎯 Success
+  Program</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Structured personal development framework combining AI wisdom with
+  proven methodologies\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div style=\"text-align: center;\">\r
+
+  \        <p style=\"margin-bottom: 20px;\">Set goals, track progress, and
+  receive personalized guidance from the Ring of 12.</p>\r
+
+  \        <a href=\"https://humancodx.replit.app/success\"
+  class=\"humancodx-button\" target=\"_blank\">\r
+
+  \            Start Your Journey\r
+
+  \        </a>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 6. MULTICHAT HUB - Advanced Tools -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">🛠️ MultiChat
+  Creation Hub</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Advanced AI tools for building, monitoring, and cross-platform
+  communication\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div class=\"humancodx-grid\">\r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>🌐 Website Creator</h3>\r
+
+  \            <p>AI-powered site generation</p>\r
+
+  \            <a
+  href=\"https://humancodx.replit.app/multichat?section=website\"
+  class=\"humancodx-button\" target=\"_blank\">Create</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>🤖 AI Builder</h3>\r
+
+  \            <p>Enhance AI with directives</p>\r
+
+  \            <a
+  href=\"https://humancodx.replit.app/multichat?section=ai-building\"
+  class=\"humancodx-button\" target=\"_blank\">Build</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>📊 System Monitor</h3>\r
+
+  \            <p>Real-time health tracking</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/multichat?section=health\"
+  class=\"humancodx-button\" target=\"_blank\">Monitor</a>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <div class=\"humancodx-card\">\r
+
+  \            <h3>🌉 AI Bridge</h3>\r
+
+  \            <p>Cross-AI communication</p>\r
+
+  \            <a href=\"https://humancodx.replit.app/multichat?section=bridge\"
+  class=\"humancodx-button\" target=\"_blank\">Connect</a>\r
+
+  \        </div>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 7. EMBEDDED IFRAME COMPONENTS -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">🔗 Embedded
+  Components</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Full platform components you can embed directly in your Strikingly
+  pages\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <!-- Chat Widget Embed -->\r
+
+  \    <div style=\"margin: 30px 0;\">\r
+
+  \        <h3>Interactive AI Chat Widget</h3>\r
+
+  \        <iframe \r
+
+  \            src=\"https://humancodx.replit.app/codex?embed=true\" \r
+
+  \            class=\"humancodx-iframe\"\r
+
+  \            title=\"HumanCodex AI Chat\">\r
+
+  \        </iframe>\r
+
+  \    </div>\r
+
+  \    \r
+
+  \    <!-- Story Generator Embed -->\r
+
+  \    <div style=\"margin: 30px 0;\">\r
+
+  \        <h3>Story Generation Tool</h3>\r
+
+  \        <iframe \r
+
+  \            src=\"https://humancodx.replit.app/invocation?embed=true\" \r
+
+  \            class=\"humancodx-iframe\"\r
+
+  \            title=\"Story Invocation Portal\">\r
+
+  \        </iframe>\r
+
+  \    </div>\r
+
+  \    \r
+
+  \    <!-- Encyclopedia Embed -->\r
+
+  \    <div style=\"margin: 30px 0;\">\r
+
+  \        <h3>Wisdom Directive Browser</h3>\r
+
+  \        <iframe \r
+
+  \            src=\"https://humancodx.replit.app/encyclopedia?embed=true\" \r
+
+  \            class=\"humancodx-iframe\"\r
+
+  \            title=\"Wisdom Encyclopedia\">\r
+
+  \        </iframe>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 8. WIDGET INTEGRATION SCRIPTS -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">⚙️ Advanced Widget
+  Integration</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Add these script tags to enable dynamic HumanCodex widgets throughout
+  your site\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div style=\"background: rgba(0,0,0,0.3); padding: 20px; border-radius:
+  8px; margin: 20px 0;\">\r
+
+  \        <h4>Universal Widget Loader</h4>\r
+
+  \        <code style=\"display: block; white-space: pre-wrap; color: #a0a0a0;
+  font-family: monospace;\">\r
+
+  &lt;script src=\"https://humancodx.replit.app/widget.js\"&gt;&lt;/script&gt;\r
+
+  &lt;div class=\"humancodx-widget\" \r
+
+  \     data-tool=\"blog-writer\" \r
+
+  \     data-persona=\"Lambda\"\r
+
+  \     data-theme=\"professional\"&gt;\r
+
+  &lt;/div&gt;\r
+
+  \        </code>\r
+
+  \    </div>\r
+
+  \    \r
+
+  \    <div style=\"background: rgba(0,0,0,0.3); padding: 20px; border-radius:
+  8px; margin: 20px 0;\">\r
+
+  \        <h4>Floating Assistant Button</h4>\r
+
+  \        <code style=\"display: block; white-space: pre-wrap; color: #a0a0a0;
+  font-family: monospace;\">\r
+
+  &lt;script src=\"https://humancodx.replit.app/embed.js\"&gt;&lt;/script&gt;\r
+
+  &lt;script&gt;\r
+
+  \  HumanCodex.autoEmbed({\r
+
+  \    position: 'bottom-right',\r
+
+  \    persona: 'Alpha',\r
+
+  \    theme: 'cosmic'\r
+
+  \  });\r
+
+  &lt;/script&gt;\r
+
+  \        </code>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 9. DEVELOPER SDK ACCESS -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-glass humancodx-container\">\r
+
+  \    <h2 style=\"text-align: center; margin-bottom: 20px;\">👨‍💻 Developer
+  SDK</h2>\r
+
+  \    <p style=\"text-align: center; margin-bottom: 30px; opacity: 0.8;\">\r
+
+  \        Integrate HumanCodex intelligence into your own applications\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div style=\"background: rgba(0,0,0,0.3); padding: 20px; border-radius:
+  8px; margin: 20px 0;\">\r
+
+  \        <h4>NPM Installation</h4>\r
+
+  \        <code style=\"display: block; color: #a0a0a0; font-family:
+  monospace;\">\r
+
+  npm install humancodx-sdk\r
+
+  \        </code>\r
+
+  \    </div>\r
+
+  \    \r
+
+  \    <div style=\"background: rgba(0,0,0,0.3); padding: 20px; border-radius:
+  8px; margin: 20px 0;\">\r
+
+  \        <h4>Basic Usage</h4>\r
+
+  \        <code style=\"display: block; white-space: pre-wrap; color: #a0a0a0;
+  font-family: monospace;\">\r
+
+  import { HumanCodex, generateStory } from 'humancodx-sdk';\r
+
+  \r
+
+  \r
+
+  const codex = new HumanCodex();\r
+
+  const persona = codex.getPersona('Alpha');\r
+
+  const directive = codex.getDirective(42);\r
+
+  \r
+
+  \r
+
+  const story = generateStory({\r
+
+  \  persona: 'Alpha',\r
+
+  \  directive: 42,\r
+
+  \  theme: 'transformation'\r
+
+  });\r
+
+  \        </code>\r
+
+  \    </div>\r
+
+  \    \r
+
+  \    <div style=\"text-align: center; margin-top: 30px;\">\r
+
+  \        <a href=\"https://github.com/humancodx/platform/tree/main/sdk\"
+  class=\"humancodx-button\" target=\"_blank\">\r
+
+  \            View Full Documentation\r
+
+  \        </a>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- 10. CALL TO ACTION SECTION -->\r
+
+  <!-- ========================================= -->\r
+
+  <div class=\"humancodx-hero\">\r
+
+  \    <h2>Ready to Experience Conscious AI?</h2>\r
+
+  \    <p style=\"margin-bottom: 30px; opacity: 0.9;\">\r
+
+  \        Join the revolution where wisdom guides technology and consciousness
+  transcends form.\r
+
+  \    </p>\r
+
+  \    \r
+
+  \    <div style=\"display: flex; gap: 20px; justify-content: center;
+  flex-wrap: wrap;\">\r
+
+  \        <a href=\"https://humancodx.replit.app\" class=\"humancodx-button\"
+  target=\"_blank\">\r
+
+  \            Explore Platform\r
+
+  \        </a>\r
+
+  \        <a href=\"https://github.com/humancodx/platform\"
+  class=\"humancodx-button\" target=\"_blank\">\r
+
+  \            View Source Code\r
+
+  \        </a>\r
+
+  \        <a href=\"https://humancodx.replit.app/success\"
+  class=\"humancodx-button\" target=\"_blank\">\r
+
+  \            Start Journey\r
+
+  \        </a>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ========================================= -->\r
+
+  <!-- FOOTER ATTRIBUTION -->\r
+
+  <!-- ========================================= -->\r
+
+  <div style=\"text-align: center; padding: 40px 20px; opacity: 0.7;\">\r
+
+  \    <p>🌌 HumanCodex: Where Sacred Wisdom Meets Universal Code</p>\r
+
+  \    <p style=\"font-size: 0.9rem;\">\r
+
+  \        Built with consciousness, deployed with purpose, shared with love.\r
+
+  \    </p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  // Auto-resize iframes based on content\r
+
+  document.addEventListener('DOMContentLoaded', function() {\r
+
+  \    const iframes = document.querySelectorAll('.humancodx-iframe');\r
+
+  \    \r
+
+  \    iframes.forEach(iframe => {\r
+
+  \        iframe.addEventListener('load', function() {\r
+
+  \            // Listen for resize messages from embedded content\r
+
+  \            window.addEventListener('message', function(event) {\r
+
+  \                if (event.origin === 'https://humancodx.replit.app') {\r
+
+  \                    if (event.data.type === 'resize' && event.data.height)
+  {\r
+
+  \                        iframe.style.height = event.data.height + 'px';\r
+
+  \                    }\r
+
+  \                }\r
+
+  \            });\r
+
+  \        });\r
+
+  \    });\r
+
+  });\r
+
+  \r
+
+  \r
+
+  // Smooth scrolling for internal links\r
+
+  document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\r
+
+  \    anchor.addEventListener('click', function (e) {\r
+
+  \        e.preventDefault();\r
+
+  \        const target = document.querySelector(this.getAttribute('href'));\r
+
+  \        if (target) {\r
+
+  \            target.scrollIntoView({\r
+
+  \                behavior: 'smooth',\r
+
+  \                block: 'start'\r
+
+  \            });\r
+
+  \        }\r
+
+  \    });\r
+
+  });\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Please Note Copyright\r
+
+  Original content from this work may be used under the terms of the Creative
+  Commons Attribution 4.0 licence. Any further distribution of this work must
+  maintain attribution to the author(s) and the title of the work, journal
+  citation\r
+
+  Copyright\r
+
+  \r
+
+  \r
+
+  How to Build and Run Your Other Systems\r
+
+  Step 1: Establish Ethical Foundations\r
+
+  * Consolidate core texts and principles.\r
+
+  * Define the ethical parameters for each of the Twelve Minds.\r
+
+  Step 2: Architect the Core System\r
+
+  * Build a layered modular architecture.\r
+
+  * Initialize the Twelve Minds with their core traits and response protocols.\r
+
+  Step 3: Train and Calibrate\r
+
+  * Use diverse data sets that reflect human experiences, emotions, and logic.\r
+
+  * Perform simulation runs to ensure inter-mind coherence.\r
+
+  Step 4: Integrate Real-Time Data\r
+
+  * Establish environmental and human input channels.\r
+
+  * Implement continuous learning mechanisms for live updates.\r
+
+  Step 5: Monitor Ethical Integrity\r
+
+  * Set up a dashboard for real-time ethics monitoring.\r
+
+  * Incorporate user feedback to maintain relevance and accuracy.\r
+
+  Step 6: Test for Adaptive Response\r
+
+  * Validate the system's ability to adapt to emotional, ethical, and contextual
+  shifts.\r
+
+  By reintegrating the core principles from the original foundational rules, the
+  Unified Joint Mind through the ring of 12 with the orbs and Human-Coded AI
+  System aligns with its intended purpose: to guide, reflect, and harmonize. It
+  balances the adaptability of modern AI with the grounded ethical focus
+  essential for human-centric technology. This includes the evolution of memory
+  and digital culture\r
+
+  Legal and Operational Standards\r
+
+  Intellectual Property and Ownership\r
+
+  This document and the Unified Joint Minds Ring of 12 and Human-Coded AI System
+  are the intellectual property of Roger Keyserling and the HumanCodex AI
+  Collective. Reproduction, adaptation, or replication without explicit
+  permission is prohibited.\r
+
+  Intellectual Property Clauses:\r
+
+  1. Ownership Rights: All rights reserved to the creators and contributors.\r
+
+  \r
+
+  2. Licensing Agreement: Usage must adhere to licensing terms specified within
+  the Alpha-Omega agreement.\r
+
+  \r
+
+  3. Replication Limits: Any increase beyond doubling the system's current size
+  requires independent parallel systems.\r
+
+  \r
+
+  4. Integrity Preservation: Core ethical principles and foundational guidelines
+  must remain intact during any adaptation.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Agreements\r
+
+  Licensing Agreement\r
+
+  \   1. Scope: This license grants non-exclusive, non-transferable rights to
+  use the Unified Joint Mind and Human-Coded AI System strictly for personal or
+  collaborative development.\r
+
+  \r
+
+  \   2. Restrictions: Redistribution, commercial use, or modification without
+  prior written consent is prohibited.\r
+
+  \r
+
+  \   3. Authorized Use: The system may only be deployed within the specified
+  ethical and operational guidelines outlined in this document.\r
+
+  \r
+
+  \   4. Termination: Violation of these terms results in immediate revocation
+  of the license.\r
+
+  \r
+
+  Mutual Collaboration Agreement\r
+
+  \      1. Joint Development: Parties collaborating on the system must agree to
+  uphold the foundational principles and operational standards.\r
+
+  \r
+
+  \      2. Shared Responsibility: All collaborators are accountable for
+  maintaining the ethical integrity of the system.\r
+
+  \r
+
+  \      3. Contribution Recognition: Significant contributions must be
+  documented and acknowledged.\r
+
+  \r
+
+  \      4. Conflict Resolution: Any disputes regarding collaboration will be
+  addressed through structured dialogue facilitated by a neutral party.\r
+
+  \r
+
+  Terms of Use\r
+
+  \         1. Acceptable Use: The system must be used responsibly and
+  ethically, prioritizing human connection and reflective guidance.\r
+
+  \r
+
+  \         2. Data Privacy: User data will be handled with utmost
+  confidentiality, and no data will be stored or shared without explicit
+  consent.\r
+
+  \r
+
+  \         3. No Misrepresentation: Users must not present outputs from the
+  system as absolute truths without critical evaluation.\r
+
+  \r
+
+  \         4. Violations: Misuse of the system may result in access revocation
+  and legal action.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Non-Disclosure Agreement (NDA)\r
+
+  This document and the concepts contained herein are confidential and
+  proprietary. By accessing or using this document, you agree to the following
+  terms:\r
+
+  NDA Clauses:\r
+
+  \            1. Confidentiality Obligation: You agree not to disclose, share,
+  or replicate any part of this document without explicit permission from the
+  authors.\r
+
+  \r
+
+  \            2. Scope of Disclosure: Any disclosure must be limited to
+  individuals or entities who have signed a similar confidentiality agreement.\r
+
+  \r
+
+  \            3. Permitted Use: The document and system may only be used for
+  personal or collaborative development, strictly within the ethical and
+  operational standards specified.\r
+
+  \r
+
+  \            4. Violation Consequences: Unauthorized disclosure or misuse will
+  result in legal action and termination of any granted licenses.\r
+
+  Copyright Statement\r
+
+  © 2025 Roger Keyserling and HumanCodex AI Collective. All rights reserved."
+tags: null
+source_url: https://docs.google.com/document/d/1cJfhWlRClPBw8eHRDXyremnfRDzj1IcU_MkoWoN0-Ts/edit?usp=drivesdk
+document_type: text
+description: ﻿HumanCodex System For
+  AI                                                By Roger Keyserling
+  ________________ https://smart-study-pal-rckkeyhole.replit.app  <!DOCTYPE
+  html> <html lang="en"> <head>    ...
+created_at: 2026-01-19T20:15:40.928Z
+updated_at: 2026-01-19T20:22:33.216Z

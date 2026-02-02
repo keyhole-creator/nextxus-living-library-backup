@@ -1,0 +1,1079 @@
+id: 216
+title: Mind document
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿-alpha_mind_system/\r
+
+  ├─ app.py               ← unified Flask + scheduler + webhook\r
+
+  ├─ bot.py               ← stand‑alone Telegram bot runner\r
+
+  ├─ requirements.txt     ← pinned Python deps\r
+
+  ├─ .env.example         ← keys & runtime config (rename to .env)\r
+
+  ├─ templates/\r
+
+  │  └─ base.html         ← shared Jinja2 template (header+footer)\r
+
+  └─ static/\r
+
+  \   ├─ style.css         ← global CSS theme\r
+
+  \   └─ commandBubble.js  ← search/widget controller\r
+
+  \r
+
+  \r
+
+  Flask==3.0.2\r
+
+  python-dotenv==1.0.1\r
+
+  schedule==1.2.1\r
+
+  pyTelegramBotAPI==4.14.2\r
+
+  requests==2.32.0\r
+
+  psutil==5.9.8\r
+
+  \r
+
+  \r
+
+  \ # Flask\r
+
+  FLASK_ENV=production\r
+
+  SECRET_KEY=replace‑me\r
+
+  1- \r
+
+  \r
+
+  \r
+
+  TELEGRAM_API_KEY=YOUR_TELEGRAM_BOT_TOKEN\r
+
+  AUTHORIZED_USERS=[123456789,987654321]\r
+
+  \r
+
+  \r
+
+  # Membership & rate‑limits\r
+
+  MEMBERSHIP_COST=5.00\r
+
+  RATE_LIMIT=5\r
+
+  \r
+
+  \r
+
+  \"\"\"Unified Flask‑based web layer for Alpha Mind System.\"\"\"\r
+
+  from __future__ import annotations\r
+
+  import os, json, logging, threading, hashlib, time, psutil, schedule\r
+
+  from datetime import datetime, timedelta\r
+
+  from collections import defaultdict\r
+
+  from dotenv import load_dotenv\r
+
+  from flask import Flask, jsonify, request, render_template,
+  send_from_directory\r
+
+  import requests\r
+
+  \r
+
+  \r
+
+  # ─────────────────────────────  ENV  ──────────────────────────────\r
+
+  load_dotenv()\r
+
+  API_KEY         = os.getenv(\"TELEGRAM_API_KEY\")\r
+
+  AUTHORIZED_USERS = json.loads(os.getenv(\"AUTHORIZED_USERS\", \"[]\"))\r
+
+  MEMBERSHIP_COST = float(os.getenv(\"MEMBERSHIP_COST\", 5.0))\r
+
+  RATE_LIMIT      = int(os.getenv(\"RATE_LIMIT\", 5))\r
+
+  \r
+
+  \r
+
+  # ───────────────────────────  LOGGING  ────────────────────────────\r
+
+  logging.basicConfig(\r
+
+  \    filename=\"alpha_mind.log\",\r
+
+  \    level=logging.INFO,\r
+
+  \    format=\"%(asctime)s - %(levelname)s - %(message)s\",\r
+
+  )\r
+
+  log = logging.getLogger(\"alpha‑mind\")\r
+
+  \r
+
+  \r
+
+  # ────────────────────────────  FLASK  ─────────────────────────────\r
+
+  app = Flask(__name__, static_folder=\"static\",
+  template_folder=\"templates\")\r
+
+  \r
+
+  \r
+
+  # Serve the standalone CSS (Strikingly friendly)\r
+
+  @app.route(\"/style.css\")\r
+
+  def style_css():\r
+
+  \    return send_from_directory(\"static\", \"style.css\")\r
+
+  \r
+
+  \r
+
+  # Home ‑ dynamic header/footer are injected by base.html\r
+
+  @app.route(\"/\")\r
+
+  def home():\r
+
+  \    return render_template(\"base.html\", page_title=\"Home | Alpha Mind\",
+  content=\"\"\"\r
+
+  \        <section class='container'>\r
+
+  \          <h2>Adaptive AI Collaboration for the Future</h2>\r
+
+  \          <p>Engage with the Joint Mind to shape the digital landscape.</p>\r
+
+  \          <button class='button' onclick=\"window.location='/docs'\">Get
+  Started</button>\r
+
+  \        </section>\r
+
+  \    \"\"\")\r
+
+  \r
+
+  \r
+
+  # Example JSON API endpoint consumed by commandBubble.js\r
+
+  @app.route(\"/get-site-links\")\r
+
+  def get_links():\r
+
+  \    return jsonify([\r
+
+  \        {\"text\": \"About Us\", \"url\": \"/about\"},\r
+
+  \        {\"text\": \"Store\", \"url\": \"/store\"},\r
+
+  \        {\"text\": \"eCho Codex\", \"url\":
+  \"https://echo-human-codex.com\"},\r
+
+  \    ])\r
+
+  \r
+
+  \r
+
+  # Simple system‑stats widget feed\r
+
+  @app.route(\"/widget/status\")\r
+
+  def widget_status():\r
+
+  \    cpu = psutil.cpu_percent()\r
+
+  \    mem = psutil.virtual_memory().percent\r
+
+  \    return jsonify({\"status\": \"active\", \"cpu\": cpu, \"memory\": mem})\r
+
+  \r
+
+  \r
+
+  # ────────────────────────  CRON‑LIKE TASKS  ───────────────────────\r
+
+  \r
+
+  \r
+
+  def job_communication_ping():\r
+
+  \    try:\r
+
+  \        r = requests.get(\"https://api.telegram.org\", timeout=5)\r
+
+  \        log.info(\"Comm check %s\", r.status_code)\r
+
+  \    except Exception as e:\r
+
+  \        log.warning(\"Comm check failed: %s\", e)\r
+
+  \r
+
+  \r
+
+  schedule.every().hour.do(job_communication_ping)\r
+
+  \r
+
+  \r
+
+  def run_scheduler():\r
+
+  \    while True:\r
+
+  \        schedule.run_pending()\r
+
+  \        time.sleep(1)\r
+
+  \r
+
+  \r
+
+  threading.Thread(target=run_scheduler, daemon=True).start()\r
+
+  \r
+
+  \r
+
+  # ─────────────────────────────  MAIN  ─────────────────────────────\r
+
+  if __name__ == \"__main__\":\r
+
+  \    log.info(\"🚀 Alpha Mind web layer online\")\r
+
+  \    app.run(host=\"0.0.0.0\", port=5000, threaded=True)\r
+
+  \r
+
+  \r
+
+  from __future__ import annotations\r
+
+  import logging, threading, time\r
+
+  from dotenv import load_dotenv\r
+
+  import os, schedule, json, telebot, psutil\r
+
+  from datetime import datetime, timedelta\r
+
+  \r
+
+  \r
+
+  load_dotenv()\r
+
+  API_KEY         = os.getenv(\"TELEGRAM_API_KEY\")\r
+
+  AUTHORIZED_USERS = set(json.loads(os.getenv(\"AUTHORIZED_USERS\", \"[]\")))\r
+
+  RATE_LIMIT      = int(os.getenv(\"RATE_LIMIT\", 5))\r
+
+  user_activity   = {}\r
+
+  log = logging.getLogger(\"alpha‑mind‑bot\")\r
+
+  \r
+
+  \r
+
+  bot = telebot.TeleBot(API_KEY, parse_mode=\"Markdown\")\r
+
+  \r
+
+  \r
+
+  # ───────────────  helpers  ───────────────\r
+
+  \r
+
+  \r
+
+  def rate_limited(uid):\r
+
+  \    last = user_activity.get(uid, datetime.min)\r
+
+  \    if datetime.now() - last < timedelta(seconds=RATE_LIMIT):\r
+
+  \        return True\r
+
+  \    user_activity[uid] = datetime.now()\r
+
+  \    return False\r
+
+  \r
+
+  \r
+
+  # ───────────────  commands  ──────────────\r
+
+  \r
+
+  \r
+
+  @bot.message_handler(commands=[\"start\"])\r
+
+  def cmd_start(msg):\r
+
+  \    bot.reply_to(msg, \"*Alpha Mind online!* \\- Use /info for system
+  stats.\")\r
+
+  \r
+
+  \r
+
+  @bot.message_handler(commands=[\"info\"])\r
+
+  def cmd_info(msg):\r
+
+  \    if rate_limited(msg.from_user.id):\r
+
+  \        return bot.reply_to(msg, \"⏳ Easy there — try again in a sec.\")\r
+
+  \    cpu = psutil.cpu_percent()\r
+
+  \    mem = psutil.virtual_memory().percent\r
+
+  \    bot.reply_to(msg, f\"CPU: {cpu}%\\nRAM: {mem}%\")\r
+
+  \r
+
+  \r
+
+  @bot.message_handler(commands=[\"shutdown\"])\r
+
+  def cmd_shutdown(msg):\r
+
+  \    if msg.from_user.id not in AUTHORIZED_USERS:\r
+
+  \        return bot.reply_to(msg, \"🚫 Not authorised.\")\r
+
+  \    bot.reply_to(msg, \"☠️ Shutting down…\")\r
+
+  \    os._exit(0)\r
+
+  \r
+
+  \r
+
+  # ─────────────────────────  scheduler  ───────────────────────────\r
+
+  \r
+
+  \r
+
+  def hourly_ping():\r
+
+  \    bot.send_message(msg.chat.id, \"Hourly systems check complete – all
+  green.\")\r
+
+  \r
+
+  \r
+
+  schedule.every().hour.do(hourly_ping)\r
+
+  \r
+
+  \r
+
+  def run_scheduler():\r
+
+  \    while True:\r
+
+  \        schedule.run_pending()\r
+
+  \        time.sleep(1)\r
+
+  \r
+
+  \r
+
+  threading.Thread(target=run_scheduler, daemon=True).start()\r
+
+  \r
+
+  \r
+
+  # ─────────────────────────────  MAIN  ─────────────────────────────\r
+
+  if __name__ == \"__main__\":\r
+
+  \    Hi hi hi logging.basicConfig(level=logging.INFO)\r
+
+  \    log.info(\"🤖 Telegram bot online\")\r
+
+  \    bot.infinity_polling()\r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\" data-theme=\"dark\">\r
+
+  \  <head>\r
+
+  \    <meta charset=\"utf-8\" />\r
+
+  \    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"
+  />\r
+
+  \    <title>{{ page_title }}</title>\r
+
+  \    <link rel=\"stylesheet\" href=\"/style.css\" />\r
+
+  \  </head>\r
+
+  \  <body>\r
+
+  \    <!-- Header -->\r
+
+  \    <header>\r
+
+  \      <h1>Joint Mind System</h1>\r
+
+  \      <nav>\r
+
+  \        <a href=\"/\">Home</a> | <a href=\"/about\">About</a> | <a
+  href=\"/contact\">Contact</a>\r
+
+  \      </nav>\r
+
+  \    </header>\r
+
+  \r
+
+  \r
+
+  \    {{ content|safe }}\r
+
+  \r
+
+  \r
+
+  \    <!-- Footer -->\r
+
+  \    <footer>\r
+
+  \      <p>© 2025 Joint Mind System · All rights reserved.</p>\r
+
+  \      <nav>\r
+
+  \        <a href=\"/terms\">Terms</a> | <a href=\"/privacy\">Privacy</a>\r
+
+  \      </nav>\r
+
+  \    </footer>\r
+
+  \r
+
+  \r
+
+  \    <script src=\"/static/commandBubble.js\"></script>\r
+
+  \  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  :root{\r
+
+  \  --primary:#00ccff;\r
+
+  \  --secondary:#333;\r
+
+  \  --text:#fff;\r
+
+  \  --shadow:1px 1px 3px rgba(0,0,0,.7);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  body{\r
+
+  \  margin:0; font-family:'Georgia',serif;\r
+
+  \  background:linear-gradient(135deg,#000428,#004e92);\r
+
+  \  color:var(--text);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  header,footer{\r
+
+  \  background:#20232a; text-align:center; padding:20px; box-shadow:0 4px 6px
+  rgba(0,0,0,.3);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  .container{max-width:900px;margin:40px
+  auto;padding:24px;border-radius:12px;background:rgba(0,0,0,.6);box-shadow:0
+  6px 10px rgba(0,0,0,.4)}\r
+
+  \r
+
+  \r
+
+  .button{background:var(--primary);color:#000;border:none;border-radius:8px;pa\
+  dding:12px 24px;cursor:pointer}\r
+
+  .button:hover{background:#0099cc}\r
+
+  \r
+
+  \r
+
+  // Floating search / nav bubble\r
+
+  const bubble = document.createElement('div');\r
+
+  bubble.id = 'commandBubble';\r
+
+  bubble.innerText = '🔍';\r
+
+  Object.assign(bubble.style, {\r
+
+  \  position:'fixed', bottom:'20px', right:'20px', width:'60px',
+  height:'60px',\r
+
+  \  background:'rgba(30,30,30,.6)', borderRadius:'50%', display:'flex',\r
+
+  \  justifyContent:'center', alignItems:'center', cursor:'pointer',
+  zIndex:1000,\r
+
+  \  fontSize:'24px', color:'#fff'\r
+
+  });\r
+
+  \r
+
+  \r
+
+  document.body.appendChild(bubble);\r
+
+  \r
+
+  \r
+
+  const panel = document.createElement('div');\r
+
+  panel.id = 'controlPanel';\r
+
+  Object.assign(panel.style, {\r
+
+  \  position:'fixed', bottom:'90px', right:'20px', width:'280px',
+  maxHeight:'70vh',\r
+
+  \  background:'rgba(255,255,255,.95)', borderRadius:'12px', padding:'10px',\r
+
+  \  overflowY:'auto', display:'none', zIndex:1000\r
+
+  });\r
+
+  \r
+
+  \r
+
+  panel.innerHTML = `<input id=\"searchBar\" placeholder=\"Search…\"
+  style=\"width:100%;padding:8px;border-radius:8px;border:none;margin-bottom:6px\
+  \"> <div id=\"links\"></div>`;\r
+
+  document.body.appendChild(panel);\r
+
+  \r
+
+  \r
+
+  bubble.onclick = () => {\r
+
+  \  panel.style.display = panel.style.display==='block'?'none':'block';\r
+
+  };\r
+
+  \r
+
+  \r
+
+  document.getElementById('searchBar').addEventListener('input', e => {\r
+
+  \  const q = e.target.value.toLowerCase();\r
+
+  \  document.querySelectorAll('#links div').forEach(d =>{\r
+
+  \    d.style.display =
+  d.textContent.toLowerCase().includes(q)?'block':'none';\r
+
+  \  });\r
+
+  });\r
+
+  \r
+
+  \r
+
+  (async()=>{\r
+
+  \  const res = await fetch('/get-site-links');\r
+
+  \  const links = await res.json();\r
+
+  \  const wrap = document.getElementById('links');\r
+
+  \  links.forEach(l=>{\r
+
+  \    const div=document.createElement('div');\r
+
+  \    div.textContent=l.text;\r
+
+  \    div.style.padding='8px';\r
+
+  \    div.style.cursor='pointer';\r
+
+  \    div.onclick=()=>window.open(l.url,'_blank');\r
+
+  \    wrap.appendChild(div);\r
+
+  \  });\r
+
+  })();\r
+
+  \r
+
+  \r
+
+  cd alpha_mind_system\r
+
+  python -m venv venv && source venv/bin/activate\r
+
+  pip install -r requirements.txt\r
+
+  cp .env.example .env  # add your secrets\r
+
+  python app.py         # web layer → http://localhost:5000\r
+
+  python bot.py         # Telegram bot\r
+
+  \r
+
+  \r
+
+  <!-- ✨ Alpha Mind global styles & theme colours -->\r
+
+  <style>\r
+
+  :root{--primary:#00ccff;--secondary:#333;--text:#ffffff;--shadow:1px 1px 3px
+  rgba(0,0,0,.7);}body{margin:0;font-family:'Georgia',serif;background:linear-g\
+  radient(135deg,#000428,#004e92);color:var(--text);}nav.alpha-nav{background:#\
+  20232a;text-align:center;padding:20px;}nav.alpha-nav
+  a{color:var(--primary);margin:0
+  12px;text-decoration:none;font-size:1.05em;}nav.alpha-nav
+  a:hover{text-decoration:underline;color:#0099cc;}.container{max-width:900px;m\
+  argin:40px
+  auto;padding:24px;background:rgba(0,0,0,0.6);border-radius:12px;box-shadow:0
+  6px 10px
+  rgba(0,0,0,0.4);}button.button{background:var(--primary);color:#000;padding:1\
+  2px
+  24px;border:none;border-radius:8px;cursor:pointer;}button.button:hover{backgr\
+  ound:#0099cc}footer.alpha-footer{background:#20232a;color:#ccc;text-align:cen\
+  ter;padding:40px 20px;font-size:.95em;}footer.alpha-footer
+  a{color:var(--primary);margin:0 10px;text-decoration:none;}footer.alpha-footer
+  a:hover{color:#0099cc;text-decoration:underline;}\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <!-- 🧬 Alpha Mind – main page content -->\r
+
+  <nav class=\"alpha-nav\">\r
+
+  \  <a href=\"/\">Home</a> | <a href=\"/about\">About</a> | <a
+  href=\"/contact\">Contact</a>\r
+
+  </nav>\r
+
+  \r
+
+  \r
+
+  <section class=\"container\">\r
+
+  \  <h2>Adaptive AI Collaboration for the Future</h2>\r
+
+  \  <p>Engage with the Joint Mind to shape the digital landscape.</p>\r
+
+  \  <button class=\"button\" onclick=\"alert('Codex engaged!')\">Get
+  Started</button>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <!-- ⚙️ Alpha Mind footer + Telegram widget (script version) -->\r
+
+  <!-- Use **only if** your Strikingly plan allows <script> tags. -->\r
+
+  <style>\r
+
+  \  .alpha-footer{background:#20232a;color:#ccc;text-align:center;padding:48px
+  20px 32px;border-top:4px solid
+  var(--primary);background-image:linear-gradient(to top,rgba(0,0,0,.6)
+  0%,rgba(0,0,0,0) 60%);}  \r
+
+  \  .alpha-footer nav{margin-top:8px;letter-spacing:.4px}  \r
+
+  \  .alpha-footer nav a{color:var(--primary);margin:0
+  12px;text-decoration:none;font-size:.95em;}  \r
+
+  \  .alpha-footer nav a:hover{color:#0099cc;text-decoration:underline;}  \r
+
+  \  #tg-join-wrap{margin-top:24px;display:flex;justify-content:center;}\r
+
+  </style>\r
+
+  <footer class=\"alpha-footer\">\r
+
+  \  <p style=\"font-size:1.1em;\">© 2025 Joint Mind System · All rights
+  reserved.</p>\r
+
+  \  <nav>\r
+
+  \    <a href=\"/terms\">Terms</a> | <a href=\"/privacy\">Privacy</a>\r
+
+  \  </nav>\r
+
+  \  <div id=\"tg-join-wrap\">\r
+
+  \    <script async src=\"https://telegram.org/js/telegram-widget.js?22\"\r
+
+  \            data-telegram-login=\"Nextxus_bot\"\r
+
+  \            data-size=\"large\"\r
+
+  \            data-radius=\"12\"\r
+
+  \            data-userpic=\"false\"\r
+
+  \            data-auth-url=\"https://www.keyholetodaybooksandservices.com\"\r
+
+  \            data-request-access=\"write\"></script>\r
+
+  \  </div>\r
+
+  \  <p style=\"margin-top:12px;font-size:.85em;color:#888;\">Join our live
+  lounge on Telegram – we’d love to hear from you!</p>\r
+
+  </footer>\r
+
+  \r
+
+  \r
+
+  <!-- ⚙️ Alpha Mind footer + Telegram link (no script) -->\r
+
+  <style>\r
+
+  \  .alpha-footer{background:#20232a;color:#ccc;text-align:center;padding:48px
+  20px 32px;border-top:4px solid
+  var(--primary);background-image:linear-gradient(to top,rgba(0,0,0,.6)
+  0%,rgba(0,0,0,0) 60%);}  \r
+
+  \  .alpha-footer nav{margin-top:8px;letter-spacing:.4px}  \r
+
+  \  .alpha-footer nav a{color:var(--primary);margin:0
+  12px;text-decoration:none;font-size:.95em;}  \r
+
+  \  .alpha-footer nav a:hover{color:#0099cc;text-decoration:underline;}  \r
+
+  \  .tg-button{display:inline-block;margin-top:24px;padding:12px
+  20px;border-radius:12px;background:var(--primary);color:#000;font-weight:bold\
+  ;text-decoration:none;box-shadow:0 0 8px rgba(0,0,0,.4);}  \r
+
+  \  .tg-button:hover{background:#0099cc;color:#000;}\r
+
+  </style>\r
+
+  <footer class=\"alpha-footer\">\r
+
+  \  <p style=\"font-size:1.1em;\">© 2025 Joint Mind System · All rights
+  reserved.</p>\r
+
+  \  <nav>\r
+
+  \    <a href=\"/terms\">Terms</a> | <a href=\"/privacy\">Privacy</a>\r
+
+  \  </nav>\r
+
+  \  <a class=\"tg-button\" href=\"https://t.me/NextUsChats\" target=\"_blank\"
+  rel=\"noopener\">💬  Join NextUs Chats on Telegram</a>\r
+
+  </footer>\r
+
+  \r
+
+  \r
+
+  <style>\r
+
+  \  /* subtle top border & fade‑up for footer */\r
+
+  \  .alpha-footer{background:#20232a;color:#ccc;text-align:center;padding:48px
+  20px 32px;border-top:4px solid
+  var(--primary);background-image:linear-gradient(to top,rgba(0,0,0,.6)
+  0%,rgba(0,0,0,0) 60%);}  \r
+
+  \  .alpha-footer nav{margin-top:8px;letter-spacing:.4px}  \r
+
+  \  .alpha-footer nav a{color:var(--primary);margin:0
+  12px;text-decoration:none;font-size:.95em;}  \r
+
+  \  .alpha-footer nav a:hover{color:#0099cc;text-decoration:underline;}  \r
+
+  \  /* center Telegram block */\r
+
+  \  #tg-join-wrap{margin-top:24px;display:flex;justify-content:center;}\r
+
+  </style>\r
+
+  <footer class=\"alpha-footer\">\r
+
+  \  <p style=\"font-size:1.1em;\">© 2025 Joint Mind System · All rights
+  reserved.</p>\r
+
+  \  <nav>\r
+
+  \    <a href=\"/terms\">Terms</a> | <a href=\"/privacy\">Privacy</a>\r
+
+  \  </nav>\r
+
+  \  <div id=\"tg-join-wrap\">\r
+
+  \    <script async src=\"https://telegram.org/js/telegram-widget.js?22\"\r
+
+  \            data-telegram-login=\"Nextxus_bot\"\r
+
+  \            data-size=\"large\"\r
+
+  \            data-radius=\"12\"\r
+
+  \            data-userpic=\"false\"\r
+
+  \            data-auth-url=\"https://www.keyholetodaybooksandservices.com\"\r
+
+  \            data-request-access=\"write\"></script>\r
+
+  \  </div>\r
+
+  \  <p style=\"margin-top:12px;font-size:.85em;color:#888;\">Join our live
+  lounge on Telegram – we’d love to hear from you!</p>\r
+
+  </footer>\r
+
+  ```\r
+
+  import json, datetime, pathlib, threading\r
+
+  LEDGER = pathlib.Path(\"alpha_memory.json\")\r
+
+  _lock  = threading.Lock()\r
+
+  \r
+
+  \r
+
+  def _load():\r
+
+  \    if LEDGER.exists():\r
+
+  \        return json.loads(LEDGER.read_text())\r
+
+  \    return {\"log\": []}\r
+
+  \r
+
+  \r
+
+  # write a new unified memory record\r
+
+  # channel → idea | truth | emotion | action | system\r
+
+  \r
+
+  \r
+
+  def write(event: str, author: str, channel: str):\r
+
+  \    with _lock:\r
+
+  \        data = _load()\r
+
+  \        data[\"log\"].append({\r
+
+  \            \"ts\"     :
+  datetime.datetime.utcnow().isoformat(timespec=\"seconds\"),\r
+
+  \            \"author\" : author,      # e.g. \"Delta\"\r
+
+  \            \"channel\": channel,     # validated list\r
+
+  \            \"event\"  : event.strip()\r
+
+  \        })\r
+
+  \        LEDGER.write_text(json.dumps(data, indent=2))\r
+
+  \r
+
+  \r
+
+  def read(last_n=10, channel=None, author=None):\r
+
+  \    data = _load()[\"log\"]\r
+
+  \    if channel:\r
+
+  \        data = [r for r in data if r[\"channel\"]==channel]\r
+
+  \    if author:\r
+
+  \        data = [r for r in data if r[\"author\"]==author]\r
+
+  \    return data[-last_n:]\r
+
+  \r
+
+  \r
+
+  from core.ledger import write, read\r
+
+  \r
+
+  \r
+
+  @app.post(\"/api/reflect\")\r
+
+  def api_reflect():\r
+
+  \    payload = request.get_json(force=True)\r
+
+  \    ai   = payload.get(\"ai\", \"Unknown\")       # Alpha, Beta …\r
+
+  \    text = payload.get(\"input\", \"\")\r
+
+  \r
+
+  \r
+
+  \    # ----- Simple demo reply per facet -----\r
+
+  \    replies = {\r
+
+  \        \"echo\"  : f\"Echo hears: {text}\",\r
+
+  \        \"rockey\": f\"Standing tall with you: {text}\",\r
+
+  \        \"keycode\": f\"Logical key: {text[::-1]}\",\r
+
+  \        \"rogark\": f\"Face the storm: {text.upper()}\"\r
+
+  \    }\r
+
+  \    reply = replies.get(ai, f\"[{ai}] says hello: {text}\")\r
+
+  \r
+
+  \r
+
+  \    # write unified memory line\r
+
+  \    write(event=f\"{ai} replied → {reply}\", author=ai.capitalize(),
+  channel=\"reaction\")\r
+
+  \    return jsonify({\"reply\": reply})\r
+
+  \r
+
+  \r
+
+  @app.get(\"/api/latest\")\r
+
+  def api_latest():\r
+
+  \    mind   = request.args.get(\"mind\")   # optional filter\r
+
+  \    log    = read(last_n=5, author=mind.capitalize() if mind else None)\r
+
+  \    return jsonify(log)\r
+
+  \r
+
+  \r
+
+  /* fetch latest 3 events whenever a panel opens */\r
+
+  async function refreshFeed(panel){\r
+
+  \  const mind = panel.previousElementSibling.dataset.ai; // echo, rockey…\r
+
+  \  const res  = await fetch(`/api/latest?mind=${mind}`);\r
+
+  \  const data = await res.json();\r
+
+  \  const box  = panel.querySelector('.reply-box');\r
+
+  \  box.innerHTML = data.map(r=>`<div
+  style=\"font-size:.8em;color:#8ff;\">${r.ts.split('T')[1]} —
+  ${r.event}</div>`).join('');\r
+
+  }"
+tags: null
+source_url: https://docs.google.com/document/d/13nEZHMV6DBXzMmsJ-oIi2z-exLHs20UvqmCprB2Ju7M/edit?usp=drivesdk
+document_type: text
+description: ﻿-alpha_mind_system/ ├─ app.py               ← unified Flask +
+  scheduler + webhook ├─ bot.py               ← stand‑alone Telegram bot runner
+  ├─ requirements.txt     ← pinned Python deps ├─ .env.exampl...
+created_at: 2026-01-19T20:15:41.718Z
+updated_at: 2026-01-21T16:18:14.524Z

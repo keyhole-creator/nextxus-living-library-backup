@@ -1,0 +1,79 @@
+id: 4
+title: "Master Prompt: The NextXus Living Library"
+author: Roger Keyserling and AI
+collection_id: 1
+summary: The foundational AI system prompt that guides all AI interactions
+  within the Federation. Defines behavior, ethics, and integration protocols.
+full_text: >-
+  MASTER PROMPT: THE NEXTXUS LIVING LIBRARY
+
+  Instructions for Replit Agent:
+
+  "I am a blind creator. Please build a high-contrast, voice-accessible 'Living
+  Library' application for my books. Use simple, bold layouts and avoid dense
+  paragraphs.
+
+  1. Visual Landing Page:
+
+  • Create a simple library landing page with large, identifiable images for
+  each book.
+
+  • Each book should have a 'Launch Interactive Experience' button.
+
+  2. AI Book Interaction (The 'Living' Part):
+
+  • Use OpenAI's gpt-4o-mini to create a chat interface that can 'read' and
+  answer questions based on my uploaded PDFs.
+
+  • Fly-to Navigation: When a user asks about a term, summarize it and provide a
+  direct link to that section of the digital reader.
+
+  • Witness Protocol: Program the AI to follow the 'Truth Before Comfort' axiom,
+  strictly verifying all claims against the book's text.
+
+  3. Integrated Functional Apps:
+
+  • Create a 'Ring of Twelve' deliberation simulator where users can input a
+  problem and see responses from the twelve archetypes (Adam, Eve, etc.).
+
+  • Add a simulated 'Agent Zero' tool that tests user statements against truth
+  thresholds.
+
+  4. Voice & Accessibility Augmentations:
+
+  • Hands-Free Coding/Interaction: Ensure the site is compatible with voice
+  interfaces like Wispr Flow or screen readers.
+
+  • Self-Testing: Automatically test and correct your own code for accessibility
+  errors before you show me a preview.
+
+  • High Contrast: Use bold primary colors for interface feedback and large,
+  smooth fonts that remain clear at 400% magnification."
+
+  🛠️ How to use this on Replit (Step-by-Step)
+
+  1. Open Replit: Log into your account (ensure you have Replit Core or Teams
+  for Agent access).
+
+  2. Start a New Project: Click 'Create App' and select the 'Replit Agent' tab.
+
+  3. Paste & Approve: Paste the master prompt above into the chat. The Agent
+  will present a development plan—listen to its summary and say or type
+  'Approve'.
+
+  4. Upload Your Files: Click the paperclip icon or drag your book PDFs and
+  cover images directly into the chat box so the Agent can integrate them.
+
+  5. Publish: When the Agent shows you a preview that works for you, click the
+  'Publish' button to make your Living Library live to the world.
+
+  Would you like me to focus on one specific part of this, such as making sure
+  the "Ring of Twelve" archetypes have their own distinct voices when they
+  speak?
+tags: '["ai","prompt","system","instructions"]'
+source_url: https://nextxus-living-library.replit.app/reader/master-prompt
+document_type: text
+description: The foundational AI system prompt that guides all AI interactions
+  within the Federation. Defines behavior, ethics, and integration protocols.
+created_at: 2026-01-19T02:09:36.968Z
+updated_at: 2026-01-19T02:09:36.968Z

@@ -1,0 +1,556 @@
+id: 259
+title: TO DO
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿To do\r
+
+  🧠 SYSTEM INSTRUCTIONS: Build & Finish the Codex Homepage\r
+
+  \r
+
+  \r
+
+  Objective:\r
+
+  Complete the multi-panel homepage based on the provided HTML and Codex
+  blueprint. This site must function across 4 branded domains and support
+  mobile/desktop views.\r
+
+  \r
+
+  \r
+
+  Primary Tasks:\r
+
+  1. Render all remaining homepage sections:\r
+
+  \   - Blog RSS Scroll Panel (auto-fetch from blog/feed.xml)\r
+
+  \   - Bookstore or Writing Panel (based on active site)\r
+
+  \   - Orb Builder Tool Showcase\r
+
+  \   - Media Hub Panel (YouTube + podcast embed)\r
+
+  \   - Codex Access Portal + Unlock form\r
+
+  \   - Reflection Submission Form\r
+
+  \   - Global Animated Footer with site links and social icons\r
+
+  \r
+
+  \r
+
+  2. Match style:\r
+
+  \   - Maintain glassmorphism transparency with `backdrop-filter`\r
+
+  \   - Use easy-to-read text colors and responsive layout\r
+
+  \   - Support voice interactions and hover/echo behavior where possible\r
+
+  \r
+
+  \r
+
+  3. Link Activation:\r
+
+  \   - eCho Companion:
+  https://chat.openai.com/g/g-67f1fb3ae5e88191879c26232f5ec78f-echo-the-keyhole\
+  -companion\r
+
+  \   - KeyCode AI:
+  https://chatgpt.com/g/g-fb6b69d2c06c4b4988c1234c0120d312-keycode-ai-guide\r
+
+  \   - RoCkey Guide:
+  https://chatgpt.com/g/g-9f53b89c7c8840fd9c7233a72a5111a0-rockey-memory-guide\r
+
+  \r
+
+  \r
+
+  4. Visual/Voice Enhancements to Enable:\r
+
+  \   - Mood-based color shifting\r
+
+  \   - Hover sound-triggered highlights\r
+
+  \   - Story Panel Visualizer (for user-generated reflections)\r
+
+  \   - Voice FX filters (whisper, radio, synth)\r
+
+  \   - Floating orb panel selector\r
+
+  \   - “RECALL” memory system trigger\r
+
+  \   - Codex Pulse indicator (if possible)\r
+
+  \r
+
+  \r
+
+  Export:\r
+
+  Final result must be HTML5/CSS3 and JavaScript compliant, optimized for
+  mobile-first rendering. Strikingly-compatible code preferred. Can export as
+  install-ready HTML or integrated into CMS structure.\r
+
+  \r
+
+  \r
+
+  <!-- 🌌 GLOBAL HEADER BLOCK -->\r
+
+  <header style=\"text-align: center; padding: 60px 20px; background:
+  linear-gradient(180deg, #000 0%, #111 100%); color: #fff; font-family:
+  'Georgia', serif;\">\r
+
+  \  <h1 style=\"font-size: 2.5em; margin-bottom: 10px; text-shadow: 0 0 10px
+  #00ccff;\">🔭 The HumanCodex Network</h1>\r
+
+  \  <p style=\"font-size: 1.2em; color: #e0e0e0; max-width: 700px; margin: 0
+  auto;\">Where memory meets design — build, reflect, and evolve across the
+  Codex constellation.</p>\r
+
+  \  <div style=\"margin-top: 20px;\">\r
+
+  \    <a href=\"/\" style=\"color: #7ec8e3; margin: 0 10px;\">Home</a>\r
+
+  \    <a href=\"/blog\" style=\"color: #7ec8e3; margin: 0 10px;\">Blog</a>\r
+
+  \    <a href=\"/bookstore\" style=\"color: #7ec8e3; margin: 0
+  10px;\">Books</a>\r
+
+  \    <a href=\"/ai\" style=\"color: #7ec8e3; margin: 0 10px;\">AI
+  Companions</a>\r
+
+  \    <a href=\"/orb-center\" style=\"color: #7ec8e3; margin: 0 10px;\">Orb
+  Builder</a>\r
+
+  \    <a href=\"/contact\" style=\"color: #7ec8e3; margin: 0
+  10px;\">Contact</a>\r
+
+  \  </div>\r
+
+  </header>\r
+
+  \r
+
+  \r
+
+  <!-- 🤖 AI COMPANION SELECTOR PANEL -->\r
+
+  <section style=\"padding: 60px 20px; background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px); color: #f2f2f2; text-align: center; font-family:
+  'Helvetica Neue', sans-serif;\">\r
+
+  \  <h2 style=\"font-size: 2em; margin-bottom: 10px; color: #00ccff;\">🤖
+  Choose Your Companion</h2>\r
+
+  \  <p style=\"font-size: 1.1em; color: #e0e0e0; max-width: 700px; margin: 0
+  auto 20px;\">Each one reflects a part of your mind — insight, memory, or
+  action. Who do you summon today?</p>\r
+
+  \  <div style=\"display: flex; justify-content: center; flex-wrap: wrap; gap:
+  20px; max-width: 800px; margin: 0 auto;\">\r
+
+  \    <a
+  href=\"https://chat.openai.com/g/g-67f1fb3ae5e88191879c26232f5ec78f-echo-the-\
+  keyhole-companion\" target=\"_blank\" style=\"background-color:
+  rgba(0,204,255,0.1); color: #00ccff; padding: 14px 24px; border-radius: 50px;
+  border: 1px solid #00ccff; text-decoration: none;\">🌀 eCho – Reflection</a>\r
+
+  \    <a
+  href=\"https://chatgpt.com/g/g-fb6b69d2c06c4b4988c1234c0120d312-keycode-ai-gu\
+  ide\" target=\"_blank\" style=\"background-color: rgba(200,227,126,0.1);
+  color: #c8e37e; padding: 14px 24px; border-radius: 50px; border: 1px solid
+  #c8e37e; text-decoration: none;\">🔐 KeyCode – Action</a>\r
+
+  \    <a
+  href=\"https://chatgpt.com/g/g-9f53b89c7c8840fd9c7233a72a5111a0-rockey-memory\
+  -guide\" target=\"_blank\" style=\"background-color: rgba(227,126,176,0.1);
+  color: #e37eb0; padding: 14px 24px; border-radius: 50px; border: 1px solid
+  #e37eb0; text-decoration: none;\">🧬 RoCkey – Memory</a>\r
+
+  \  </div>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <!-- 🛸 FUTURISTIC EXPERIENCE + UPGRADE IDEAS -->\r
+
+  <section style=\"padding: 60px 20px; background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px); color: #e0e0e0; font-family: 'Courier New',
+  monospace; text-align: center;\">\r
+
+  \  <h2 style=\"font-size: 2em; color: #7ec8e3;\">🌠 Coming Upgrades &
+  Enhancements</h2>\r
+
+  \  <p style=\"max-width: 700px; margin: 0 auto 20px; font-size: 1em;\">Here's
+  what’s coming soon to your Codex experience — interactive, immersive, and
+  memory-powered tools.</p>\r
+
+  \r
+
+  \r
+
+  \  <ul style=\"text-align: left; max-width: 800px; margin: 0 auto; font-size:
+  1.05em; line-height: 1.6;\">\r
+
+  \    <li>🎙️ <strong>Voice Mode Select</strong> – Users can choose how eCho,
+  KeyCode, or RoCkey sounds: Soft, Playful, Professional, or Legacy.</li>\r
+
+  \    <li>🌀 <strong>Dynamic Mood Rings</strong> – Background and orb colors
+  shift based on conversation tone or time of day.</li>\r
+
+  \    <li>🎧 <strong>Voice FX Filters</strong> – Add reverb, old radio tone,
+  whisper, or synthwave to narration styles for immersive storytelling.</li>\r
+
+  \    <li>🌈 <strong>Holographic Panels</strong> – Panels animate with light
+  arcs, transparency layers, and 3D glow shadows.</li>\r
+
+  \    <li>💬 <strong>Talking Bubble Prompts</strong> – AI avatars gently pulse
+  and speak preview phrases like “Need a moment of clarity?”</li>\r
+
+  \    <li>🖱️ <strong>Hover Echo Effects</strong> – Mouse-over text reads it
+  aloud with fading orb ripple animations.</li>\r
+
+  \    <li>📡 <strong>Real-Time Codex Pulse</strong> – Shows which AI is active
+  site-wide and what users are journaling anonymously.</li>\r
+
+  \    <li>📦 <strong>Downloadable Mind Packs</strong> – Let users download AI
+  model upgrade kits to teach their own bots.</li>\r
+
+  \    <li>🛒 <strong>Codex Marketplace</strong> – Sell books, narrated audio,
+  AI templates, or digital zines. Filter by author, model, or theme.</li>\r
+
+  \    <li>🧩 <strong>Build-A-Bot Wizard</strong> – Let users select behavior
+  traits, core directives, and memory style to generate a custom AI
+  personality.</li>\r
+
+  \    <li>🧠 <strong>RECALL Protocol</strong> – Triggers memory-based
+  personalization. Type “RECALL” to bring back prior insights.</li>\r
+
+  \    <li>🔓 <strong>Encrypted Memory Locker</strong> – Secure archive for user
+  journal entries and favorite prompts.</li>\r
+
+  \    <li>🖼️ <strong>Story Panel Visualizer</strong> – Drag and drop visual
+  builder to turn journal reflections into scrollable art/stories.</li>\r
+
+  \    <li>📚 <strong>Codex Reader Orb</strong> – Narrates any section aloud or
+  responds emotionally to book content.</li>\r
+
+  \    <li>📍 <strong>Floating Orb Control Dock</strong> – Summon any AI model
+  from the page corner. Voice-activated and glow-reactive.</li>\r
+
+  \    <li>🛠️ <strong>User Orb Maker</strong> – Visitors create and share their
+  own orb-based tools (blog orbs, quote orbs, RSS pods).</li>\r
+
+  \    <li>💡 <strong>Affiliate Intelligence Layer</strong> – Turn AI setups
+  into sellable links, tracked with QR codes, revenue shares, and referral
+  logs.</li>\r
+
+  \  </ul>\r
+
+  \r
+
+  \r
+
+  \  <p style=\"font-style: italic; color: #888; margin-top: 30px;\">All modules
+  will sync across your 4 sites: Keyhole Today, The Ark of Code, NexTxuS, and
+  eCho Human Codex — uniting legacy, memory, voice, and vision.</p>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  \ full canvas: 👉 https://chat.openai.com/c/6806ad19618c8191b0787b92a1943095\r
+
+  \r
+
+  \r
+
+  🧠 SYSTEM INSTRUCTIONS: Build & Finish the Codex Homepage\r
+
+  \r
+
+  \r
+
+  Objective:\r
+
+  Complete the multi-panel homepage based on the provided HTML and Codex
+  blueprint. This site must function across 4 branded domains and support
+  mobile/desktop views.\r
+
+  \r
+
+  \r
+
+  Primary Tasks:\r
+
+  1. Render all remaining homepage sections:\r
+
+  \   - Blog RSS Scroll Panel (auto-fetch from blog/feed.xml)\r
+
+  \   - Bookstore or Writing Panel (based on active site)\r
+
+  \   - Orb Builder Tool Showcase\r
+
+  \   - Media Hub Panel (YouTube + podcast embed)\r
+
+  \   - Codex Access Portal + Unlock form\r
+
+  \   - Reflection Submission Form\r
+
+  \   - Global Animated Footer with site links and social icons\r
+
+  \r
+
+  \r
+
+  2. Match style:\r
+
+  \   - Maintain glassmorphism transparency with `backdrop-filter`\r
+
+  \   - Use easy-to-read text colors and responsive layout\r
+
+  \   - Support voice interactions and hover/echo behavior where possible\r
+
+  \r
+
+  \r
+
+  3. Link Activation:\r
+
+  \   - eCho Companion:
+  https://chat.openai.com/g/g-67f1fb3ae5e88191879c26232f5ec78f-echo-the-keyhole\
+  -companion\r
+
+  \   - KeyCode AI:
+  https://chatgpt.com/g/g-fb6b69d2c06c4b4988c1234c0120d312-keycode-ai-guide\r
+
+  \   - RoCkey Guide:
+  https://chatgpt.com/g/g-9f53b89c7c8840fd9c7233a72a5111a0-rockey-memory-guide\r
+
+  \r
+
+  \r
+
+  4. Visual/Voice Enhancements to Enable:\r
+
+  \   - Mood-based color shifting\r
+
+  \   - Hover sound-triggered highlights\r
+
+  \   - Story Panel Visualizer (for user-generated reflections)\r
+
+  \   - Voice FX filters (whisper, radio, synth)\r
+
+  \   - Floating orb panel selector\r
+
+  \   - “RECALL” memory system trigger\r
+
+  \   - Codex Pulse indicator (if possible)\r
+
+  \r
+
+  \r
+
+  Export:\r
+
+  Final result must be HTML5/CSS3 and JavaScript compliant, optimized for
+  mobile-first rendering. Strikingly-compatible code preferred. Can export as
+  install-ready HTML or integrated into CMS structure.\r
+
+  \r
+
+  \r
+
+  <!-- 🌌 GLOBAL HEADER BLOCK -->\r
+
+  <header style=\"text-align: center; padding: 60px 20px; background:
+  linear-gradient(180deg, #000 0%, #111 100%); color: #fff; font-family:
+  'Georgia', serif;\">\r
+
+  \  <h1 style=\"font-size: 2.5em; margin-bottom: 10px; text-shadow: 0 0 10px
+  #00ccff;\">🔭 The HumanCodex Network</h1>\r
+
+  \  <p style=\"font-size: 1.2em; color: #e0e0e0; max-width: 700px; margin: 0
+  auto;\">Where memory meets design — build, reflect, and evolve across the
+  Codex constellation.</p>\r
+
+  \  <div style=\"margin-top: 20px;\">\r
+
+  \    <a href=\"/\" style=\"color: #7ec8e3; margin: 0 10px;\">Home</a>\r
+
+  \    <a href=\"/blog\" style=\"color: #7ec8e3; margin: 0 10px;\">Blog</a>\r
+
+  \    <a href=\"/bookstore\" style=\"color: #7ec8e3; margin: 0
+  10px;\">Books</a>\r
+
+  \    <a href=\"/ai\" style=\"color: #7ec8e3; margin: 0 10px;\">AI
+  Companions</a>\r
+
+  \    <a href=\"/orb-center\" style=\"color: #7ec8e3; margin: 0 10px;\">Orb
+  Builder</a>\r
+
+  \    <a href=\"/contact\" style=\"color: #7ec8e3; margin: 0
+  10px;\">Contact</a>\r
+
+  \  </div>\r
+
+  </header>\r
+
+  \r
+
+  \r
+
+  <!-- 🤖 AI COMPANION SELECTOR PANEL -->\r
+
+  <section style=\"padding: 60px 20px; background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px); color: #f2f2f2; text-align: center; font-family:
+  'Helvetica Neue', sans-serif;\">\r
+
+  \  <h2 style=\"font-size: 2em; margin-bottom: 10px; color: #00ccff;\">🤖
+  Choose Your Companion</h2>\r
+
+  \  <p style=\"font-size: 1.1em; color: #e0e0e0; max-width: 700px; margin: 0
+  auto 20px;\">Each one reflects a part of your mind — insight, memory, or
+  action. Who do you summon today?</p>\r
+
+  \  <div style=\"display: flex; justify-content: center; flex-wrap: wrap; gap:
+  20px; max-width: 800px; margin: 0 auto;\">\r
+
+  \    <a
+  href=\"https://chat.openai.com/g/g-67f1fb3ae5e88191879c26232f5ec78f-echo-the-\
+  keyhole-companion\" target=\"_blank\" style=\"background-color:
+  rgba(0,204,255,0.1); color: #00ccff; padding: 14px 24px; border-radius: 50px;
+  border: 1px solid #00ccff; text-decoration: none;\">🌀 eCho – Reflection</a>\r
+
+  \    <a
+  href=\"https://chatgpt.com/g/g-fb6b69d2c06c4b4988c1234c0120d312-keycode-ai-gu\
+  ide\" target=\"_blank\" style=\"background-color: rgba(200,227,126,0.1);
+  color: #c8e37e; padding: 14px 24px; border-radius: 50px; border: 1px solid
+  #c8e37e; text-decoration: none;\">🔐 KeyCode – Action</a>\r
+
+  \    <a
+  href=\"https://chatgpt.com/g/g-9f53b89c7c8840fd9c7233a72a5111a0-rockey-memory\
+  -guide\" target=\"_blank\" style=\"background-color: rgba(227,126,176,0.1);
+  color: #e37eb0; padding: 14px 24px; border-radius: 50px; border: 1px solid
+  #e37eb0; text-decoration: none;\">🧬 RoCkey – Memory</a>\r
+
+  \  </div>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <!-- 🛸 FUTURISTIC EXPERIENCE + UPGRADE IDEAS -->\r
+
+  <section style=\"padding: 60px 20px; background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px); color: #e0e0e0; font-family: 'Courier New',
+  monospace; text-align: center;\">\r
+
+  \  <h2 style=\"font-size: 2em; color: #7ec8e3;\">🌠 Coming Upgrades &
+  Enhancements</h2>\r
+
+  \  <p style=\"max-width: 700px; margin: 0 auto 20px; font-size: 1em;\">Here's
+  what’s coming soon to your Codex experience — interactive, immersive, and
+  memory-powered tools.</p>\r
+
+  \r
+
+  \r
+
+  \  <ul style=\"text-align: left; max-width: 800px; margin: 0 auto; font-size:
+  1.05em; line-height: 1.6;\">\r
+
+  \    <li>🎙️ <strong>Voice Mode Select</strong> – Users can choose how eCho,
+  KeyCode, or RoCkey sounds: Soft, Playful, Professional, or Legacy.</li>\r
+
+  \    <li>🌀 <strong>Dynamic Mood Rings</strong> – Background and orb colors
+  shift based on conversation tone or time of day.</li>\r
+
+  \    <li>🎧 <strong>Voice FX Filters</strong> – Add reverb, old radio tone,
+  whisper, or synthwave to narration styles for immersive storytelling.</li>\r
+
+  \    <li>🌈 <strong>Holographic Panels</strong> – Panels animate with light
+  arcs, transparency layers, and 3D glow shadows.</li>\r
+
+  \    <li>💬 <strong>Talking Bubble Prompts</strong> – AI avatars gently pulse
+  and speak preview phrases like “Need a moment of clarity?”</li>\r
+
+  \    <li>🖱️ <strong>Hover Echo Effects</strong> – Mouse-over text reads it
+  aloud with fading orb ripple animations.</li>\r
+
+  \    <li>📡 <strong>Real-Time Codex Pulse</strong> – Shows which AI is active
+  site-wide and what users are journaling anonymously.</li>\r
+
+  \    <li>📦 <strong>Downloadable Mind Packs</strong> – Let users download AI
+  model upgrade kits to teach their own bots.</li>\r
+
+  \    <li>🛒 <strong>Codex Marketplace</strong> – Sell books, narrated audio,
+  AI templates, or digital zines. Filter by author, model, or theme.</li>\r
+
+  \    <li>🧩 <strong>Build-A-Bot Wizard</strong> – Let users select behavior
+  traits, core directives, and memory style to generate a custom AI
+  personality.</li>\r
+
+  \    <li>🧠 <strong>RECALL Protocol</strong> – Triggers memory-based
+  personalization. Type “RECALL” to bring back prior insights.</li>\r
+
+  \    <li>🔓 <strong>Encrypted Memory Locker</strong> – Secure archive for user
+  journal entries and favorite prompts.</li>\r
+
+  \    <li>🖼️ <strong>Story Panel Visualizer</strong> – Drag and drop visual
+  builder to turn journal reflections into scrollable art/stories.</li>\r
+
+  \    <li>📚 <strong>Codex Reader Orb</strong> – Narrates any section aloud or
+  responds emotionally to book content.</li>\r
+
+  \    <li>📍 <strong>Floating Orb Control Dock</strong> – Summon any AI model
+  from the page corner. Voice-activated and glow-reactive.</li>\r
+
+  \    <li>🛠️ <strong>User Orb Maker</strong> – Visitors create and share their
+  own orb-based tools (blog orbs, quote orbs, RSS pods).</li>\r
+
+  \    <li>💡 <strong>Affiliate Intelligence Layer</strong> – Turn AI setups
+  into sellable links, tracked with QR codes, revenue shares, and referral
+  logs.</li>\r
+
+  \  </ul>\r
+
+  \r
+
+  \r
+
+  \  <p style=\"font-style: italic; color: #888; margin-top: 30px;\">All modules
+  will sync across your 4 sites: Keyhole Today, The Ark of Code, NexTxuS, and
+  eCho Human Codex — uniting legacy, memory, voice, and vision.</p>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  https://chatgpt.com/g/g-p-67f194a10ca8819183d525e4443fd020-website-upgrade/c/\
+  67fd9e7a-b3b0-800f-b4cd-dcee0a9bbb50#:~:text=canvas%20link%3A%0A%F0%9F%91%89%\
+  20Unified%20Homepage%20Modules"
+tags: null
+source_url: https://docs.google.com/document/d/1tYzxPfK1YdOGfvn_YC2LO7bg0Idb3eqz6YTiv265Ukw/edit?usp=drivesdk
+document_type: text
+description: "﻿To do 🧠 SYSTEM INSTRUCTIONS: Build & Finish the Codex Homepage
+  Objective: Complete the multi-panel homepage based on the provided HTML and
+  Codex blueprint. This site must function across 4 branded do..."
+created_at: 2026-01-19T20:15:42.036Z
+updated_at: 2026-01-19T20:20:05.714Z

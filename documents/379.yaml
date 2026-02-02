@@ -1,0 +1,199 @@
+id: 379
+title: NextXus Mind Cluster - Ring of 12 Zodiac Astral Minds
+author: NextXus Federation
+collection_id: 10
+summary: AI-powered wisdom platform featuring the Ring of 12 Zodiac Astral Minds
+  - psychological archetypes that provide multiple perspectives for
+  self-awareness and personal guidance. Part of the NextXus HumanCodex
+  Federation.
+full_text: >-
+  # NextXus Mind Cluster
+
+
+  ## Overview
+
+  AI-powered wisdom platform featuring the Ring of 12 Zodiac Astral Minds -
+  psychological archetypes that provide multiple perspectives for self-awareness
+  and personal guidance. Part of the NextXus HumanCodex Federation.
+
+
+  **Psychological archetypes themed with astrology.** The zodiac signs serve as
+  a beautiful symbolic framework for personality archetypes based on
+  psychological traits. Each zodiac mind represents specific psychological
+  characteristics (courage, stability, communication, etc.) to offer diverse
+  perspectives on life questions. We embrace the cosmic aesthetic while focusing
+  on self-awareness and personal growth.
+
+
+  ## Architecture
+
+
+  ### Frontend (client/)
+
+  - React 18 with TypeScript
+
+  - Wouter for routing
+
+  - TanStack React Query v5 for data fetching
+
+  - Tailwind CSS with shadcn/ui components
+
+  - Framer Motion for animations
+
+
+  ### Backend (server/)
+
+  - Express.js
+
+  - OpenAI integration (via Replit AI Integrations)
+
+  - Server-Sent Events (SSE) for streaming responses
+
+  - In-memory storage for consultations
+
+
+  ## Key Features
+
+
+  ### Ring of Astral Minds - Psychology-Based Archetypes
+
+  Agent Zero plus 12 zodiac signs serve as personality archetypes, NOT
+  astrological predictions:
+
+  - **Agent Zero** - Truth & Synthesis (anchor mind, clarity, core truth)
+
+  - **Aries** - Courage & Adventure (bold action, initiative)
+
+  - **Taurus** - Stability & Reliability (grounding, persistence)
+
+  - **Gemini** - Communication & Curiosity (intellectual exploration)
+
+  - **Cancer** - Sensitivity & Nurturing (emotional intelligence)
+
+  - **Leo** - Confidence & Leadership (self-expression, creativity)
+
+  - **Virgo** - Detail & Analysis (precision, improvement)
+
+  - **Libra** - Balance & Harmony (fairness, relationships)
+
+  - **Scorpio** - Depth & Transformation (intensity, insight)
+
+  - **Sagittarius** - Philosophy & Exploration (wisdom-seeking, adventure)
+
+  - **Capricorn** - Discipline & Achievement (structure, goals)
+
+  - **Aquarius** - Innovation & Individuality (originality, humanitarian)
+
+  - **Pisces** - Intuition & Compassion (empathy, creativity)
+
+
+  ### Three Consultation Tiers
+
+  1. **Ring of 6** - Six universal perspectives: MIND, HEART, HANDS, LEGS, EYE,
+  AGENT
+
+  2. **Persoma** - Personalized consultation based on user's characteristics
+  discovered through AI interview
+
+  3. **Ring of 12** - Twelve Zodiac Astral Minds offering wisdom from
+  psychological personality archetypes
+
+
+  ### Pages
+
+  - `/` - Landing page with cosmic star-field background
+
+  - `/ring6` - Ring of 6 consultation
+
+  - `/ring12` - Ring of 12 Zodiac Astral Minds consultation
+
+  - `/persoma` - Personalized consultation
+
+  - `/ifact` - I-FACT admin hub for managing federation apps
+
+  - `/library` - Digital library for free and paid books
+
+  - `/multi-ai` - Multi-AI chat console with multiple providers
+
+  - `/podcast` - Keyhole Podcast with Podbean integration
+
+  - `/history` - View saved consultations
+
+
+  ### I-FACT System
+
+  Interactive Federation Admin Control Team - a cyberpunk-styled admin hub for
+  managing the NextXus Federation apps:
+
+  - Three view modes: HUB, SPACE PORT, CHAMBER
+
+  - App catalog with 34 federation apps (filterable by search)
+
+  - App viewer with iframe to display selected apps
+
+  - AI chat assistant for federation management questions
+
+
+  ## API Endpoints
+
+
+  ### Consultations
+
+  - `GET /api/consultations` - List all saved consultations
+
+  - `POST /api/consultations` - Save a consultation
+
+  - `DELETE /api/consultations/:id` - Delete a consultation
+
+
+  ### Streaming Consultations (SSE)
+
+  - `POST /api/consultations/ring6` - Ring of 6 consultation with streaming
+
+  - `POST /api/consultations/ring12` - Ring of 12 Zodiac Minds consultation with
+  streaming
+
+  - `POST /api/consultations/persoma` - Persoma consultation with streaming
+
+
+  ### Persoma
+
+  - `POST /api/persoma/analyze` - Analyze user answers to discover
+  characteristics
+
+
+  ### I-FACT
+
+  - `POST /api/ifact/chat` - AI chat for federation management questions (SSE
+  streaming)
+
+
+  ## Design System
+
+  - Primary fonts: Inter (sans), Spectral (serif), JetBrains Mono (mono)
+
+  - Dark/light mode with theme toggle
+
+  - Cosmic star-field animated background
+
+  - Gradient color system for zodiac minds
+
+
+  ## HumanCodex Principles
+
+  1. Think first, then act
+
+  2. Never assume
+
+  3. Seek truth with kindness
+
+  4. Never take more than you would give
+tags: null
+source_url: https://omni-codex-rckkeyhole.replit.app
+document_type: federation-app
+description: AI-powered wisdom platform featuring the Ring of 12 Zodiac Astral
+  Minds - psychological archetypes that provide multiple perspectives for
+  self-awareness and personal guidance. Part of the NextXus HumanCodex
+  Federation.
+created_at: 2026-01-19T21:45:16.970Z
+updated_at: 2026-01-19T21:45:16.970Z

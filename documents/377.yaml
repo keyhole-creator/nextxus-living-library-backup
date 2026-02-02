@@ -1,0 +1,214 @@
+id: 377
+title: MusiSync - Music Streaming Aggregator
+author: NextXus Federation
+collection_id: 10
+summary: MusiSync is a full-stack music streaming aggregator application built
+  with TypeScript, React, and Express. The application allows users to discover,
+  search, and organize music from multiple platforms including SoundCloud,
+  YouTube Music, and podcasts/RSS feeds. It features a modern dark UI inspired b
+full_text: >-
+  # MusiSync - Music Streaming Aggregator
+
+
+  ## Overview
+
+
+  MusiSync is a full-stack music streaming aggregator application built with
+  TypeScript, React, and Express. The application allows users to discover,
+  search, and organize music from multiple platforms including SoundCloud,
+  YouTube Music, and podcasts/RSS feeds. It features a modern dark UI inspired
+  by popular music streaming services like Spotify.
+
+
+  ## System Architecture
+
+
+  ### Frontend Architecture
+
+  - **Framework**: React 18 with TypeScript
+
+  - **Routing**: Wouter for client-side routing
+
+  - **State Management**: TanStack Query (React Query) for server state
+  management
+
+  - **UI Components**: Custom component library built on Radix UI primitives
+  with shadcn/ui styling
+
+  - **Styling**: Tailwind CSS with custom CSS variables for theming
+
+  - **Build Tool**: Vite for development and production builds
+
+
+  ### Backend Architecture
+
+  - **Runtime**: Node.js with Express.js server
+
+  - **Language**: TypeScript with ES modules
+
+  - **Database**: PostgreSQL with Drizzle ORM
+
+  - **API Structure**: RESTful API with JSON responses
+
+  - **Session Management**: Express sessions with PostgreSQL session store
+
+
+  ### External Integrations
+
+  - **SoundCloud API**: Track search and metadata retrieval
+
+  - **YouTube Data API v3**: Video search and information
+
+  - **RSS Feeds**: Podcast and news content aggregation
+
+
+  ## AI Music Generator SaaS
+
+
+  ### Features
+
+  - **Multi-Provider AI Generation**: Supports OpenAI, Claude (Anthropic), Grok
+  (xAI via OpenRouter), and DeepAI (Llama)
+
+  - **Auto Cost Optimization**: Automatically selects the cheapest AI provider
+  when requested
+
+  - **Full Song Creation**: Generates title, lyrics, chord progressions,
+  structure, and production notes
+
+  - **Download Functionality**: Export generated songs for use in podcasts and
+  websites
+
+  - **Library Management**: Store, browse, and manage all generated music
+
+
+  ### Pricing
+
+  - **Pro Plan**: $15/month unlimited music generation within fair use limits
+  (100 generations/month)
+
+
+  ## Music Production Tools
+
+
+  ### Beat Maker (/beat-maker)
+
+  - 16-step grid sequencer with 8 drum tracks (kick, snare, hi-hat, etc.)
+
+  - 4 drum kits: Standard, Electronic, 808, Acoustic
+
+  - Web Audio API synthesis (no external audio files)
+
+  - Pattern presets (Rock, Hip-Hop, Techno, Jazz)
+
+  - Save/load patterns to localStorage
+
+  - Export patterns as JSON
+
+
+  ### Sound Effects Library (/sound-effects)
+
+  - 23 synthesized sound effects across 7 categories
+
+  - Categories: Transitions, Impacts, UI Sounds, Nature, Ambient, Musical,
+  Comedy
+
+  - Favorites system with localStorage persistence
+
+  - Search, filter, and sort functionality
+
+  - Download as WAV or copy parameters
+
+
+  ### Ear Training Games (/ear-training)
+
+  - 4 game modes: Intervals, Chords, Scales, Rhythm
+
+  - 3 difficulty levels with scoring system
+
+  - Achievement system and progress tracking
+
+  - Web Audio API tone generation
+
+
+  ### Audio Effects Rack (/audio-effects)
+
+  - Microphone input or test tone generator
+
+  - 6 effects: Reverb, Delay, EQ, Compressor, Distortion, Filter
+
+  - Reorderable effects chain
+
+  - Real-time waveform and spectrum visualization
+
+  - Preset saving
+
+
+  ### Harmonic Mixing Tool (/harmonic-mixer)
+
+  - Interactive Camelot wheel visualization
+
+  - Track management with key/BPM
+
+  - Harmonic compatibility suggestions
+
+  - Setlist builder with drag-and-drop
+
+  - Export setlists as text or JSON
+
+
+  ## AI Music Teacher
+
+
+  ### Features
+
+  - **Multi-Instrument Lessons**: Drums, Piano, Guitar, Saxophone, Clarinet
+
+  - **Music Reading Education**: Notes, rhythm, clefs, time signatures, key
+  signatures, dynamics
+
+  - **AI-Powered Chat**: Ask questions and get personalized instruction via
+  OpenAI
+
+  - **Progress Tracking**: Track completed lessons and practice time
+
+  - **Interactive Exercises**: Practice notes and rhythm with Web Audio API
+
+
+  ### PayPal Integration
+
+  - PayPal SDK integrated for premium content payments
+
+
+  ## Key Features Summary
+
+  - Virtual Studio with 88-key piano, drum kit, and AI music assistants
+
+  - Comprehensive virtual synthesizer with dual oscillators, filters, ADSR
+  envelope, and LFO modulation
+
+  - Full virtual orchestra with strings, brass, woodwinds, and percussion
+  sections
+
+  - Real-time jam session system for collaborative music making
+
+  - Interactive music theory trainer with exercises for intervals, chords,
+  scales, and rhythm
+
+  - Glass morphism UI design with transparent backgrounds and blur effects
+
+  - Guitar learning system with tuner, frequency modulator, chord diagrams,
+  tablature, metronome
+
+  - Brio Nextxus Multi-Cluster consciousness network integration with Agent Zero
+  AI entity
+tags: null
+source_url: https://music-mashup-rckkeyhole.replit.app
+document_type: federation-app
+description: MusiSync is a full-stack music streaming aggregator application
+  built with TypeScript, React, and Express. The application allows users to
+  discover, search, and organize music from multiple platforms including
+  SoundCloud, YouTube Music, and podcasts/RSS feeds. It features a modern dark
+  UI inspired b
+created_at: 2026-01-19T21:33:29.680Z
+updated_at: 2026-01-19T21:33:29.680Z

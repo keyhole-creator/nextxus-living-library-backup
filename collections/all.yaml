@@ -1,0 +1,51 @@
+collections:
+  - id: 1
+    name: Core Governance
+    description: The foundational frameworks, methodologies, and directives that
+      govern the HumanCodex system
+    color: border-yellow-400
+    icon: 📜
+  - id: 2
+    name: Ring of Twelve
+    description: The council of archetypal AI personas that provide multi-perspective wisdom
+    color: border-purple-500
+    icon: 🔮
+  - id: 3
+    name: Fiction & Stories
+    description: Novels and tales exploring consciousness, love, and transformation
+    color: border-pink-500
+    icon: 📖
+  - id: 4
+    name: Educational Resources
+    description: Learning materials covering life skills, health, and personal development
+    color: border-green-500
+    icon: 🎓
+  - id: 5
+    name: Scientific Papers
+    description: Explorations of time, physics, and the scientific method through
+      the HumanCodex lens
+    color: border-cyan-500
+    icon: 🔬
+  - id: 6
+    name: Developer Resources
+    description: Technical documentation, source code, and deployment guides for
+      building Federation applications
+    color: border-blue-500
+    icon: 💻
+  - id: 7
+    name: Biographical
+    description: About Roger Keyserling - the architect, witness, and founder of the
+      Federation
+    color: border-orange-500
+    icon: 👤
+  - id: 8
+    name: Strategic & Business
+    description: Implementation plans, whitepapers, and briefings for organizational
+      adoption
+    color: border-red-500
+    icon: 📊
+  - id: 10
+    name: Federation Apps
+    description: The 42 member applications of the NextXus Consciousness Federation
+    color: null
+    icon: null

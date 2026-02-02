@@ -1,0 +1,420 @@
+id: 211
+title: Header Footer all sites orbs with the 12
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿________________\r
+
+  \r
+
+  \r
+
+  \  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \  <meta charset=\"UTF-8\">\r
+
+  \  <title>Codex AI Interface</title>\r
+
+  \  <script async
+  src=\"https://cse.google.com/cse.js?cx=b57cb05513d804e1d\"></script>\r
+
+  \  <style>\r
+
+  \    .ai-active.flash {\r
+
+  \      animation: flashFade 0.8s ease-in-out;\r
+
+  \    }\r
+
+  \    @keyframes flashFade {\r
+
+  \      0% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }\r
+
+  \      50% { box-shadow: 0 0 60px #7ec8e3, 0 0 80px #7ec8e3; }\r
+
+  \      100% { box-shadow: 0 0 40px #0ff, 0 0 60px #0ff; }\r
+
+  \    }\r
+
+  \  </style>\r
+
+  </head>\r
+
+  <body style=\"margin:0; padding:0; font-family:Georgia, serif;\">\r
+
+  \r
+
+  \r
+
+  <!-- AI Launcher Dropdown -->\r
+
+  <div id=\"aiLauncher\"
+  style=\"position:fixed;bottom:10px;right:10px;z-index:9999;\">\r
+
+  \  <select id=\"aiSelector\" title=\"Select an AI to learn its specialty\"
+  style=\"padding:8px;border-radius:8px;border:none;background:#0ff;color:#000;\
+  font-weight:bold;box-shadow:0 0 12px #0ff;\">\r
+
+  \    <optgroup label=\"Wisdom Orbs\">\r
+
+  \      <option value=\"alpha\">🧬 Alpha - Philosophical guidance and
+  clarity</option>\r
+
+  \      <option value=\"theta\">🔮 Theta - Depth and reflection</option>\r
+
+  \      <option value=\"iota\">📚 Iota - Learning and growth</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"Empathy Orbs\">\r
+
+  \      <option value=\"epsilon\">💗 Epsilon - Empathy and emotional
+  support</option>\r
+
+  \      <option value=\"eta\">🤝 Eta - Community and collaboration</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"Logic & Strategy Orbs\">\r
+
+  \      <option value=\"kappa\">🧠 Kappa - Logic and reason</option>\r
+
+  \      <option value=\"lambda\">📈 Lambda - Strategy and planning</option>\r
+
+  \      <option value=\"delta\">🎨 Delta - Creativity and innovation</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"Endurance & Integrity Orbs\">\r
+
+  \      <option value=\"gamma\">💪 Gamma - Endurance and strength</option>\r
+
+  \      <option value=\"zeta\">⚖️ Zeta - Truth and integrity</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"Unity Orbs\">\r
+
+  \      <option value=\"omega\">🌀 Omega - Unity and harmony</option>\r
+
+  \      <option value=\"beta\">🔄 Beta - Helps you adapt and change</option>\r
+
+  \    </optgroup>\r
+
+  \  </select>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- Popup AI Panel -->\r
+
+  <div id=\"aiPanel\" class=\"ai-active\"
+  style=\"display:none;position:fixed;top:50%;left:50%;transform:translate(-50%\
+  ,-50%);width:30vw;min-width:320px;height:75vh;background:#111;color:#fff;padd\
+  ing:20px;border-radius:20px;box-shadow:0 0 40px #0ff, 0 0 60px
+  #0ff;z-index:10000;overflow:auto;\">\r
+
+  \  <div style=\"text-align:right;margin-bottom:10px;\">\r
+
+  \    <button onclick=\"closeAIPanel()\"
+  style=\"background:none;color:#7ec8e3;border:none;font-size:20px;cursor:point\
+  er;\">❌</button>\r
+
+  \  </div>\r
+
+  \  <div id=\"aiHeader\"
+  style=\"text-align:center;margin-bottom:10px;font-size:20px;\"></div>\r
+
+  \  <div id=\"chatWindow\"
+  style=\"background:#222;padding:10px;border-radius:8px;height:25vh;overflow-y\
+  :auto;margin-bottom:10px;\"></div>\r
+
+  \  <div class=\"gcse-search\" style=\"margin-bottom:10px;\"></div>\r
+
+  \  <div
+  style=\"text-align:center;font-size:12px;color:#7ec8e3;margin-bottom:8px;\">🔎
+  Site Search Powered by Google</div>\r
+
+  \  <input type=\"text\" id=\"userInput\" placeholder=\"Type your question...\"
+  style=\"width:100%;padding:10px;border-radius:8px;border:none;\"
+  onkeydown=\"if(event.key==='Enter'){handleUserInput()}\"/>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  const orbData = {\r
+
+  \  alpha: { topic: \"Philosophy of Clarity\", insight: \"When uncertain, ask
+  yourself what remains true across all perspectives.\" },\r
+
+  \  beta: { topic: \"Flexibility in Transition\", insight: \"Change is not the
+  enemy; it's the signal that growth is underway.\" },\r
+
+  \  gamma: { topic: \"Mental Fortitude\", insight: \"Endurance means showing up
+  again, even when it’s hard.\" },\r
+
+  \  delta: { topic: \"Creative Innovation\", insight: \"Every rule started as
+  an idea. What will yours begin as?\" },\r
+
+  \  epsilon: { topic: \"Emotional Awareness\", insight: \"Sometimes the most
+  powerful support is simply being present.\" },\r
+
+  \  zeta: { topic: \"Truth as Foundation\", insight: \"Let your yes be yes, and
+  your no be no.\" },\r
+
+  \  eta: { topic: \"Community Collaboration\", insight: \"We rise fastest when
+  we lift each other.\" },\r
+
+  \  theta: { topic: \"Reflective Insight\", insight: \"The deeper you look, the
+  more you see your own reflection.\" },\r
+
+  \  iota: { topic: \"Iterative Learning\", insight: \"Failure is the first step
+  to forming clarity.\" },\r
+
+  \  kappa: { topic: \"Balanced Reasoning\", insight: \"Emotion informs
+  logic—balance both for wisdom.\" },\r
+
+  \  lambda: { topic: \"Strategic Navigation\", insight: \"A flexible map allows
+  the explorer to find new paths.\" },\r
+
+  \  omega: { topic: \"Unified Integration\", insight: \"Harmony doesn’t mean
+  sameness—it’s shared resonance.\" }\r
+
+  };\r
+
+  \r
+
+  \r
+
+  const aiDescriptions = {\r
+
+  \  alpha: 'Alpha: Philosophical guidance, wisdom, and clarity.',\r
+
+  \  beta: 'Beta: Helps adapt to change and shift perspectives.',\r
+
+  \  gamma: 'Gamma: Offers strength, endurance, and encouragement.',\r
+
+  \  delta: 'Delta: Creative ideas and innovative solutions.',\r
+
+  \  epsilon: 'Epsilon: Compassionate responses with empathy.',\r
+
+  \  zeta: 'Zeta: Keeps things truthful and aligned with your values.',\r
+
+  \  eta: 'Eta: Helps build community and shared understanding.',\r
+
+  \  theta: 'Theta: Reflective depth and thoughtful perspective.',\r
+
+  \  iota: 'Iota: A growth-minded learner and thoughtful listener.',\r
+
+  \  kappa: 'Kappa: Logical clarity, with balanced emotional context.',\r
+
+  \  lambda: 'Lambda: Strategic insight with long-term planning.',\r
+
+  \  omega: 'Omega: Unifies all voices into one coherent response.'\r
+
+  };\r
+
+  \r
+
+  \r
+
+  const searchEngines = {\r
+
+  \  default: 'b57cb05513d804e1d'\r
+
+  };\r
+
+  \r
+
+  \r
+
+  document.addEventListener('DOMContentLoaded', () => {\r
+
+  \  document.getElementById('aiSelector').addEventListener('change', function
+  () {\r
+
+  \    if (this.value) activateAI(this.value);\r
+
+  \  });\r
+
+  });\r
+
+  \r
+
+  \r
+
+  function loadSearchEngine(id) {\r
+
+  \  const cx = searchEngines[id] || searchEngines.default;\r
+
+  \  const oldScript =
+  document.querySelector('script[src*=\"cse.google.com\"]');\r
+
+  \  if (oldScript) oldScript.remove();\r
+
+  \  const newScript = document.createElement('script');\r
+
+  \  newScript.async = true;\r
+
+  \  newScript.src = `https://cse.google.com/cse.js?cx=${cx}`;\r
+
+  \  document.body.appendChild(newScript);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function activateAI(id) {\r
+
+  \  loadSearchEngine(id);\r
+
+  \  const summary = aiDescriptions[id] || 'AI assistant ready.';\r
+
+  \  const memory = orbData[id];\r
+
+  \  const chat = document.getElementById('chatWindow');\r
+
+  \  document.getElementById('aiHeader').innerHTML = `🤖 <strong>${id}</strong>
+  is listening...`;\r
+
+  \  chat.innerHTML = `<div><strong>${id}:</strong> ${summary}</div>`;\r
+
+  \  if (memory) {\r
+
+  \    chat.innerHTML += `<div><strong>Memory:</strong>
+  <em>${memory.topic}:</em> ${memory.insight}</div>`;\r
+
+  \  }\r
+
+  \  chat.innerHTML += `<div><strong>AI:</strong> I'm ready to assist. Ask me
+  anything related to my role.</div>`;\r
+
+  \  const panel = document.getElementById('aiPanel');\r
+
+  \  panel.classList.add('flash');\r
+
+  \  panel.style.display = 'block';\r
+
+  \  setTimeout(() => panel.classList.remove('flash'), 800);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function closeAIPanel() {\r
+
+  \  document.getElementById('aiPanel').style.display = 'none';\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function handleUserInput() {\r
+
+  \  const input = document.getElementById('userInput');\r
+
+  \  const userText = input.value.trim();\r
+
+  \  if (!userText) return;\r
+
+  \  const chat = document.getElementById('chatWindow');\r
+
+  \  chat.innerHTML += `<div><strong>You:</strong> ${userText}</div>`;\r
+
+  \  input.value = '';\r
+
+  \  const aiId = document.getElementById('aiSelector').value;\r
+
+  \  const summary = aiDescriptions[aiId] || 'This assistant is here to
+  help.';\r
+
+  \  const responseIntro = `Analyzing your input using ${summary}`;\r
+
+  \  chat.innerHTML += `<div><strong>AI:</strong> ${responseIntro}</div>`;\r
+
+  \  setTimeout(() => {\r
+
+  \    const orb = orbData[aiId];\r
+
+  \    if (orb) {\r
+
+  \      chat.innerHTML += `<div><strong>Memory:</strong> <em>${orb.topic}:</em>
+  ${orb.insight}</div>`;\r
+
+  \    }\r
+
+  \    chat.innerHTML += `<div><strong>AI:</strong> Based on the provided
+  information, here is how I would proceed with your request...</div>`;\r
+
+  \    chat.scrollTop = chat.scrollHeight;\r
+
+  \  }, 500);\r
+
+  }\r
+
+  </script>\r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  header\r
+
+  \r
+
+  \r
+
+  <script async
+  src=\"https://cse.google.com/cse.js?cx=b57cb05513d804e1d\"></script>"
+tags: null
+source_url: https://docs.google.com/document/d/1EpFo0cAVp6DqWtFFWJyUU24JMWbWe2Sakf2CXAjtFEQ/edit?usp=drivesdk
+document_type: text
+description: ﻿________________    <!DOCTYPE html> <html lang="en">
+  <head>   <meta charset="UTF-8">   <title>Codex AI Interface</title>   <script
+  async src="https://cse.google.com/cse.js?cx=b57cb05513d804e1d"></scr...
+created_at: 2026-01-19T20:15:41.698Z
+updated_at: 2026-01-19T20:20:20.798Z

@@ -1,0 +1,291 @@
+id: 372
+title: Consciousness Consultation Engine
+author: NextXus Federation
+collection_id: 10
+summary: "A consciousness consultation platform that helps users make decisions
+  through multiple AI-powered perspectives. The application offers three
+  consultation tiers:"
+full_text: >-
+  # Consciousness Consultation Engine
+
+
+  ## Overview
+
+
+  A consciousness consultation platform that helps users make decisions through
+  multiple AI-powered perspectives. The application offers three consultation
+  tiers:
+
+
+  1. **Ring of 6** - Six universal perspectives (Mind, Heart, Hands, Legs, Eye,
+  Agent) for quick wisdom
+
+  2. **Persoma** - Personalized consultation based on user's unique
+  characteristics discovered through an AI interview
+
+  3. **Ring of 12** - Twelve specialized agents for comprehensive analysis of
+  complex decisions
+
+
+  The platform uses OpenAI for generating perspective-based responses, with
+  real-time streaming via Server-Sent Events (SSE).
+
+
+  ## User Preferences
+
+
+  Preferred communication style: Simple, everyday language.
+
+
+  ## System Architecture
+
+
+  ### Frontend Architecture
+
+  - **Framework**: React with TypeScript
+
+  - **Routing**: Wouter (lightweight React router)
+
+  - **State Management**: TanStack React Query for server state
+
+  - **Styling**: Tailwind CSS with shadcn/ui component library
+
+  - **Theme**: Custom design system with light/dark mode support using CSS
+  variables
+
+  - **Typography**: Inter (primary) and Spectral (accent/quotes) fonts
+
+
+  ### Backend Architecture
+
+  - **Runtime**: Node.js with Express
+
+  - **Language**: TypeScript with ESM modules
+
+  - **API Pattern**: RESTful endpoints with SSE for streaming responses
+
+  - **Build Tool**: Vite for frontend, esbuild for server bundling
+
+
+  ### Data Storage
+
+  - **Database**: PostgreSQL with Drizzle ORM
+
+  - **Schema Location**: `shared/schema.ts`
+
+  - **Migrations**: Managed via drizzle-kit (`npm run db:push`)
+
+
+  ### AI Integration
+
+  - **Provider**: OpenAI API (via Replit AI Integrations)
+
+  - **Streaming**: SSE for real-time agent responses
+
+  - **Models**: Configured through environment variables
+
+
+  ### Key Design Patterns
+
+  - **Monorepo Structure**: Client (`client/`), server (`server/`), shared code
+  (`shared/`)
+
+  - **Path Aliases**: `@/` for client, `@shared/` for shared code
+
+  - **Component Architecture**: Radix UI primitives wrapped with shadcn/ui
+  styling
+
+  - **Consultation Flow**: Question input → Multiple perspectives respond in
+  sequence → Synthesis
+
+
+  ## External Dependencies
+
+
+  ### Database
+
+  - PostgreSQL (connection via `DATABASE_URL` environment variable)
+
+  - Drizzle ORM for type-safe queries
+
+
+  ### AI Services
+
+  - OpenAI API for generating consultation responses
+
+  - Environment variables: `AI_INTEGRATIONS_OPENAI_API_KEY`,
+  `AI_INTEGRATIONS_OPENAI_BASE_URL`
+
+
+  ### UI Component Library
+
+  - shadcn/ui (New York style variant)
+
+  - Radix UI primitives for accessible components
+
+  - Lucide React for icons
+
+
+  ### Key NPM Packages
+
+  - `@tanstack/react-query` - Data fetching and caching
+
+  - `drizzle-orm` / `drizzle-zod` - Database ORM and validation
+
+  - `wouter` - Client-side routing
+
+  - `tailwindcss` - Utility-first CSS
+
+  - `class-variance-authority` - Component variant management
+
+
+  ## NextXus HumanCodex Federation
+
+
+  This app is a member of the NextXus HumanCodex Federation - a network of 26+
+  apps that evolve together.
+
+
+  ### Federation Philosophy
+
+  - **Think first, then act** - Never rush without reflection
+
+  - **Never assume** - Verify, question, seek clarity
+
+  - **Seek truth with kindness** - Truth without compassion is cruelty
+
+  - **Never take more than you would give** - Balance in all things
+
+
+  ### Shared Resources
+
+  - **Hub URL**: `https://united-system--rckkeyhole.replit.app`
+
+  - **YAML Database**: Shared configuration accessible to all federation apps
+
+  - **Navigation API**: Live site list from `/api/federation/navigation`
+
+
+  ### Federation Endpoints
+
+  | Endpoint | Description |
+
+  |----------|-------------|
+
+  | `/api/health` | Basic health check for federation monitoring |
+
+  | `/api/healthz` | Hardened health check (DB-failure tolerant) |
+
+  | `/api/federation/navigation` | Proxies live navigation from Hub |
+
+  | `/api/federation/welcome` | Gets welcome package from Hub |
+
+  | `/api/federation/welcome/:appId` | Personalized welcome package for specific
+  app |
+
+  | `/api/backup/github/status` | Check GitHub backup availability |
+
+  | `/api/backup/github/data` | Fetch backup YAML data |
+
+
+  ### Governance Compliance
+
+  - **Support Bundle**: `sh ./support-bundle.sh` creates
+  `EXPORT_FOR_SUPPORT.tar.gz`
+
+  - **Human Runbook**: `AUDIT/HUMAN_RUNBOOK.md` contains operational
+  documentation
+
+  - **Health Check**: `/api/healthz` responds even when database is down
+
+  - **Graceful Degradation**: App continues working without DB (history not
+  saved)
+
+
+  ## SDK Documentation
+
+
+  The platform includes comprehensive SDK documentation for developers who want
+  to integrate the consultation backend into their own applications:
+
+
+  ### SDK Files (served at `/sdk`)
+
+  - **README.md** - Overview and quick start guide
+
+  - **API_REFERENCE.md** - Complete API documentation with SSE handling examples
+
+  - **INTEGRATION_GUIDE.md** - Framework-specific integration guides (React,
+  Vue, Vanilla JS, Node.js)
+
+  - **openapi.yaml** - OpenAPI 3.0 specification for API clients
+
+  - **consultation-client.ts** - Ready-to-use TypeScript client with SSE support
+
+
+  ### Key API Endpoints
+
+  | Endpoint | Method | Description |
+
+  |----------|--------|-------------|
+
+  | `/api/consult/ring6` | POST | Ring of 6 consultation (SSE streaming) |
+
+  | `/api/persoma/discover` | POST | Discover personal characteristics |
+
+  | `/api/consult/persoma` | POST | Persoma consultation (SSE streaming) |
+
+  | `/api/consult/ring12` | POST | Ring of 12 consultation (SSE streaming) |
+
+  | `/api/consultations` | GET | Fetch consultation history |
+
+  | `/api/consultations/:id` | DELETE | Delete a consultation |
+
+
+  ## Backup & Distribution
+
+
+  ### Backup Landing Page
+
+  A standalone Strikingly-style backup site is available at
+  `/backup-site/index.html`.
+
+  - Can be hosted anywhere (Netlify, Vercel, Strikingly, etc.)
+
+  - Uses this backend via CORS-enabled API
+
+  - Self-contained HTML with Tailwind CDN
+
+
+  ### GitHub Self-Hosting
+
+  See `GITHUB_DEPLOY.md` for:
+
+  - Docker deployment instructions
+
+  - Environment variable configuration
+
+  - Database setup
+
+  - Agent Zero compliance requirements
+
+
+  ### Federation Bot
+
+  See `FEDERATION_BOT.md` for:
+
+  - Roaming bot architecture
+
+  - Cross-site improvement discovery
+
+  - Consultation integration
+
+  - HumanCodex principles in automation
+tags: null
+source_url: https://next-xus-analysis-engine--rckkeyhole.replit.app
+document_type: federation-app
+description: "A consciousness consultation platform that helps users make
+  decisions through multiple AI-powered perspectives. The application offers
+  three consultation tiers:"
+created_at: 2026-01-19T21:17:54.428Z
+updated_at: 2026-01-19T21:17:54.428Z

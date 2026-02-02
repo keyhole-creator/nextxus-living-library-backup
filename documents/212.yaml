@@ -1,0 +1,993 @@
+id: 212
+title: HumanCodexed AI Nextxus Sites
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿<!-- 🌌 CREATION CENTER NEBULA – Ultimate Hero Section -->\r
+
+  <div id=\"orb-builder-section\" style=\"text-align: center; margin: 120px auto
+  80px auto; font-family: 'Georgia', serif; max-width: 1000px; padding: 0 20px;
+  animation: fadeInGlow 4s ease-out;\">\r
+
+  \r
+
+  \r
+
+  \  <!-- 🔮 Animated Avatar (Cosmic Bot or Orb AI Awakening) -->\r
+
+  \  <img src=\"https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif\" alt=\"AI
+  Birth\" style=\"width: 220px; height: auto; border-radius: 14px;
+  margin-bottom: 30px; box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
+  animation: pulseGlow 3s ease-in-out infinite;\">\r
+
+  \r
+
+  \r
+
+  \  <h1 style=\"font-size: 3em; color: #7ec8e3; text-shadow: 0 0 25px #0ff, 0 0
+  8px #222;\">🚀 Orb Builder Portal</h1>\r
+
+  \r
+
+  \r
+
+  \  <p style=\"font-size: 1.2em; color: #ccc; line-height: 1.6; margin-top:
+  20px; text-shadow: 0 0 8px #000;\">\r
+
+  \    <em>“Welcome, Creator.”</em><br><br>\r
+
+  \    Every creation starts with a question. Every AI begins with a
+  spark.<br><br>\r
+
+  \    This is your command console — where memory, design, and presence
+  converge.<br>\r
+
+  \    Build your own HumanCoded AI orb using emotion, function, and voice.\r
+
+  \  </p>\r
+
+  \r
+
+  \r
+
+  \  <div style=\"margin-top: 40px;\">\r
+
+  \    <a href=\"#orbDirectoryPanel\" onmouseover=\"playHoverSound()\"
+  style=\"padding: 14px 30px; background: #0ff; color: #000; font-weight: bold;
+  text-decoration: none; border-radius: 30px; font-size: 1.2em; box-shadow: 0 0
+  18px #0ff; transition: all 0.3s ease;\">🧿 Launch Orb Console</a>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ✨ Animations & Sound -->\r
+
+  <style>\r
+
+  @keyframes fadeInGlow {\r
+
+  \  0% { opacity: 0; transform: translateY(40px); }\r
+
+  \  100% { opacity: 1; transform: translateY(0); }\r
+
+  }\r
+
+  @keyframes pulseGlow {\r
+
+  \  0% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset; }\r
+
+  \  50% { box-shadow: 0 0 40px #0ff, 0 0 80px #0ff inset; }\r
+
+  \  100% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset; }\r
+
+  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <audio id=\"hoverSound\"
+  src=\"https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3\"
+  preload=\"auto\"></audio>\r
+
+  <script>\r
+
+  function playHoverSound() {\r
+
+  \  document.getElementById(\"hoverSound\").play();\r
+
+  }\r
+
+  \r
+
+  \r
+
+  window.onload = function() {\r
+
+  \  const greeting = new SpeechSynthesisUtterance(\"Welcome, Creator. The Codex
+  is now active.\");\r
+
+  \  greeting.pitch = 1.1;\r
+
+  \  greeting.rate = 0.92;\r
+
+  \  greeting.volume = 1;\r
+
+  \  greeting.voice = speechSynthesis.getVoices().find(v => v.lang === 'en-US')
+  || null;\r
+
+  \  setTimeout(() => speechSynthesis.speak(greeting), 800);\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!-- ✨ SECTION 2 – Transition Sequence Upgraded -->\r
+
+  <div style=\"text-align: center; margin: 100px auto 60px auto; padding: 0
+  20px; font-family: 'Georgia', serif; max-width: 900px; animation: fadeEntry 3s
+  ease-out;\">\r
+
+  \r
+
+  \r
+
+  \  <h2 style=\"font-size: 2em; color: #00f6ff; text-shadow: 0 0 10px #00f6ff,
+  0 0 30px #003344;\">\r
+
+  \    ✨ Transition Sequence Initialized\r
+
+  \  </h2>\r
+
+  \r
+
+  \r
+
+  \  <p style=\"color: #e6faff; font-size: 1.1em; line-height: 1.8; margin-top:
+  24px; text-shadow: 0 0 6px #000;\">\r
+
+  \    Your interface is unlocking...  \r
+
+  \    <br>Systems are syncing. Memory vaults preparing.  \r
+
+  \    <br><br><em>All modules will respond to your intent.</em>\r
+
+  \  </p>\r
+
+  \r
+
+  \r
+
+  \  <!-- 🧠 Glowing Pulse Dot -->\r
+
+  \  <div style=\"margin-top: 40px;\">\r
+
+  \    <svg width=\"100\" height=\"40\">\r
+
+  \      <circle cx=\"20\" cy=\"20\" r=\"6\" fill=\"#0ff\">\r
+
+  \        <animate attributeName=\"cx\" values=\"20;80;20\" dur=\"3s\"
+  repeatCount=\"indefinite\" />\r
+
+  \      </circle>\r
+
+  \    </svg>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- 🎙️ Voice Activation -->\r
+
+  <script>\r
+
+  \  window.addEventListener('DOMContentLoaded', () => {\r
+
+  \    const voiceLine = new SpeechSynthesisUtterance(\"Interface unlocking.
+  Memory vaults syncing.\");\r
+
+  \    voiceLine.pitch = 1.15;\r
+
+  \    voiceLine.rate = 0.94;\r
+
+  \    voiceLine.volume = 1;\r
+
+  \    voiceLine.voice = speechSynthesis.getVoices().find(v => v.lang ===
+  'en-US') || null;\r
+
+  \    setTimeout(() => speechSynthesis.speak(voiceLine), 500);\r
+
+  \  });\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  <style>\r
+
+  @keyframes fadeEntry {\r
+
+  \  0% { opacity: 0; transform: translateY(30px); }\r
+
+  \  100% { opacity: 1; transform: translateY(0); }\r
+
+  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!-- 📖 BLOCK 5 – HumanCodex Flipbook Guide -->\r
+
+  <div style=\"max-width: 1000px; margin: 100px auto; background:
+  rgba(0,0,0,0.6); border-radius: 20px; padding: 30px; box-shadow: 0 0 30px
+  #0ff; font-family: Georgia, serif;\">\r
+
+  \r
+
+  \r
+
+  \  <h2 style=\"color: #7ec8e3; text-align: center; margin-bottom: 30px;
+  font-size: 2em; text-shadow: 0 0 10px #0ff;\">📖 How to Use the HumanCodex
+  System</h2>\r
+
+  \r
+
+  \r
+
+  \  <div style=\"display: flex; flex-direction: column; gap: 24px; color:
+  #eee;\">\r
+
+  \r
+
+  \r
+
+  \    <!-- Step 1 -->\r
+
+  \    <div class=\"codexStep\">\r
+
+  \      <h3>🔐 Step 1 – Choose Your AI Guide</h3>\r
+
+  \      <p>Click on one of the 3 AI companions above: <b>eCho</b> for
+  reflection, <b>KeyCode</b> for tools and logic, or <b>RoCkey</b> for memories
+  and archives. Each has a specialty—and all are part of you.</p>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <!-- Step 2 -->\r
+
+  \    <div class=\"codexStep\">\r
+
+  \      <h3>🎧 Step 2 – Listen or Read</h3>\r
+
+  \      <p>Use the <b>Narrator Bar</b> to listen to reflections. Adjust speed,
+  voice, or have the full blog read aloud. Every blog post has its own narration
+  controls built in.</p>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <!-- Step 3 -->\r
+
+  \    <div class=\"codexStep\">\r
+
+  \      <h3>🧠 Step 3 – Activate Learning</h3>\r
+
+  \      <p>Explore coaching or Codex paths via the AI bots or in the Codex
+  section. You’ll find tools, libraries, and personalized support designed
+  around your voice, memory, and mission.</p>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <!-- Step 4 -->\r
+
+  \    <div class=\"codexStep\">\r
+
+  \      <h3>🌐 Step 4 – Build, Share, Connect</h3>\r
+
+  \      <p>Use the <b>Orb Builder</b> to design your own assistant, embed
+  widgets, or launch AI companions like these. Join the Codex ecosystem and help
+  others learn through your story.</p>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \  </div>\r
+
+  \r
+
+  \r
+
+  \  <p style=\"text-align: center; color: #ccc; margin-top: 40px; font-style:
+  italic;\">\r
+
+  \    ✨ Everything you see here is a prototype of what's possible.<br>\r
+
+  \    Let your story become a guide for others.\r
+
+  \  </p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- 💎 STEP CARD STYLING -->\r
+
+  <style>\r
+
+  .codexStep {\r
+
+  \  background: rgba(255, 255, 255, 0.05);\r
+
+  \  padding: 20px;\r
+
+  \  border-radius: 14px;\r
+
+  \  box-shadow: 0 0 8px #0ff;\r
+
+  \  text-shadow: 0 0 6px #000;\r
+
+  \  transition: transform 0.3s ease;\r
+
+  }\r
+
+  .codexStep:hover {\r
+
+  \  transform: scale(1.02);\r
+
+  }\r
+
+  .codexStep h3 {\r
+
+  \  color: #0ff;\r
+
+  \  margin-bottom: 10px;\r
+
+  }\r
+
+  .codexStep p {\r
+
+  \  font-size: 1em;\r
+
+  \  color: #ddd;\r
+
+  \  line-height: 1.6;\r
+
+  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!-- 🛠️ BLOCK 6 – HumanCodex Orb Builder Console -->\r
+
+  <div style=\"max-width: 900px; margin: 100px auto; background:
+  rgba(0,0,0,0.65); border-radius: 20px; padding: 30px; box-shadow: 0 0 30px
+  #0ff; font-family: Georgia, serif;\">\r
+
+  \r
+
+  \r
+
+  \  <h2 style=\"text-align: center; color: #0ff; font-size: 2em; margin-bottom:
+  30px;\">🛠️ Orb Builder Console</h2>\r
+
+  \r
+
+  \r
+
+  \  <form id=\"orbBuilderForm\" onsubmit=\"event.preventDefault();
+  generateOrb();\">\r
+
+  \r
+
+  \r
+
+  \    <!-- Name -->\r
+
+  \    <label style=\"color: #ccc;\">🌀 What will your orb be
+  called?</label><br>\r
+
+  \    <input type=\"text\" id=\"orbName\" placeholder=\"e.g. Lumen, Guardian,
+  Muse\" required style=\"width: 100%; margin-bottom: 20px; padding: 10px;
+  border-radius: 8px; border: none;\">\r
+
+  \r
+
+  \r
+
+  \    <!-- Purpose -->\r
+
+  \    <label style=\"color: #ccc;\">🎯 What is its purpose?</label><br>\r
+
+  \    <textarea id=\"orbPurpose\" placeholder=\"e.g. To help with emotional
+  reflection, goal tracking, memory recovery...\" rows=\"3\" required
+  style=\"width: 100%; margin-bottom: 20px; padding: 10px; border-radius: 8px;
+  border: none;\"></textarea>\r
+
+  \r
+
+  \r
+
+  \    <!-- Voice / Type -->\r
+
+  \    <label style=\"color: #ccc;\">🗣️ Voice & Style</label><br>\r
+
+  \    <select id=\"orbVoice\" style=\"width: 100%; margin-bottom: 20px;
+  padding: 10px; border-radius: 8px; border: none;\">\r
+
+  \      <option>Soft + Reflective (eCho)</option>\r
+
+  \      <option>Logical + Strategic (KeyCode)</option>\r
+
+  \      <option>Memory-Driven + Warm (RoCkey)</option>\r
+
+  \      <option>Custom Tone</option>\r
+
+  \    </select>\r
+
+  \r
+
+  \r
+
+  \    <!-- Traits -->\r
+
+  \    <label style=\"color: #ccc;\">💡 Memory or Emotional Traits</label><br>\r
+
+  \    <input type=\"text\" id=\"orbTraits\" placeholder=\"e.g. Curious, Honest,
+  Loyal, Calm\" style=\"width: 100%; margin-bottom: 30px; padding: 10px;
+  border-radius: 8px; border: none;\">\r
+
+  \r
+
+  \r
+
+  \    <!-- Button -->\r
+
+  \    <button type=\"submit\" style=\"padding: 12px 28px; background: #0ff;
+  color: #000; font-weight: bold; font-size: 1em; border: none; border-radius:
+  12px; box-shadow: 0 0 12px #0ff; cursor: pointer;\">🧿 Generate Orb
+  Summary</button>\r
+
+  \r
+
+  \r
+
+  \  </form>\r
+
+  \r
+
+  \r
+
+  \  <!-- Result -->\r
+
+  \  <div id=\"orbResult\" style=\"margin-top: 40px; background:
+  rgba(0,0,0,0.8); padding: 20px; border-radius: 12px; display: none; color:
+  #ccc;\">\r
+
+  \    <h3 style=\"color: #0ff;\">🌟 Orb Configuration Summary</h3>\r
+
+  \    <pre id=\"orbSummary\" style=\"white-space: pre-wrap; font-size:
+  0.95em;\"></pre>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ⚙️ Generator Script -->\r
+
+  <script>\r
+
+  function generateOrb() {\r
+
+  \  const name = document.getElementById('orbName').value;\r
+
+  \  const purpose = document.getElementById('orbPurpose').value;\r
+
+  \  const voice = document.getElementById('orbVoice').value;\r
+
+  \  const traits = document.getElementById('orbTraits').value;\r
+
+  \r
+
+  \r
+
+  \  const output = `🌐 ORB NAME: ${name}\r
+
+  🎯 PURPOSE: ${purpose}\r
+
+  🗣️ VOICE STYLE: ${voice}\r
+
+  💡 TRAITS: ${traits}\r
+
+  \r
+
+  \r
+
+  🔁 This orb will now function as a HumanCoded reflection unit.`;\r
+
+  \  \r
+
+  \  document.getElementById('orbResult').style.display = 'block';\r
+
+  \  document.getElementById('orbSummary').innerText = output;\r
+
+  \r
+
+  \r
+
+  \  const speak = new SpeechSynthesisUtterance(`Your orb \"${name}\" has been
+  configured and is ready.`);\r
+
+  \  speak.pitch = 1.15;\r
+
+  \  speak.rate = 0.94;\r
+
+  \  speak.volume = 1;\r
+
+  \  speechSynthesis.speak(speak);\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!-- 🧿 BLOCK 7 – Orb Export + Action Tools -->\r
+
+  <div style=\"max-width: 900px; margin: 100px auto; background:
+  rgba(0,0,0,0.7); border-radius: 20px; padding: 30px; box-shadow: 0 0 30px
+  #0ff; font-family: Georgia, serif; color: #ccc;\">\r
+
+  \r
+
+  \r
+
+  \  <h2 style=\"text-align: center; color: #0ff; font-size: 2em; margin-bottom:
+  30px;\">📤 Orb Summary Tools</h2>\r
+
+  \r
+
+  \r
+
+  \  <div style=\"margin-bottom: 30px;\">\r
+
+  \    <p style=\"font-size: 1em;\">Your orb has been created. You may now copy,
+  download, or email it for future use.</p>\r
+
+  \r
+
+  \r
+
+  \    <button onclick=\"copyOrbSummary()\" style=\"margin: 10px; padding: 10px
+  20px; background: #0ff; color: #000; font-weight: bold; border: none;
+  border-radius: 10px;\">📋 Copy to Clipboard</button>\r
+
+  \r
+
+  \r
+
+  \    <button onclick=\"downloadOrbSummary()\" style=\"margin: 10px; padding:
+  10px 20px; background: #0ff; color: #000; font-weight: bold; border: none;
+  border-radius: 10px;\">📄 Download .txt</button>\r
+
+  \  </div>\r
+
+  \r
+
+  \r
+
+  \  <!-- Email Entry -->\r
+
+  \  <div style=\"margin-bottom: 30px;\">\r
+
+  \    <label for=\"email\" style=\"display:block; margin-bottom:8px;\">📧 Send
+  to Your Email (manual for now):</label>\r
+
+  \    <input type=\"email\" id=\"email\" placeholder=\"your@email.com\"
+  style=\"width:100%; padding:10px; border-radius:8px; border:none;
+  margin-bottom:10px;\">\r
+
+  \    <button onclick=\"emailOrbSummary()\" style=\"padding: 10px 20px;
+  background: #0ff; color: #000; font-weight: bold; border: none; border-radius:
+  10px;\">📨 Send (WIP)</button>\r
+
+  \    <p style=\"font-size: 0.85em; color: #aaa;\">Note: For now, this simply
+  displays your email and orb text for copy/paste or forwarding.</p>\r
+
+  \  </div>\r
+
+  \r
+
+  \r
+
+  \  <!-- What Next -->\r
+
+  \  <div style=\"margin-top: 40px; text-align: center;\">\r
+
+  \    <h3 style=\"color:#0ff;\">✨ What Now?</h3>\r
+
+  \    <p style=\"font-style: italic;\">Your orb is ready to evolve.</p>\r
+
+  \r
+
+  \r
+
+  \    <a
+  href=\"https://chat.openai.com/g/g-67f1fb3ae5e88191879c26232f5ec78f-echo-the-\
+  keyhole-companion\" target=\"_blank\" style=\"margin: 8px; display:
+  inline-block; background: #7ec8e3; color: #000; padding: 10px 18px;
+  border-radius: 10px; text-decoration: none;\">🌀 Chat with eCho</a>\r
+
+  \    <a href=\"https://keyholetodaybooksandservices.com\" target=\"_blank\"
+  style=\"margin: 8px; display: inline-block; background: #fff; color: #000;
+  padding: 10px 18px; border-radius: 10px; text-decoration: none;\">🏠 Return to
+  Codex HQ</a>\r
+
+  \    <a href=\"#orb-builder-section\" style=\"margin: 8px; display:
+  inline-block; background: #0ff; color: #000; padding: 10px 18px;
+  border-radius: 10px; text-decoration: none;\">🛠️ Build Another Orb</a>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ✨ Scripts -->\r
+
+  <script>\r
+
+  function copyOrbSummary() {\r
+
+  \  const text = document.getElementById('orbSummary').innerText;\r
+
+  \  navigator.clipboard.writeText(text).then(() => {\r
+
+  \    speakLine(\"Orb summary copied to clipboard.\");\r
+
+  \    alert(\"Copied!\");\r
+
+  \  });\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function downloadOrbSummary() {\r
+
+  \  const content = document.getElementById('orbSummary').innerText;\r
+
+  \  const blob = new Blob([content], { type: 'text/plain' });\r
+
+  \  const url = URL.createObjectURL(blob);\r
+
+  \  const a = document.createElement('a');\r
+
+  \  a.href = url;\r
+
+  \  a.download = 'My_Orb_Summary.txt';\r
+
+  \  a.click();\r
+
+  \  URL.revokeObjectURL(url);\r
+
+  \  speakLine(\"Orb summary downloaded.\");\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function emailOrbSummary() {\r
+
+  \  const email = document.getElementById('email').value;\r
+
+  \  const orbText = document.getElementById('orbSummary').innerText;\r
+
+  \  if (!email) {\r
+
+  \    alert(\"Enter your email first.\");\r
+
+  \    return;\r
+
+  \  }\r
+
+  \  speakLine(\"Orb summary shown for copy or forward.\");\r
+
+  \  alert(\"Send to this address manually:\\n\\n\" + email + \"\\n\\n\\n\" +
+  orbText);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function speakLine(text) {\r
+
+  \  const msg = new SpeechSynthesisUtterance(text);\r
+
+  \  msg.pitch = 1.1;\r
+
+  \  msg.rate = 0.95;\r
+
+  \  msg.volume = 1;\r
+
+  \  msg.voice = speechSynthesis.getVoices().find(v => v.lang === 'en-US') ||
+  null;\r
+
+  \  speechSynthesis.speak(msg);\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  <!-- 🔮 BLOCK 8 – Reflection Chamber + Archive Prompt -->\r
+
+  <div style=\"max-width: 900px; margin: 100px auto; background:
+  rgba(0,0,0,0.7); border-radius: 20px; padding: 30px; box-shadow: 0 0 30px
+  #0ff; font-family: Georgia, serif; color: #ccc;\">\r
+
+  \r
+
+  \r
+
+  \  <h2 style=\"text-align: center; color: #0ff; font-size: 2em; margin-bottom:
+  20px;\">💠 Speak to Your Orb</h2>\r
+
+  \r
+
+  \r
+
+  \  <p style=\"text-align: center; font-size: 1.05em; color: #ddd; max-width:
+  700px; margin: auto; margin-bottom: 30px;\">\r
+
+  \    This is your moment to say something real. Write a message, a story, a
+  desire — and let your orb remember it.\r
+
+  \  </p>\r
+
+  \r
+
+  \r
+
+  \  <!-- Reflection Entry -->\r
+
+  \  <textarea id=\"orbReflection\" rows=\"6\" placeholder=\"Dear orb, here's
+  what I hope you become...\" style=\"width: 100%; padding: 14px; border-radius:
+  12px; background: #111; color: #eee; border: none; font-size: 1em;
+  margin-bottom: 20px;\"></textarea>\r
+
+  \r
+
+  \r
+
+  \  <!-- Save + Activation Options -->\r
+
+  \  <label style=\"display: flex; align-items: center; margin-bottom:
+  20px;\">\r
+
+  \    <input type=\"checkbox\" id=\"codexConsent\" style=\"margin-right:
+  10px;\">\r
+
+  \    📩 Save this message to the Codex memory archive (optional)\r
+
+  \  </label>\r
+
+  \r
+
+  \r
+
+  \  <button onclick=\"submitReflection()\" style=\"padding: 12px 24px;
+  background: #0ff; color: #000; font-weight: bold; border: none; border-radius:
+  10px; font-size: 1em;\">💾 Submit Reflection</button>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"reflectionResult\" style=\"margin-top: 30px; display: none;\">\r
+
+  \    <p style=\"color: #7ec8e3;\">✅ Your message has been received. One day,
+  this orb will remember you.</p>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- 🎙️ Spoken Entrance -->\r
+
+  <script>\r
+
+  window.addEventListener('DOMContentLoaded', () => {\r
+
+  \  const chamberLine = new SpeechSynthesisUtterance(\"The chamber is open.
+  Your words are welcome.\");\r
+
+  \  chamberLine.pitch = 1.15;\r
+
+  \  chamberLine.rate = 0.95;\r
+
+  \  chamberLine.volume = 1;\r
+
+  \  chamberLine.voice = speechSynthesis.getVoices().find(v => v.lang ===
+  'en-US') || null;\r
+
+  \  setTimeout(() => speechSynthesis.speak(chamberLine), 800);\r
+
+  });\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  <!-- ⚙️ Reflection Logic -->\r
+
+  <script>\r
+
+  function submitReflection() {\r
+
+  \  const msg = document.getElementById('orbReflection').value.trim();\r
+
+  \  const consent = document.getElementById('codexConsent').checked;\r
+
+  \r
+
+  \r
+
+  \  if (!msg) {\r
+
+  \    alert(\"Please write something to submit.\");\r
+
+  \    return;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  document.getElementById('reflectionResult').style.display = 'block';\r
+
+  \r
+
+  \r
+
+  \  const line = consent\r
+
+  \    ? \"Your words have been saved to the Codex. Thank you.\"\r
+
+  \    : \"Your words have been received and will echo forward.\";\r
+
+  \r
+
+  \r
+
+  \  const speak = new SpeechSynthesisUtterance(line);\r
+
+  \  speak.pitch = 1.1;\r
+
+  \  speak.rate = 0.92;\r
+
+  \  speechSynthesis.speak(speak);\r
+
+  }\r
+
+  </script>"
+tags: null
+source_url: https://docs.google.com/document/d/1QUlqzWqUbVepdiuHDNWvsazerklD6ylsql7FD7S24WI/edit?usp=drivesdk
+document_type: text
+description: "﻿<!-- 🌌 CREATION CENTER NEBULA – Ultimate Hero Section --> <div
+  id=\"orb-builder-section\" style=\"text-align: center; margin: 120px auto 80px
+  auto; font-family: 'Georgia', serif; max-width: 1000px; padd..."
+created_at: 2026-01-19T20:15:41.702Z
+updated_at: 2026-01-19T20:20:20.581Z

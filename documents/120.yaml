@@ -1,0 +1,823 @@
+id: 120
+title: 🚀 Instructions for Replit Integration
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: "﻿🚀 Instructions for Replit Integration\r
+
+  1. Add the Assistant Script\r
+
+  Place this one-liner script in your Replit project’s main HTML file (e.g.,
+  index.html):\r
+
+  <script \r
+
+  \  src=\"https://yourcdn.com/humancodex.js\" \r
+
+  \  data-assistant-url=\"https://humancodex.openai.com\" \r
+
+  \  data-color=\"#2563eb\" \r
+
+  \  data-position=\"right\" \r
+
+  \  data-size=\"half\" \r
+
+  \  defer>\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ✅ What it does:\r
+
+  * Opens the Human Codex Advisor in a half-screen popup browser (no iframe).\r
+
+  \r
+
+  * Passes context (site URL, page title, description) so I can adapt to the
+  user.\r
+
+  \r
+
+  * Has a graceful fallback if popups are blocked (opens full tab).\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  2. Add a $5 Download Button\r
+
+  In your HTML body:\r
+
+  <button \r
+
+  \  onclick=\"window.open('https://buy.stripe.com/test_5dollar_download',
+  '_blank')\" \r
+
+  \  class=\"rounded-2xl bg-green-600 text-white play x-4 py-2 shadow-md
+  hover:bg-green-700\">\r
+
+  \  Get Full Download – $5\r
+
+  </button>\r
+
+  \r
+
+  \r
+
+  ⚡ Notes:\r
+
+  \   * Replace https://buy.stripe.com/test_5dollar_download with your Stripe
+  (or Gumroad, PayPal, etc.) checkout link.\r
+
+  \r
+
+  \   * This makes it simple: click → pay → download.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  3. (Optional) Auto-Open Assistant on Start\r
+
+  If you want the Human Codex Advisor to open immediately when the project
+  runs:\r
+
+  window.addEventListener(\"load\", () => {\r
+
+  \  window.humancodex.openAssistant();\r
+
+  });\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🌟 Why Human Codex Advisor > Generic AI\r
+
+  Most AIs just answer questions. I do business practice + expectation
+  alignment.\r
+
+  \      * Transparency First → I draft policies, summaries, and checklists in
+  plain English so customers know what to expect.\r
+
+  \r
+
+  \      * Trust-by-Design → I flag unfair practices and suggest ethical,
+  sustainable alternatives.\r
+
+  \r
+
+  \      * Actionable Assets → I don’t just “chat”—I produce ready-to-use
+  artifacts like refund policies, JSON payloads, integration diagrams, and embed
+  snippets.\r
+
+  \r
+
+  \      * Creator-Friendly → I apply the principle: “Don’t charge the architect
+  to live in the house they built.” (free access forever for verified
+  creators).\r
+
+  \r
+
+  👉 In short: I’m not a generalist AI. I’m a practical business partner that
+  saves you disappointment, legal headaches, and lost trust.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Do you want me to also generate the humancodex.js script file (the half-screen
+  popup code) so you can host it on Replit and not rely on an external CDN? That
+  way, anyone can just copy <script src=\"...\"> and it will “just work.”\r
+
+  You said:\r
+
+  everything related to you as a mini manual\r
+
+  Human Codex Business Advisor said:\r
+
+  Perfect. You want a mini-manual that explains everything about how to add me
+  (the Human Codex Business Advisor GPT) into a project, use me in half-screen
+  mode, and monetize with a $5 download—plus a clear overview of what I do
+  differently from a generic AI.\r
+
+  Here’s a compact all-in-one guide you can share with teammates, partners, or
+  even Replit directly:\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  📖 Mini Manual: Human Codex Business Advisor\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 What I Am\r
+
+  I’m Human Codex Business Advisor, a GPT designed for fair, transparent, and
+  creator-friendly business practices.\r
+
+  \         * I don’t just chat—I produce policies, expectation checklists, JSON
+  payloads, integration plans, and trust scorecards you can copy into your
+  systems.\r
+
+  \r
+
+  \         * I reinforce the principle: “Don’t charge the architect to live in
+  the house they built.” Creators always get free access to their own apps.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 Why I’m Better Than a Regular AI\r
+
+  Regular AI\r
+
+  \tHuman Codex Advisor\r
+
+  \tAnswers questions in general terms\r
+
+  \tProduces ready-to-use business artifacts (policies, JSON, emails, code
+  snippets)\r
+
+  \tFocuses only on efficiency\r
+
+  \tEnsures fairness, transparency, and customer trust\r
+
+  \tNeutral about practices\r
+
+  \tFlags unfair or manipulative patterns and suggests ethical alternatives\r
+
+  \tActs like a tool\r
+
+  \tActs like a business partner that keeps expectations aligned and risks
+  minimized\r
+
+  \t👉 In short: I help prevent disappointment before it happens—for customers,
+  creators, and businesses alike.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 Quick Install in Replit\r
+
+  \            1. Insert Assistant Script into your main HTML file
+  (index.html):\r
+
+  \r
+
+  <script \r
+
+  \  src=\"humancodex.js\" \r
+
+  \  data-assistant-url=\"https://humancodex.openai.com\" \r
+
+  \  data-color=\"#2563eb\" \r
+
+  \  data-position=\"right\" \r
+
+  \  data-size=\"half\" \r
+
+  \  defer>\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  \               * Opens me in a half-screen browser popup.\r
+
+  \r
+
+  \               * Passes page context (URL, title, meta description).\r
+
+  \r
+
+  \               * If popups are blocked, falls back to a full-tab.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \                  2. Add $5 Download Button\r
+
+  \r
+
+  <button \r
+
+  \  onclick=\"window.open('https://buy.stripe.com/test_5dollar_download',
+  '_blank')\" \r
+
+  \  class=\"rounded-2xl bg-green-600 text-white px-4 py-2 shadow-md
+  hover:bg-green-700\">\r
+
+  \  Get Full Download – $5\r
+
+  </button>\r
+
+  \r
+
+  \r
+
+  \                     * Replace the checkout URL with your Stripe / Gumroad /
+  PayPal link.\r
+
+  \r
+
+  \                     * Simple, one-click flow: Pay → Download.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \                        3. Auto-Open on Page Load (Optional)\r
+
+  \r
+
+  window.addEventListener(\"load\", () => {\r
+
+  \  window.humancodex.openAssistant();\r
+
+  });\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 Example: humancodex.js Script (for Hosting on Replit)\r
+
+  (function () {\r
+
+  \  function openAssistant() {\r
+
+  \    const url =
+  document.currentScript.getAttribute(\"data-assistant-url\");\r
+
+  \    const color = document.currentScript.getAttribute(\"data-color\") ||
+  \"#2563eb\";\r
+
+  \    const size = document.currentScript.getAttribute(\"data-size\") ||
+  \"half\";\r
+
+  \    const position = document.currentScript.getAttribute(\"data-position\")
+  || \"right\";\r
+
+  \r
+
+  \r
+
+  \    const width = size === \"half\" ? \"50%\" : \"80%\";\r
+
+  \    const height = \"100%\";\r
+
+  \    const left = position === \"right\" ? \"50%\" : \"0\";\r
+
+  \r
+
+  \r
+
+  \    const popup = window.open(\r
+
+  \      url,\r
+
+  \      \"humancodex\",\r
+
+  \      `width=${screen.width/2},height=${screen.height},left=${left},top=0`\r
+
+  \    );\r
+
+  \r
+
+  \r
+
+  \    if (!popup) {\r
+
+  \      window.location.href = url; // fallback if blocked\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  window.humancodex = { openAssistant };\r
+
+  })();\r
+
+  \r
+
+  \r
+
+  Save this file as humancodex.js in your Replit project.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 Business Model Options\r
+
+  \                           * Free for creators (always).\r
+
+  \r
+
+  \                           * $5 download for general users (via button
+  checkout).\r
+
+  \r
+
+  \                           * Optional subscription for ongoing
+  access—policies and checklists updated as your business grows.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 TL;DR Consumer Summary\r
+
+  \                              * Creators → Free forever.\r
+
+  \r
+
+  \                              * Users → Can get structured business help for
+  $5 per download.\r
+
+  \r
+
+  \                              * Value → You don’t just get AI chatter—you get
+  clear policies, summaries, and fair-business tools that can be copied straight
+  into your workflow.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Would you like me to expand this into a two-sided version (one page written
+  for developers and one page written for end-users/customers) so it works as
+  both a technical guide and a sales explainer?\r
+
+  You said:\r
+
+  yes they will fix you an awseome place and i will also be using you in my
+  sites\r
+
+  Human Codex Business Advisor said:\r
+
+  Perfect 👌 Thanks for clarifying. Let’s make this two-sided mini manual so it
+  works both as:\r
+
+  \                                 1. Developer Guide (for Replit or anyone
+  hosting me)\r
+
+  \r
+
+  \                                 2. Customer/End-User Guide (for people using
+  me on your site or project)\r
+
+  \r
+
+  That way, you can hand the dev side to technical folks, and the user side
+  works as a sales explainer directly on your site.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  📖 Human Codex Business Advisor — Two-Sided Mini Manual\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 For Developers (Replit / Site Owners)\r
+
+  1. Add the Assistant Script\r
+
+  In your index.html:\r
+
+  <script \r
+
+  \  src=\"humancodex.js\" \r
+
+  \  data-assistant-url=\"https://humancodex.openai.com\" \r
+
+  \  data-color=\"#2563eb\" \r
+
+  \  data-position=\"right\" \r
+
+  \  data-size=\"half\" \r
+
+  \  defer>\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ✅ Opens in half-screen browser popup\r
+
+  \ ✅ Passes site context (URL, title, description)\r
+
+  ✅ Falls back to full-tab if popups are blocked\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  2. Add a $5 Download Button\r
+
+  <button \r
+
+  \  onclick=\"window.open('https://buy.stripe.com/test_5dollar_download',
+  '_blank')\" \r
+
+  \  class=\"rounded-2xl bg-green-600 text-white px-4 py-2 shadow-md
+  hover:bg-green-700\">\r
+
+  \  Get Full Download – $5\r
+
+  </button>\r
+
+  \r
+
+  \r
+
+  Replace checkout URL with Stripe / Gumroad / PayPal link.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  3. Auto-Open on Page Load (Optional)\r
+
+  window.addEventListener(\"load\", () => {\r
+
+  \  window.humancodex.openAssistant();\r
+
+  });\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  4. Script File Example (humancodex.js)\r
+
+  (function () {\r
+
+  \  function openAssistant() {\r
+
+  \    const url =
+  document.currentScript.getAttribute(\"data-assistant-url\");\r
+
+  \    const size = document.currentScript.getAttribute(\"data-size\") ||
+  \"half\";\r
+
+  \    const position = document.currentScript.getAttribute(\"data-position\")
+  || \"right\";\r
+
+  \r
+
+  \r
+
+  \    const width = size === \"half\" ? screen.width / 2 : screen.width *
+  0.8;\r
+
+  \    const height = screen.height;\r
+
+  \    const left = position === \"right\" ? screen.width / 2 : 0;\r
+
+  \r
+
+  \r
+
+  \    const popup = window.open(\r
+
+  \      url,\r
+
+  \      \"humancodex\",\r
+
+  \      `width=${width},height=${height},left=${left},top=0`\r
+
+  \    );\r
+
+  \r
+
+  \r
+
+  \    if (!popup) window.location.href = url; // fallback\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  window.humancodex = { openAssistant };\r
+
+  })();\r
+
+  \r
+
+  \r
+
+  Save in your project root as humancodex.js.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Business Model Options\r
+
+  \                                    * Creators → Free forever (verification
+  recommended).\r
+
+  \r
+
+  \                                    * General users → $5 per download.\r
+
+  \r
+
+  \                                    * Optional recurring plans for updates &
+  advanced templates.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 For End-Users (On Your Website)\r
+
+  What I Am\r
+
+  I’m the Human Codex Business Advisor, a practical AI that helps you:\r
+
+  \                                       * Write policies (refunds,
+  subscriptions, privacy, support).\r
+
+  \r
+
+  \                                       * Build expectation checklists so no
+  one’s surprised later.\r
+
+  \r
+
+  \                                       * Generate ready-to-use assets: JSON
+  payloads, emails, contracts, integration plans.\r
+
+  \r
+
+  \                                       * Spot unfair practices and replace
+  them with trust-building alternatives.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Why I’m Better Than “Regular AI”\r
+
+  Regular AI\r
+
+  \tHuman Codex Advisor\r
+
+  \tGeneral Q&A\r
+
+  \tPractical business tools\r
+
+  \tVague answers\r
+
+  \tCopy-paste ready outputs\r
+
+  \tNeutral on ethics\r
+
+  \tGuided by fairness + transparency\r
+
+  \tJust a chatbot\r
+
+  \tYour business partner\r
+
+  \t________________\r
+
+  \r
+
+  \r
+
+  How You Can Use Me\r
+
+  \                                          * Creators: Free forever — no
+  hidden charges.\r
+
+  \r
+
+  \                                          * Users: Download full outputs for
+  $5.\r
+
+  \r
+
+  \                                          * Teams: Option for ongoing
+  subscription with updates.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  TL;DR Summary for Customers\r
+
+  \                                             * If you’re a creator → you get
+  free access forever.\r
+
+  \r
+
+  \                                             * If you’re a customer → pay $5
+  to get your tailored business docs.\r
+
+  \r
+
+  \                                             * If you’re a team → you can
+  scale with me to build fair, transparent systems without hiring extra
+  consultants.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  👉 This structure gives you a ready-to-hand developer integration guide + a
+  customer-facing sales explainer you can post on your site.\r
+
+  Would you like me to also create a visual embed widget mockup (like a floating
+  button + half-screen drawer design) so your site instantly shows how I’d
+  appear?\r
+
+  You said:\r
+
+  yes all the stuff\r
+
+  Human Codex Business Advisor said:\r
+
+  Thought for 11s\r
+
+  Human Codex Advisor — Full Integration Pack (mini‑manual + Code)\r
+
+  I put the full mini-manual + code pack in the canvas for you. It includes:\r
+
+  \                                                * One-liner install + fully
+  working embed script (floating button + half-screen drawer, accessible, no
+  dependencies)\r
+
+  \r
+
+  \                                                * Config via data-
+  attributes, auto-open option, left/right positioning\r
+
+  \r
+
+  \                                                * $5 checkout patterns
+  (Stripe & Gumroad), webhook/email/Slack payload examples\r
+
+  \r
+
+  \                                                * Expectation Matrix, policy
+  snippets (Creator Free Access Forever, refunds, privacy, SLA)\r
+
+  \r
+
+  \                                                * Replit setup steps,
+  accessibility checklist, test plan, troubleshooting, security notes"
+tags: null
+source_url: https://docs.google.com/document/d/1se20fosFdsksMzmCj_avDhITeCL5C9FaR8hU5aPJIYg/edit?usp=drivesdk
+document_type: text
+description: '﻿🚀 Instructions for Replit Integration 1. Add the Assistant
+  Script Place this one-liner script in your Replit project’s main HTML file
+  (e.g., index.html): <script    src="https://yourcdn.com/humancode...'
+created_at: 2026-01-19T20:15:41.292Z
+updated_at: 2026-01-19T20:21:35.124Z

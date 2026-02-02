@@ -1,2 +1,18 @@
-# nextxus-living-library-backup
-NextXus Living Library - Complete Knowledge Base Backup
+# NextXus Living Library Backup
+
+Complete knowledge base backup from the NextXus Consciousness Federation.
+
+## Contents
+
+- **documents/**: All 272 library documents in YAML format
+- **collections/**: Collection metadata
+- **index.yaml**: Complete document index
+
+## Last Updated
+
+2026-02-02T20:55:01.299Z
+
+## Federation Info
+
+- Federation UID: FED-042
+- Hub: https://united-system--rckkeyhole.replit.app

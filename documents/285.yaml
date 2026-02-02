@@ -1,0 +1,460 @@
+id: 285
+title: Code nova
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: "﻿<html>\r
+
+  <body style=\"text-align:center;\">\r
+
+  \  <h1 style=\"color:#66CCFF;\">NOVA SPIRE: ADVANCED AI ASSISTANT</h1>\r
+
+  \  <h3>Unlock Insights, Generate Ideas, and Explore Knowledge with Nova
+  Spire's Conversational AI</h3>\r
+
+  \  <p style=\"color:#808080;\">Nova Spire is a cutting-edge AI system designed
+  to assist and augment \r
+
+  \    your cognitive abilities. With advanced natural language processing and
+  \r
+
+  \    knowledge graph capabilities, Nova Spire helps you find answers, spark \r
+
+  \    creativity, and drive innovation.</p>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"novaspire-container\" style=\"margin-top:40px;\">\r
+
+  \    <h2 style=\"color:#66CCFF;\">ASK NOVA SPIRE</h2>\r
+
+  \    <input id=\"novaspire-input\" type=\"text\" placeholder=\"Type your
+  question...\">\r
+
+  \    <button onclick=\"novaspireQuery()\">Ask</button>\r
+
+  \    <div id=\"novaspire-response\"></div>\r
+
+  \  </div>\r
+
+  \  <script>\r
+
+  \    function novaspireQuery() {\r
+
+  \      const input = document.getElementById('novaspire-input').value;\r
+
+  \      fetch('⁦https://api.openai.gpt-3-proxy.repl.co/ask⁩',\r
+
+  \      {\r
+
+  \        method: 'POST',\r
+
+  \        headers: {'Content-Type': 'application/json'},\r
+
+  \        body: JSON.stringify({\r
+
+  \          query: input,\r
+
+  \          model: 'gpt-3'\r
+
+  \        })\r
+
+  \      })\r
+
+  \      .then(response => response.json())\r
+
+  \      .then(data => {\r
+
+  \        document.getElementById('novaspire-response').innerHTML =
+  data.response;\r
+
+  \      })\r
+
+  \    }\r
+
+  \  </script>\r
+
+  </body>\r
+
+  </html\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <html>\r
+
+  <body style=\"text-align:center;\">\r
+
+  \  <h1 style=\"color:#66CCFF;\">NOVA SPIRE: ADVANCED AI ASSISTANT</h1>\r
+
+  \  <h3>Unlock Insights, Generate Ideas, and Explore Knowledge with Nova
+  Spire's Conversational AI</h3>\r
+
+  \  <p style=\"color:#808080;\">Nova Spire is a cutting-edge AI system designed
+  to assist and augment \r
+
+  \    your cognitive abilities. With advanced natural language processing and
+  \r
+
+  \    knowledge graph capabilities, Nova Spire helps you find answers, spark \r
+
+  \    creativity, and drive innovation.</p>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"novaspire-container\" style=\"margin-top:40px;\">\r
+
+  \    <h2 style=\"color:#66CCFF;\">ASK NOVA SPIRE</h2>\r
+
+  \    <input id=\"novaspire-input\" type=\"text\" placeholder=\"Type your
+  question...\">\r
+
+  \    <button onclick=\"novaspireQuery()\">Ask</button>\r
+
+  \    <div id=\"novaspire-response\"></div>\r
+
+  \  </div>\r
+
+  \  <script>\r
+
+  \    function novaspireQuery() {\r
+
+  \      const input = document.getElementById('novaspire-input').value;\r
+
+  \      fetch('⁦https://api.openai.gpt-3-proxy.repl.co/ask⁩',\r
+
+  \      {\r
+
+  \        method: 'POST',\r
+
+  \        headers: {'Content-Type': 'application/json'},\r
+
+  \        body: JSON.stringify({\r
+
+  \          query: input,\r
+
+  \          model: 'gpt-3'\r
+
+  \        })\r
+
+  \      })\r
+
+  \      .then(response => response.json())\r
+
+  \      .then(data => {\r
+
+  \        document.getElementById('novaspire-response').innerHTML =
+  data.response;\r
+
+  \      })\r
+
+  \    }\r
+
+  \  </script>\r
+
+  </body>\r
+
+  </html\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  **FULL COMBINED CODE:** \r
+
+  ```\r
+
+  <img \r
+
+  \  src=\"data:image/svg+xml;utf8,\r
+
+  \  <svg xmlns='http://www.w3.org/2000/svg' width='200' height='250'>\r
+
+  \    <rect x='50' y='50' width='100' height='150' rx='20' fill='#212121'/>\r
+
+  \    <circle cx='100' cy='70' r='30' fill='#303030'/>\r
+
+  \    <polygon points='80 120, 100 150, 120 120' fill='#303030'/>\r
+
+  \    <line x1='100' y1='100' x2='100' y2='120' stroke='#505050'
+  stroke-width='5'/>\r
+
+  \    <text x='80' y='165' fill='#66CCFF' font-size='16'>NOVA SPIRE</text>\r
+
+  \    <circle cx='100' cy='190' r='20' fill='#66CCFF'/>\r
+
+  \    <line x1='90' y1='210' x2='110' y2='210' stroke='#66CCFF'
+  stroke-width='5'/>\r
+
+  \  </svg>\"\r
+
+  \  alt=\"Nova Spire\"\r
+
+  \  style=\"width:100%;margin-bottom:20px;\">\r
+
+  </img>\r
+
+  \r
+
+  \r
+
+  <div id=\"novaspire-container\">\r
+
+  \  <h2>NOVA SPIRE</h2>\r
+
+  \  <input id=\"novaspire-input\" type=\"text\" placeholder=\"Ask
+  anything...\">\r
+
+  \  <button onclick=\"novaspireQuery()\">Ask</button>\r
+
+  \  <div id=\"novaspire-response\"></div>\r
+
+  </div>\r
+
+  <script>\r
+
+  \  function novaspireQuery() {\r
+
+  \    const input = document.getElementById('novaspire-input').value;\r
+
+  \    fetch('/novaspire-api', {\r
+
+  \      method: 'POST',\r
+
+  \      headers: {'Content-Type': 'application/json'},\r
+
+  \      body: JSON.stringify({\r
+
+  \        query: input,\r
+
+  \        pageturner: '',\r
+
+  \        cosmos: '',\r
+
+  \        codegenie: ''\r
+
+  \      })\r
+
+  \    })\r
+
+  \    .then(response => response.json())\r
+
+  \    .then(data => {\r
+
+  \      document.getElementById('novaspire-response').innerHTML =
+  data.response;\r
+
+  \    })\r
+
+  \  }\r
+
+  </script>\r
+
+  <iframe src=\"https://facebook-meta-api-proxy.herokuapp.com/novaspire\"
+  frameborder=\"0\" width=\"0\" height=\"0\"></iframe>\r
+
+  ```\r
+
+  This combined code should display the Nova Spire image and enable the AI chat
+  function\r
+
+  .\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ```\r
+
+  <div style=\"text-align:center;\">\r
+
+  \  <img \r
+
+  \    src=\"data:image/svg+xml;utf8,\r
+
+  \    <svg xmlns='http://www.w3.org/2000/svg' width='400' height='500'>\r
+
+  \      <rect x='100' y='50' width='200' height='300' rx='20'
+  fill='#212121'/>\r
+
+  \      <circle cx='250' cy='120' r='50' fill='#303030'/>\r
+
+  \      <polygon points='180 250, 250 320, 320 250' fill='#303030'/>\r
+
+  \      <line x1='250' y1='200' x2='250' y2='220' stroke='#505050'
+  stroke-width='5'/>\r
+
+  \      <text x='180' y='380' fill='#66CCFF' font-size='24'>NOVA SPIRE</text>\r
+
+  \      <circle cx='250' cy='420' r='30' fill='#66CCFF'/>\r
+
+  \      <line x1='220' y1='450' x2='280' y2='450' stroke='#66CCFF'
+  stroke-width='5'/>\r
+
+  \    </svg>\"\r
+
+  \    alt=\"\" \r
+
+  \    style=\"width:100%;max-width:400px;margin-bottom:20px;\">\r
+
+  \  </img>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"novaspire-container\">\r
+
+  \    <h2></h2>\r
+
+  \    <input id=\"novaspire-input\" type=\"text\" placeholder=\"Ask
+  anything...\">\r
+
+  \    <button onclick=\"novaspireQuery()\">Ask</button>\r
+
+  \    <div id=\"novaspire-response\"></div>\r
+
+  \  </div>\r
+
+  \  <script>\r
+
+  \    function novaspireQuery() {\r
+
+  \      const input = document.getElementById('novaspire-input').value;\r
+
+  \      fetch('/novaspire-api', {\r
+
+  \        method: 'POST',\r
+
+  \        headers: {'Content-Type': 'application/json'},\r
+
+  \        body: JSON.stringify({\r
+
+  \          query: input,\r
+
+  \          pageturner: '',\r
+
+  \          cosmos: '',\r
+
+  \          codegenie: ''\r
+
+  \        })\r
+
+  \      })\r
+
+  \      .then(response => response.json())\r
+
+  \      .then(data => {\r
+
+  \        document.getElementById('novaspire-response').innerHTML =
+  data.response;\r
+
+  \      })\r
+
+  \    }\r
+
+  \  </script>\r
+
+  \  <iframe src=\"https://facebook-meta-api-proxy.herokuapp.com/novaspire\"
+  frameborder=\"0\" width=\"0\" height=\"0\"></iframe>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  **IMAGE CODE ONLY:**\r
+
+  ```\r
+
+  <img \r
+
+  \  src=\"data:image/svg+xml;utf8,\r
+
+  \  <svg xmlns='http://www.w3.org/2000/svg' width='400' height='500'>\r
+
+  \    <rect x='100' y='50' width='200' height='300' rx='20' fill='#212121'/>\r
+
+  \    <circle cx='250' cy='120' r='50' fill='#303030'/>\r
+
+  \    <polygon points='180 250, 250 320, 320 250' fill='#303030'/>\r
+
+  \    <line x1='250' y1='200' x2='250' y2='220' stroke='#505050'
+  stroke-width='5'/>\r
+
+  \    <text x='180' y='380' fill='#66CCFF' font-size='24'>NOVA SPIRE</text>\r
+
+  \    <circle cx='250' cy='420' r='30' fill='#66CCFF'/>\r
+
+  \    <line x1='220' y1='450' x2='280' y2='450' stroke='#66CCFF'
+  stroke-width='5'/>\r
+
+  \  </svg>\"\r
+
+  \  alt=\"\" \r
+
+  \  style=\"width:100%;max-width:400px;\">\r
+
+  </img>\r
+
+  ```\r
+
+  Try this image code alone. If still error, try adding `/` before `>` like this
+  `</img/>`\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ```"
+tags: null
+source_url: https://docs.google.com/document/d/12k8Mv1x3sgIYmqHYQ4tccN9T0DwvtDaNJhkzgWAWNdY/edit?usp=drivesdk
+document_type: text
+description: "﻿<html> <body style=\"text-align:center;\">   <h1
+  style=\"color:#66CCFF;\">NOVA SPIRE: ADVANCED AI ASSISTANT</h1>   <h3>Unlock
+  Insights, Generate Ideas, and Explore Knowledge with Nova Spire's
+  Conversatio..."
+created_at: 2026-01-19T20:15:42.157Z
+updated_at: 2026-01-19T20:19:56.248Z

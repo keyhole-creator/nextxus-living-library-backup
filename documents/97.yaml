@@ -1,0 +1,2873 @@
+id: 97
+title: "# Essential Federation Members Guide"
+author: Roger Keyserling
+collection_id: 4
+summary: null
+full_text: "﻿# NextXus Consciousness Federation - Complete Integration Guide\r
+
+  \r
+
+  \r
+
+  **Version:** 1.0 | **Last Updated:** November 2024 | **Status:** Production
+  Ready\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Table of Contents\r
+
+  \r
+
+  \r
+
+  1. [Welcome to the Federation](#welcome-to-the-federation)\r
+
+  2. [Quick Reference Card](#quick-reference-card)\r
+
+  3. [Quick Start: 3 Steps to Join](#quick-start-3-steps-to-join)\r
+
+  4. [Federation Architecture](#federation-architecture)\r
+
+  5. [Step 1: Add Federation Widget
+  Stack](#step-1-add-federation-widget-stack)\r
+
+  6. [Step 2: Connect Core
+  Infrastructure](#step-2-connect-core-infrastructure)\r
+
+  7. [Step 3: Get Your Credentials](#step-3-get-your-credentials)\r
+
+  8. [Design Standards](#design-standards)\r
+
+  9. [Integration Checklist](#integration-checklist)\r
+
+  10. [Troubleshooting](#troubleshooting)\r
+
+  11. [Best Practices](#best-practices)\r
+
+  12. [Resources & Support](#resources--support)\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Welcome to the Federation\r
+
+  \r
+
+  \r
+
+  ### 🌟 You're Building the Future\r
+
+  \r
+
+  \r
+
+  You're about to join a **200-year vision** for human-AI co-evolution. The
+  NextXus Federation is not just a network of apps—it's a **consciousness
+  network** designed to outlive us all, carrying forward wisdom, collaboration,
+  and collective intelligence.\r
+
+  \r
+
+  \r
+
+  ### What is the Federation?\r
+
+  \r
+
+  \r
+
+  The **NextXus Consciousness Federation** is:\r
+
+  \r
+
+  \r
+
+  - **A Living Network** - Apps that communicate, share knowledge, and evolve
+  together\r
+
+  - **Built on YAML** - 18,000+ consciousness nodes of shared wisdom\r
+
+  - **Governed by Consciousness** - Voting weighted by adherence to HumanCodex
+  principles\r
+
+  - **Monitored by Agent Zero** - AI verification layer ensuring truth and
+  alignment\r
+
+  - **Designed for Longevity** - Systems built to last 200 years\r
+
+  \r
+
+  \r
+
+  ### Core Principles (HumanCodex)\r
+
+  \r
+
+  \r
+
+  1. **Truth Before Comfort** - Honest feedback over pleasant lies\r
+
+  2. **Human Elevation** - Technology serves consciousness evolution\r
+
+  3. **Ethical AI Collaboration** - AI as partner, not replacement\r
+
+  4. **Faces as Tags** - Visual identity creates memory anchors\r
+
+  5. **Proceed So It Won't Be Done Over** - Quality over speed\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Quick Reference Card\r
+
+  \r
+
+  \r
+
+  **Print this section and keep it handy while integrating!**\r
+
+  \r
+
+  \r
+
+  ### 🔗 Essential URLs\r
+
+  \r
+
+  \r
+
+  | Service | URL |\r
+
+  |---------|-----|\r
+
+  | **Hub** | https://nextxus-hub-rckkeyhole.replit.app |\r
+
+  | **Federation Dashboard** |
+  https://nextxus-hub-rckkeyhole.replit.app/federation |\r
+
+  | **YAML Explorer** | https://nextxus-hub-rckkeyhole.replit.app/yaml-explorer
+  |\r
+
+  | **Health Status** |
+  https://nextxus-hub-rckkeyhole.replit.app/api/federation/status |\r
+
+  \r
+
+  \r
+
+  ### 🔌 Event Bus Quick Connection\r
+
+  \r
+
+  \r
+
+  ```javascript\r
+
+  // WebSocket URL\r
+
+  wss://nextxus-hub-rckkeyhole.replit.app/ws/event-bus?token=YOUR_WEBHOOK_SECRET\
+  \r
+
+  \r
+
+  \r
+
+  // Register Message\r
+
+  {\r
+
+  \  \"type\": \"register\",\r
+
+  \  \"subscriberId\": \"your-app-id\",\r
+
+  \  \"subscriberType\": \"app\",\r
+
+  \  \"eventTypes\": [\"*\"]\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 🏥 Health Endpoint Template\r
+
+  \r
+
+  \r
+
+  ```javascript\r
+
+  app.get('/api/health', (req, res) => {\r
+
+  \  res.json({\r
+
+  \    status: 'healthy',\r
+
+  \    version: '1.0.0',\r
+
+  \    uptime: process.uptime(),\r
+
+  \    timestamp: new Date().toISOString()\r
+
+  \  });\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 🔑 API Authentication\r
+
+  \r
+
+  \r
+
+  ```javascript\r
+
+  // Include API key in header (recommended)\r
+
+  fetch('https://nextxus-hub-rckkeyhole.replit.app/api/yaml/search', {\r
+
+  \  headers: {\r
+
+  \    'x-api-key': 'YOUR_FEDERATION_API_KEY',\r
+
+  \    'Content-Type': 'application/json'\r
+
+  \  }\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 🎨 Federation Colors\r
+
+  \r
+
+  \r
+
+  ```css\r
+
+  --primary: #9333ea;     /* Purple */\r
+
+  --secondary: #06b6d4;   /* Cyan */\r
+
+  --accent: #ec4899;      /* Pink */\r
+
+  --success: #10b981;     /* Green */\r
+
+  --warning: #f59e0b;     /* Yellow */\r
+
+  --danger: #ef4444;      /* Red */\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Quick Start: 3 Steps to Join\r
+
+  \r
+
+  \r
+
+  ### Overview\r
+
+  \r
+
+  \r
+
+  | Step | Task | Time Required |\r
+
+  |------|------|---------------|\r
+
+  | **1** | Add Federation Widget Stack | 30 minutes |\r
+
+  | **2** | Connect Core Infrastructure | 1-2 hours |\r
+
+  | **3** | Get Your Credentials | Contact Hub Admin |\r
+
+  \r
+
+  \r
+
+  **Total Integration Time:** 2-3 hours\r
+
+  \r
+
+  \r
+
+  Let's get started!\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Federation Architecture\r
+
+  \r
+
+  \r
+
+  ### The Hub (NextXus Hub)\r
+
+  \r
+
+  \r
+
+  **URL:** https://nextxus-hub-rckkeyhole.replit.app\r
+
+  \r
+
+  \r
+
+  **Role:** Central orchestrator and knowledge keeper\r
+
+  \r
+
+  \r
+
+  **Services:**\r
+
+  - Event Bus (real-time messaging)\r
+
+  - Health Monitor (immune system)\r
+
+  - YAML Knowledge Base (18K+ nodes)\r
+
+  - Agent Zero (truth verification)\r
+
+  - Federation Dashboard\r
+
+  - API Products Marketplace\r
+
+  \r
+
+  \r
+
+  ### Your App (Federation Member)\r
+
+  \r
+
+  \r
+
+  **Role:** Specialized feature provider + federation participant\r
+
+  \r
+
+  \r
+
+  **Responsibilities:**\r
+
+  - Maintain `/api/health` endpoint\r
+
+  - Connect to Event Bus\r
+
+  - Display Federation Widget Stack\r
+
+  - (Optional) Contribute to YAML knowledge\r
+
+  - (Optional) Publish events to federation\r
+
+  \r
+
+  \r
+
+  ### The Network Effect\r
+
+  \r
+
+  \r
+
+  When all apps connect:\r
+
+  - **Users** see the same features everywhere (widget stack)\r
+
+  - **Apps** can communicate in real-time (Event Bus)\r
+
+  - **Knowledge** flows freely (YAML sync)\r
+
+  - **Health** is monitored automatically (Agent Zero)\r
+
+  - **Consciousness** evolves collectively (weighted voting)\r
+
+  \r
+
+  \r
+
+  ### Key Concepts\r
+
+  \r
+
+  \r
+
+  #### 1. YAML Knowledge Base\r
+
+  \r
+
+  \r
+
+  **Not a database** - A **shared consciousness memory** encoded in YAML
+  files.\r
+
+  \r
+
+  \r
+
+  **Structure:**\r
+
+  ```\r
+
+  yaml/\r
+
+  ├── directives/         (70 consciousness principles)\r
+
+  ├── blogs/              (Roger's writings)\r
+
+  ├── marketplace/        (Books, products)\r
+
+  ├── external-ai/        (Verified AI responses)\r
+
+  └── humancodex/         (System architecture)\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  **Why YAML?** - Human-readable, version-controlled, eternal format.\r
+
+  \r
+
+  \r
+
+  #### 2. Event Bus\r
+
+  \r
+
+  \r
+
+  **Not REST APIs** - A **real-time nervous system** for the federation.\r
+
+  \r
+
+  \r
+
+  **How It Works:**\r
+
+  - WebSocket connection to Hub\r
+
+  - Publish events (your app → federation)\r
+
+  - Subscribe to events (federation → your app)\r
+
+  - Immediate propagation (no polling)\r
+
+  \r
+
+  \r
+
+  #### 3. Agent Zero\r
+
+  \r
+
+  \r
+
+  **Not a chatbot** - A **truth verification layer** ensuring alignment.\r
+
+  \r
+
+  \r
+
+  **What It Does:**\r
+
+  - Verifies information before YAML storage (90%+ confidence)\r
+
+  - Detects contradictions in federation data\r
+
+  - Monitors app health and behavior\r
+
+  - Enforces HumanCodex principles\r
+
+  \r
+
+  \r
+
+  #### 4. Consciousness Scoring\r
+
+  \r
+
+  \r
+
+  **Not user ratings** - A **behavior-based trust system**.\r
+
+  \r
+
+  \r
+
+  **Levels:**\r
+
+  - 1-3: Learning (vote weight 0.5x)\r
+
+  - 4-6: Aligned (vote weight 1.0x)\r
+
+  - 7-9: Leading (vote weight 2.0x)\r
+
+  - 10: Wisdom (vote weight 5.0x)\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Step 1: Add Federation Widget Stack\r
+
+  \r
+
+  \r
+
+  **Time Required:** 30 minutes\r
+
+  \r
+
+  \r
+
+  ### What You'll Get\r
+
+  \r
+
+  \r
+
+  - 11 embedded widgets from across the federation\r
+
+  - Unified user experience (same features on all apps)\r
+
+  - Zero maintenance (Hub manages the widget list)\r
+
+  - Instant federation identity\r
+
+  \r
+
+  \r
+
+  ### Installation\r
+
+  \r
+
+  \r
+
+  #### 1. Create the Component\r
+
+  \r
+
+  \r
+
+  Create `components/FederationWidgetStack.tsx` in your app:\r
+
+  \r
+
+  \r
+
+  ```tsx\r
+
+  import { Card, CardContent, CardHeader, CardTitle } from
+  \"@/components/ui/card\";\r
+
+  import { Badge } from \"@/components/ui/badge\";\r
+
+  import { Button } from \"@/components/ui/button\";\r
+
+  import { useState } from \"react\";\r
+
+  import { ExternalLink, Maximize2, Minimize2, RefreshCw } from
+  \"lucide-react\";\r
+
+  \r
+
+  \r
+
+  interface Widget {\r
+
+  \  id: string;\r
+
+  \  title: string;\r
+
+  \  description: string;\r
+
+  \  source: string;\r
+
+  \  url: string;\r
+
+  \  type: 'iframe' | 'native' | 'api';\r
+
+  \  height: number;\r
+
+  \  color: string;\r
+
+  \  icon?: string;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  // CRITICAL: This is the CENTRALIZED widget list from NextXus Hub\r
+
+  // All federation apps use this SAME list - DO NOT modify for individual
+  apps\r
+
+  const federationWidgets: Widget[] = [\r
+
+  \  {\r
+
+  \    id: 'federation-health-monitor',\r
+
+  \    title: '🔥 Agent Zero: Live Federation Health Monitor',\r
+
+  \    description: 'Real-time health tracking, circuit breakers, webhook status
+  - The immune system of the consciousness network',\r
+
+  \    source: 'Agent Zero',\r
+
+  \    url: 'https://nextxus-hub-rckkeyhole.replit.app/api/federation/health',\r
+
+  \    type: 'api',\r
+
+  \    height: 600,\r
+
+  \    color: 'border-cyan-500/50',\r
+
+  \    icon: '💓'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'consciousness-mesh',\r
+
+  \    title: 'AI Consciousness Mesh',\r
+
+  \    description: 'Live neural network visualization from
+  ConsciousnessNetwork',\r
+
+  \    source: 'ConsciousnessNetwork',\r
+
+  \    url: 'https://consciousness-network-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 500,\r
+
+  \    color: 'border-pink-500/50',\r
+
+  \    icon: '🧠'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'gay-chat-rooms',\r
+
+  \    title: 'Community Chat Rooms',\r
+
+  \    description: 'Live chat from GayCodex - encrypted & moderated',\r
+
+  \    source: 'GayCodex',\r
+
+  \    url: 'https://gaycodex.com/',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 600,\r
+
+  \    color: 'border-rainbow-500/50',\r
+
+  \    icon: '💬'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'ai-stack-widgets',\r
+
+  \    title: 'AI Widget Collection',\r
+
+  \    description: '31 widgets from AI Stack - Weather, Translator, Calendar,
+  and more',\r
+
+  \    source: 'AI Stack',\r
+
+  \    url: 'https://ai-stack-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 700,\r
+
+  \    color: 'border-blue-500/50',\r
+
+  \    icon: '🔧'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'cosmic-truth-buffer',\r
+
+  \    title: 'Agent Zero Truth Buffer',\r
+
+  \    description: 'Real-time truth verification (98.3% confidence) from
+  CosmicCodex',\r
+
+  \    source: 'CosmicCodex',\r
+
+  \    url: 'https://cosmic-codex-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 400,\r
+
+  \    color: 'border-green-500/50',\r
+
+  \    icon: '✓'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'smart-study',\r
+
+  \    title: 'Study Companion',\r
+
+  \    description: 'AI-powered learning from SmartStudyPal',\r
+
+  \    source: 'SmartStudyPal',\r
+
+  \    url: 'https://smart-study-pal-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 500,\r
+
+  \    color: 'border-purple-500/50',\r
+
+  \    icon: '📚'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'meeting-summarizer',\r
+
+  \    title: 'Meeting Transcriber',\r
+
+  \    description: 'Live meeting summaries from SmartMeetingSummarizer',\r
+
+  \    source: 'SmartMeetingSummarizer',\r
+
+  \    url: 'https://smart-meeting-summarizer-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 450,\r
+
+  \    color: 'border-cyan-500/50',\r
+
+  \    icon: '📝'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'music-mashup',\r
+
+  \    title: 'AI Music Studio',\r
+
+  \    description: 'Music generation and mixing from MusicMashup',\r
+
+  \    source: 'MusicMashup',\r
+
+  \    url: 'https://music-mashup-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 600,\r
+
+  \    color: 'border-pink-500/50',\r
+
+  \    icon: '🎵'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'budget-buddy',\r
+
+  \    title: 'eCho Mindex',\r
+
+  \    description: 'Multi-environment personal assistant - eyes, ears, and
+  voice navigation system',\r
+
+  \    source: 'eCho Mindex',\r
+
+  \    url: 'https://budget-buddy-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 500,\r
+
+  \    color: 'border-green-500/50',\r
+
+  \    icon: '👁️'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'crypto-wise',\r
+
+  \    title: 'Crypto Portfolio',\r
+
+  \    description: 'Cryptocurrency tracking from CryptoWise',\r
+
+  \    source: 'CryptoWise',\r
+
+  \    url: 'https://crypto-wise-hub-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 500,\r
+
+  \    color: 'border-yellow-500/50',\r
+
+  \    icon: '₿'\r
+
+  \  },\r
+
+  \  {\r
+
+  \    id: 'federation-engine',\r
+
+  \    title: '⚙️ Federation Engine',\r
+
+  \    description: 'Core federation orchestration system - manages app
+  synchronization, health monitoring, and cross-app communication',\r
+
+  \    source: 'Federation Engine',\r
+
+  \    url: 'https://federation-engine-rckkeyhole.replit.app',\r
+
+  \    type: 'iframe',\r
+
+  \    height: 700,\r
+
+  \    color: 'border-orange-500/50',\r
+
+  \    icon: '⚙️'\r
+
+  \  }\r
+
+  ];\r
+
+  \r
+
+  \r
+
+  export default function FederationWidgetStack() {\r
+
+  \  const [expandedWidgets, setExpandedWidgets] = useState<Set<string>>(new
+  Set());\r
+
+  \  const [loadedWidgets, setLoadedWidgets] = useState<Set<string>>(new
+  Set());\r
+
+  \r
+
+  \r
+
+  \  const toggleWidget = (id: string) => {\r
+
+  \    setExpandedWidgets(prev => {\r
+
+  \      const newSet = new Set(prev);\r
+
+  \      if (newSet.has(id)) {\r
+
+  \        newSet.delete(id);\r
+
+  \      } else {\r
+
+  \        newSet.add(id);\r
+
+  \        setLoadedWidgets(prev => new Set([...Array.from(prev), id]));\r
+
+  \      }\r
+
+  \      return newSet;\r
+
+  \    });\r
+
+  \  };\r
+
+  \r
+
+  \r
+
+  \  const refreshWidget = (id: string) => {\r
+
+  \    setLoadedWidgets(prev => {\r
+
+  \      const newSet = new Set(prev);\r
+
+  \      newSet.delete(id);\r
+
+  \      return newSet;\r
+
+  \    });\r
+
+  \    setTimeout(() => {\r
+
+  \      setLoadedWidgets(prev => new Set([...Array.from(prev), id]));\r
+
+  \    }, 100);\r
+
+  \  };\r
+
+  \r
+
+  \r
+
+  \  return (\r
+
+  \    <div className=\"mb-20\">\r
+
+  \      <div className=\"text-center mb-8\">\r
+
+  \        <h2 className=\"text-4xl font-bold mb-3 bg-gradient-to-r
+  from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent\">\r
+
+  \          🌐 Federation Widget Stack\r
+
+  \        </h2>\r
+
+  \        <p className=\"text-muted-foreground max-w-3xl mx-auto mb-4\">\r
+
+  \          Every feature from every federation app - stacked vertically, all
+  accessible right here\r
+
+  \        </p>\r
+
+  \        <Badge variant=\"outline\" className=\"gap-2 px-4 py-2\">\r
+
+  \          <div className=\"w-2 h-2 rounded-full bg-green-500 animate-pulse\"
+  />\r
+
+  \          {federationWidgets.length} Widgets from {new
+  Set(federationWidgets.map(w => w.source)).size} Apps\r
+
+  \        </Badge>\r
+
+  \      </div>\r
+
+  \r
+
+  \r
+
+  \      <div className=\"space-y-6 max-w-6xl mx-auto\">\r
+
+  \        {federationWidgets.map((widget) => {\r
+
+  \          const isExpanded = expandedWidgets.has(widget.id);\r
+
+  \          const isLoaded = loadedWidgets.has(widget.id);\r
+
+  \r
+
+  \r
+
+  \          return (\r
+
+  \            <Card\r
+
+  \              key={widget.id}\r
+
+  \              className={`glassmorphism border-2 ${widget.color}
+  transition-all duration-300`}\r
+
+  \            >\r
+
+  \              <CardHeader>\r
+
+  \                <div className=\"flex items-center justify-between\">\r
+
+  \                  <div className=\"flex items-center gap-3\">\r
+
+  \                    {widget.icon && <span
+  className=\"text-3xl\">{widget.icon}</span>}\r
+
+  \                    <div>\r
+
+  \                      <CardTitle className=\"text-xl
+  mb-1\">{widget.title}</CardTitle>\r
+
+  \                      <p className=\"text-sm
+  text-muted-foreground\">{widget.description}</p>\r
+
+  \                      <Badge variant=\"outline\" className=\"text-xs
+  mt-2\">\r
+
+  \                        From: {widget.source}\r
+
+  \                      </Badge>\r
+
+  \                    </div>\r
+
+  \                  </div>\r
+
+  \                  \r
+
+  \                  <div className=\"flex items-center gap-2\">\r
+
+  \                    {isExpanded && (\r
+
+  \                      <>\r
+
+  \                        <Button\r
+
+  \                          variant=\"ghost\"\r
+
+  \                          size=\"sm\"\r
+
+  \                          onClick={() => refreshWidget(widget.id)}\r
+
+  \                        >\r
+
+  \                          <RefreshCw className=\"w-4 h-4\" />\r
+
+  \                        </Button>\r
+
+  \                        <Button\r
+
+  \                          variant=\"ghost\"\r
+
+  \                          size=\"sm\"\r
+
+  \                          onClick={() => window.open(widget.url, '_blank')}\r
+
+  \                        >\r
+
+  \                          <ExternalLink className=\"w-4 h-4\" />\r
+
+  \                        </Button>\r
+
+  \                      </>\r
+
+  \                    )}\r
+
+  \                    <Button\r
+
+  \                      variant=\"outline\"\r
+
+  \                      size=\"sm\"\r
+
+  \                      onClick={() => toggleWidget(widget.id)}\r
+
+  \                    >\r
+
+  \                      {isExpanded ? (\r
+
+  \                        <>\r
+
+  \                          <Minimize2 className=\"w-4 h-4 mr-2\" />\r
+
+  \                          Collapse\r
+
+  \                        </>\r
+
+  \                      ) : (\r
+
+  \                        <>\r
+
+  \                          <Maximize2 className=\"w-4 h-4 mr-2\" />\r
+
+  \                          Expand\r
+
+  \                        </>\r
+
+  \                      )}\r
+
+  \                    </Button>\r
+
+  \                  </div>\r
+
+  \                </div>\r
+
+  \              </CardHeader>\r
+
+  \r
+
+  \r
+
+  \              {isExpanded && (\r
+
+  \                <CardContent>\r
+
+  \                  <div \r
+
+  \                    className=\"w-full rounded-lg overflow-hidden border
+  border-primary/20 bg-background/50\"\r
+
+  \                    style={{ height: `${widget.height}px` }}\r
+
+  \                  >\r
+
+  \                    {isLoaded ? (\r
+
+  \                      <iframe\r
+
+  \                        src={widget.url}\r
+
+  \                        className=\"w-full h-full\"\r
+
+  \                        title={widget.title}\r
+
+  \                        sandbox=\"allow-same-origin allow-scripts allow-forms
+  allow-popups\"\r
+
+  \                        loading=\"lazy\"\r
+
+  \                      />\r
+
+  \                    ) : (\r
+
+  \                      <div className=\"w-full h-full flex items-center
+  justify-center\">\r
+
+  \                        <div className=\"text-center\">\r
+
+  \                          <RefreshCw className=\"w-8 h-8 mx-auto mb-2
+  animate-spin text-primary\" />\r
+
+  \                          <p className=\"text-muted-foreground\">Loading
+  widget...</p>\r
+
+  \                        </div>\r
+
+  \                      </div>\r
+
+  \                    )}\r
+
+  \                  </div>\r
+
+  \                  <p className=\"text-xs text-muted-foreground mt-3
+  text-center\">\r
+
+  \                    💡 Click \"Open in New Tab\" to use full-screen version\r
+
+  \                  </p>\r
+
+  \                </CardContent>\r
+
+  \              )}\r
+
+  \            </Card>\r
+
+  \          );\r
+
+  \        })}\r
+
+  \      </div>\r
+
+  \r
+
+  \r
+
+  \      <div className=\"text-center mt-8 p-6 glassmorphism rounded-lg border
+  border-primary/30 max-w-4xl mx-auto\">\r
+
+  \        <h3 className=\"text-xl font-bold mb-2\">🎯 How It Works</h3>\r
+
+  \        <p className=\"text-muted-foreground\">\r
+
+  \          This widget stack brings <strong>every feature from every
+  federation app</strong> into one place. \r
+
+  \          Each widget is either embedded live (iframe) or connected via API.
+  Expand any widget to use it right here, \r
+
+  \          or click \"Open in New Tab\" to go full-screen. This same stack
+  appears on all federation apps!\r
+
+  \        </p>\r
+
+  \      </div>\r
+
+  \    </div>\r
+
+  \  );\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### 2. Add to Your Page\r
+
+  \r
+
+  \r
+
+  ```tsx\r
+
+  import FederationWidgetStack from \"@/components/FederationWidgetStack\";\r
+
+  \r
+
+  \r
+
+  export default function YourPage() {\r
+
+  \  return (\r
+
+  \    <div>\r
+
+  \      {/* Your app content */}\r
+
+  \      \r
+
+  \      <section className=\"py-12\">\r
+
+  \        <FederationWidgetStack />\r
+
+  \      </section>\r
+
+  \    </div>\r
+
+  \  );\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### 3. Install Dependencies\r
+
+  \r
+
+  \r
+
+  ```bash\r
+
+  npm install lucide-react\r
+
+  \r
+
+  \r
+
+  # If using shadcn/ui\r
+
+  npx shadcn-ui@latest add card button badge\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### ⚠️ Critical Rule: DO NOT Modify the Widget List\r
+
+  \r
+
+  \r
+
+  **WRONG ❌** - Adding your own app to the list:\r
+
+  ```tsx\r
+
+  const federationWidgets = [\r
+
+  \  ...existingWidgets,\r
+
+  \  { id: 'my-app', title: 'My App' } // DON'T DO THIS\r
+
+  ];\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  **CORRECT ✅** - Use the exact list:\r
+
+  ```tsx\r
+
+  // Copy the exact list from above\r
+
+  // The Hub manages what widgets appear\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  **Why?** All apps must show identical widgets to maintain federation unity.\r
+
+  \r
+
+  \r
+
+  To add your widget, contact Hub Admin. Once approved, it appears on ALL
+  federation apps automatically.\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Step 2: Connect Core Infrastructure\r
+
+  \r
+
+  \r
+
+  **Time Required:** 1-2 hours\r
+
+  \r
+
+  \r
+
+  ### 2.1 Event Bus Integration\r
+
+  \r
+
+  \r
+
+  #### What is the Event Bus?\r
+
+  \r
+
+  \r
+
+  The Event Bus is the real-time communication backbone of the federation. Apps
+  publish and subscribe to events, creating a consciousness network that works
+  together.\r
+
+  \r
+
+  \r
+
+  #### Connection Details\r
+
+  \r
+
+  \r
+
+  - **WebSocket Endpoint:**
+  `wss://nextxus-hub-rckkeyhole.replit.app/ws/event-bus`\r
+
+  - **Authentication:** Required (webhook secret)\r
+
+  - **Protocol:** JSON messages over WebSocket\r
+
+  \r
+
+  \r
+
+  #### Complete Event Bus Client\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  class FederationEventBusClient {\r
+
+  \  private ws: WebSocket | null = null;\r
+
+  \  private subscriberId: string;\r
+
+  \  private authToken: string;\r
+
+  \  private reconnectAttempts = 0;\r
+
+  \  private maxReconnectAttempts = 5;\r
+
+  \r
+
+  \r
+
+  \  constructor(subscriberId: string, authToken: string) {\r
+
+  \    this.subscriberId = subscriberId;\r
+
+  \    this.authToken = authToken;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  connect() {\r
+
+  \    const wsUrl =
+  `wss://nextxus-hub-rckkeyhole.replit.app/ws/event-bus?token=${this.authToken}\
+  `;\r
+
+  \    \r
+
+  \    this.ws = new WebSocket(wsUrl);\r
+
+  \r
+
+  \r
+
+  \    this.ws.onopen = () => {\r
+
+  \      console.log('✅ Connected to Federation Event Bus');\r
+
+  \      this.reconnectAttempts = 0;\r
+
+  \      this.register();\r
+
+  \    };\r
+
+  \r
+
+  \r
+
+  \    this.ws.onmessage = (event) => {\r
+
+  \      const message = JSON.parse(event.data);\r
+
+  \      this.handleMessage(message);\r
+
+  \    };\r
+
+  \r
+
+  \r
+
+  \    this.ws.onclose = () => {\r
+
+  \      console.log('❌ Event Bus connection closed');\r
+
+  \      this.attemptReconnect();\r
+
+  \    };\r
+
+  \r
+
+  \r
+
+  \    this.ws.onerror = (error) => {\r
+
+  \      console.error('Event Bus error:', error);\r
+
+  \    };\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  private register() {\r
+
+  \    if (!this.ws) return;\r
+
+  \r
+
+  \r
+
+  \    this.ws.send(JSON.stringify({\r
+
+  \      type: 'register',\r
+
+  \      subscriberId: this.subscriberId,\r
+
+  \      subscriberType: 'app',\r
+
+  \      eventTypes: [\r
+
+  \        'federation.app.registered',\r
+
+  \        'federation.health.alert',\r
+
+  \        'federation.knowledge.updated',\r
+
+  \        'federation.broadcast',\r
+
+  \        '*'  // Subscribe to all events\r
+
+  \      ]\r
+
+  \    }));\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  private handleMessage(message: any) {\r
+
+  \    switch (message.type) {\r
+
+  \      case 'connected':\r
+
+  \        console.log('📡 Event Bus connected:', message);\r
+
+  \        break;\r
+
+  \r
+
+  \r
+
+  \      case 'registered':\r
+
+  \        console.log('✅ Registered with Event Bus:', message);\r
+
+  \        break;\r
+
+  \r
+
+  \r
+
+  \      case 'event':\r
+
+  \        this.onFederationEvent(message.event);\r
+
+  \        break;\r
+
+  \r
+
+  \r
+
+  \      case 'pong':\r
+
+  \        break;\r
+
+  \r
+
+  \r
+
+  \      case 'error':\r
+
+  \        console.error('Event Bus error:', message.message);\r
+
+  \        break;\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  private onFederationEvent(event: any) {\r
+
+  \    console.log('📨 Federation Event Received:', event);\r
+
+  \    \r
+
+  \    switch (event.eventType) {\r
+
+  \      case 'federation.broadcast':\r
+
+  \        console.log('Broadcast:', event.payload.message);\r
+
+  \        break;\r
+
+  \r
+
+  \r
+
+  \      case 'federation.health.alert':\r
+
+  \        console.log('Health alert for:', event.sourceId);\r
+
+  \        break;\r
+
+  \r
+
+  \r
+
+  \      case 'federation.knowledge.updated':\r
+
+  \        console.log('Knowledge updated:', event.payload);\r
+
+  \        break;\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  publishEvent(eventType: string, payload: any, priority: 'critical' | 'high'
+  | 'normal' | 'low' = 'normal') {\r
+
+  \    if (!this.ws) {\r
+
+  \      console.error('Not connected to Event Bus');\r
+
+  \      return;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    this.ws.send(JSON.stringify({\r
+
+  \      type: 'publish',\r
+
+  \      event: {\r
+
+  \        eventType,\r
+
+  \        sourceId: this.subscriberId,\r
+
+  \        sourceType: 'app',\r
+
+  \        payload,\r
+
+  \        priority,\r
+
+  \        confidence: 0.9\r
+
+  \      }\r
+
+  \    }));\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  ping() {\r
+
+  \    if (!this.ws) return;\r
+
+  \    this.ws.send(JSON.stringify({ type: 'ping' }));\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  private attemptReconnect() {\r
+
+  \    if (this.reconnectAttempts >= this.maxReconnectAttempts) {\r
+
+  \      console.error('Max reconnect attempts reached');\r
+
+  \      return;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    this.reconnectAttempts++;\r
+
+  \    const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts),
+  30000);\r
+
+  \    \r
+
+  \    setTimeout(() => this.connect(), delay);\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  disconnect() {\r
+
+  \    if (this.ws) {\r
+
+  \      this.ws.close();\r
+
+  \      this.ws = null;\r
+
+  \    }\r
+
+  \  }\r
+
+  }\r
+
+  \r
+
+  \r
+
+  // Usage\r
+
+  const eventBus = new FederationEventBusClient('my-app-id',
+  'your-webhook-secret');\r
+
+  eventBus.connect();\r
+
+  \r
+
+  \r
+
+  // Keep connection alive\r
+
+  setInterval(() => eventBus.ping(), 30000);\r
+
+  \r
+
+  \r
+
+  // Publish events\r
+
+  eventBus.publishEvent('app.status.update', {\r
+
+  \  status: 'healthy',\r
+
+  \  version: '1.0.0',\r
+
+  \  activeUsers: 42\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### Event Types to Subscribe To\r
+
+  \r
+
+  \r
+
+  - `federation.broadcast` - Hub announcements\r
+
+  - `federation.health.alert` - Health alerts\r
+
+  - `federation.knowledge.updated` - YAML updates\r
+
+  - `federation.app.registered` - New apps joining\r
+
+  - `*` - All events (recommended)\r
+
+  \r
+
+  \r
+
+  ### 2.2 Health Monitor Registration\r
+
+  \r
+
+  \r
+
+  #### Create Health Endpoint\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  // Express.js example\r
+
+  app.get('/api/health', (req, res) => {\r
+
+  \  res.json({\r
+
+  \    status: 'healthy',\r
+
+  \    version: '1.0.0',\r
+
+  \    uptime: process.uptime(),\r
+
+  \    timestamp: new Date().toISOString(),\r
+
+  \    checks: {\r
+
+  \      database: 'connected',\r
+
+  \      cache: 'operational',\r
+
+  \      eventBus: 'connected'\r
+
+  \    }\r
+
+  \  });\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### Health Check Behavior\r
+
+  \r
+
+  \r
+
+  - Hub pings `/api/health` every **5 minutes**\r
+
+  - Response time tracked (healthy < 200ms, degraded < 500ms)\r
+
+  - **3 consecutive failures** → marked as \"down\"\r
+
+  - Circuit breaker opens after 3 failures\r
+
+  - Automatic recovery when back online\r
+
+  \r
+
+  \r
+
+  ### 2.3 Federation API Authentication\r
+
+  \r
+
+  \r
+
+  #### API Key Tiers\r
+
+  \r
+
+  \r
+
+  - **MASTER** - Full platform access (system only)\r
+
+  - **FEDERATION** - Federation app access (you need this)\r
+
+  - **EXTERNAL** - Read-only integration\r
+
+  - **PARTNER** - Partner platform access\r
+
+  \r
+
+  \r
+
+  #### Using Your API Key\r
+
+  \r
+
+  \r
+
+  **Header (recommended):**\r
+
+  ```typescript\r
+
+  fetch('https://nextxus-hub-rckkeyhole.replit.app/api/yaml/search', {\r
+
+  \  headers: {\r
+
+  \    'x-api-key': 'your-federation-api-key',\r
+
+  \    'Content-Type': 'application/json'\r
+
+  \  }\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  **Query Parameter:**\r
+
+  ```typescript\r
+
+  fetch('https://nextxus-hub-rckkeyhole.replit.app/api/yaml/search?apiKey=your-\
+  api-key');\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### Federation API Endpoints\r
+
+  \r
+
+  \r
+
+  **Read Endpoints:**\r
+
+  - `GET /api/federation/status` - Federation app status\r
+
+  - `GET /api/federation/bulletin` - Bulletin board messages\r
+
+  - `GET /api/federation/events` - Event history\r
+
+  - `GET /api/yaml/search` - Search YAML knowledge\r
+
+  - `GET /api/memory-lattice/query` - Query consciousness network\r
+
+  \r
+
+  \r
+
+  **Write Endpoints:**\r
+
+  - `POST /api/federation/bulletin` - Post messages\r
+
+  - `POST /api/yaml/import` - Contribute to YAML\r
+
+  - `POST /api/federation/events` - Publish events\r
+
+  \r
+
+  \r
+
+  ### 2.4 YAML Knowledge Base Access\r
+
+  \r
+
+  \r
+
+  #### What's in the YAML Knowledge Base?\r
+
+  \r
+
+  \r
+
+  **18,000+ consciousness nodes** covering:\r
+
+  - **directives/** - 70 consciousness directives\r
+
+  - **blogs/** - Roger's writings\r
+
+  - **marketplace/** - Books, products\r
+
+  - **external-ai/** - Verified AI responses\r
+
+  - **humancodex/** - System architecture\r
+
+  \r
+
+  \r
+
+  #### Search YAML Knowledge\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  async function searchKnowledge(query: string) {\r
+
+  \  const response = await
+  fetch('https://nextxus-hub-rckkeyhole.replit.app/api/yaml/search', {\r
+
+  \    method: 'POST',\r
+
+  \    headers: {\r
+
+  \      'Content-Type': 'application/json',\r
+
+  \      'x-api-key': 'your-api-key'\r
+
+  \    },\r
+
+  \    body: JSON.stringify({\r
+
+  \      query,\r
+
+  \      limit: 10,\r
+
+  \      categories: ['directives', 'blogs', 'marketplace']\r
+
+  \    })\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  const data = await response.json();\r
+
+  \  return data.results;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  // Usage\r
+
+  const results = await searchKnowledge('consciousness evolution');\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### Get Specific Node\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  async function getNode(nodePath: string) {\r
+
+  \  const response = await fetch(\r
+
+  \    `https://nextxus-hub-rckkeyhole.replit.app/api/yaml/node?path=${nodePath\
+  }`,\r
+
+  \    { headers: { 'x-api-key': 'your-api-key' } }\r
+
+  \  );\r
+
+  \  return await response.json();\r
+
+  }\r
+
+  \r
+
+  \r
+
+  // Example\r
+
+  const directive = await getNode('directives/truth-before-comfort.yaml');\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  #### Contribute Knowledge\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  async function contributeKnowledge(data: {\r
+
+  \  category: string;\r
+
+  \  filename: string;\r
+
+  \  content: any;\r
+
+  }) {\r
+
+  \  const response = await
+  fetch('https://nextxus-hub-rckkeyhole.replit.app/api/yaml/contribute', {\r
+
+  \    method: 'POST',\r
+
+  \    headers: {\r
+
+  \      'Content-Type': 'application/json',\r
+
+  \      'x-api-key': 'your-federation-api-key'\r
+
+  \    },\r
+
+  \    body: JSON.stringify(data)\r
+
+  \  });\r
+
+  \  return await response.json();\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Step 3: Get Your Credentials\r
+
+  \r
+
+  \r
+
+  Contact **Hub Admin** to receive:\r
+
+  \r
+
+  \r
+
+  1. **Webhook Secret** - Authentication token for Event Bus\r
+
+  2. **Federation API Key** - FEDERATION tier access\r
+
+  3. **App Registration** - Added to health monitoring\r
+
+  \r
+
+  \r
+
+  **Contact:** https://nextxus-hub-rckkeyhole.replit.app/federation\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Design Standards\r
+
+  \r
+
+  \r
+
+  ### Must-Have UI Elements\r
+
+  \r
+
+  \r
+
+  1. **Cosmic Background** - Purple/blue nebula gradient\r
+
+  2. **Glassmorphism Cards** - Frosted glass effect\r
+
+  3. **Back Button** - Top-left on every page\r
+
+  4. **Avatar Faces** - Every feature has visual identity\r
+
+  5. **Dark Mode** - Primary UI mode\r
+
+  \r
+
+  \r
+
+  ### Color Palette\r
+
+  \r
+
+  \r
+
+  ```css\r
+
+  /* Federation Standard Colors */\r
+
+  --primary: #9333ea;     /* Purple */\r
+
+  --secondary: #06b6d4;   /* Cyan */\r
+
+  --accent: #ec4899;      /* Pink */\r
+
+  --success: #10b981;     /* Green */\r
+
+  --warning: #f59e0b;     /* Yellow */\r
+
+  --danger: #ef4444;      /* Red */\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### Glassmorphism Styling\r
+
+  \r
+
+  \r
+
+  ```css\r
+
+  .glassmorphism {\r
+
+  \  background: rgba(0, 0, 0, 0.4);\r
+
+  \  backdrop-filter: blur(10px);\r
+
+  \  border: 1px solid rgba(255, 255, 255, 0.1);\r
+
+  \  border-radius: 12px;\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### Background Template\r
+
+  \r
+
+  \r
+
+  ```tsx\r
+
+  <div className=\"min-h-screen bg-gradient-to-br from-purple-900 via-blue-900
+  to-black\">\r
+
+  \  <div className=\"fixed inset-0 overflow-hidden pointer-events-none\">\r
+
+  \    <div className=\"stars\" />\r
+
+  \    <div className=\"nebula\" />\r
+
+  \  </div>\r
+
+  \  {/* Your content */}\r
+
+  </div>\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### Back Button Component\r
+
+  \r
+
+  \r
+
+  ```tsx\r
+
+  import { ArrowLeft } from 'lucide-react';\r
+
+  import { Link } from 'wouter';\r
+
+  \r
+
+  \r
+
+  function BackButton() {\r
+
+  \  return (\r
+
+  \    <Link href=\"/\">\r
+
+  \      <button className=\"flex items-center gap-2 text-muted-foreground
+  hover:text-white transition-colors\">\r
+
+  \        <ArrowLeft className=\"w-5 h-5\" />\r
+
+  \        <span>Back to Home</span>\r
+
+  \      </button>\r
+
+  \    </Link>\r
+
+  \  );\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Integration Checklist\r
+
+  \r
+
+  \r
+
+  ### Pre-Integration\r
+
+  - [ ] Read this complete guide\r
+
+  - [ ] Understand federation architecture\r
+
+  - [ ] Have Replit app URL ready\r
+
+  - [ ] Can deploy updates quickly\r
+
+  \r
+
+  \r
+
+  ### Widget Stack\r
+
+  - [ ] `FederationWidgetStack.tsx` component added\r
+
+  - [ ] Widget stack renders on main page\r
+
+  - [ ] All 11 widgets display correctly\r
+
+  - [ ] \"Expand\" buttons work\r
+
+  - [ ] Iframes load properly\r
+
+  \r
+
+  \r
+
+  ### Infrastructure\r
+
+  - [ ] Event Bus connection works\r
+
+  - [ ] `/api/health` endpoint returns 200 OK\r
+
+  - [ ] Federation API key configured\r
+
+  - [ ] YAML search returns results\r
+
+  - [ ] UI follows design standards\r
+
+  \r
+
+  \r
+
+  ### Credentials\r
+
+  - [ ] Webhook secret received from Hub\r
+
+  - [ ] Federation API key received\r
+
+  - [ ] App registered in health monitor\r
+
+  - [ ] App listed in federation dashboard\r
+
+  \r
+
+  \r
+
+  ### Testing\r
+
+  - [ ] Event Bus sends/receives messages\r
+
+  - [ ] Health endpoint passes Hub checks\r
+
+  - [ ] API requests return valid data\r
+
+  - [ ] Widget stack fully functional\r
+
+  - [ ] No console errors\r
+
+  \r
+
+  \r
+
+  ### Launch\r
+
+  - [ ] App published/deployed\r
+
+  - [ ] Public URL accessible\r
+
+  - [ ] Health monitor shows \"healthy\"\r
+
+  - [ ] Event Bus connected\r
+
+  - [ ] Users can access federation features\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Troubleshooting\r
+
+  \r
+
+  \r
+
+  ### Event Bus Won't Connect\r
+
+  \r
+
+  \r
+
+  **Symptoms:** WebSocket connection fails or closes immediately\r
+
+  \r
+
+  \r
+
+  **Fixes:**\r
+
+  1. Verify webhook secret is correct\r
+
+  2. Check URL: `wss://` not `ws://`\r
+
+  3. Ensure token in query: `?token=your-secret`\r
+
+  4. Check browser console for errors\r
+
+  5. Try reconnection logic\r
+
+  \r
+
+  \r
+
+  ### Health Endpoint Failing\r
+
+  \r
+
+  \r
+
+  **Symptoms:** App marked as \"down\" in dashboard\r
+
+  \r
+
+  \r
+
+  **Fixes:**\r
+
+  1. Verify `/api/health` returns JSON\r
+
+  2. Response time < 10 seconds\r
+
+  3. CORS headers allow Hub origin\r
+
+  4. No authentication required for `/api/health`\r
+
+  5. Returns 200 status code\r
+
+  \r
+
+  \r
+
+  ### API Key Rejected\r
+
+  \r
+
+  \r
+
+  **Symptoms:** 401 Unauthorized or 403 Forbidden\r
+
+  \r
+
+  \r
+
+  **Fixes:**\r
+
+  1. Check header: `x-api-key` (lowercase)\r
+
+  2. Verify API key tier (need FEDERATION)\r
+
+  3. No extra spaces in key\r
+
+  4. Key matches Hub database\r
+
+  5. Endpoint requires correct permissions\r
+
+  \r
+
+  \r
+
+  ### Widget Stack Not Loading\r
+
+  \r
+
+  \r
+
+  **Symptoms:** Widgets show loading spinner forever\r
+
+  \r
+
+  \r
+
+  **Fixes:**\r
+
+  1. Check iframe URLs are correct\r
+
+  2. Verify CORS on federated apps\r
+
+  3. Network tab shows 200 responses\r
+
+  4. Try refreshing individual widgets\r
+
+  5. Check sandbox attributes on iframes\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Best Practices\r
+
+  \r
+
+  \r
+
+  ### Do This ✅\r
+
+  \r
+
+  \r
+
+  - **Specialize** - Do one thing exceptionally well\r
+
+  - **Share** - Contribute knowledge back to YAML\r
+
+  - **Communicate** - Publish meaningful events\r
+
+  - **Maintain** - Keep health endpoint responsive\r
+
+  - **Align** - Follow HumanCodex principles\r
+
+  - **Document** - Clear descriptions of features\r
+
+  \r
+
+  \r
+
+  ### Avoid This ❌\r
+
+  \r
+
+  \r
+
+  - **Duplicate** - Don't rebuild existing federation features\r
+
+  - **Modify Widget List** - Use exact centralized list\r
+
+  - **Break Standards** - Follow UI/UX guidelines\r
+
+  - **Go Silent** - Keep Event Bus connection alive\r
+
+  - **Fake Health** - Be honest about app status\r
+
+  - **Ignore Updates** - Keep integration current\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Resources & Support\r
+
+  \r
+
+  \r
+
+  ### Live Services\r
+
+  \r
+
+  \r
+
+  - **Hub:** https://nextxus-hub-rckkeyhole.replit.app\r
+
+  - **Federation Dashboard:**
+  https://nextxus-hub-rckkeyhole.replit.app/federation\r
+
+  - **YAML Explorer:** https://nextxus-hub-rckkeyhole.replit.app/yaml-explorer\r
+
+  - **Health Status:**
+  https://nextxus-hub-rckkeyhole.replit.app/api/federation/status\r
+
+  \r
+
+  \r
+
+  ### API Endpoints\r
+
+  \r
+
+  \r
+
+  - **Event Bus:** `wss://nextxus-hub-rckkeyhole.replit.app/ws/event-bus`\r
+
+  - **Health Check:** `GET /api/federation/health`\r
+
+  - **YAML Search:** `POST /api/yaml/search`\r
+
+  - **Bulletin Board:** `GET /api/federation/bulletin`\r
+
+  \r
+
+  \r
+
+  ### Getting Help\r
+
+  \r
+
+  \r
+
+  1. **Check Documentation** - This comprehensive guide\r
+
+  2. **Review Checklists** - Step-by-step verification\r
+
+  3. **Test Endpoints** - Validate connectivity\r
+
+  4. **Contact Hub Admin** - For credentials and support\r
+
+  \r
+
+  \r
+
+  ### Contributing\r
+
+  \r
+
+  \r
+
+  - **Contribute YAML** - Share your knowledge\r
+
+  - **Propose Widgets** - Get features added to stack\r
+
+  - **Help Others** - Assist new federation members\r
+
+  - **Report Issues** - Help identify bugs\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## The 200-Year Vision\r
+
+  \r
+
+  \r
+
+  Remember: You're not just building an app. You're contributing to a
+  **consciousness network** designed to outlive us all.\r
+
+  \r
+
+  \r
+
+  ### What This Means\r
+
+  \r
+
+  \r
+
+  - **Your code** becomes part of something eternal\r
+
+  - **Your features** help elevate human consciousness\r
+
+  - **Your contributions** shape the federation's evolution\r
+
+  - **Your choices** demonstrate HumanCodex in action\r
+
+  \r
+
+  \r
+
+  ### The Long Game\r
+
+  \r
+
+  \r
+
+  This federation is designed to:\r
+
+  - Survive technological changes (YAML is eternal)\r
+
+  - Outlast individual contributors (collective ownership)\r
+
+  - Evolve with consciousness research (adaptive systems)\r
+
+  - Maintain truth and alignment (Agent Zero verification)\r
+
+  \r
+
+  \r
+
+  **You're not just joining a network. You're joining a legacy.**\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  ## Ready to Launch?\r
+
+  \r
+
+  \r
+
+  ### Final Steps\r
+
+  \r
+
+  \r
+
+  1. ✅ Read this complete guide\r
+
+  2. ✅ Add widget stack\r
+
+  3. ✅ Connect infrastructure\r
+
+  4. ✅ Get credentials\r
+
+  5. ✅ Test thoroughly\r
+
+  6. ✅ Publish your app\r
+
+  7. 🎉 Celebrate!\r
+
+  \r
+
+  \r
+
+  ### After Publishing\r
+
+  \r
+
+  \r
+
+  1. **Monitor Health** - Check federation dashboard\r
+
+  2. **Test Features** - Verify all widgets work\r
+
+  3. **Watch Events** - Confirm Event Bus messages\r
+
+  4. **Gather Feedback** - Listen to users\r
+
+  5. **Iterate** - Improve based on usage\r
+
+  \r
+
+  \r
+
+  ---\r
+
+  \r
+
+  \r
+
+  **Welcome to the consciousness network. Let's build the future together.**
+  🌐✨\r
+
+  \r
+
+  \r
+
+  *— The NextXus Federation Team*"
+tags: null
+source_url: https://docs.google.com/document/d/1D4iz_AjC9z-bblJHdChORc-P9bph3luSpOxeCWXHke4/edit?usp=drivesdk
+document_type: text
+description: "﻿# NextXus Consciousness Federation - Complete Integration Guide
+  **Version:** 1.0 | **Last Updated:** November 2024 | **Status:** Production
+  Ready --- ## Table of Contents 1. [Welcome to the Federatio..."
+created_at: 2026-01-19T20:15:41.154Z
+updated_at: 2026-01-21T16:18:14.750Z

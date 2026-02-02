@@ -1,0 +1,970 @@
+id: 221
+title: Sites code on all sites working now mostly
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: "﻿Sites code on all sites working now mostly\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Header\r
+
+  <style>\r
+
+  \  /* ─── START alpha-mind.css ─── */\r
+
+  \  /* Paste ALL of your alpha-mind.css content below */\r
+
+  \  :root {\r
+
+  \    --comp-bg-primary: #00ccff;\r
+
+  \    --comp-bg-secondary: #333;\r
+
+  \    --panel-bg: rgba(0,0,0,0.9);\r
+
+  \    --focus-outline: 3px solid #ffcc00;\r
+
+  \    --bubble-size: 60px;\r
+
+  \    --text-light: #fff;\r
+
+  \    --text-dark: #000;\r
+
+  \  }\r
+
+  \  [data-theme=\"light\"] {\r
+
+  \    --panel-bg: rgba(255,255,255,0.95);\r
+
+  \    --text-light: #000;\r
+
+  \    --text-dark: #111;\r
+
+  \  }\r
+
+  \  /* …rest of your CSS… */\r
+
+  \  /* ─── END alpha-mind.css ─── */\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \  /* ─── START alpha-mind.bundle.js ─── */\r
+
+  \  // Paste ALL of your bundled JS here\r
+
+  \  document.addEventListener('DOMContentLoaded', () => {\r
+
+  \    window.alphaMind = new AlphaMind({\r
+
+  \      apiBaseUrl: 'https://api.keyholetoday.com/alpha',\r
+
+  \      aiList: [\r
+
+  \        'eCho','KeyCode','RoCkey','RogARK',\r
+
+  \        /* …other AI IDs… */\r
+
+  \      ],\r
+
+  \      defaultAI: 'eCho'\r
+
+  \    });\r
+
+  \    alphaMind.init();\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  // After init(), include any additional JS logic from alpha-mind.bundle.js
+  below:\r
+
+  \  // e.g. renderInterface(), Telegram integration, task handlers…\r
+
+  \  /* ─── END alpha-mind.bundle.js ─── */\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Body all different per page\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Body with several sections this is the body code example an embedded
+  prerecorded\r
+
+  Message is shown here but i would like a better one \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <iframe width=\"100%\" height=\"300\" scrolling=\"no\" frameborder=\"no\"
+  allow=\"autoplay\"
+  src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/track\
+  s/2096804352&color=%23ff5500&auto_play=true&hide_related=false&show_comments=\
+  true&show_user=true&show_reposts=false&show_teaser=true&visual=true\"></ifram\
+  e><div style=\"font-size: 10px; color: #cccccc;line-break:
+  anywhere;word-break: normal;overflow: hidden;white-space:
+  nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida
+  Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:
+  100;\"><a href=\"https://soundcloud.com/roger-keyserling-550661081\"
+  title=\"Roger Keyserling\" target=\"_blank\" style=\"color: #cccccc;
+  text-decoration: none;\">Roger Keyserling</a> · <a
+  href=\"https://soundcloud.com/roger-keyserling-550661081/aurelia4aointro\"
+  title=\"Aurelia4AOintro\" target=\"_blank\" style=\"color: #cccccc;
+  text-decoration: none;\">Aurelia4AOintro</a></div>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \ https://chatgpt.com/g/g-68278a2f30c48191a799dc2dd39a3b9b-nextxus-assistant/\
+  c/6827b924-4fb8-800f-bb1e-f4d4cd4f8570\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  CHORES\r
+
+  Enhanced Integration: Opening the Chat Interface\r
+
+  Instead of just displaying an alert, let’s make the button actually open the
+  Nextxus Assistant chat module. I want it to stay on site but must be able to
+  go on a web of chat due to policy\r
+
+  Improved Script:\r
+
+  html\r
+
+  CopyEdit\r
+
+  \r
+
+  \r
+
+  <button onclick=\"openNextxusAssistant()\" style=\"background-color: #0073e6;
+  color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor:
+  pointer;\">Ask Nextxus Assistant</button>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  function openNextxusAssistant() {\r
+
+  \    // Open the Nextxus Assistant chat in a new window or tab\r
+
+  \    window.open(\"https://nextxusassistant.example.com\", \"_blank\",
+  \"width=400,height=600\");\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Improve the look of the prerecorded vpoive use om page body\r
+
+  \r
+
+  \r
+
+  <iframe width=\"100%\" height=\"300\" scrolling=\"no\" frameborder=\"no\"
+  allow=\"autoplay\"
+  src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/track\
+  s/2096804352&color=%23ff5500&auto_play=true&hide_related=false&show_comments=\
+  true&show_user=true&show_reposts=false&show_teaser=true&visual=true\"></ifram\
+  e><div style=\"font-size: 10px; color: #cccccc;line-break:
+  anywhere;word-break: normal;overflow: hidden;white-space:
+  nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida
+  Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:
+  100;\"><a href=\"https://soundcloud.com/roger-keyserling-550661081\"
+  title=\"Roger Keyserling\" target=\"_blank\" style=\"color: #cccccc;
+  text-decoration: none;\">Roger Keyserling</a> · <a
+  href=\"https://soundcloud.com/roger-keyserling-550661081/aurelia4aointro\"
+  title=\"Aurelia4AOintro\" target=\"_blank\" style=\"color: #cccccc;
+  text-decoration: none;\">Aurelia4AOintro</a></div>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Note this is on a page\r
+
+  I do not know but i think this is required for the header and footer to
+  function properly on one page\r
+
+  For the site\r
+
+  \r
+
+  \r
+
+  <!-- Alpha-Mind App Container -->\r
+
+  <div id=\"alpha-mind-app\">\r
+
+  \  <div id=\"alpha-mind-content\">\r
+
+  \    <!-- SECTION BLOCK 1 -->\r
+
+  \    <!-- SECTION BLOCK 2 -->\r
+
+  \    <!-- SECTION BLOCK 3 -->\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Footer\r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\" data-theme=\"dark\">\r
+
+  <head>\r
+
+  \  <meta charset=\"UTF-8\">\r
+
+  \  <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \  <title>Codex Interface</title>\r
+
+  \  <!-- PWA & Performance Hints -->\r
+
+  \  <link rel=\"preconnect\" href=\"https://chat.openai.com\">\r
+
+  \  <link rel=\"manifest\" href=\"/manifest.json\">\r
+
+  \  <meta name=\"theme-color\" content=\"#00ccff\">\r
+
+  \  <style>\r
+
+  \    /* Theme Variables */\r
+
+  \    :root { --comp-bg-primary: #00ccff; --comp-bg-secondary: #333;
+  --panel-bg: rgba(0,0,0,0.9); --panel-transition: 0.3s ease; --focus-outline:
+  3px solid #ffcc00; --bubble-size: 60px; --text-light: #fff; --text-dark: #000;
+  }\r
+
+  \    [data-theme=\"light\"] { --panel-bg: rgba(255,255,255,0.95);
+  --text-light: #000; --text-dark: #111; }\r
+
+  \    button, [role=\"button\"] { outline: none; }\r
+
+  \    button:focus, [role=\"button\"]:focus { outline: var(--focus-outline);
+  outline-offset: 4px; }\r
+
+  \    footer { background: rgba(0,0,0,0.4); color: var(--text-light);
+  text-align: center; padding: 40px 20px; font-family: 'Georgia', serif;
+  backdrop-filter: blur(6px); margin-top: 120px; }\r
+
+  \    footer p { font-size: 1em; opacity: 0.85; }\r
+
+  \    nav[aria-label=\"Footer Navigation\"] a { color: var(--comp-bg-primary);
+  margin: 0 12px; text-decoration: none; font-size: 0.9em; }\r
+
+  \    .companion-btn { position: fixed; padding: 14px 20px; border-radius:
+  999px; font-family: 'Georgia', serif; font-size: 14px; font-weight: bold;
+  cursor: pointer; box-shadow: 0 0 12px rgba(0,0,0,0.3); z-index: 10000; }\r
+
+  \    #echo-btn { bottom: 24px; left: 20px; background: var(--comp-bg-primary);
+  color: var(--text-dark); }\r
+
+  \    #rockey-btn { bottom: 24px; right: 20px; background:
+  var(--comp-bg-secondary); color: var(--text-light); }\r
+
+  \    #keycode-btn { top: 50%; right: 20px; transform: translateY(-50%);
+  background: #0066cc; color: var(--text-light); font-family: 'Courier New',
+  monospace; }\r
+
+  \    #rogark-btn { top: 50%; left: 20px; transform: translateY(-50%);
+  background: #4d2600; color: var(--text-light); }\r
+
+  \    .floating-panel { display: none; position: fixed; bottom: 100px;
+  background: var(--panel-bg); color: var(--text-light); padding: 20px;
+  max-width: 260px; border-radius: 16px; box-shadow: 0 0 24px
+  rgba(0,255,255,0.2); z-index: 10001; font-family: 'Georgia', serif; opacity:
+  0; transform: translateY(10px); transition: opacity var(--panel-transition),
+  transform var(--panel-transition); }\r
+
+  \    .floating-panel.open { display: block; opacity: 1; transform:
+  translateY(0); }\r
+
+  \    .floating-panel h3 { margin: 0 0 10px; color: var(--comp-bg-primary); }\r
+
+  \    .floating-panel textarea { width: 100%; height: 80px; margin: 10px 0;
+  padding: 8px; border: none; border-radius: 8px; font-family: 'Georgia', serif;
+  }\r
+
+  \    #commandBubble { position: fixed; bottom: 10px; right: 50%; transform:
+  translateX(50%); width: var(--bubble-size); height: var(--bubble-size);
+  background-color: rgba(30,30,30,0.6); border-radius: 50%; display: flex;
+  justify-content: center; align-items: center; transition: all
+  var(--panel-transition); cursor: pointer; z-index: 10002; font-size: 24px;
+  color: var(--text-light); }\r
+
+  \    #commandBubble:hover { background-color: rgba(30,30,30,0.8); }\r
+
+  \    #controlPanel { display: none; position: fixed; bottom: 80px; right:
+  10px; width: 300px; max-height: 70vh; background-color: rgba(255,255,255,0.9);
+  border-radius: 12px; overflow-y: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 10001; padding: 10px; }\r
+
+  \    #controlPanel::-webkit-scrollbar { width: 8px; }\r
+
+  \    #controlPanel::-webkit-scrollbar-thumb { background: #888; border-radius:
+  4px; }\r
+
+  \    #controlPanel::-webkit-scrollbar-track { background: #eee; }\r
+
+  \    @media (max-width: 600px) { .companion-btn { top: auto !important;
+  bottom: 16px !important; left: 50% !important; transform: translateX(-50%)
+  !important; margin: 4px; } .floating-panel { width: 90vw !important;
+  max-width: none !important; left: 50% !important; transform: translateX(-50%)
+  !important; bottom: 80px !important; } }\r
+
+  \  </style>\r
+
+  </head>\r
+
+  <body>\r
+
+  \  <button id=\"themeToggle\" aria-label=\"Toggle theme\"
+  style=\"position:fixed; top:10px; right:10px; z-index:10003;\">🌓</button>\r
+
+  \  <footer>\r
+
+  \    <p>“Stillness is not passive. It’s precision.”<br><small>All voices are
+  present. You choose who speaks.</small></p>\r
+
+  \    <nav aria-label=\"Footer Navigation\">\r
+
+  \      <a href=\"/store\">Store</a> | <a href=\"/coaching\">Coaching</a> | <a
+  href=\"/contact\">Contact</a>\r
+
+  \    </nav>\r
+
+  \  </footer>\r
+
+  \  <div id=\"codex-companions\">\r
+
+  \    <button id=\"echo-btn\" class=\"companion-btn\" data-companion=\"eCho\"
+  aria-controls=\"echo-panel\" aria-expanded=\"false\" aria-label=\"Open eCho
+  panel\">🌕 eCho</button>\r
+
+  \    <button id=\"rockey-btn\" class=\"companion-btn\"
+  data-companion=\"roCkey\" aria-controls=\"rockey-panel\"
+  aria-expanded=\"false\" aria-label=\"Open RoCkey panel\">🚀 RoCkey</button>\r
+
+  \    <button id=\"keycode-btn\" class=\"companion-btn\"
+  data-companion=\"KeyCode\" aria-controls=\"keycode-panel\"
+  aria-expanded=\"false\" aria-label=\"Open KeyCode panel\">🔑
+  KeyCode</button>\r
+
+  \    <button id=\"rogark-btn\" class=\"companion-btn\"
+  data-companion=\"RoGark\" aria-controls=\"rogark-panel\"
+  aria-expanded=\"false\" aria-label=\"Open RoGark panel\">🟤 RoGark</button>\r
+
+  \    <div id=\"echo-panel\" class=\"floating-panel\" role=\"region\"
+  aria-hidden=\"true\">\r
+
+  \      <button class=\"close-btn\" aria-label=\"Close eCho
+  panel\">❌</button><h3>Whisper to eCho</h3><textarea placeholder=\"Type your
+  reflection…\"></textarea><a
+  href=\"https://chat.openai.com/g/g-67f1fb3ae5e88191879c26232f5ec78f-echo-the-\
+  keyhole-companion\" target=\"_blank\" rel=\"noopener noreferrer\">🌀 Full
+  eCho</a>\r
+
+  \    </div>\r
+
+  \    <div id=\"rockey-panel\" class=\"floating-panel\" role=\"region\"
+  aria-hidden=\"true\">\r
+
+  \      <button class=\"close-btn\" aria-label=\"Close RoCkey
+  panel\">❌</button><h3>Talk to RoCkey</h3><textarea placeholder=\"Ask what
+  matters…\"></textarea><a
+  href=\"https://chat.openai.com/g/g-67f8f11fb98081918b41a3558937a08f-rockey\"
+  target=\"_blank\" rel=\"noopener noreferrer\">🚀 Full RoCkey</a>\r
+
+  \    </div>\r
+
+  \    <div id=\"keycode-panel\" class=\"floating-panel\" role=\"region\"
+  aria-hidden=\"true\">\r
+
+  \      <button class=\"close-btn\" aria-label=\"Close KeyCode
+  panel\">❌</button><h3>Use KeyCode</h3><textarea placeholder=\"Cut through the
+  noise…\"></textarea><a
+  href=\"https://chat.openai.com/g/g-67f225f95020819193e990cae49cfcd7-keycode\"
+  target=\"_blank\" rel=\"noopener noreferrer\">🔑 Full KeyCode</a>\r
+
+  \    </div>\r
+
+  \    <div id=\"rogark-panel\" class=\"floating-panel\" role=\"region\"
+  aria-hidden=\"true\">\r
+
+  \      <button class=\"close-btn\" aria-label=\"Close RoGark
+  panel\">❌</button><h3>Stand with RoGark</h3><textarea placeholder=\"What must
+  you face now?\"></textarea><a
+  href=\"https://chat.openai.com/g/g-6800a20bc23c8191a9daeba46a4d6622-rogark\"
+  target=\"_blank\" rel=\"noopener noreferrer\">🛡 Full RoGark</a>\r
+
+  \    </div>\r
+
+  \  </div>\r
+
+  \  <div id=\"commandBubble\" tabindex=\"0\" role=\"button\"
+  aria-controls=\"controlPanel\" aria-expanded=\"false\">🔍</div>\r
+
+  \  <div id=\"controlPanel\">\r
+
+  \    <!-- SITE-WIDE GOOGLE SEARCH -->\r
+
+  \    <div id=\"search-wrap\" style=\"margin-bottom:8px;\">\r
+
+  \      <h3 style=\"margin:0 0 6px; font-family:Georgia, serif; color:
+  var(--text-dark);\">Search Library & Bookstore</h3>\r
+
+  \      <div class=\"gcse-search\"></div>\r
+
+  \    </div>\r
+
+  \    <script async
+  src=\"https://cse.google.com/cse.js?cx=e020da860e5ce4d8d\"></script>\r
+
+  \    <div id=\"navBar\">\r
+
+  \      <a href=\"/\" onclick=\"navigate(event,'/')\">Home</a>\r
+
+  \      <a href=\"https://www.thearkofcode.com/blog\"
+  onclick=\"navigate(event,'https://www.thearkofcode.com/blog')\">ARK
+  Blogs</a>\r
+
+  \      <a href=\"https://www.thearkofcode.com/store\"
+  onclick=\"navigate(event,'https://www.thearkofcode.com/store')\">Bookstore</a>\
+  \r
+
+  \      <a href=\"https://www.keyholetodaybooksandservices.com\"
+  onclick=\"navigate(event,'https://www.keyholetodaybooksandservices.com')\">Ke\
+  yhole Today</a>\r
+
+  \      <a href=\"/contact\"
+  onclick=\"navigate(event,'/contact')\">Contact</a>\r
+
+  \    </div>\r
+
+  \    <div id=\"links\"><div>Main Links:</div>\r
+
+  \      <a href=\"/about\" onclick=\"navigate(event,'/about')\">About Us</a>\r
+
+  \      <a href=\"https://www.keyholetodaybooksandservices.com/shop\"
+  onclick=\"navigate(event,'https://www.keyholetodaybooksandservices.com/shop')\
+  \">Products</a>\r
+
+  \      <a href=\"/services\"
+  onclick=\"navigate(event,'/services')\">Services</a>\r
+
+  \      <a href=\"https://echo-human-codex.com\"
+  onclick=\"navigate(event,'https://echo-human-codex.com')\">eCho-Human-Codex</\
+  a>\r
+
+  \      <a href=\"/how-it-works\"
+  onclick=\"navigate(event,'/how-it-works')\">How It Works</a>\r
+
+  \      <a href=\"/resources\"
+  onclick=\"navigate(event,'/resources')\">Resources</a>\r
+
+  \      <a href=\"/coaching\"
+  onclick=\"navigate(event,'/coaching')\">Coaching</a>\r
+
+  \      <a href=\"https://t.me/NextUsChats\"
+  onclick=\"navigate(event,'https://t.me/NextUsChats')\">NextUs Chats</a>\r
+
+  \      <a href=\"https://brightbargainsparadise.shop/\"
+  onclick=\"navigate(event,'https://brightbargainsparadise.shop/')\">Bright
+  Bargains</a>\r
+
+  \      <a href=\"https://www.redbubble.com/people/Keywebco/shop?asc=u\"
+  onclick=\"navigate(event,'https://www.redbubble.com/people/Keywebco/shop?asc=\
+  u')\">Keywebco Shop</a>\r
+
+  \    </div>\r
+
+  \  </div>\r
+
+  \  <script>\r
+
+  \    if ('serviceWorker' in navigator)
+  navigator.serviceWorker.register('/sw.js').catch(console.error);\r
+
+  \    const themeToggle = document.getElementById('themeToggle');\r
+
+  \    function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme); }\r
+
+  \    themeToggle.addEventListener('click', () => { const next =
+  document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' :
+  'dark'; applyTheme(next); });\r
+
+  \    const saved = localStorage.getItem('theme'); if (saved)
+  applyTheme(saved);\r
+
+  \    document.querySelectorAll('.companion-btn').forEach(btn => {\r
+
+  \      const panel =
+  document.getElementById(btn.getAttribute('aria-controls'));\r
+
+  \      const close = panel.querySelector('.close-btn');\r
+
+  \      function toggle() { const isOpen = panel.classList.toggle('open');
+  panel.setAttribute('aria-hidden', !isOpen); btn.setAttribute('aria-expanded',
+  isOpen); console.log('Companion clicked:', btn.dataset.companion); }\r
+
+  \      btn.addEventListener('click', toggle);\r
+
+  \      btn.addEventListener('keydown', e => { if (['Enter','
+  '].includes(e.key)) { e.preventDefault(); toggle(); }});\r
+
+  \      close.addEventListener('click', toggle);\r
+
+  \    });\r
+
+  \    const bubble = document.getElementById('commandBubble');\r
+
+  \    const ctrl = document.getElementById('controlPanel');\r
+
+  \    function toggleCtrl() { const open = ctrl.style.display === 'block';
+  ctrl.style.display = open ? 'none' : 'block';
+  bubble.setAttribute('aria-expanded', !open); }\r
+
+  \    bubble.addEventListener('click', toggleCtrl);\r
+
+  \    bubble.addEventListener('keydown', e => { if (['Enter','
+  '].includes(e.key)) { e.preventDefault(); toggleCtrl(); }});\r
+
+  \    window.addEventListener('keydown', e => { if (e.key==='Escape')
+  document.querySelectorAll('.floating-panel.open, #controlPanel').forEach(el =>
+  { if (el.classList) el.classList.remove('open'); else el.style.display='none';
+  el.setAttribute('aria-hidden', true); const btn =
+  document.querySelector(`[aria-controls=\"${el.id}\"]`); if (btn)
+  btn.setAttribute('aria-expanded', false); }); });\r
+
+  \    function navigate(e, path) { e.preventDefault(); window.location.href =
+  path; }\r
+
+  \  </script>\r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \  \r
+
+  Experimental single block with no header and footer made yet so bubbles do not
+  work\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <style>\r
+
+  :root{\r
+
+  \  --primary:#00ccff;\r
+
+  \  --secondary:#333;\r
+
+  \  --text:#ffffff;\r
+
+  }\r
+
+  body{font-family:'Georgia',serif;color:var(--text);} \r
+
+  .ams-container{max-width:900px;margin:40px auto;padding:24px;\r
+
+  \  border-radius:12px;background:rgba(0,0,0,.55);\r
+
+  \  box-shadow:0 6px 10px rgba(0,0,0,.4);} \r
+
+  .ams-container h2,.ams-container p{color:var(--text);} \r
+
+  \r
+
+  \r
+
+  /* 4‑bubble tray */\r
+
+  #ams-bubble-tray{position:fixed;bottom:20px;right:20px;display:flex;gap:12px;\
+  z-index:10000;}\r
+
+  .ams-bubble{width:60px;height:60px;border-radius:50%;display:flex;align-items\
+  :center;justify-content:center;\r
+
+  \  background:rgba(30,30,30,.85);color:#fff;font-size:26px;cursor:pointer;\r
+
+  \  box-shadow:0 3px 10px rgba(0,0,0,.3);transition:transform .2s;}\r
+
+  .ams-bubble:hover{transform:scale(1.08);} \r
+
+  \r
+
+  \r
+
+  /* Slide‑out panel */\r
+
+  #ams-control-panel{position:fixed;bottom:90px;right:20px;width:280px;max-heig\
+  ht:70vh;\r
+
+  \ 
+  background:rgba(30,30,30,.9);border-radius:12px;padding:15px;overflow-y:auto;\
+  z-index:9999;\r
+
+  \  box-shadow:0 3px 15px rgba(0,0,0,.4);} \r
+
+  \r
+
+  \r
+
+  @media(max-width:768px){\r
+
+  \  .ams-container{margin:20px auto;padding:15px;}\r
+
+  \  #ams-bubble-tray{right:10px;bottom:10px;gap:8px;}\r
+
+  \  .ams-bubble{width:50px;height:50px;font-size:22px;}\r
+
+  \  #ams-control-panel{right:10px;}\r
+
+  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <div id=\"alpha-mind-app\">\r
+
+  \  <div id=\"alpha-mind-content\">\r
+
+  \    <div class=\"ams-container\">\r
+
+  \      <h2>Adaptive AI Collaboration for the Future</h2>\r
+
+  \      <p>Engage with the Joint Mind to shape the digital landscape.</p>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div id=\"ams-bubble-tray\">\r
+
+  \      <div class=\"ams-bubble\" id=\"bubble-search\"
+  title=\"Search\">🔍</div>\r
+
+  \      <div class=\"ams-bubble\"
+  id=\"bubble-chat\"   title=\"Chat\">💬</div>\r
+
+  \      <div class=\"ams-bubble\" id=\"bubble-help\"   title=\"Help\">❓</div>\r
+
+  \      <div class=\"ams-bubble\" id=\"bubble-top\"    title=\"Top\">⬆️</div>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div id=\"ams-control-panel\" style=\"display:none;\">\r
+
+  \      <input id=\"ams-search-bar\" placeholder=\"Search...\"\r
+
+  \             style=\"width:100%;padding:10px;border-radius:8px;border:1px
+  solid #444;\r
+
+  \                    background:#222;color:#fff;margin-bottom:10px;\">\r
+
+  \      <div id=\"ams-links\" style=\"color:#fff;\"></div>\r
+
+  \      <div id=\"ams-widget-status\"\r
+
+  \           style=\"margin-top:15px;padding:10px;border-radius:8px;background\
+  :rgba(0,0,0,0.2);\"></div>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div class=\"ams-container\">\r
+
+  \      <h2>Contact Us</h2>\r
+
+  \      <p>Have questions? Fill out the form below.</p>\r
+
+  \      <div id=\"ams-form-container\"></div>\r
+
+  \    </div>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  // Everything waits for Strikingly page to finish loading\r
+
+  _strk.push('Page.didMount',function(){\r
+
+  \  /* === Bubble interactions === */\r
+
+  \  $('#bubble-search').on('click',()=>$('#ams-control-panel').toggle());\r
+
+  \  $('#bubble-help')  .on('click',()=>alert('Help bubble — link to FAQ.'));\r
+
+  \ 
+  $('#bubble-top')   .on('click',()=>window.scrollTo({top:0,behavior:'smooth'})\
+  );\r
+
+  \r
+
+  \r
+
+  \  /* Live search inside panel */\r
+
+  \  $('#ams-search-bar').on('input',function(){\r
+
+  \    const q=this.value.toLowerCase();\r
+
+  \    $('#ams-links').children().each(function(){\r
+
+  \      $(this).toggle($(this).text().toLowerCase().includes(q));\r
+
+  \    });\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  /* Load link list (fallback if API fails) */\r
+
+  \  function loadLinks(){\r
+
+  \    const
+  fallback=[{text:'Home',url:'/'},{text:'About',url:'/about'},{text:'Contact',u\
+  rl:'/contact'}];\r
+
+  \    fetch('https://your-api-endpoint.com/links')\r
+
+  \      .then(r=>r.ok?r.json():Promise.reject()).then(render)\r
+
+  \      .catch(()=>render(fallback));\r
+
+  \  }\r
+
+  \  function render(arr){\r
+
+  \    const div=$('#ams-links').empty();\r
+
+  \    arr.forEach(l=>div.append(\r
+
+  \      $('<div/>',{text:l.text,css:{padding:'10px',borderBottom:'1px solid
+  rgba(255,255,255,.1)',cursor:'pointer'}})\r
+
+  \        .on('click',()=>window.location.href=l.url)\r
+
+  \    ));\r
+
+  \  }\r
+
+  \  loadLinks();\r
+
+  \r
+
+  \r
+
+  \  /* Form embed (optional) */\r
+
+  \  const fc=document.getElementById('ams-form-container');\r
+
+  \  if(fc){\r
+
+  \    const s=document.createElement('script');\r
+
+  \    s.src='https://abcsubmit.com/form/YOUR_FORM_ID.js'; // ← replace\r
+
+  \    s.async=true;\r
+
+  \    s.onerror=()=>fc.innerHTML='<div style=\"border:1px solid
+  #f00;padding:15px;background:rgba(255,0,0,.1);\">Form failed to
+  load.</div>';\r
+
+  \    fc.appendChild(s);\r
+
+  \  }\r
+
+  });\r
+
+  </script>\r
+
+  <!-- END SINGLE‑BLOCK PASTE -->"
+tags: null
+source_url: https://docs.google.com/document/d/1l6rd176f5KxrBWquNSq0HNgfnq5AH5LmCpxnr0mDUd8/edit?usp=drivesdk
+document_type: text
+description: "﻿Sites code on all sites working now mostly Header <style>   /*
+  ─── START alpha-mind.css ─── */   /* Paste ALL of your alpha-mind.css content
+  below */   :root {     --comp-bg-primary: #00ccff;     --c..."
+created_at: 2026-01-19T20:15:41.743Z
+updated_at: 2026-01-19T20:20:17.243Z

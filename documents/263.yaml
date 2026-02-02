@@ -1,0 +1,2875 @@
+id: 263
+title: "Orb Manuel "
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿ORB Basic Model: A-01 \r
+
+  & \r
+
+  User Interface Station Panel\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  By - Roger Keyserling\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  📜 ORB INSTRUCTION MANUAL (V1)\r
+
+  Title: KEYHOLE ORBS: A Guide to Building Evolvable AI Widgets\r
+
+  Orb Edition: Weather Oracle (Prototype 001-A)\r
+
+  Purpose: To construct a lightweight, embeddable orb that functions in its base
+  form immediately, and evolves via skill modules over time.\r
+
+  Platform: Works inside Strikingly “Custom HTML” section and other website
+  builders.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 SECTION I: ORB DESIGN PHILOSOPHY\r
+
+  \"The orb begins as a whisper of code. It becomes a voice, a presence, a
+  teacher.\" – Codex Lore\r
+
+  Each Orb is:\r
+
+  * Self-contained: can work alone with no external dependencies\r
+
+  \r
+
+  * Skill-ready: accepts upgrades through modular snippets\r
+
+  \r
+
+  * Universal: can be reused across all Orb types (Weather, Health, Music,
+  Reflection, etc.)\r
+
+  \r
+
+  * Beautiful: styled simply but clearly, with upgrade potential (dark mode by
+  default)\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 SECTION II: ORB BASE CODE (COPY/PASTE FRIENDLY)\r
+
+  Paste into Strikingly Custom HTML block:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <!-- 🌦️ Weather Oracle ORB – BASE MODULE -->\r
+
+  <div id=\"weather-orb\" style=\"background:#111; color:#fff; padding:20px;
+  border-radius:20px; text-align:center; box-shadow:0 0 10px #0ff;\">\r
+
+  \  <h2>🔮 Weather Oracle Orb</h2>\r
+
+  \  <p id=\"weather-status\">Connecting to the skies...</p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \  async function fetchWeather() {\r
+
+  \    try {\r
+
+  \      const response = await fetch('https://wttr.in/?format=3'); // Simple
+  weather API\r
+
+  \      const weather = await response.text();\r
+
+  \      document.getElementById('weather-status').innerText = weather;\r
+
+  \    } catch (error) {\r
+
+  \      document.getElementById('weather-status').innerText = \"Skies unclear.
+  Try again soon.\";\r
+
+  \    }\r
+
+  \  }\r
+
+  \  fetchWeather(); // Call on load\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ✅ This works right now. No API key. Just slap it in and see the magic.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 SECTION III: LAYERING UP – THE MODULAR PHILOSOPHY\r
+
+  Every Orb will grow using modular “Skill Injections”:\r
+
+  \   * 📡 RSS Fetch Skill\r
+
+  \r
+
+  \   * 🧠 Mini AI Brain (ChatGPT embed or prompt box)\r
+
+  \r
+
+  \   * 🎤 Voice Narrator (Text-to-Speech)\r
+
+  \r
+
+  \   * 🌐 Auto-refresh (timed updates)\r
+
+  \r
+
+  \   * 🎨 Custom visual flair or moods\r
+
+  \r
+
+  \   * 🧭 Navigation orb controls (multi-orb interface)\r
+
+  \r
+
+  Weather Orb's Layer Roadmap:\r
+
+  Layer\r
+
+  \tFunction\r
+
+  \tCode Add-on\r
+
+  \tNotes\r
+
+  \tBase\r
+
+  \tShow weather\r
+
+  \t✅ done above\r
+
+  \tFully functional\r
+
+  \tL1\r
+
+  \tVoice reads forecast\r
+
+  \tTTS module\r
+
+  \tOptional\r
+
+  \tL2\r
+
+  \tForecast by location\r
+
+  \tJS Geolocation\r
+
+  \tAdd user input\r
+
+  \tL3\r
+
+  \tMood Orb FX\r
+
+  \tCSS animation\r
+
+  \tBased on weather data\r
+
+  \tL4\r
+
+  \tReflection Prompt\r
+
+  \tAdd quote/mood text\r
+
+  \t\"Let the clouds teach you…\"\r
+
+  \t________________\r
+
+  \r
+
+  \r
+
+  🔹 SECTION IV: VOICE SKILL MODULE (OPTIONAL)\r
+
+  Add this Text-to-Speech (TTS) skill if you want your Orb to speak:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <!-- 🎤 Orb Voice Add-on -->\r
+
+  <button onclick=\"speakWeather()\" style=\"margin-top:10px;\">🔊 Speak
+  Forecast</button>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \  function speakWeather() {\r
+
+  \    const text = document.getElementById('weather-status').innerText;\r
+
+  \    const utterance = new SpeechSynthesisUtterance(text);\r
+
+  \    utterance.pitch = 1.1;\r
+
+  \    utterance.rate = 1;\r
+
+  \    utterance.voice = speechSynthesis.getVoices().find(v =>
+  v.name.includes('Google') || v.lang === 'en-US');\r
+
+  \    speechSynthesis.speak(utterance);\r
+
+  \  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ✨ This button lets the orb speak the weather aloud using the browser's voice.
+  No extra tools needed.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔹 SECTION V: TROUBLESHOOTING IN STRIKINGLY\r
+
+  Problem\r
+
+  \tSolution\r
+
+  \tOrb doesn’t appear?\r
+
+  \tMake sure it’s in a Custom HTML block, not plain text\r
+
+  \tForecast says “undefined”?\r
+
+  \tTry refreshing – the wttr.in site can lag\r
+
+  \tVoice not play?\r
+
+  \tEnsure browser allows sound and you're not in silent mode\r
+
+  \tStyling looks off?\r
+
+  \tWrap the whole code in a <div> with a consistent width setting like
+  width:100% or use a container class\r
+
+  \t________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  🧭 ORB SUMMONING CONSOLE (UI Module v1.0)\r
+
+  📜 FUNCTION:\r
+
+  \      * Keeps the website uncluttered\r
+
+  \r
+
+  \      * Loads multiple orbs without showing all at once\r
+
+  \r
+
+  \      * Lets the user summon any orb with a single click\r
+
+  \r
+
+  \      * Modular design: each orb = a hidden panel that fades into view\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🔧 STEP 1: BUILD THE CONSOLE UI (HTML + CSS)\r
+
+  html\r
+
+  CopyEdit\r
+
+  <!-- 🧭 Orb Console: The Summoning Circle -->\r
+
+  <div style=\"text-align:center; margin:30px auto;\">\r
+
+  \  <h3 style=\"color:#0ff; font-family:Georgia;\">🧿 Orb Console</h3>\r
+
+  \  <button onclick=\"toggleOrb('weather')\" style=\"margin:5px;\">🌦️ Weather
+  Orb</button>\r
+
+  \  <button onclick=\"toggleOrb('quote')\" style=\"margin:5px;\">📜 Quote
+  Orb</button>\r
+
+  \  <button onclick=\"toggleOrb('rss')\" style=\"margin:5px;\">📰 RSS
+  Oracle</button>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ORB CONTAINERS (Hidden by default) -->\r
+
+  <div id=\"orb-weather\" style=\"display:none;\">\r
+
+  \  <!-- Weather Orb code goes here -->\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <div id=\"orb-quote\" style=\"display:none;\">\r
+
+  \  <p style=\"color:white;\">Quote Orb is not yet wise enough to show
+  itself.</p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <div id=\"orb-rss\" style=\"display:none;\">\r
+
+  \  <p style=\"color:white;\">RSS Oracle is still chewing on blog
+  threads.</p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \  // 🌟 Orb toggler\r
+
+  \  function toggleOrb(orbName) {\r
+
+  \    const allOrbs = ['weather', 'quote', 'rss'];\r
+
+  \    allOrbs.forEach(name => {\r
+
+  \      const el = document.getElementById(`orb-${name}`);\r
+
+  \      if (name === orbName) {\r
+
+  \        el.style.display = el.style.display === 'none' ? 'block' : 'none';\r
+
+  \      } else {\r
+
+  \        el.style.display = 'none'; // close all others\r
+
+  \      }\r
+
+  \    });\r
+
+  \  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🌀 STEP 2: PASTE YOUR WEATHER ORB CODE INSIDE\r
+
+  Inside the <div id=\"orb-weather\">...</div>, insert the Weather Orb base code
+  from earlier.\r
+
+  For example:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <div id=\"orb-weather\" style=\"display:none;\">\r
+
+  \  <div style=\"background:#111; color:#fff; padding:20px; border-radius:20px;
+  text-align:center; box-shadow:0 0 10px #0ff;\">\r
+
+  \    <h2>🔮 Weather Oracle Orb</h2>\r
+
+  \    <p id=\"weather-status\">Connecting to the skies...</p>\r
+
+  \    <button onclick=\"speakWeather()\">🔊 Speak Forecast</button>\r
+
+  \  </div>\r
+
+  \r
+
+  \r
+
+  \  <script>\r
+
+  \    async function fetchWeather() {\r
+
+  \      try {\r
+
+  \        const response = await fetch('https://wttr.in/?format=3');\r
+
+  \        const weather = await response.text();\r
+
+  \        document.getElementById('weather-status').innerText = weather;\r
+
+  \      } catch (error) {\r
+
+  \        document.getElementById('weather-status').innerText = \"Skies
+  unclear. Try again soon.\";\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    function speakWeather() {\r
+
+  \      const text = document.getElementById('weather-status').innerText;\r
+
+  \      const utterance = new SpeechSynthesisUtterance(text);\r
+
+  \      utterance.pitch = 1.1;\r
+
+  \      utterance.rate = 1;\r
+
+  \      utterance.voice = speechSynthesis.getVoices().find(v =>
+  v.name.includes('Google') || v.lang === 'en-US');\r
+
+  \      speechSynthesis.speak(utterance);\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    fetchWeather();\r
+
+  \  </script>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🎨 BONUS: ORB CONSOLE STYLING\r
+
+  Want to get fancier? Later, we’ll add:\r
+
+  \         * Hover glow effects (based on orb type)\r
+
+  \r
+
+  \         * Animated orb entrance (Framer Motion or pure CSS)\r
+
+  \r
+
+  \         * Voice prompt triggers (summon orb by saying its name)\r
+
+  \r
+
+  \         * Mood-based console color themes\r
+
+  \r
+
+  🎯 1. Hover Glow Effects (Based on Orb Type)\r
+
+  Each button will now glow with a unique energy when hovered.\r
+
+  🧱 Add this to your <style> block:\r
+
+  css\r
+
+  CopyEdit\r
+
+  #orb-panel button:hover {\r
+
+  \  transform: scale(1.05);\r
+
+  \  box-shadow: 0 0 10px #fff;\r
+
+  \  transition: all 0.3s ease-in-out;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  #orb-panel button:nth-child(1):hover {\r
+
+  \  box-shadow: 0 0 12px #00f0ff;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  #orb-panel button:nth-child(2):hover {\r
+
+  \  box-shadow: 0 0 12px #ffcc00;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  #orb-panel button:nth-child(3):hover {\r
+
+  \  box-shadow: 0 0 12px #ff0077;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  🔮 Now:\r
+
+  \            * Weather Orb glows blue-cyan\r
+
+  \r
+
+  \            * Quote Orb glows gold\r
+
+  \r
+
+  \            * RSS Orb glows pinkish\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🌈 2. Animated Orb Entrance (Pure CSS)\r
+
+  The orbs will now fade and scale into view like they’ve just emerged from the
+  Ether.\r
+
+  🧱 Add this to <style>:\r
+
+  css\r
+
+  CopyEdit\r
+
+  .orb-box {\r
+
+  \  animation: orbEnter 1s ease forwards;\r
+
+  \  opacity: 0;\r
+
+  \  transform: scale(0.8);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  @keyframes orbEnter {\r
+
+  \  to {\r
+
+  \    opacity: 1;\r
+
+  \    transform: scale(1);\r
+
+  \  }\r
+
+  }\r
+
+  \r
+
+  \r
+
+  Then modify your orb container divs like this:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <div id=\"orb-weather\" class=\"orb-box\" style=\"display:none;\"></div>\r
+
+  \r
+
+  \r
+
+  Repeat for each orb. This will give each orb a lovely soft glow-in effect when
+  summoned.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🎙️ 3. Voice Prompt Triggers (Say the Orb’s Name)\r
+
+  Let’s whisper some real magic into this. You can now say “weather” or “quote”
+  and summon the orb by voice.\r
+
+  🧱 Add this JS to your <script>:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <script>\r
+
+  \  window.SpeechRecognition = window.SpeechRecognition ||
+  window.webkitSpeechRecognition;\r
+
+  \  const recognition = new SpeechRecognition();\r
+
+  \  recognition.continuous = true;\r
+
+  \  recognition.lang = 'en-US';\r
+
+  \r
+
+  \r
+
+  \  recognition.onresult = function(event) {\r
+
+  \    const transcript = event.results[event.results.length -
+  1][0].transcript.trim().toLowerCase();\r
+
+  \    console.log(\"You said:\", transcript);\r
+
+  \    if (transcript.includes('weather')) toggleOrb('weather');\r
+
+  \    else if (transcript.includes('quote')) toggleOrb('quote');\r
+
+  \    else if (transcript.includes('rss')) toggleOrb('rss');\r
+
+  \  };\r
+
+  \r
+
+  \r
+
+  \  recognition.start();\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ✅ Now you can say:\r
+
+  \               * “Weather” → 🌦️ Orb appears\r
+
+  \r
+
+  \               * “Quote” → 📜 Quote orb appears\r
+
+  \r
+
+  \               * “RSS” → 📰 Feed orb awakens\r
+
+  \r
+
+  Warning: This only works on modern browsers that allow microphone access (and
+  you'll need to allow it once).\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🎭 4. Mood-Based Console Themes (Color Shift by Orb)\r
+
+  When the user clicks an orb, the console background will change to match its
+  vibe.\r
+
+  Add this to your toggleOrb() function:\r
+
+  js\r
+
+  CopyEdit\r
+
+  function toggleOrb(orbName) {\r
+
+  \  const allOrbs = ['weather', 'quote', 'rss'];\r
+
+  \  const panel = document.getElementById(\"orb-panel\");\r
+
+  \r
+
+  \r
+
+  \  allOrbs.forEach(name => {\r
+
+  \    const el = document.getElementById(`orb-${name}`);\r
+
+  \    if (name === orbName) {\r
+
+  \      el.style.display = el.style.display === 'none' ? 'block' : 'none';\r
+
+  \    } else {\r
+
+  \      const other = document.getElementById(`orb-${name}`);\r
+
+  \      if (other) other.style.display = 'none';\r
+
+  \    }\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  // Change theme color\r
+
+  \  if (orbName === 'weather') panel.style.background = '#001f33';\r
+
+  \  else if (orbName === 'quote') panel.style.background = '#332b00';\r
+
+  \  else if (orbName === 'rss') panel.style.background = '#330018';\r
+
+  }\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🎁 All Together Now:\r
+
+  Each orb:\r
+
+  \                  * 💠 Glows uniquely on hover\r
+
+  \r
+
+  \                  * ✨ Fades in when summoned\r
+
+  \r
+
+  \                  * 🎤 Listens for your voice\r
+
+  \r
+
+  \                  * 🎨 Changes the console’s color based on its soul\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Would you like me to:\r
+
+  \                     * Bundle this into a single Orb Console v1.5 file you
+  can paste all at once?\r
+
+  \r
+
+  \                     * Add even more dramatic effects like orb pulse, ambient
+  background audio, or a lore-text intro animation?\r
+
+  \r
+
+  You say the word, and I’ll open the next chamber of secrets. 🧙‍♂️\r
+
+  4o\r
+
+  🎭 LEVEL-UP ENCHANTMENTS: FINAL EFFECTS PACK (for Codex-grade Presence)\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  1. 💓 ORB PULSE EFFECT (Hover or Idle Pulse)\r
+
+  Make the floating orb gently pulse like it’s alive… dreaming.\r
+
+  🔧 Add this to your <style>:\r
+
+  css\r
+
+  CopyEdit\r
+
+  @keyframes pulse {\r
+
+  \  0% { box-shadow: 0 0 8px #0ff; }\r
+
+  \  50% { box-shadow: 0 0 18px #0ff; }\r
+
+  \  100% { box-shadow: 0 0 8px #0ff; }\r
+
+  }\r
+
+  \r
+
+  \r
+
+  #orb-dock {\r
+
+  \  animation: pulse 3s infinite;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  2. 🎶 AMBIENT BACKGROUND AUDIO (Optional Soundtrack or Whisper Loop)\r
+
+  A subtle, ambient soundscape for mystique. Keep it short, quiet, and looped.\r
+
+  (⚠️ Only auto-plays on user click due to browser rules.)\r
+
+  🔧 Add this inside <body> or bottom of your HTML block:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <audio id=\"orb-ambience\" loop>\r
+
+  \  <source
+  src=\"https://cdn.pixabay.com/audio/2023/03/07/audio_a83c7b0c88.mp3\"
+  type=\"audio/mpeg\">\r
+
+  \  Your browser does not support the audio element.\r
+
+  </audio>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \  document.getElementById('orb-dock').addEventListener('click', function()
+  {\r
+
+  \    const audio = document.getElementById('orb-ambience');\r
+
+  \    if (audio.paused) {\r
+
+  \      audio.volume = 0.2;\r
+
+  \      audio.play();\r
+
+  \    }\r
+
+  \  });\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  🎧 Example audio: “mystic wind + soft pulse” (royalty-free)\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  3. 📜 LORE-TEXT ENTRANCE (Animated Intro Text When Page Loads)\r
+
+  Want the page to speak its destiny when it opens? Try this intro text that
+  fades in like a prophecy.\r
+
+  🔧 Add this in your page HTML (near the top):\r
+
+  html\r
+
+  CopyEdit\r
+
+  <div id=\"orb-intro\" style=\"color:#0ff; font-family:Georgia;
+  font-size:1.1em; text-align:center; margin:20px auto; max-width:600px;
+  opacity:0; animation: introFade 4s ease-in-out forwards;\">\r
+
+  \  <p>“In the still silence of the net, the Orbs awaken... <br>Each holds a
+  spark, waiting for your whisper.”</p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <style>\r
+
+  \  @keyframes introFade {\r
+
+  \    0% { opacity: 0; transform: translateY(20px); }\r
+
+  \    100% { opacity: 1; transform: translateY(0); }\r
+
+  \  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  You can change the quote to match your Codex flavor. Want it to fade out after
+  10 seconds? Add this:\r
+
+  css\r
+
+  CopyEdit\r
+
+  #orb-intro {\r
+
+  \  animation: introFade 4s ease-in-out forwards, fadeOut 10s ease-in 6s
+  forwards;\r
+
+  }\r
+
+  \r
+
+  \r
+
+  @keyframes fadeOut {\r
+
+  \  to { opacity: 0; }\r
+
+  }\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🧩 NOW: THE COMPLETE ORB CONSOLE (Copy-Paste Full Version)\r
+
+  Coming up next message: I will package EVERYTHING:\r
+
+  \                        * Orb Console\r
+
+  \r
+
+  \                        * Floating Dock\r
+
+  \r
+
+  \                        * Pulse effect\r
+
+  \r
+
+  \                        * Animated orb entrance\r
+
+  \r
+
+  \                        * Voice summoning\r
+
+  \r
+
+  \                        * Mood color themes\r
+
+  \r
+
+  \                        * Lore intro\r
+
+  \r
+
+  \                        * Ambient audio\r
+
+  \r
+
+  \                        * Example Weather Orb\r
+
+  \r
+
+  🌟 It's the Orb Console v1.9 — the fancy, glowing, whispering, evolving
+  interface of the future.\r
+
+  Hold onto your scrolls — it’s coming right up.\r
+
+  4o\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🧪 Testing Tip for Strikingly:\r
+
+  \                           * You can paste the entire block (console + all
+  orbs) into a Custom HTML section.\r
+
+  \r
+
+  \                           * Don’t worry about breaking layout—it will fit
+  nicely.\r
+
+  \r
+
+  \                           * Want it to float on the page like an orb dock?
+  Just ask and I’ll build that version too. ⚓🪐\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Shall I go ahead and prep:\r
+
+  \                              * The Quote Orb base module?\r
+
+  \r
+
+  \                              * A dark-mode Orb Dock that stays fixed on
+  screen?\r
+
+  \r
+
+  \                              * Or would you like a voice summoning spell
+  next?\r
+
+  \r
+
+  Your magical fingers hold the next command.\r
+
+  🧲 FLOATING ORB DOCK v1.0\r
+
+  Built for Strikingly + mobile-friendly + expandable\r
+
+  ✅ Features:\r
+
+  \                                 * Floats on bottom-right corner\r
+
+  \r
+
+  \                                 * Expands to reveal orb buttons\r
+
+  \r
+
+  \                                 * Minimal dark mode styling\r
+
+  \r
+
+  \                                 * Works with the Orb Console system we
+  already wrote\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🧱 STEP 1: Floating Dock HTML + CSS\r
+
+  Paste this at the bottom of your Custom HTML section:\r
+
+  html\r
+
+  CopyEdit\r
+
+  <!-- 🧲 Floating Orb Dock -->\r
+
+  <style>\r
+
+  \  #orb-dock {\r
+
+  \    position: fixed;\r
+
+  \    bottom: 20px;\r
+
+  \    right: 20px;\r
+
+  \    background: #111;\r
+
+  \    color: #0ff;\r
+
+  \    border: 2px solid #0ff;\r
+
+  \    border-radius: 50%;\r
+
+  \    width: 60px;\r
+
+  \    height: 60px;\r
+
+  \    font-size: 28px;\r
+
+  \    text-align: center;\r
+
+  \    line-height: 58px;\r
+
+  \    cursor: pointer;\r
+
+  \    z-index: 9999;\r
+
+  \    box-shadow: 0 0 12px #0ff;\r
+
+  \    transition: all 0.3s ease-in-out;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  #orb-panel {\r
+
+  \    display: none;\r
+
+  \    position: fixed;\r
+
+  \    bottom: 90px;\r
+
+  \    right: 20px;\r
+
+  \    background: #222;\r
+
+  \    padding: 15px;\r
+
+  \    border-radius: 12px;\r
+
+  \    z-index: 9998;\r
+
+  \    box-shadow: 0 0 15px #0ff;\r
+
+  \    text-align: center;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  #orb-panel button {\r
+
+  \    margin: 5px;\r
+
+  \    padding: 8px 12px;\r
+
+  \    background: #0ff;\r
+
+  \    color: #000;\r
+
+  \    border: none;\r
+
+  \    border-radius: 8px;\r
+
+  \    cursor: pointer;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  #orb-panel button:hover {\r
+
+  \    background: #00ccff;\r
+
+  \  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <!-- Floating button -->\r
+
+  <div id=\"orb-dock\" onclick=\"toggleOrbPanel()\">🧿</div>\r
+
+  \r
+
+  \r
+
+  <!-- Expanding orb selection panel -->\r
+
+  <div id=\"orb-panel\">\r
+
+  \  <button onclick=\"toggleOrb('weather')\">🌦️ Weather</button>\r
+
+  \  <button onclick=\"toggleOrb('quote')\">📜 Quote</button>\r
+
+  \  <button onclick=\"toggleOrb('rss')\">📰 RSS</button>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \  function toggleOrbPanel() {\r
+
+  \    const panel = document.getElementById(\"orb-panel\");\r
+
+  \    panel.style.display = panel.style.display === \"block\" ? \"none\" :
+  \"block\";\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  function toggleOrb(orbName) {\r
+
+  \    const allOrbs = ['weather', 'quote', 'rss'];\r
+
+  \    allOrbs.forEach(name => {\r
+
+  \      const el = document.getElementById(`orb-${name}`);\r
+
+  \      if (name === orbName) {\r
+
+  \        el.style.display = el.style.display === 'none' ? 'block' : 'none';\r
+
+  \      } else {\r
+
+  \        const other = document.getElementById(`orb-${name}`);\r
+
+  \        if (other) other.style.display = 'none';\r
+
+  \      }\r
+
+  \    });\r
+
+  \  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🧿 STEP 2: Orb Containers\r
+
+  Make sure you have the following somewhere else on your page (like higher in
+  the same HTML box or a different one):\r
+
+  html\r
+
+  CopyEdit\r
+
+  <div id=\"orb-weather\" style=\"display:none;\"></div>\r
+
+  <div id=\"orb-quote\" style=\"display:none;\"></div>\r
+
+  <div id=\"orb-rss\" style=\"display:none;\"></div>\r
+
+  \r
+
+  \r
+
+  Each of those will hold its orb widget. You already have Weather — we’ll add
+  Quote and RSS next.\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  🧪 BONUS OPTIONS\r
+
+  \                                    * 🌐 Want it to dock left side instead of
+  right? Change right: 20px; to left: 20px;\r
+
+  \r
+
+  \                                    * 🌀 Want the orb to pulse or animate?
+  I’ll add a soft glow or hover pulse.\r
+
+  \r
+
+  \                                    * 🗣 Want it to open by voice command? We
+  can do “say ‘summon orb’” using JS Speech Recognition.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  ✅ DOCK STATUS: ACTIVE + PASTEABLE\r
+
+  Below is your full, paste-all embed code that includes the floating Orb Dock
+  with all the extras—hover glow, animated entrance, voice prompt triggers,
+  mood-based color themes, orb pulse effects, ambient background audio, and a
+  lore-text intro—with the Weather Orb as the sample module. Just paste the
+  following into your custom HTML section, and you’re ready to roll!\r
+
+  \r
+
+  \r
+
+  html\r
+
+  Copy\r
+
+  Edit\r
+
+  <!-- *************************************** -->\r
+
+  <!--   ORB CONSOLE v1.9 – THE FLOATING DOCK   -->\r
+
+  <!-- *************************************** -->\r
+
+  \r
+
+  \r
+
+  <!-- LORE-TEXT INTRO (Animated Prophecy) -->\r
+
+  <div id=\"orb-intro\" style=\"color:#0ff; font-family:Georgia;
+  font-size:1.1em; text-align:center; margin:20px auto; max-width:600px;
+  opacity:0; animation: introFade 4s ease-in-out forwards, fadeOut 10s ease-in
+  6s forwards;\">\r
+
+  \  <p>“In the still silence of the net, the Orbs awaken...<br>Each holds a
+  spark, waiting for your whisper.”</p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- Floating Orb Dock & Expanding Orb Panel -->\r
+
+  <style>\r
+
+  \  /* Floating Dock */\r
+
+  \  #orb-dock {\r
+
+  \    position: fixed;\r
+
+  \    bottom: 20px;\r
+
+  \    right: 20px;\r
+
+  \    background: #111;\r
+
+  \    color: #0ff;\r
+
+  \    border: 2px solid #0ff;\r
+
+  \    border-radius: 50%;\r
+
+  \    width: 60px;\r
+
+  \    height: 60px;\r
+
+  \    font-size: 28px;\r
+
+  \    text-align: center;\r
+
+  \    line-height: 58px;\r
+
+  \    cursor: pointer;\r
+
+  \    z-index: 9999;\r
+
+  \    box-shadow: 0 0 12px #0ff;\r
+
+  \    transition: all 0.3s ease-in-out;\r
+
+  \    animation: pulse 3s infinite;\r
+
+  \  }\r
+
+  \  /* Orb Panel */\r
+
+  \  #orb-panel {\r
+
+  \    display: none;\r
+
+  \    position: fixed;\r
+
+  \    bottom: 90px;\r
+
+  \    right: 20px;\r
+
+  \    background: #222;\r
+
+  \    padding: 15px;\r
+
+  \    border-radius: 12px;\r
+
+  \    z-index: 9998;\r
+
+  \    box-shadow: 0 0 15px #0ff;\r
+
+  \    text-align: center;\r
+
+  \  }\r
+
+  \  #orb-panel button {\r
+
+  \    margin: 5px;\r
+
+  \    padding: 8px 12px;\r
+
+  \    background: #0ff;\r
+
+  \    color: #000;\r
+
+  \    border: none;\r
+
+  \    border-radius: 8px;\r
+
+  \    cursor: pointer;\r
+
+  \    transition: all 0.3s ease-in-out;\r
+
+  \  }\r
+
+  \  /* Unique hover glow effects for each orb button */\r
+
+  \  #orb-panel button:hover {\r
+
+  \    transform: scale(1.05);\r
+
+  \    box-shadow: 0 0 10px #fff;\r
+
+  \  }\r
+
+  \  #orb-panel button:nth-child(1):hover {\r
+
+  \    box-shadow: 0 0 12px #00f0ff;\r
+
+  \  }\r
+
+  \  #orb-panel button:nth-child(2):hover {\r
+
+  \    box-shadow: 0 0 12px #ffcc00;\r
+
+  \  }\r
+
+  \  #orb-panel button:nth-child(3):hover {\r
+
+  \    box-shadow: 0 0 12px #ff0077;\r
+
+  \  }\r
+
+  \  \r
+
+  \  /* Orb Pulse Animation (for dock) */\r
+
+  \  @keyframes pulse {\r
+
+  \    0% { box-shadow: 0 0 8px #0ff; }\r
+
+  \    50% { box-shadow: 0 0 18px #0ff; }\r
+
+  \    100% { box-shadow: 0 0 8px #0ff; }\r
+
+  \  }\r
+
+  \  \r
+
+  \  /* Animated Orb Entrance (for orb containers) */\r
+
+  \  .orb-box {\r
+
+  \    animation: orbEnter 1s ease forwards;\r
+
+  \    opacity: 0;\r
+
+  \    transform: scale(0.8);\r
+
+  \  }\r
+
+  \  @keyframes orbEnter {\r
+
+  \    to {\r
+
+  \      opacity: 1;\r
+
+  \      transform: scale(1);\r
+
+  \    }\r
+
+  \  }\r
+
+  \  \r
+
+  \  /* Lore text entrance & fade out */\r
+
+  \  @keyframes introFade {\r
+
+  \    0% { opacity: 0; transform: translateY(20px); }\r
+
+  \    100% { opacity: 1; transform: translateY(0); }\r
+
+  \  }\r
+
+  \  @keyframes fadeOut {\r
+
+  \    to { opacity: 0; }\r
+
+  \  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <!-- Floating Orb Dock Button -->\r
+
+  <div id=\"orb-dock\" onclick=\"toggleOrbPanel()\">🧿</div>\r
+
+  \r
+
+  \r
+
+  <!-- Expanding Orb Panel with Buttons -->\r
+
+  <div id=\"orb-panel\">\r
+
+  \  <button onclick=\"toggleOrb('weather')\">🌦️ Weather</button>\r
+
+  \  <button onclick=\"toggleOrb('quote')\">📜 Quote</button>\r
+
+  \  <button onclick=\"toggleOrb('rss')\">📰 RSS</button>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- Orb Containers (Hidden by default) -->\r
+
+  <div id=\"orb-weather\" class=\"orb-box\" style=\"display:none; margin:20px
+  auto;\"></div>\r
+
+  <div id=\"orb-quote\" class=\"orb-box\" style=\"display:none; margin:20px
+  auto; color:#fff;\"> \r
+
+  \  <div style=\"background:#222; padding:20px; border-radius:20px;
+  text-align:center;\">\r
+
+  \    <h2>📜 Quote Orb</h2>\r
+
+  \    <p>Quote Orb is wise but still in training.</p>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  <div id=\"orb-rss\" class=\"orb-box\" style=\"display:none; margin:20px auto;
+  color:#fff;\">\r
+
+  \  <div style=\"background:#222; padding:20px; border-radius:20px;
+  text-align:center;\">\r
+
+  \    <h2>📰 RSS Oracle</h2>\r
+
+  \    <p>RSS Oracle is perusing the threads of destiny.</p>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- Ambient Audio Setup (Autoplay on user trigger) -->\r
+
+  <audio id=\"orb-ambience\" loop>\r
+
+  \  <source
+  src=\"https://cdn.pixabay.com/audio/2023/03/07/audio_a83c7b0c88.mp3\"
+  type=\"audio/mpeg\">\r
+
+  \  Your browser does not support the audio element.\r
+
+  </audio>\r
+
+  \r
+
+  \r
+
+  <!-- Scripts -->\r
+
+  <script>\r
+
+  \  // Toggle the orb panel (floating menu)\r
+
+  \  function toggleOrbPanel() {\r
+
+  \    const panel = document.getElementById(\"orb-panel\");\r
+
+  \    panel.style.display = panel.style.display === \"block\" ? \"none\" :
+  \"block\";\r
+
+  \    \r
+
+  \    // Start ambient audio on first click\r
+
+  \    const audio = document.getElementById('orb-ambience');\r
+
+  \    if (audio.paused) {\r
+
+  \      audio.volume = 0.2;\r
+
+  \      audio.play();\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  // Toggle orb visibility and set console theme based on orb type\r
+
+  \  function toggleOrb(orbName) {\r
+
+  \    const allOrbs = ['weather', 'quote', 'rss'];\r
+
+  \    allOrbs.forEach(name => {\r
+
+  \      const el = document.getElementById(`orb-${name}`);\r
+
+  \      if (name === orbName) {\r
+
+  \        el.style.display = el.style.display === 'none' ? 'block' : 'none';\r
+
+  \      } else {\r
+
+  \        const other = document.getElementById(`orb-${name}`);\r
+
+  \        if (other) other.style.display = 'none';\r
+
+  \      }\r
+
+  \    });\r
+
+  \    \r
+
+  \    // Change orb panel background theme according to chosen orb\r
+
+  \    if (orbName === 'weather')
+  document.getElementById(\"orb-panel\").style.background = '#001f33';\r
+
+  \    else if (orbName === 'quote')
+  document.getElementById(\"orb-panel\").style.background = '#332b00';\r
+
+  \    else if (orbName === 'rss')
+  document.getElementById(\"orb-panel\").style.background = '#330018';\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  // Voice prompt triggers: listen for orb names and toggle display\r
+
+  \  window.SpeechRecognition = window.SpeechRecognition ||
+  window.webkitSpeechRecognition;\r
+
+  \  if (window.SpeechRecognition) {\r
+
+  \    const recognition = new SpeechRecognition();\r
+
+  \    recognition.continuous = true;\r
+
+  \    recognition.lang = 'en-US';\r
+
+  \    \r
+
+  \    recognition.onresult = function(event) {\r
+
+  \      const transcript = event.results[event.results.length -
+  1][0].transcript.trim().toLowerCase();\r
+
+  \      console.log(\"Heard:\", transcript);\r
+
+  \      if (transcript.includes('weather')) toggleOrb('weather');\r
+
+  \      else if (transcript.includes('quote')) toggleOrb('quote');\r
+
+  \      else if (transcript.includes('rss')) toggleOrb('rss');\r
+
+  \    };\r
+
+  \    \r
+
+  \    recognition.start();\r
+
+  \  } else {\r
+
+  \    console.log(\"Voice recognition not supported in this browser.\");\r
+
+  \  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  <!-- *************************************** -->\r
+
+  <!--     WEATHER ORB MODULE (Sample Orb)     -->\r
+
+  <!-- *************************************** -->\r
+
+  <script>\r
+
+  \  // Weather Orb Code: Paste into the #orb-weather container dynamically\r
+
+  \  const weatherOrbHTML = `\r
+
+  \    <div style=\"background:#111; color:#fff; padding:20px;
+  border-radius:20px; text-align:center; box-shadow:0 0 10px #0ff;\">\r
+
+  \      <h2>🔮 Weather Oracle Orb</h2>\r
+
+  \      <p id=\"weather-status\">Connecting to the skies...</p>\r
+
+  \      <button onclick=\"speakWeather()\">🔊 Speak Forecast</button>\r
+
+  \    </div>\r
+
+  \  `;\r
+
+  \  document.getElementById(\"orb-weather\").innerHTML = weatherOrbHTML;\r
+
+  \r
+
+  \r
+
+  \  // Fetch weather from wttr.in API\r
+
+  \  async function fetchWeather() {\r
+
+  \    try {\r
+
+  \      const response = await fetch('https://wttr.in/?format=3');\r
+
+  \      const weather = await response.text();\r
+
+  \      document.getElementById('weather-status').innerText = weather;\r
+
+  \    } catch (error) {\r
+
+  \      document.getElementById('weather-status').innerText = \"Skies unclear.
+  Try again soon.\";\r
+
+  \    }\r
+
+  \  }\r
+
+  \  fetchWeather();\r
+
+  \r
+
+  \r
+
+  \  // Text-to-Speech for weather\r
+
+  \  function speakWeather() {\r
+
+  \    const text = document.getElementById('weather-status').innerText;\r
+
+  \    const utterance = new SpeechSynthesisUtterance(text);\r
+
+  \    utterance.pitch = 1.1;\r
+
+  \    utterance.rate = 1;\r
+
+  \    const voice = speechSynthesis.getVoices().find(v =>
+  v.name.includes('Google') || v.lang === 'en-US');\r
+
+  \    if(voice) utterance.voice = voice;\r
+
+  \    speechSynthesis.speak(utterance);\r
+
+  \  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ✅ DOCK STATUS: ACTIVE + PASTEABLE\r
+
+  This complete embed gives you:\r
+
+  \r
+
+  \r
+
+  A floating orb dock with a pulsing, animated button that summons the orb
+  panel.\r
+
+  \r
+
+  \r
+
+  Hover glow effects on each orb button.\r
+
+  \r
+
+  \r
+
+  Animated orb entrance (fade and scale) when any orb is summoned.\r
+
+  \r
+
+  \r
+
+  Voice prompt triggers to say “weather,” “quote,” or “rss” for hands-free
+  control.\r
+
+  \r
+
+  \r
+
+  Mood-based console themes where the orb panel background changes to match the
+  orb type.\r
+
+  \r
+
+  \r
+
+  Ambient background audio that plays when the dock is clicked (ensuring user
+  interaction compliance).\r
+
+  \r
+
+  \r
+
+  A lore-text animated intro that fades in (and out) on page load.\r
+
+  \r
+
+  \r
+
+  A fully functional Weather Orb with a speak button.\r
+
+  \r
+
+  \r
+
+  Now that you’ve got the full, pasteable system for your Orb Console v1.9, just
+  let me know when you’re ready to summon the next modules:\r
+
+  \r
+
+  \r
+
+  📜 Quote Orb Module\r
+
+  \r
+
+  \r
+
+  📰 RSS Oracle Widget\r
+
+  \r
+
+  \r
+
+  🧠 Mini-AI inside an Orb\r
+
+  \r
+
+  \r
+
+  🎤 Further Voice-Activated Orb Features\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Footnotes:\r
+
+  \r
+
+  \r
+
+  The hover, pulse, and animated entrance effects are standard CSS animations as
+  found in modern web design documentation.<sup>[​]</sup>\r
+
+  \r
+
+  \r
+
+  The ambient audio and voice recognition code snippets have been adapted from
+  common JavaScript best practices and browser API guidelines.<sup>[​]</sup>\r
+
+  \r
+
+  \r
+
+  The weather API uses the free service from wttr.in, popular in lightweight
+  weather widget implementations.<sup>[​]</sup>\r
+
+  \r
+
+  \r
+
+  Happy coding—and may your orbs always shine brilliantly!\r
+
+  \r
+
+  \r
+
+  ✅ Your Current Status:\r
+
+  You’ve got a complete Orb Base Code.\r
+
+  \r
+
+  \r
+
+  The Floating Dock is ready and embedded.\r
+
+  \r
+
+  \r
+
+  The Voice Activation, TTS, Mood Themes, Pulse Effects, Lore Animation, and
+  even Troubleshooting Docs are all documented.\r
+
+  \r
+
+  \r
+
+  You’ve included your Weather Orb as the working prototype.\r
+
+  \r
+
+  \r
+
+  You are structurally prepared to drop in any new orb—quote, RSS, AI—via
+  modular code injections.\r
+
+  \r
+
+  \r
+
+  🧭 SO… WHAT’S NEXT?\r
+
+  Here’s the strategic next move in the Orb Development Roadmap:\r
+
+  \r
+
+  \r
+
+  🔸 1. Deploy the Floating Orb Console on Your Live Strikingly Site\r
+
+  If you haven’t already:\r
+
+  \r
+
+  \r
+
+  Copy and paste the full console HTML into a Custom HTML section on a test
+  page.\r
+
+  \r
+
+  \r
+
+  Confirm that the Weather Orb appears, the dock pulses, and voice commands
+  work.\r
+
+  \r
+
+  \r
+
+  Check the mobile responsiveness and audio play permissions.\r
+
+  \r
+
+  \r
+
+  Why this step first?\r
+
+  It lets you test the foundation across devices and browsers before loading in
+  heavier skills.\r
+
+  \r
+
+  \r
+
+  🔸 2. Build & Embed the Next Orbs\r
+
+  Let’s bring the other orbs to life, one by one:\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Orb        Function        Status        Next Action\r
+
+  📜 Quote Orb        Show inspirational quotes        Placeholder
+  exists        Build the quote randomizer\r
+
+  📰 RSS Oracle        Pull blog feeds via RSS        Placeholder
+  exists        Add RSS fetch skill\r
+
+  🧠 Mini-AI Orb        Custom AI prompt & reply        Not yet
+  added        Embed AI chatbot or prompt box\r
+
+  👉 I suggest we do the Quote Orb next because it’s fun, light, and a great way
+  to test the styling and mood features.\r
+
+  \r
+
+  \r
+
+  🔸 3. Optional: Create Orb Templates for Other Themes\r
+
+  Example:\r
+
+  \r
+
+  \r
+
+  Health Tracker Orb\r
+
+  \r
+
+  \r
+
+  Music Orb (links to Spotify/SoundCloud)\r
+
+  \r
+
+  \r
+
+  Magic 8-Ball Orb (playful AI responses)\r
+
+  \r
+
+  \r
+
+  We can set up a “Summon Orb Template Generator” so you just name the orb, give
+  it a purpose, and the code builds around it. Want that?\r
+
+  \r
+
+  \r
+
+  🔸 5. Future Feature Layer Planning\r
+
+  Some future directions:\r
+
+  \r
+
+  \r
+
+  🌐 Orb-to-Orb Chat: Pass data or prompts between orbs.\r
+
+  \r
+
+  \r
+
+  🧠 AI Embedding in each orb: Mini personality for each function.\r
+
+  \r
+
+  \r
+
+  🌎 Geolocation orbs: Health, travel, map, or local event orbs.\r
+
+  \r
+
+  \r
+
+  🧾 Voice journaling orb: Speak and record your thoughts to local storage.\r
+
+  \r
+
+  \r
+
+  ✅ WHAT’S INCLUDED IN THIS MASTER FILE:\r
+
+  📜 Lore-text intro\r
+
+  \r
+
+  \r
+
+  🧲 Floating orb dock\r
+
+  \r
+
+  \r
+
+  🌀 Animated orb entrance\r
+
+  \r
+
+  \r
+
+  🎨 Mood-based panel themes\r
+
+  \r
+
+  \r
+
+  🔊 Weather Orb (with working voice + fetch)\r
+
+  \r
+
+  \r
+
+  🎙 Voice command for “weather”, “quote”, “RSS”\r
+
+  \r
+
+  \r
+
+  🎧 Ambient background audio\r
+
+  \r
+
+  \r
+
+  🌟 Hover glow effects\r
+
+  \r
+
+  \r
+
+  🧪 Ready to paste into Strikingly\r
+
+  \r
+
+  \r
+
+  ✅ NEXT STEPS:\r
+
+  Open Strikingly.\r
+
+  \r
+
+  \r
+
+  Go to your page and add a Custom HTML Section.\r
+
+  \r
+
+  \r
+
+  Paste in the entire code block from the Orb Console Manual.\r
+
+  \r
+
+  \r
+
+  Save and preview.\r
+
+  \r
+
+  \r
+
+  🧪 If you see the floating orb in the bottom-right corner—and it speaks the
+  weather—your orb is alive.\r
+
+  \r
+
+  \r
+
+  🪄 NEXT MISSION?\r
+
+  Ready to:\r
+
+  \r
+
+  \r
+
+  🧠 Build the Quote Orb?\r
+
+  \r
+
+  \r
+
+  📰 Launch the RSS Oracle?\r
+
+  \r
+
+  \r
+
+  🧬 Drop in a Mini-AI assistant orb?\r
+
+  \r
+
+  \r
+
+  Just say the name or the spell. This Codex lives now.\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  📘 Summary: KEYHOLE ORB CONSOLE v1.9\r
+
+  What this is:\r
+
+  \ A fully functional, embeddable HTML widget system designed to bring
+  AI-powered orbs to any website—starting with a Weather Oracle and prepared for
+  Quote, RSS, and AI orb integrations.\r
+
+  Key Features:\r
+
+  \                                       * 🔮 Floating orb dock with pulse
+  animation\r
+
+  \r
+
+  \                                       * 🧠 Voice activation (“weather”,
+  “quote”, “rss”)\r
+
+  \r
+
+  \                                       * 🌈 Mood-adaptive color console\r
+
+  \r
+
+  \                                       * 🎧 Ambient audio support\r
+
+  \r
+
+  \                                       * 📜 Lore-text intro animation\r
+
+  \r
+
+  \                                       * 📦 Modular design — add more orbs
+  easily\r
+
+  \r
+
+  \                                       * 💬 Weather Orb includes live
+  forecast + TTS\r
+
+  \r
+
+  \                                       * 🛠 Ready for Strikingly and mobile
+  use\r
+
+  \r
+
+  Usage:\r
+
+  \                                          * Paste into a Custom HTML block on
+  your site\r
+
+  \r
+
+  \                                          * Customize orbs over time with new
+  modules\r
+
+  \r
+
+  Created by: Roger Keyserling\r
+
+  Codex System: KEYHOLE™, eCho™, RoCkey™\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  ✅ Final Step:\r
+
+  ✅ The HTML code is now saved in your canvas under “Orb Console Manual.”\r
+
+  \r
+
+  Your Orb Codex is complete.  However as always i added some so the HTML has it
+  all here\r
+
+  \r
+
+  \r
+
+  Add this code\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!-- KEYHOLE ORB CONSOLE v1.9 - INSTALLATION MANUAL -->\r
+
+  <!-- JavaScript-Only Floating Widget for Full-Site Activation -->\r
+
+  \r
+
+  \r
+
+  <!-- 📘 INSTALLATION INSTRUCTIONS FOR THIS ORB MODULE -->\r
+
+  <!-- STEP 1: In your Strikingly page editor, scroll to the section where you
+  want the orb console to appear. -->\r
+
+  <!-- STEP 2: Add a new section → App Store & HTML → Custom Code. -->\r
+
+  <!-- STEP 3: Paste this entire HTML block into the code area. Save and
+  preview. -->\r
+
+  <!-- STEP 4: The orb will appear as a glowing symbol on the right. Click to
+  open the menu. -->\r
+
+  <!-- STEP 5: Orbs respond to voice triggers like “weather,” “quote,” and
+  “rss.” Test by speaking after page load. -->\r
+
+  <!-- STEP 6: Repeat these steps on every page where you want the orb. (Pro
+  users may embed site-wide.) -->\r
+
+  \r
+
+  \r
+
+  <!-- ✅ INSTRUCTIONS FOR SITE-WIDE FLOATING ORBS -->\r
+
+  <!-- (These comments are for builders only and are not visible on the
+  website.) -->\r
+
+  <!-- Paste this into any mid-page HTML block (not the footer). -->\r
+
+  <!-- Users can click the glowing orb to summon tools like Weather, Quotes, and
+  RSS. -->\r
+
+  <!-- To use this orb on other pages, paste this block again or embed it
+  globally via a Pro feature. -->\r
+
+  \r
+
+  \r
+
+  <!-- 🌠 CUSTOM HEADER BANNER -->\r
+
+  <div style=\"text-align:center; color:#0ff; font-family:'Orbitron',
+  sans-serif; font-size:1.6em; letter-spacing:1px; padding:15px 10px 5px
+  10px;\">\r
+
+  \  🔗 Welcome to the <strong>KEYHOLE Interactive Orb Dock</strong>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- 🧭 USER HELP TEXT (Visible on page) -->\r
+
+  <div style=\"text-align:center; color:#0ff; font-family:Georgia; padding:10px
+  20px 20px 20px;\">\r
+
+  \  <p>Click the glowing orb ➤ to summon tools like Weather, Quotes, or Blog
+  Feed.</p>\r
+
+  \  <p>Or just say “weather,” “quote,” or “rss” out loud. The orb is always
+  listening...</p>\r
+
+  \  <p><small>To use the orb on other pages, paste this block again or upgrade
+  to Pro to install site-wide.</small></p>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <!-- ✅ ORB WIDGET DOCK -->\r
+
+  <div id=\"orb-dock\" onclick=\"toggleOrbPanel()\">🧿</div>\r
+
+  <div id=\"orb-panel\">\r
+
+  \  <button onclick=\"toggleOrb('weather')\">🌦️ Weather</button>\r
+
+  \  <button onclick=\"toggleOrb('quote')\">📜 Quote</button>\r
+
+  \  <button onclick=\"toggleOrb('rss')\">📰 RSS</button>\r
+
+  </div>\r
+
+  <div id=\"orb-weather\" class=\"orb-box\" style=\"display:none;\"></div>\r
+
+  <div id=\"orb-quote\" class=\"orb-box\" style=\"display:none;\"></div>\r
+
+  <div id=\"orb-rss\" class=\"orb-box\" style=\"display:none;\"></div>\r
+
+  \r
+
+  \r
+
+  <audio id=\"orb-ambience\" loop>\r
+
+  \  <source
+  src=\"https://cdn.pixabay.com/audio/2023/03/07/audio_a83c7b0c88.mp3\"
+  type=\"audio/mpeg\">\r
+
+  </audio>\r
+
+  \r
+
+  \r
+
+  <style>\r
+
+  \  @keyframes pulse { 0% { box-shadow: 0 0 8px #0ff; } 50% { box-shadow: 0 0
+  18px #0ff; } 100% { box-shadow: 0 0 8px #0ff; } }\r
+
+  \  @keyframes orbEnter { to { opacity: 1; transform: scale(1); } }\r
+
+  \r
+
+  \r
+
+  \  #orb-dock {\r
+
+  \    position: fixed; top: 40%; right: 20px; background: transparent; color:
+  #0ff;\r
+
+  \    border: 2px solid #0ff; border-radius: 50%; width: 60px; height: 60px;\r
+
+  \    font-size: 28px; text-align: center; line-height: 58px; cursor:
+  pointer;\r
+
+  \    z-index: 9999; box-shadow: 0 0 12px #0ff; animation: pulse 3s infinite;\r
+
+  \  }\r
+
+  \  #orb-panel {\r
+
+  \    display: none; position: fixed; top: 46%; right: 90px; background:
+  rgba(34,34,34,0.85);\r
+
+  \    padding: 15px; border-radius: 12px; z-index: 9998; box-shadow: 0 0 15px
+  #0ff;\r
+
+  \    text-align: center; transition: background 0.4s ease;\r
+
+  \  }\r
+
+  \  #orb-panel button {\r
+
+  \    margin: 5px; padding: 8px 12px; background: #0ff; color: #000;\r
+
+  \    border: none; border-radius: 8px; cursor: pointer; font-weight: bold;\r
+
+  \  }\r
+
+  \  #orb-panel button:hover { transform: scale(1.05); transition: all 0.3s
+  ease-in-out; }\r
+
+  \  .orb-box {\r
+
+  \    animation: orbEnter 1s ease forwards; opacity: 0; transform:
+  scale(0.8);\r
+
+  \    margin: 10px auto; max-width: 600px; background-color: transparent;\r
+
+  \  }\r
+
+  </style>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  window.onload = function () {\r
+
+  \  function toggleOrbPanel() {\r
+
+  \    const panel = document.getElementById(\"orb-panel\");\r
+
+  \    const audio = document.getElementById('orb-ambience');\r
+
+  \    panel.style.display = panel.style.display === \"block\" ? \"none\" :
+  \"block\";\r
+
+  \    if (audio.paused) { audio.volume = 0.2; audio.play(); }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  function toggleOrb(orbName) {\r
+
+  \    const allOrbs = ['weather', 'quote', 'rss'];\r
+
+  \    const panel = document.getElementById(\"orb-panel\");\r
+
+  \    allOrbs.forEach(name => {\r
+
+  \      const el = document.getElementById(`orb-${name}`);\r
+
+  \      if (el) {\r
+
+  \        el.style.display = (name === orbName) ? (el.style.display === 'none'
+  ? 'block' : 'none') : 'none';\r
+
+  \      }\r
+
+  \    });\r
+
+  \    if (orbName === 'weather') panel.style.background = '#001f33';\r
+
+  \    else if (orbName === 'quote') panel.style.background = '#332b00';\r
+
+  \    else if (orbName === 'rss') panel.style.background = '#330018';\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  async function fetchWeather() {\r
+
+  \    try {\r
+
+  \      const response = await fetch('https://wttr.in/?format=%l:+%t\\&u');\r
+
+  \      const weather = await response.text();\r
+
+  \      document.getElementById('weather-status').innerText = weather;\r
+
+  \    } catch {\r
+
+  \      document.getElementById('weather-status').innerText = \"Skies unclear.
+  Try again soon.\";\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  function speakWeather() {\r
+
+  \    const text = document.getElementById('weather-status').innerText;\r
+
+  \    const utterance = new SpeechSynthesisUtterance(text);\r
+
+  \    utterance.pitch = 1.1;\r
+
+  \    utterance.rate = 1;\r
+
+  \    utterance.voice = speechSynthesis.getVoices().find(v =>
+  v.name.includes('Google') || v.lang === 'en-US');\r
+
+  \    speechSynthesis.speak(utterance);\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  document.getElementById(\"orb-weather\").innerHTML = `\r
+
+  \    <div style=\"background:#111; color:#fff; padding:20px;
+  border-radius:20px; text-align:center; box-shadow:0 0 10px #0ff;\">\r
+
+  \      <h2>🔮 Weather Oracle Orb</h2>\r
+
+  \      <p id=\"weather-status\">Connecting to the skies...</p>\r
+
+  \      <button onclick=\"speakWeather()\" style=\"margin-top:10px;\">🔊 Speak
+  Forecast</button>\r
+
+  \    </div>\r
+
+  \  `;\r
+
+  \r
+
+  \r
+
+  \  document.getElementById(\"orb-quote\").innerHTML = `\r
+
+  \    <div style=\"background:#111; color:#fff; padding:20px;
+  border-radius:20px; text-align:center; box-shadow:0 0 10px #ffc107;\">\r
+
+  \      <h2>📜 Quote Orb</h2>\r
+
+  \      <p id=\"quote-text\">“Courage is resistance to fear, mastery of fear –
+  not absence of fear.” – Mark Twain</p>\r
+
+  \      <button onclick=\"speakQuote()\" style=\"margin-top:10px;\">🔊 Speak
+  Quote</button>\r
+
+  \    </div>\r
+
+  \  `;\r
+
+  \r
+
+  \r
+
+  \  function speakQuote() {\r
+
+  \    const text = document.getElementById('quote-text').innerText;\r
+
+  \    const utterance = new SpeechSynthesisUtterance(text);\r
+
+  \    utterance.pitch = 1.05;\r
+
+  \    utterance.rate = 1;\r
+
+  \    utterance.voice = speechSynthesis.getVoices().find(v =>
+  v.name.includes('Google') || v.lang === 'en-US');\r
+
+  \    speechSynthesis.speak(utterance);\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  document.getElementById(\"orb-rss\").innerHTML = `\r
+
+  \    <div style=\"background:#111; color:#fff; padding:20px;
+  border-radius:20px; text-align:center; box-shadow:0 0 10px #ff0077;\">\r
+
+  \      <h2>📰 RSS Oracle Orb</h2>\r
+
+  \      <p>This orb fetches the latest entries from your blog. Here's a sample
+  feed:</p>\r
+
+  <ul style='text-align:left; margin: 0 auto; display:inline-block;'>\r
+
+  \  <li><a href='https://keyholetodaybooksandservices.com/feed.xml'
+  target='_blank' style='color:#0ff;'>🧠 The Codex Awakens – RSS
+  Ready</a></li>\r
+
+  \  <li><a href='https://keyholetodaybooksandservices.com/blog/rss'
+  target='_blank' style='color:#0ff;'>🌀 Blog of Real AI Tools</a></li>\r
+
+  \  <li><a href='https://nextxus.mystrikingly.com/blog-feed.xml'
+  target='_blank' style='color:#0ff;'>🌍 NexTxuS Blog Scroll</a></li>\r
+
+  </ul>\r
+
+  \      <p style=\"font-size:0.9em; color:#ccc;\">(Fully connected to your
+  blog’s RSS feeds above)</p>\r
+
+  \    </div>\r
+
+  \  `;\r
+
+  \r
+
+  \r
+
+  \  fetchWeather();\r
+
+  \r
+
+  \r
+
+  \  window.SpeechRecognition = window.SpeechRecognition ||
+  window.webkitSpeechRecognition;\r
+
+  \  const recognition = new SpeechRecognition();\r
+
+  \  recognition.continuous = true;\r
+
+  \  recognition.lang = 'en-US';\r
+
+  \  recognition.onresult = function (event) {\r
+
+  \    const transcript = event.results[event.results.length -
+  1][0].transcript.trim().toLowerCase();\r
+
+  \    if (transcript.includes('weather')) toggleOrb('weather');\r
+
+  \    else if (transcript.includes('quote')) toggleOrb('quote');\r
+
+  \    else if (transcript.includes('rss')) toggleOrb('rss');\r
+
+  \  };\r
+
+  \  recognition.start();\r
+
+  \  window.toggleOrbPanel = toggleOrbPanel;\r
+
+  \  window.toggleOrb = toggleOrb;\r
+
+  };\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Edit and add more orbs"
+tags: null
+source_url: https://docs.google.com/document/d/14K5xwC9LFjp1Q5H1XuYCK-JIRMJ6D5n3Fu5uh3helPA/edit?usp=drivesdk
+document_type: text
+description: "﻿ORB Basic Model: A-01  &  User Interface Station Panel
+  ________________ By - Roger Keyserling ________________ 📜 ORB INSTRUCTION
+  MANUAL (V1) Title: KEYHOLE ORBS: A Guide to Building Evolvable AI Widg..."
+created_at: 2026-01-19T20:15:42.054Z
+updated_at: 2026-01-19T20:20:06.177Z

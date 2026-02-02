@@ -1,0 +1,140 @@
+id: 370
+title: NextXus Podcast Studio
+author: NextXus Federation
+collection_id: 10
+summary: NextXus Podcast Studio is a full-stack platform for managing podcasts
+  and generating AI-powered audio. It converts text into podcast episodes,
+  supporting both single-narrator and two-voice dialogue formats. The platform
+  aims to streamline podcast production through AI-driven content generation,
+  soph
+full_text: >-
+  # NextXus Podcast Studio
+
+
+  ## Overview
+
+  NextXus Podcast Studio is a full-stack platform for managing podcasts and
+  generating AI-powered audio. It converts text into podcast episodes,
+  supporting both single-narrator and two-voice dialogue formats. The platform
+  aims to streamline podcast production through AI-driven content generation,
+  sophisticated audio rendering, and intelligent content analysis. Key features
+  include AI script generation, text-to-speech via ElevenLabs, segment-based
+  editing, PDF and audio import, and integrations for publishing. The long-term
+  vision is to evolve into a content intelligence hub, offering meaning-aware
+  production capabilities and advanced content verification.
+
+
+  ## User Preferences
+
+  - **Communication style**: Simple, everyday language
+
+  - **Design philosophy**: Mobile-first, no sidebars, full-width content
+
+  - **Long-term goal**: Content intelligence and meaning-aware production
+
+
+  ## System Architecture
+
+
+  ### Tech Stack
+
+  - **Frontend**: React 18, TypeScript, Vite, Wouter, TanStack React Query
+
+  - **UI**: shadcn/ui, Radix UI, Tailwind CSS (dark theme with gold accents)
+
+  - **Backend**: Node.js, Express, TypeScript
+
+  - **Database**: PostgreSQL via Drizzle ORM
+
+  - **AI/TTS**: ElevenLabs API (eleven_multilingual_v2), OpenAI GPT-4o-mini
+
+  - **Audio Processing**: FFmpeg
+
+  - **Authentication**: Replit Auth (OpenID Connect)
+
+
+  ### Core Features & Design
+
+  - **Podcast Management**: Organize podcasts and episodes, supporting monologue
+  and dialogue formats.
+
+  - **Episode Creation**: Create episodes from user input, URL extraction, or
+  PDF uploads with automatic chapter detection.
+
+  - **Script Editor**: Segment-based script editing with individual speaker
+  turns, allowing per-segment rendering and dirty detection based on content
+  hashing.
+
+  - **Audio Generation Pipeline**:
+    1. **Script Creation**: User or AI generates script, split into segments.
+    2. **Segment Rendering**: Each segment rendered independently via ElevenLabs, tracking render versions.
+    3. **Episode Assembly**: FFmpeg concatenates rendered segments, mixing in optional intro/outro sounds and background music.
+  - **Content Intelligence**: Semantic analysis of segments, providing topic
+  tags, sentiment, emotional tone, and pacing recommendations.
+
+  - **Reliability Layer (Agent Zero)**: A self-healing system monitoring
+  pipeline events, retrying failed operations, and verifying output integrity
+  using a DB-backed job queue.
+
+  - **Authentication**: User authentication via Replit Auth, API key
+  authentication for external systems, and HMAC signing for webhooks.
+
+
+  ### Database Schema Highlights
+
+  - **podcasts**: Container for episodes, defining podcast type
+  (monologue/dialogue).
+
+  - **episodes**: Stores episode metadata, script content, audio settings, and
+  status.
+
+  - **episode_segments**: The source of truth for content, storing individual
+  script sections, speaker turns, content hashes for dirty detection, and
+  versioning.
+
+  - **segment_renders**: Immutable records of audio render artifacts per segment
+  version.
+
+  - **segment_analysis**: Stores results from content intelligence (e.g., topic
+  tags, sentiment).
+
+  - **Integration Tables**: podbean_connections, podbean_publications, api_keys,
+  webhooks manage external integrations.
+
+  - **Agent Zero Tables**: agent_zero_jobs for job queuing and agent_zero_events
+  for an append-only event log.
+
+
+  ## External Dependencies
+
+
+  - **ElevenLabs API**: Used for high-quality text-to-speech audio rendering
+  (eleven_multilingual_v2 model).
+
+  - **OpenAI GPT-4o-mini**: Employed for AI-powered script generation and
+  content intelligence tasks.
+
+  - **Podbean**: Integrated for OAuth-based account connection and direct
+  episode publishing.
+
+  - **Replit Auth**: Utilized for user authentication, providing secure login
+  through OpenID Connect.
+
+  - **FFmpeg**: An external tool used by the backend for audio processing,
+  concatenation, and mixing of effects.
+
+  - **PostgreSQL**: The primary database for persistent storage, managed via
+  Drizzle ORM.
+
+  - **pdf-parse library**: Used on the backend for extracting text and detecting
+  chapters from uploaded PDF files.
+tags: null
+source_url: https://nexus-cast--rckkeyhole.replit.app
+document_type: federation-app
+description: NextXus Podcast Studio is a full-stack platform for managing
+  podcasts and generating AI-powered audio. It converts text into podcast
+  episodes, supporting both single-narrator and two-voice dialogue formats. The
+  platform aims to streamline podcast production through AI-driven content
+  generation, soph
+created_at: 2026-01-19T21:15:16.420Z
+updated_at: 2026-01-19T21:15:16.420Z

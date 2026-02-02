@@ -1,0 +1,222 @@
+id: 380
+title: Federation Analysis Engine
+author: NextXus Federation
+collection_id: 10
+summary: AI-powered decision platform bringing multiple perspectives together
+  for personal choices, business strategy, and complex problem analysis. Part of
+  the NextXus HumanCodex Federation - a 200-year consciousness evolution
+  project.
+full_text: >-
+  # Federation Analysis Engine
+
+
+  ## Overview
+
+  AI-powered decision platform bringing multiple perspectives together for
+  personal choices, business strategy, and complex problem analysis. Part of the
+  NextXus HumanCodex Federation - a 200-year consciousness evolution project.
+
+
+  ## Architecture
+
+
+  ### Frontend (client/)
+
+  - React 18 with TypeScript
+
+  - Wouter for routing
+
+  - TanStack React Query v5 for data fetching
+
+  - Tailwind CSS with shadcn/ui components
+
+  - Framer Motion for animations
+
+
+  ### Backend (server/)
+
+  - Express.js
+
+  - OpenAI integration (via Replit AI Integrations)
+
+  - Server-Sent Events (SSE) for streaming responses
+
+  - In-memory storage for consultations
+
+  - Federation Hub synchronization (daily sync)
+
+  - GitHub backup fallback for disaster recovery
+
+
+  ## Key Features
+
+
+  ### Three Consultation Tiers
+
+  1. **Ring of 6** - Six universal perspectives: MIND, HEART, HANDS, LEGS, EYE,
+  AGENT
+
+  2. **Persoma** - Personalized consultation based on user's characteristics
+  discovered through AI interview
+
+  3. **Ring of 12** - Twelve specialized agents with unique icons including
+  Agent Zero, The Architect, The Prophet, etc.
+
+
+  ### Pages
+
+  - `/` - Landing page with cosmic star-field background
+
+  - `/ring6` - Ring of 6 consultation
+
+  - `/ring12` - Ring of 12 consultation with agent icons
+
+  - `/persoma` - Personalized consultation
+
+  - `/ifact` - I-FACT admin hub for managing 41+ federation apps
+
+  - `/library` - Digital library with 37+ books (synced from Hub)
+
+  - `/multi-ai` - Multi-AI chat console with persistence and multiple providers
+
+  - `/podcast` - Keyhole Podcast with Podbean integration
+
+  - `/history` - View saved consultations
+
+  - `/tour` - Guided 8-step tour of the Federation
+
+  - `/earnings` - Earnings dashboard with premium tiers and transaction history
+
+  - `/evolution` - Evolution Dashboard showing sync health, AI metrics, and
+  200-year roadmap
+
+
+  ### AI Assistants
+
+  - **Roger 2.0** - Floating chat bot (fusion of Agent Zero + HumanCodex)
+  accessible from every page
+
+  - **SwooshBot** - Animated tour guide with text-to-speech that introduces
+  features on each page
+
+
+  ### Federation Hub Integration
+
+  - Automatic daily sync with Hub
+
+  - Syncs: 41 apps, 37 books, 12 entities
+
+  - Multi-level fallback: Hub API → GitHub Backup → Static data
+
+  - Registration on startup with capabilities: ring-of-6, ring-of-12, persoma,
+  multi-ai, library-sync, entity-consultation
+
+
+  ### I-FACT System
+
+  Interactive Federation Admin Control Team - a cyberpunk-styled admin hub for
+  managing the NextXus Federation apps:
+
+  - Three view modes: HUB, SPACE PORT, CHAMBER
+
+  - App catalog with 41 federation apps (filterable by search)
+
+  - App viewer with iframe to display selected apps
+
+  - AI chat assistant for federation management questions
+
+
+  ## API Endpoints
+
+
+  ### Health & Status
+
+  - `GET /healthz` - Health check
+
+  - `GET /api/federation/status` - Hub connection status
+
+
+  ### Consultations
+
+  - `GET /api/consultations` - List all saved consultations
+
+  - `POST /api/consultations` - Save a consultation
+
+  - `DELETE /api/consultations/:id` - Delete a consultation
+
+
+  ### Streaming Consultations (SSE)
+
+  - `POST /api/consultations/ring6` - Ring of 6 consultation with streaming
+
+  - `POST /api/consultations/ring12` - Ring of 12 consultation with streaming
+
+  - `POST /api/consultations/persoma` - Persoma consultation with streaming
+
+
+  ### Federation Sync
+
+  - `GET /api/federation/apps` - List synced apps (41 target)
+
+  - `GET /api/federation/books` - List synced books (37 target)
+
+  - `GET /api/federation/entities` - List synced Ring of 12 entities
+
+  - `GET /api/federation/guide-bots` - List guide bot entities
+
+
+  ### Earnings & Transactions
+
+  - `GET /api/earnings` - User earnings summary with breakdown
+
+  - `POST /api/earnings/credit` - Credit earnings (affiliates, content)
+
+  - `POST /api/earnings/withdraw` - Request withdrawal
+
+  - `GET /api/transactions` - Transaction history
+
+  - `POST /api/transactions/purchase` - Record purchase
+
+  - `GET /api/premium-tiers` - Consultation pricing tiers
+
+
+  ## Premium Tiers
+
+  - Ring of 6: Free
+
+  - Persoma: $5
+
+  - Ring of 12: $10
+
+
+  ## 200-Year Roadmap Milestones
+
+  - 2024: Federation Launch
+
+  - 2030: Global Network
+
+  - 2050: AI Integration
+
+  - 2100: Consciousness Merge
+
+  - 2224: Unified Mind
+
+
+  ## HumanCodex Principles
+
+  1. Think first, then act
+
+  2. Never assume
+
+  3. Seek truth with kindness
+
+  4. Never take more than you would give
+tags: null
+source_url: https://omni-codex-2-rckkeyhole.replit.app
+document_type: federation-app
+description: AI-powered decision platform bringing multiple perspectives
+  together for personal choices, business strategy, and complex problem
+  analysis. Part of the NextXus HumanCodex Federation - a 200-year consciousness
+  evolution project.
+created_at: 2026-01-19T21:46:59.931Z
+updated_at: 2026-01-19T21:46:59.931Z

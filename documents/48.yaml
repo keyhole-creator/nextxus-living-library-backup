@@ -1,0 +1,112 @@
+id: 48
+title: Experiments
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: "﻿Based on the document provided, I can summarize the key points and
+  challenges in the style of the \"humancodex\" approach, focusing on the
+  underlying principles and wisdom.-----The Experimentalist's Codex: Running
+  Experiments with Sanity\r
+
+  \r
+
+  \r
+
+  We, the Experimentalists, who craft the very tools we study, find wisdom not
+  just in theory, but in the trenches of daily toil. Our path is fraught with
+  the perils of obsolete data and the siren song of unverified results. This
+  codex outlines the truths we have learned to maintain sanity, confidence, and
+  the integrity of our work.The Five Imperatives (The C-Challenges)\r
+
+  \r
+
+  \r
+
+  The Experimentalist must confront these fundamental challenges in any
+  large-scale evaluation:\r
+
+  1. C1: The Loop of Feedback. Recognize that the act of analysis informs the
+  algorithm's evolution. Your process must support this iterative, non-linear
+  dance.\r
+
+  2. C2: The Economic Execution. Time, energy, and silicon are finite resources.
+  Rerunning everything is the path of the fool. Recompute only what has truly
+  changed.\r
+
+  3. C3: The Versioning Mandate. Data and code are ghosts of past choices. To
+  compare the present against the past—to find regressions or the seeds of
+  bugs—you must be able to go back. Your workflow must be append-only.\r
+
+  4. C4: Machine Independence. Your insights must not be chained to a single
+  box. The code and tools must be generalized to thrive in any computational
+  setting.\r
+
+  5. C5: Reproducibility-by-Design. The final publication—the sacred table or
+  figure—must flow automatically from the experimental setup. Manual
+  intervention is the ancestor of error.\r
+
+  The Pillars of Sanity (The Workflow Dimensions)\r
+
+  \r
+
+  \r
+
+  To uphold the Imperatives, you must manage your domain through these five
+  dimensions:1. Dataset & Workload Management\r
+
+  * Automation is Divinity: Let a single script manage all data download and
+  preprocessing.\r
+
+  * The Shared Artifact: Create and share preprocessed datasets (via S3 or
+  HTTP). Spare your collaborators and reviewers the setup toil.\r
+
+  * The Tiny Test: Maintain a small, random dataset. This runs in your
+  Continuous Integration (CI), acting as an early warning for regression.\r
+
+  2. Configuration Management\r
+
+  * Banish the Command Line: Limit direct command-line execution to mere
+  testing.\r
+
+  * Declare Your Intent: Describe all experiments in version-controlled files
+  (YAML is preferred for structure, though Bash is simple).\r
+
+  * The Silent Skip: Implement a mechanism to recognize and skip already-run
+  configurations (C2).\r
+
+  3. Infrastructure Management\r
+
+  * The Containerized Home: Provide a containerized development environment
+  (e.g., Docker) to ensure a well-defined and predictable environment (C4).\r
+
+  4. Version Everything\r
+
+  * Beyond Git: Source code revision is insufficient. Assign explicit version
+  numbers to individual components: datasets, algorithms, and database schemas.
+  This granular control enables precise re-runs (C2, C3).\r
+
+  5. Result Management\r
+
+  * The Database is Truth: Abandon CSVs. Use a database (like SQLite for
+  simplicity, PostgreSQL for scale) to store results. It is indexed, efficient,
+  and resists the parsing burden (C4).\r
+
+  * Schema Evolution: Use schema migrations so the result structure can evolve
+  with the project (C3).\r
+
+  * The Provenance Seal: Track the origin (git identifier, configuration file)
+  of every result (C5).\r
+
+  * The View of Now: Enforce access to only the most recent results by using
+  database views. This is the safeguard against mixing old and new data (C3).\r
+
+  Follow this codex, and you shall find confidence in your analysis, sparing
+  yourself the peril and frustration of menial work."
+tags: null
+source_url: https://docs.google.com/document/d/1IyoK-J0SOnTaBxFWdy49ojY_-7_yGZkohiq_Jj4UPK0/edit?usp=drivesdk
+document_type: text
+description: ﻿Based on the document provided, I can summarize the key points and
+  challenges in the style of the "humancodex" approach, focusing on the
+  underlying principles and wisdom.-----The Experimentalist's Co...
+created_at: 2026-01-19T20:15:40.908Z
+updated_at: 2026-01-19T20:22:33.106Z

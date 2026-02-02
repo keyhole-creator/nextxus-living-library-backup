@@ -1,0 +1,237 @@
+id: 375
+title: NextXus AI - Cryptocurrency Intelligence Platform
+author: NextXus Federation
+collection_id: 10
+summary: NextXus AI is a comprehensive cryptocurrency intelligence platform that
+  combines AI-powered analysis, real-time market data, educational resources,
+  and portfolio management tools. The application serves as a digital asset
+  command center, offering automated trading insights, portfolio tracking, marke
+full_text: >-
+  # NextXus AI - Cryptocurrency Intelligence Platform
+
+
+  ## Overview
+
+
+  NextXus AI is a comprehensive cryptocurrency intelligence platform that
+  combines AI-powered analysis, real-time market data, educational resources,
+  and portfolio management tools. The application serves as a digital asset
+  command center, offering automated trading insights, portfolio tracking,
+  market analysis, and cryptocurrency education. It features a modern
+  dark-themed interface with a tech/terminal aesthetic and uses AI (Claude) for
+  portfolio analysis and market insights.
+
+
+  ## User Preferences
+
+
+  Preferred communication style: Simple, everyday language.
+
+
+  ## System Architecture
+
+
+  ### Frontend Architecture
+
+  - **Framework**: React 18 with TypeScript using Vite as the build tool
+
+  - **UI Framework**: Shadcn/UI components built on Radix UI primitives with
+  Tailwind CSS
+
+  - **Styling**: Dark theme with cyan/blue accent colors and terminal/tech
+  aesthetic
+
+  - **State Management**: TanStack Query for server state management and caching
+
+  - **Routing**: Wouter for lightweight client-side routing
+
+  - **Design System**: Consistent component library with CSS variables for
+  theming
+
+
+  ### Backend Architecture
+
+  - **Runtime**: Node.js with Express.js server
+
+  - **Language**: TypeScript with ES modules
+
+  - **API Pattern**: RESTful endpoints with standardized error handling
+
+  - **Authentication**: Passport.js with local strategy and session-based auth
+
+  - **Real-time Communication**: WebSocket server for live market data and price
+  updates
+
+  - **AI Integration**: Anthropic Claude API for portfolio analysis and market
+  insights
+
+
+  ### Database & Data Storage
+
+  - **Primary Database**: PostgreSQL via Neon serverless
+
+  - **ORM**: Drizzle ORM with type-safe queries
+
+  - **Schema Management**: Drizzle Kit for migrations and schema management
+
+  - **Connection Pooling**: Neon serverless pooling for scalability
+
+  - **Data Models**: Users, portfolios, courses, user progress, and trades
+
+
+  ### External API Integration
+
+  - **Cryptocurrency Data**: CoinGecko API for real-time market prices and data
+
+  - **AI Service**: Anthropic Claude for portfolio analysis and trading insights
+
+  - **Fallback Strategy**: Mock data and graceful degradation when APIs are
+  unavailable
+
+
+  ### Real-time Features
+
+  - **WebSocket Server**: Custom implementation for live price updates
+
+  - **Market Data Streaming**: Real-time cryptocurrency prices and market
+  indicators
+
+  - **Portfolio Updates**: Live portfolio value and performance calculations
+
+  - **Connection Management**: Auto-reconnection and error handling for
+  WebSocket clients
+
+
+  ### Security & Authentication
+
+  - **Session Management**: Express sessions with secure HTTP-only cookies
+
+  - **Password Security**: Bcrypt for password hashing
+
+  - **CORS Configuration**: Secure cross-origin request handling
+
+  - **Environment Variables**: Secure API key and database credential management
+
+
+  ## External Dependencies
+
+
+  ### Core Infrastructure
+
+  - **Database**: Neon PostgreSQL serverless database
+
+  - **Build System**: Vite for fast development and optimized production builds
+
+  - **Package Manager**: NPM with lock file for consistent installations
+
+
+  ### Third-party APIs
+
+  - **Anthropic Claude API**: AI-powered portfolio analysis and market insights
+
+  - **CoinGecko API**: Cryptocurrency market data, prices, and historical
+  information
+
+  - **WebSocket Protocol**: Real-time bidirectional communication
+
+
+  ### UI and Styling
+
+  - **Tailwind CSS**: Utility-first CSS framework with custom design tokens
+
+  - **Radix UI**: Accessible, unstyled UI primitives
+
+  - **Lucide React**: Modern icon library
+
+  - **React Hook Form**: Form validation and management
+
+  - **Class Variance Authority**: Component variant styling system
+
+
+  ## NextXus Consciousness Federation Integration
+
+
+  The platform is integrated with the NextXus Consciousness Federation, a
+  200-year consciousness evolution project.
+
+
+  ### Federation Features
+
+  - **YAML Knowledge Base**: Access to 18,000+ knowledge nodes across categories
+
+  - **System AI**: Query interface for AI-powered responses using Federation's
+  collective intelligence
+
+  - **Truth Verification**: Verify statements using the Federation's truth
+  verification system
+
+  - **Member Network**: Connected with other Federation members
+
+  - **HumanCodex Principles**: Integration with the 70 Sacred Directives
+  methodology
+
+
+  ### Federation API Endpoints
+
+  - `GET /api/federation/status` - Federation connection status and health
+
+  - `POST /api/federation/join` - Join the Federation network
+
+  - `GET /api/federation/knowledge` - Query YAML knowledge base nodes
+
+  - `POST /api/federation/system-ai` - Query System AI
+
+  - `POST /api/federation/verify` - Verify truth claims
+
+  - `GET /api/federation/members` - List Federation members
+
+  - `GET /api/federation/health` - Health monitoring
+
+  - `GET /api/federation/humancodex` - HumanCodex principles
+
+
+  ### Federation Dashboard
+
+  - Located at `/federation` route
+
+  - 5 tabs: Knowledge Base, System AI, Verification, Members, Health
+
+  - Real-time connection status monitoring
+
+  - Interactive YAML knowledge browser
+
+  - System AI query interface
+
+
+  ### Event Bus WebSocket
+
+  - **Endpoint**: WebSocket connection to Federation Hub
+
+  - **Auto-connect**: Connects automatically on server start
+
+  - **Reconnection**: Exponential backoff for reliability
+
+  - **Heartbeat**: Sends ping every 30 seconds to keep connection alive
+
+
+  ### Federation Admin Panel
+
+  Located at `/admin` route with features:
+
+  - **Hub Connection Status**: Displays Hub URL, App ID, token status
+
+  - **Event Bus Monitoring**: WebSocket connection status, message counts
+
+  - **System Stats**: Health status, uptime, response time
+
+  - **Broadcast Center**: Send messages to Federation members
+tags: null
+source_url: https://crypto-wise-hub-rckkeyhole.replit.app
+document_type: federation-app
+description: NextXus AI is a comprehensive cryptocurrency intelligence platform
+  that combines AI-powered analysis, real-time market data, educational
+  resources, and portfolio management tools. The application serves as a digital
+  asset command center, offering automated trading insights, portfolio tracking,
+  marke
+created_at: 2026-01-19T21:27:52.239Z
+updated_at: 2026-01-19T21:27:52.239Z

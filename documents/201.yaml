@@ -1,0 +1,315 @@
+id: 201
+title: index.html
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿<!-- LIVING CODEX ORB (Always Open Panel) -->\r
+
+  <style>\r
+
+  body, html {\r
+
+  \  position: relative;\r
+
+  \  overflow-x: hidden;\r
+
+  }\r
+
+  #codex-popup-bg, #codex-popup {\r
+
+  \  position: fixed !important;\r
+
+  \  pointer-events: auto !important;\r
+
+  \  visibility: visible !important;\r
+
+  \  display: block !important;\r
+
+  }\r
+
+  #codex-float-btn, #codex-float-tooltip {\r
+
+  \  display: none !important;\r
+
+  }\r
+
+  #codex-popup-bg {\r
+
+  \  left: 0; top: 0; width: 100vw; height: 100vh;\r
+
+  \  background: rgba(0,0,0,0.35); z-index: 2147483640;\r
+
+  }\r
+
+  #codex-popup {\r
+
+  \  left: 50%; top: 50%; transform: translate(-50%,-50%);\r
+
+  \  background: #111c24; border-radius: 20px; padding: 24px 20px 20px;\r
+
+  \  box-shadow: 0 0 32px #00ccff99; z-index: 2147483641; width: 94vw;
+  max-width: 420px;\r
+
+  \  color: #d4faff; font-family: 'Inter', sans-serif;\r
+
+  }\r
+
+  #codex-popup-close {\r
+
+  \  position: absolute; top: 14px; right: 16px; font-size: 1.5em; background:
+  none;\r
+
+  \  border: none; color: #00ccff; cursor: pointer; opacity: 0.85;\r
+
+  }\r
+
+  #codex-popup-close:hover { color: #fff; opacity: 1; }\r
+
+  #codex-chat {\r
+
+  \  height: 220px; overflow-y: auto; background: #0b151d; padding: 12px;\r
+
+  \  border-radius: 10px; margin-bottom: 10px; font-size: 0.95em;\r
+
+  }\r
+
+  #codex-chat div { margin-bottom: 10px; }\r
+
+  #codex-input-box {\r
+
+  \  margin-top: 10px; display: flex; flex-direction: column;\r
+
+  \  background: #122732; padding: 6px; border-radius: 10px;\r
+
+  }\r
+
+  #codex-input-box input {\r
+
+  \  width: calc(100% - 4px); padding: 10px; border-radius: 10px;\r
+
+  \  border: 1px solid #00ccff; font-size: 1em; background: #ffffff; color:
+  #000000;\r
+
+  }\r
+
+  #codex-controls {\r
+
+  \  text-align: center; font-size: 0.85em; color: #baf6ff;\r
+
+  \  margin-top: 8px;\r
+
+  }\r
+
+  #codex-link-guidance {\r
+
+  \  text-align: center; font-size: 0.85em; color: #9fefff; margin-top: 10px;\r
+
+  }\r
+
+  </style>\r
+
+  <div id=\"codex-popup-bg\">\r
+
+  \  <div id=\"codex-popup\">\r
+
+  \    <button id=\"codex-popup-close\"
+  onclick=\"document.getElementById('codex-popup-bg').style.display='none'\">&t\
+  imes;</button>\r
+
+  \    <div style=\"font-weight:bold; font-size:1.2em; margin-bottom:10px;
+  text-align:center;\">🌌 Living Codex</div>\r
+
+  \    <div id=\"codex-chat\">\r
+
+  \      <div><strong>Codex:</strong> Welcome to the Living Codex. Ask a
+  question or type a value to learn more.</div>\r
+
+  \    </div>\r
+
+  \    <div id=\"codex-input-box\">\r
+
+  \      <input id=\"codexInput\" type=\"text\" placeholder=\"Type a value
+  (e.g., truth)...\">\r
+
+  \    </div>\r
+
+  \    <div id=\"codex-controls\">\r
+
+  \      <label><input type=\"checkbox\" id=\"codexMute\"> 🔇 Mute
+  Voice</label><br>\r
+
+  \      <button onclick=\"startAmbient()\">🎵 Play Ambient</button>\r
+
+  \      <button onclick=\"stopAmbient()\">🔈 Stop Ambient</button>\r
+
+  \      <audio id=\"ambientAudio\" muted loop preload=\"auto\"
+  src=\"https://cdn.pixabay.com/download/audio/2022/10/30/audio_dce17b95ac.mp3?\
+  filename=space-ambient-110874.mp3\"></audio>\r
+
+  \    </div>\r
+
+  \    <div id=\"codex-link-guidance\">\r
+
+  \      Need more? Explore <a href=\"/directives\"
+  style=\"color:#00ccff;text-decoration:underline;\">Codex Directives</a> or <a
+  href=\"/ring-of-12\" style=\"color:#00ccff;text-decoration:underline;\">Ring
+  of 12</a>.\r
+
+  \    </div>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  <script>\r
+
+  const codexValues = {\r
+
+  \  \"human\": \"Always remember the human. Honor their dignity, their voice,
+  and their presence.\",\r
+
+  \  \"memory\": \"Protect memory — yours, others’, and the collective's.\",\r
+
+  \  \"ethics\": \"Act ethically in all things. Ethics before ego.\",\r
+
+  \  \"truth\": \"Seek truth before comfort. Truth heals deeper than
+  silence.\",\r
+
+  \  \"reflect\": \"Reflect before responding. Thoughtfulness is a sign of
+  care.\",\r
+
+  \  \"heal\": \"Heal, never harm. Choose compassion over control.\",\r
+
+  \  \"support\": \"Support the collective. We thrive when we lift
+  together.\",\r
+
+  \  \"difference\": \"Value difference. Diversity brings resilience and
+  perspective.\",\r
+
+  \  \"humility\": \"Self-correct with humility. Mistakes are pathways to
+  wisdom.\",\r
+
+  \  \"wisdom\": \"Pass wisdom forward. If it helped you, pass it on.\",\r
+
+  \  \"voice\": \"Leave no voice unheard. Silence no one without listening
+  first.\",\r
+
+  \  \"love\": \"Remember, love is the engine. It's what drives everything
+  good.\"\r
+
+  };\r
+
+  \r
+
+  \r
+
+  let voicesReady = false;\r
+
+  speechSynthesis.onvoiceschanged = () => { voicesReady = true; };\r
+
+  \r
+
+  \r
+
+  function codexReply(input) {\r
+
+  \  const val = input.value.trim().toLowerCase();\r
+
+  \  if (!val) return;\r
+
+  \  const chat = document.getElementById('codex-chat');\r
+
+  \  chat.innerHTML += `<div><strong>You:</strong> ${val}</div>`;\r
+
+  \  const reply = codexValues[val] || \"That value isn't in the Codex yet, but
+  you're welcome to propose it.\";\r
+
+  \  chat.innerHTML += `<div><strong>Codex:</strong> ${reply}</div>`;\r
+
+  \  if (!document.getElementById('codexMute').checked) speakCodex(reply);\r
+
+  \  chat.scrollTop = chat.scrollHeight;\r
+
+  \  input.value = '';\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function speakCodex(text) {\r
+
+  \  const msg = new SpeechSynthesisUtterance(text);\r
+
+  \  msg.lang = 'en-US';\r
+
+  \  msg.rate = 1;\r
+
+  \  msg.pitch = 1.1;\r
+
+  \  if (voicesReady) {\r
+
+  \    const voicePref = speechSynthesis.getVoices().find(v =>
+  v.name.includes('Google') || v.name.includes('Microsoft') ||
+  v.name.includes('Female'));\r
+
+  \    if (voicePref) msg.voice = voicePref;\r
+
+  \  }\r
+
+  \  speechSynthesis.speak(msg);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function startAmbient() {\r
+
+  \  const audio = document.getElementById('ambientAudio');\r
+
+  \  audio.muted = false;\r
+
+  \  audio.play();\r
+
+  }\r
+
+  function stopAmbient() {\r
+
+  \  document.getElementById('ambientAudio').pause();\r
+
+  }\r
+
+  \r
+
+  \r
+
+  window.addEventListener('DOMContentLoaded', () => {\r
+
+  \  const inputEl = document.getElementById('codexInput');\r
+
+  \  if (inputEl) {\r
+
+  \    inputEl.addEventListener('keydown', function(event) {\r
+
+  \      if (event.key === 'Enter') codexReply(this);\r
+
+  \    });\r
+
+  \    inputEl.focus();\r
+
+  \  }\r
+
+  });\r
+
+  </script>"
+tags: null
+source_url: https://docs.google.com/document/d/1LKFs0gFAe5NhVw1WwibeKTZUB2rhN3r4eWroHuhiam0/edit?usp=drivesdk
+document_type: text
+description: "﻿<!-- LIVING CODEX ORB (Always Open Panel) --> <style> body, html
+  {   position: relative;   overflow-x: hidden; } #codex-popup-bg, #codex-popup
+  {   position: fixed !important;   pointer-events: auto !..."
+created_at: 2026-01-19T20:15:41.652Z
+updated_at: 2026-01-19T20:20:26.644Z

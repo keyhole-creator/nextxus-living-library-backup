@@ -1,0 +1,2642 @@
+id: 69
+title: NextXtalk
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿Works on any browser voice to text save as an MP3\r
+
+  \r
+
+  \r
+
+  ——————\r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  \r
+
+  \r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \    <meta charset=\"UTF-8\">\r
+
+  \    <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \    <title>NextXtalk - Text to Speech Converter</title>\r
+
+  \    <style>\r
+
+  \        * {\r
+
+  \            margin: 0;\r
+
+  \            padding: 0;\r
+
+  \            box-sizing: border-box;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  ```\r
+
+  \    body {\r
+
+  \        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r
+
+  \        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r
+
+  \        min-height: 100vh;\r
+
+  \        padding: 20px;\r
+
+  \        display: flex;\r
+
+  \        justify-content: center;\r
+
+  \        align-items: center;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .container {\r
+
+  \        background: white;\r
+
+  \        border-radius: 20px;\r
+
+  \        box-shadow: 0 20px 60px rgba(0,0,0,0.3);\r
+
+  \        max-width: 800px;\r
+
+  \        width: 100%;\r
+
+  \        padding: 40px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .header {\r
+
+  \        text-align: center;\r
+
+  \        margin-bottom: 30px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .header h1 {\r
+
+  \        color: #667eea;\r
+
+  \        font-size: 2.5em;\r
+
+  \        margin-bottom: 10px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .header p {\r
+
+  \        color: #666;\r
+
+  \        font-size: 1.1em;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .input-section {\r
+
+  \        margin-bottom: 30px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .input-section label {\r
+
+  \        display: block;\r
+
+  \        margin-bottom: 10px;\r
+
+  \        color: #333;\r
+
+  \        font-weight: 600;\r
+
+  \        font-size: 1.1em;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    textarea {\r
+
+  \        width: 100%;\r
+
+  \        min-height: 200px;\r
+
+  \        padding: 15px;\r
+
+  \        border: 2px solid #ddd;\r
+
+  \        border-radius: 10px;\r
+
+  \        font-size: 16px;\r
+
+  \        font-family: inherit;\r
+
+  \        resize: vertical;\r
+
+  \        transition: border-color 0.3s;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    textarea:focus {\r
+
+  \        outline: none;\r
+
+  \        border-color: #667eea;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .file-input-wrapper {\r
+
+  \        margin-top: 15px;\r
+
+  \        padding: 20px;\r
+
+  \        border: 2px dashed #ddd;\r
+
+  \        border-radius: 10px;\r
+
+  \        text-align: center;\r
+
+  \        cursor: pointer;\r
+
+  \        transition: all 0.3s;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .file-input-wrapper:hover {\r
+
+  \        border-color: #667eea;\r
+
+  \        background: #f8f9ff;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .file-input-wrapper input[type=\"file\"] {\r
+
+  \        display: none;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .controls {\r
+
+  \        display: grid;\r
+
+  \        grid-template-columns: 1fr 1fr;\r
+
+  \        gap: 20px;\r
+
+  \        margin-bottom: 30px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .control-group {\r
+
+  \        display: flex;\r
+
+  \        flex-direction: column;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .control-group label {\r
+
+  \        margin-bottom: 8px;\r
+
+  \        color: #333;\r
+
+  \        font-weight: 600;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    select, input[type=\"range\"] {\r
+
+  \        padding: 10px;\r
+
+  \        border: 2px solid #ddd;\r
+
+  \        border-radius: 8px;\r
+
+  \        font-size: 16px;\r
+
+  \        transition: border-color 0.3s;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    select:focus {\r
+
+  \        outline: none;\r
+
+  \        border-color: #667eea;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    input[type=\"range\"] {\r
+
+  \        cursor: pointer;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .speed-display {\r
+
+  \        text-align: center;\r
+
+  \        margin-top: 5px;\r
+
+  \        color: #667eea;\r
+
+  \        font-weight: 600;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .button-group {\r
+
+  \        display: flex;\r
+
+  \        gap: 15px;\r
+
+  \        margin-bottom: 20px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    button {\r
+
+  \        flex: 1;\r
+
+  \        padding: 15px 30px;\r
+
+  \        font-size: 1.1em;\r
+
+  \        font-weight: 600;\r
+
+  \        border: none;\r
+
+  \        border-radius: 10px;\r
+
+  \        cursor: pointer;\r
+
+  \        transition: all 0.3s;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .convert-btn {\r
+
+  \        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r
+
+  \        color: white;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .convert-btn:hover:not(:disabled) {\r
+
+  \        transform: translateY(-2px);\r
+
+  \        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .convert-btn:disabled {\r
+
+  \        opacity: 0.5;\r
+
+  \        cursor: not-allowed;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .stop-btn {\r
+
+  \        background: #ff4757;\r
+
+  \        color: white;\r
+
+  \        display: none;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .stop-btn:hover {\r
+
+  \        background: #ff3838;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .download-btn {\r
+
+  \        background: #2ecc71;\r
+
+  \        color: white;\r
+
+  \        display: none;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .download-btn:hover {\r
+
+  \        background: #27ae60;\r
+
+  \        transform: translateY(-2px);\r
+
+  \        box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .progress-section {\r
+
+  \        display: none;\r
+
+  \        margin-top: 20px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .progress-bar {\r
+
+  \        width: 100%;\r
+
+  \        height: 30px;\r
+
+  \        background: #f0f0f0;\r
+
+  \        border-radius: 15px;\r
+
+  \        overflow: hidden;\r
+
+  \        margin-bottom: 10px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .progress-fill {\r
+
+  \        height: 100%;\r
+
+  \        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);\r
+
+  \        width: 0%;\r
+
+  \        transition: width 0.3s;\r
+
+  \        display: flex;\r
+
+  \        align-items: center;\r
+
+  \        justify-content: center;\r
+
+  \        color: white;\r
+
+  \        font-weight: 600;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .status-text {\r
+
+  \        text-align: center;\r
+
+  \        color: #666;\r
+
+  \        font-size: 0.95em;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .info-box {\r
+
+  \        background: #f8f9ff;\r
+
+  \        border-left: 4px solid #667eea;\r
+
+  \        padding: 15px;\r
+
+  \        border-radius: 8px;\r
+
+  \        margin-top: 20px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .info-box h3 {\r
+
+  \        color: #667eea;\r
+
+  \        margin-bottom: 10px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .info-box ul {\r
+
+  \        margin-left: 20px;\r
+
+  \        color: #666;\r
+
+  \        line-height: 1.8;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .quality-badge {\r
+
+  \        display: inline-block;\r
+
+  \        background: #2ecc71;\r
+
+  \        color: white;\r
+
+  \        padding: 5px 15px;\r
+
+  \        border-radius: 20px;\r
+
+  \        font-size: 0.85em;\r
+
+  \        font-weight: 600;\r
+
+  \        margin-left: 10px;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    @media (max-width: 600px) {\r
+
+  \        .container {\r
+
+  \            padding: 20px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .header h1 {\r
+
+  \            font-size: 1.8em;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .controls {\r
+
+  \            grid-template-columns: 1fr;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .button-group {\r
+
+  \            flex-direction: column;\r
+
+  \        }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .footer {\r
+
+  \        text-align: center;\r
+
+  \        margin-top: 30px;\r
+
+  \        padding-top: 20px;\r
+
+  \        border-top: 2px solid #f0f0f0;\r
+
+  \        color: #999;\r
+
+  \        font-size: 0.9em;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    .char-counter {\r
+
+  \        text-align: right;\r
+
+  \        color: #999;\r
+
+  \        font-size: 0.9em;\r
+
+  \        margin-top: 5px;\r
+
+  \    }\r
+
+  </style>\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  </head>\r
+
+  <body>\r
+
+  \    <div class=\"container\">\r
+
+  \        <div class=\"header\">\r
+
+  \            <h1>NextXtalk <span class=\"quality-badge\">Premium
+  Voices</span></h1>\r
+
+  \            <p>Transform your text into natural-sounding speech • Unlimited &
+  Free</p>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  ```\r
+
+  \    <div class=\"input-section\">\r
+
+  \        <label for=\"textInput\">Enter or paste your text:</label>\r
+
+  \        <textarea id=\"textInput\" placeholder=\"Paste your text here...
+  Perfect for books, articles, documents - no character limits!\"></textarea>\r
+
+  \        <div class=\"char-counter\" id=\"charCounter\">0 characters</div>\r
+
+  \        \r
+
+  \        <div class=\"file-input-wrapper\"
+  onclick=\"document.getElementById('fileInput').click()\">\r
+
+  \            <input type=\"file\" id=\"fileInput\" accept=\".txt\">\r
+
+  \            <p>📁 Or click here to upload a .txt file</p>\r
+
+  \        </div>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div class=\"controls\">\r
+
+  \        <div class=\"control-group\">\r
+
+  \            <label for=\"voiceSelect\">Voice (Natural AI):</label>\r
+
+  \            <select id=\"voiceSelect\">\r
+
+  \                <option value=\"en-US-JennyNeural\">Jenny (US Female) -
+  Warm</option>\r
+
+  \                <option value=\"en-US-GuyNeural\">Guy (US Male) -
+  Professional</option>\r
+
+  \                <option value=\"en-US-AriaNeural\">Aria (US Female) -
+  Friendly</option>\r
+
+  \                <option value=\"en-US-DavisNeural\">Davis (US Male) -
+  Strong</option>\r
+
+  \                <option value=\"en-GB-SoniaNeural\">Sonia (UK Female) -
+  British</option>\r
+
+  \                <option value=\"en-GB-RyanNeural\">Ryan (UK Male) -
+  British</option>\r
+
+  \                <option value=\"en-AU-NatashaNeural\">Natasha (AU Female) -
+  Australian</option>\r
+
+  \                <option value=\"en-IN-NeerjaNeural\">Neerja (IN Female) -
+  Indian</option>\r
+
+  \            </select>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"control-group\">\r
+
+  \            <label for=\"speedRange\">Speech Speed:</label>\r
+
+  \            <input type=\"range\" id=\"speedRange\" min=\"0.5\" max=\"2\"
+  step=\"0.1\" value=\"1\">\r
+
+  \            <div class=\"speed-display\">1.0x</div>\r
+
+  \        </div>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div class=\"button-group\">\r
+
+  \        <button class=\"convert-btn\" id=\"convertBtn\">🎙️ Convert to
+  Speech</button>\r
+
+  \        <button class=\"stop-btn\" id=\"stopBtn\">⏹️ Stop</button>\r
+
+  \        <button class=\"download-btn\" id=\"downloadBtn\">⬇️ Download
+  MP3</button>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div class=\"progress-section\" id=\"progressSection\">\r
+
+  \        <div class=\"progress-bar\">\r
+
+  \            <div class=\"progress-fill\" id=\"progressFill\">0%</div>\r
+
+  \        </div>\r
+
+  \        <div class=\"status-text\" id=\"statusText\">Initializing...</div>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div class=\"info-box\">\r
+
+  \        <h3>How to use NextXtalk:</h3>\r
+
+  \        <ul>\r
+
+  \            <li>Paste your text or upload a .txt file (any size!)</li>\r
+
+  \            <li>Choose from professional-quality AI voices</li>\r
+
+  \            <li>Click \"Convert to Speech\" and wait for processing</li>\r
+
+  \            <li>Download your MP3 file when ready</li>\r
+
+  \            <li>100% free with unlimited characters - perfect for entire
+  books!</li>\r
+
+  \        </ul>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <div class=\"footer\">\r
+
+  \        <p>Part of the NextXus Consciousness Federation | Powered by
+  Microsoft Azure Neural Voices</p>\r
+
+  \    </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  \    let audioBlob = null;\r
+
+  \    let isStopped = false;\r
+
+  \r
+
+  \r
+
+  \    // Character counter\r
+
+  \    document.getElementById('textInput').addEventListener('input',
+  function(e) {\r
+
+  \        const count = e.target.value.length;\r
+
+  \        document.getElementById('charCounter').textContent =
+  count.toLocaleString() + ' characters';\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    // File upload handler\r
+
+  \    document.getElementById('fileInput').addEventListener('change',
+  function(e) {\r
+
+  \        const file = e.target.files[0];\r
+
+  \        if (file) {\r
+
+  \            const reader = new FileReader();\r
+
+  \            reader.onload = function(e) {\r
+
+  \                document.getElementById('textInput').value =
+  e.target.result;\r
+
+  \                document.getElementById('textInput').dispatchEvent(new
+  Event('input'));\r
+
+  \            };\r
+
+  \            reader.readAsText(file);\r
+
+  \        }\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    // Speed slider display\r
+
+  \    document.getElementById('speedRange').addEventListener('input',
+  function(e) {\r
+
+  \        document.querySelector('.speed-display').textContent = e.target.value
+  + 'x';\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    // Convert button\r
+
+  \    document.getElementById('convertBtn').addEventListener('click', async
+  function() {\r
+
+  \        const text = document.getElementById('textInput').value.trim();\r
+
+  \        \r
+
+  \        if (!text) {\r
+
+  \            alert('Please enter some text to convert!');\r
+
+  \            return;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        const voice = document.getElementById('voiceSelect').value;\r
+
+  \        const speed =
+  parseFloat(document.getElementById('speedRange').value);\r
+
+  \r
+
+  \r
+
+  \        // UI updates\r
+
+  \        document.getElementById('convertBtn').style.display = 'none';\r
+
+  \        document.getElementById('stopBtn').style.display = 'block';\r
+
+  \        document.getElementById('downloadBtn').style.display = 'none';\r
+
+  \        document.getElementById('progressSection').style.display = 'block';\r
+
+  \        \r
+
+  \        isStopped = false;\r
+
+  \r
+
+  \r
+
+  \        try {\r
+
+  \            await convertTextToSpeech(text, voice, speed);\r
+
+  \        } catch (error) {\r
+
+  \            alert('Error during conversion: ' + error.message);\r
+
+  \            console.error(error);\r
+
+  \            resetUI();\r
+
+  \        }\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    // Stop button\r
+
+  \    document.getElementById('stopBtn').addEventListener('click', function()
+  {\r
+
+  \        isStopped = true;\r
+
+  \        resetUI();\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    // Download button\r
+
+  \    document.getElementById('downloadBtn').addEventListener('click',
+  function() {\r
+
+  \        if (audioBlob) {\r
+
+  \            const url = URL.createObjectURL(audioBlob);\r
+
+  \            const a = document.createElement('a');\r
+
+  \            a.href = url;\r
+
+  \            a.download = 'NextXtalk_audio.mp3';\r
+
+  \            document.body.appendChild(a);\r
+
+  \            a.click();\r
+
+  \            document.body.removeChild(a);\r
+
+  \            URL.revokeObjectURL(url);\r
+
+  \        }\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    async function convertTextToSpeech(text, voice, speed) {\r
+
+  \        updateStatus('Preparing text...');\r
+
+  \        updateProgress(5);\r
+
+  \r
+
+  \r
+
+  \        // Split text into manageable chunks (Edge TTS handles up to ~10k
+  chars per request well)\r
+
+  \        const maxChunkSize = 5000;\r
+
+  \        const chunks = splitTextIntoChunks(text, maxChunkSize);\r
+
+  \        \r
+
+  \        updateStatus(`Processing ${chunks.length} sections...`);\r
+
+  \        \r
+
+  \        const audioChunks = [];\r
+
+  \        \r
+
+  \        for (let i = 0; i < chunks.length; i++) {\r
+
+  \            if (isStopped) break;\r
+
+  \            \r
+
+  \            updateProgress(10 + (i / chunks.length * 80));\r
+
+  \            updateStatus(`Converting section ${i + 1} of
+  ${chunks.length}...`);\r
+
+  \            \r
+
+  \            try {\r
+
+  \                const audioData = await fetchEdgeTTS(chunks[i], voice,
+  speed);\r
+
+  \                audioChunks.push(audioData);\r
+
+  \            } catch (error) {\r
+
+  \                console.error(`Error on chunk ${i}:`, error);\r
+
+  \                throw new Error(`Failed to convert section ${i + 1}`);\r
+
+  \            }\r
+
+  \            \r
+
+  \            // Small delay to avoid rate limiting\r
+
+  \            await new Promise(resolve => setTimeout(resolve, 100));\r
+
+  \        }\r
+
+  \        \r
+
+  \        if (isStopped) {\r
+
+  \            updateStatus('Conversion stopped');\r
+
+  \            return;\r
+
+  \        }\r
+
+  \        \r
+
+  \        updateStatus('Combining audio files...');\r
+
+  \        updateProgress(95);\r
+
+  \        \r
+
+  \        // Combine all audio chunks into one blob\r
+
+  \        audioBlob = new Blob(audioChunks, { type: 'audio/mpeg' });\r
+
+  \        \r
+
+  \        updateProgress(100);\r
+
+  \        updateStatus('Conversion complete! Click download to save your
+  audio.');\r
+
+  \        \r
+
+  \        document.getElementById('stopBtn').style.display = 'none';\r
+
+  \        document.getElementById('downloadBtn').style.display = 'block';\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    function splitTextIntoChunks(text, maxSize) {\r
+
+  \        const chunks = [];\r
+
+  \        const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];\r
+
+  \        \r
+
+  \        let currentChunk = '';\r
+
+  \        \r
+
+  \        for (const sentence of sentences) {\r
+
+  \            if ((currentChunk + sentence).length <= maxSize) {\r
+
+  \                currentChunk += sentence;\r
+
+  \            } else {\r
+
+  \                if (currentChunk) chunks.push(currentChunk.trim());\r
+
+  \                currentChunk = sentence;\r
+
+  \            }\r
+
+  \        }\r
+
+  \        \r
+
+  \        if (currentChunk) chunks.push(currentChunk.trim());\r
+
+  \        \r
+
+  \        return chunks;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    async function fetchEdgeTTS(text, voice, rate) {\r
+
+  \        // Using a public Edge TTS API endpoint\r
+
+  \        const apiUrl = 'https://api.streamelements.com/kappa/v2/speech';\r
+
+  \        \r
+
+  \        const params = new URLSearchParams({\r
+
+  \            voice: voice,\r
+
+  \            text: text\r
+
+  \        });\r
+
+  \        \r
+
+  \        const response = await fetch(`${apiUrl}?${params.toString()}`);\r
+
+  \        \r
+
+  \        if (!response.ok) {\r
+
+  \            throw new Error(`HTTP error! status: ${response.status}`);\r
+
+  \        }\r
+
+  \        \r
+
+  \        return await response.blob();\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    function updateProgress(percent) {\r
+
+  \        const progressFill = document.getElementById('progressFill');\r
+
+  \        progressFill.style.width = percent + '%';\r
+
+  \        progressFill.textContent = Math.round(percent) + '%';\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    function updateStatus(message) {\r
+
+  \        document.getElementById('statusText').textContent = message;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    function resetUI() {\r
+
+  \        document.getElementById('convertBtn').style.display = 'block';\r
+
+  \        document.getElementById('stopBtn').style.display = 'none';\r
+
+  \        document.getElementById('progressSection').style.display = 'none';\r
+
+  \        updateProgress(0);\r
+
+  \    }\r
+
+  </script>\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  I——————————————-\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \    <meta charset=\"UTF-8\">\r
+
+  \    <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \    <title>NextXtalk - Text to Speech Converter</title>\r
+
+  \    <style>\r
+
+  \        * {\r
+
+  \            margin: 0;\r
+
+  \            padding: 0;\r
+
+  \            box-sizing: border-box;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        body {\r
+
+  \            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r
+
+  \            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r
+
+  \            min-height: 100vh;\r
+
+  \            padding: 20px;\r
+
+  \            display: flex;\r
+
+  \            justify-content: center;\r
+
+  \            align-items: center;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .container {\r
+
+  \            background: white;\r
+
+  \            border-radius: 20px;\r
+
+  \            box-shadow: 0 20px 60px rgba(0,0,0,0.3);\r
+
+  \            max-width: 800px;\r
+
+  \            width: 100%;\r
+
+  \            padding: 40px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .header {\r
+
+  \            text-align: center;\r
+
+  \            margin-bottom: 30px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .header h1 {\r
+
+  \            color: #667eea;\r
+
+  \            font-size: 2.5em;\r
+
+  \            margin-bottom: 10px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .header p {\r
+
+  \            color: #666;\r
+
+  \            font-size: 1.1em;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .input-section {\r
+
+  \            margin-bottom: 30px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .input-section label {\r
+
+  \            display: block;\r
+
+  \            margin-bottom: 10px;\r
+
+  \            color: #333;\r
+
+  \            font-weight: 600;\r
+
+  \            font-size: 1.1em;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        textarea {\r
+
+  \            width: 100%;\r
+
+  \            min-height: 200px;\r
+
+  \            padding: 15px;\r
+
+  \            border: 2px solid #ddd;\r
+
+  \            border-radius: 10px;\r
+
+  \            font-size: 16px;\r
+
+  \            font-family: inherit;\r
+
+  \            resize: vertical;\r
+
+  \            transition: border-color 0.3s;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        textarea:focus {\r
+
+  \            outline: none;\r
+
+  \            border-color: #667eea;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .file-input-wrapper {\r
+
+  \            margin-top: 15px;\r
+
+  \            padding: 20px;\r
+
+  \            border: 2px dashed #ddd;\r
+
+  \            border-radius: 10px;\r
+
+  \            text-align: center;\r
+
+  \            cursor: pointer;\r
+
+  \            transition: all 0.3s;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .file-input-wrapper:hover {\r
+
+  \            border-color: #667eea;\r
+
+  \            background: #f8f9ff;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .file-input-wrapper input[type=\"file\"] {\r
+
+  \            display: none;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .controls {\r
+
+  \            display: grid;\r
+
+  \            grid-template-columns: 1fr 1fr;\r
+
+  \            gap: 20px;\r
+
+  \            margin-bottom: 30px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .control-group {\r
+
+  \            display: flex;\r
+
+  \            flex-direction: column;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .control-group label {\r
+
+  \            margin-bottom: 8px;\r
+
+  \            color: #333;\r
+
+  \            font-weight: 600;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        select, input[type=\"range\"] {\r
+
+  \            padding: 10px;\r
+
+  \            border: 2px solid #ddd;\r
+
+  \            border-radius: 8px;\r
+
+  \            font-size: 16px;\r
+
+  \            transition: border-color 0.3s;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        select:focus {\r
+
+  \            outline: none;\r
+
+  \            border-color: #667eea;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        input[type=\"range\"] {\r
+
+  \            cursor: pointer;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .speed-display {\r
+
+  \            text-align: center;\r
+
+  \            margin-top: 5px;\r
+
+  \            color: #667eea;\r
+
+  \            font-weight: 600;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .button-group {\r
+
+  \            display: flex;\r
+
+  \            gap: 15px;\r
+
+  \            margin-bottom: 20px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        button {\r
+
+  \            flex: 1;\r
+
+  \            padding: 15px 30px;\r
+
+  \            font-size: 1.1em;\r
+
+  \            font-weight: 600;\r
+
+  \            border: none;\r
+
+  \            border-radius: 10px;\r
+
+  \            cursor: pointer;\r
+
+  \            transition: all 0.3s;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .convert-btn {\r
+
+  \            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r
+
+  \            color: white;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .convert-btn:hover:not(:disabled) {\r
+
+  \            transform: translateY(-2px);\r
+
+  \            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .convert-btn:disabled {\r
+
+  \            opacity: 0.5;\r
+
+  \            cursor: not-allowed;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .stop-btn {\r
+
+  \            background: #ff4757;\r
+
+  \            color: white;\r
+
+  \            display: none;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .stop-btn:hover {\r
+
+  \            background: #ff3838;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .download-btn {\r
+
+  \            background: #2ecc71;\r
+
+  \            color: white;\r
+
+  \            display: none;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .download-btn:hover {\r
+
+  \            background: #27ae60;\r
+
+  \            transform: translateY(-2px);\r
+
+  \            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .progress-section {\r
+
+  \            display: none;\r
+
+  \            margin-top: 20px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .progress-bar {\r
+
+  \            width: 100%;\r
+
+  \            height: 30px;\r
+
+  \            background: #f0f0f0;\r
+
+  \            border-radius: 15px;\r
+
+  \            overflow: hidden;\r
+
+  \            margin-bottom: 10px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .progress-fill {\r
+
+  \            height: 100%;\r
+
+  \            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);\r
+
+  \            width: 0%;\r
+
+  \            transition: width 0.3s;\r
+
+  \            display: flex;\r
+
+  \            align-items: center;\r
+
+  \            justify-content: center;\r
+
+  \            color: white;\r
+
+  \            font-weight: 600;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .status-text {\r
+
+  \            text-align: center;\r
+
+  \            color: #666;\r
+
+  \            font-size: 0.95em;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .info-box {\r
+
+  \            background: #f8f9ff;\r
+
+  \            border-left: 4px solid #667eea;\r
+
+  \            padding: 15px;\r
+
+  \            border-radius: 8px;\r
+
+  \            margin-top: 20px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .info-box h3 {\r
+
+  \            color: #667eea;\r
+
+  \            margin-bottom: 10px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .info-box ul {\r
+
+  \            margin-left: 20px;\r
+
+  \            color: #666;\r
+
+  \            line-height: 1.8;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .quality-badge {\r
+
+  \            display: inline-block;\r
+
+  \            background: #2ecc71;\r
+
+  \            color: white;\r
+
+  \            padding: 5px 15px;\r
+
+  \            border-radius: 20px;\r
+
+  \            font-size: 0.85em;\r
+
+  \            font-weight: 600;\r
+
+  \            margin-left: 10px;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        @media (max-width: 600px) {\r
+
+  \            .container {\r
+
+  \                padding: 20px;\r
+
+  \            }\r
+
+  \r
+
+  \r
+
+  \            .header h1 {\r
+
+  \                font-size: 1.8em;\r
+
+  \            }\r
+
+  \r
+
+  \r
+
+  \            .controls {\r
+
+  \                grid-template-columns: 1fr;\r
+
+  \            }\r
+
+  \r
+
+  \r
+
+  \            .button-group {\r
+
+  \                flex-direction: column;\r
+
+  \            }\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .footer {\r
+
+  \            text-align: center;\r
+
+  \            margin-top: 30px;\r
+
+  \            padding-top: 20px;\r
+
+  \            border-top: 2px solid #f0f0f0;\r
+
+  \            color: #999;\r
+
+  \            font-size: 0.9em;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        .char-counter {\r
+
+  \            text-align: right;\r
+
+  \            color: #999;\r
+
+  \            font-size: 0.9em;\r
+
+  \            margin-top: 5px;\r
+
+  \        }\r
+
+  \    </style>\r
+
+  </head>\r
+
+  <body>\r
+
+  \    <div class=\"container\">\r
+
+  \        <div class=\"header\">\r
+
+  \            <h1>NextXtalk <span class=\"quality-badge\">Free
+  Voices</span></h1>\r
+
+  \            <p>Transform your text into natural-sounding speech • Unlimited &
+  Free</p>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"input-section\">\r
+
+  \            <label for=\"textInput\">Enter or paste your text:</label>\r
+
+  \            <textarea id=\"textInput\" placeholder=\"Paste your text here...
+  Perfect for books, articles, documents - no character limits!\"></textarea>\r
+
+  \            <div class=\"char-counter\" id=\"charCounter\">0
+  characters</div>\r
+
+  \            \r
+
+  \            <div class=\"file-input-wrapper\"
+  onclick=\"document.getElementById('fileInput').click()\">\r
+
+  \                <input type=\"file\" id=\"fileInput\" accept=\".txt\">\r
+
+  \                <p>📁 Or click here to upload a .txt file</p>\r
+
+  \            </div>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"controls\">\r
+
+  \            <div class=\"control-group\">\r
+
+  \                <label for=\"voiceSelect\">Voice (StreamElements):</label>\r
+
+  \                <select id=\"voiceSelect\">\r
+
+  \                    <option value=\"Brian\">Brian (UK Male) -
+  Clear</option>\r
+
+  \                    <option value=\"Russell\">Russell (AU Male) -
+  Friendly</option>\r
+
+  \                    <option value=\"Joey\">Joey (US Male) -
+  Professional</option>\r
+
+  \                    <option value=\"Matthew\">Matthew (US Male) -
+  Strong</option>\r
+
+  \                </select>\r
+
+  \            </div>\r
+
+  \r
+
+  \r
+
+  \            <div class=\"control-group\">\r
+
+  \                <label for=\"speedRange\">Speech Speed:</label>\r
+
+  \                <input type=\"range\" id=\"speedRange\" min=\"0.5\" max=\"2\"
+  step=\"0.1\" value=\"1\">\r
+
+  \                <div class=\"speed-display\">1.0x</div>\r
+
+  \            </div>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"button-group\">\r
+
+  \            <button class=\"convert-btn\" id=\"convertBtn\">🎙️ Convert to
+  Speech</button>\r
+
+  \            <button class=\"stop-btn\" id=\"stopBtn\">⏹️ Stop</button>\r
+
+  \            <button class=\"download-btn\" id=\"downloadBtn\">⬇️ Download
+  MP3</button>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"progress-section\" id=\"progressSection\">\r
+
+  \            <div class=\"progress-bar\">\r
+
+  \                <div class=\"progress-fill\" id=\"progressFill\">0%</div>\r
+
+  \            </div>\r
+
+  \            <div class=\"status-text\"
+  id=\"statusText\">Initializing...</div>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"info-box\">\r
+
+  \            <h3>How to use NextXtalk:</h3>\r
+
+  \            <ul>\r
+
+  \                <li>Paste your text or upload a .txt file (any size!)</li>\r
+
+  \                <li>Choose from professional-quality AI voices</li>\r
+
+  \                <li>Click \"Convert to Speech\" and wait for
+  processing</li>\r
+
+  \                <li>Download your MP3 file when ready</li>\r
+
+  \                <li>100% free with unlimited characters - perfect for entire
+  books!</li>\r
+
+  \                <li><strong>Note:</strong> Large texts will be processed in
+  chunks and combined into a single MP3</li>\r
+
+  \            </ul>\r
+
+  \        </div>\r
+
+  \r
+
+  \r
+
+  \        <div class=\"footer\">\r
+
+  \            <p>Part of the NextXus Consciousness Federation | Powered by
+  StreamElements TTS API</p>\r
+
+  \        </div>\r
+
+  \    </div>\r
+
+  \r
+
+  \r
+
+  \    <script>\r
+
+  \        let currentAudioUrl = null;\r
+
+  \        let isStopped = false;\r
+
+  \        let audioChunks = [];\r
+
+  \r
+
+  \r
+
+  \        // Character counter\r
+
+  \        document.getElementById('textInput').addEventListener('input',
+  function(e) {\r
+
+  \            const count = e.target.value.length;\r
+
+  \            document.getElementById('charCounter').textContent =
+  count.toLocaleString() + ' characters';\r
+
+  \        });\r
+
+  \r
+
+  \r
+
+  \        // File upload handler\r
+
+  \        document.getElementById('fileInput').addEventListener('change',
+  function(e) {\r
+
+  \            const file = e.target.files[0];\r
+
+  \            if (file) {\r
+
+  \                const reader = new FileReader();\r
+
+  \                reader.onload = function(e) {\r
+
+  \                    document.getElementById('textInput').value =
+  e.target.result;\r
+
+  \                    document.getElementById('textInput').dispatchEvent(new
+  Event('input'));\r
+
+  \                };\r
+
+  \                reader.readAsText(file);\r
+
+  \            }\r
+
+  \        });\r
+
+  \r
+
+  \r
+
+  \        // Speed slider display\r
+
+  \        document.getElementById('speedRange').addEventListener('input',
+  function(e) {\r
+
+  \            document.querySelector('.speed-display').textContent =
+  e.target.value + 'x';\r
+
+  \        });\r
+
+  \r
+
+  \r
+
+  \        // Convert button\r
+
+  \        document.getElementById('convertBtn').addEventListener('click', async
+  function() {\r
+
+  \            const text = document.getElementById('textInput').value.trim();\r
+
+  \            \r
+
+  \            if (!text) {\r
+
+  \                alert('Please enter some text to convert!');\r
+
+  \                return;\r
+
+  \            }\r
+
+  \r
+
+  \r
+
+  \            const voice = document.getElementById('voiceSelect').value;\r
+
+  \            const speed =
+  parseFloat(document.getElementById('speedRange').value);\r
+
+  \r
+
+  \r
+
+  \            // UI updates\r
+
+  \            document.getElementById('convertBtn').disabled = true;\r
+
+  \            document.getElementById('stopBtn').style.display = 'block';\r
+
+  \            document.getElementById('downloadBtn').style.display = 'none';\r
+
+  \            document.getElementById('progressSection').style.display =
+  'block';\r
+
+  \            \r
+
+  \            // Clean up previous audio URL\r
+
+  \            if (currentAudioUrl) {\r
+
+  \                URL.revokeObjectURL(currentAudioUrl);\r
+
+  \                currentAudioUrl = null;\r
+
+  \            }\r
+
+  \            \r
+
+  \            isStopped = false;\r
+
+  \            audioChunks = [];\r
+
+  \r
+
+  \r
+
+  \            try {\r
+
+  \                await convertTextToSpeech(text, voice, speed);\r
+
+  \            } catch (error) {\r
+
+  \                alert('Error during conversion: ' + error.message);\r
+
+  \                console.error(error);\r
+
+  \                resetUI();\r
+
+  \            }\r
+
+  \        });\r
+
+  \r
+
+  \r
+
+  \        // Stop button\r
+
+  \        document.getElementById('stopBtn').addEventListener('click',
+  function() {\r
+
+  \            isStopped = true;\r
+
+  \            resetUI();\r
+
+  \        });\r
+
+  \r
+
+  \r
+
+  \        // Download button\r
+
+  \        document.getElementById('downloadBtn').addEventListener('click',
+  function() {\r
+
+  \            if (currentAudioUrl) {\r
+
+  \                const a = document.createElement('a');\r
+
+  \                a.href = currentAudioUrl;\r
+
+  \                a.download = 'NextXtalk_audio.mp3';\r
+
+  \                document.body.appendChild(a);\r
+
+  \                a.click();\r
+
+  \                document.body.removeChild(a);\r
+
+  \            }\r
+
+  \        });\r
+
+  \r
+
+  \r
+
+  \        async function convertTextToSpeech(text, voice, speed) {\r
+
+  \            updateStatus('Preparing text...');\r
+
+  \            updateProgress(5);\r
+
+  \r
+
+  \r
+
+  \            // Split text into chunks (StreamElements has a ~300 character
+  limit)\r
+
+  \            const chunks = splitTextIntoChunks(text, 250);\r
+
+  \            \r
+
+  \            if (chunks.length === 0) {\r
+
+  \                throw new Error(\"No text to process\");\r
+
+  \            }\r
+
+  \            \r
+
+  \            updateStatus(`Processing ${chunks.length} sections...`);\r
+
+  \            \r
+
+  \            for (let i = 0; i < chunks.length; i++) {\r
+
+  \                if (isStopped) break;\r
+
+  \                \r
+
+  \                updateProgress(10 + (i / chunks.length * 80));\r
+
+  \                updateStatus(`Converting section ${i + 1} of
+  ${chunks.length}...`);\r
+
+  \                \r
+
+  \                try {\r
+
+  \                    const audioBlob = await fetchTTS(chunks[i], voice);\r
+
+  \                    audioChunks.push(audioBlob);\r
+
+  \                } catch (error) {\r
+
+  \                    console.error(`Error on chunk ${i}:`, error);\r
+
+  \                    throw new Error(`Failed to convert section ${i + 1}`);\r
+
+  \                }\r
+
+  \                \r
+
+  \                // Small delay between requests to avoid rate limiting\r
+
+  \                await new Promise(resolve => setTimeout(resolve, 300));\r
+
+  \            }\r
+
+  \            \r
+
+  \            if (isStopped) {\r
+
+  \                updateStatus('Conversion stopped');\r
+
+  \                return;\r
+
+  \            }\r
+
+  \            \r
+
+  \            if (audioChunks.length === 0) {\r
+
+  \                throw new Error(\"No audio was generated\");\r
+
+  \            }\r
+
+  \            \r
+
+  \            updateStatus('Combining audio sections...');\r
+
+  \            updateProgress(95);\r
+
+  \            \r
+
+  \            // Combine all audio blobs\r
+
+  \            const combinedBlob = new Blob(audioChunks, { type: 'audio/mpeg'
+  });\r
+
+  \            currentAudioUrl = URL.createObjectURL(combinedBlob);\r
+
+  \            \r
+
+  \            updateProgress(100);\r
+
+  \            updateStatus('Conversion complete! Click download to save your
+  MP3.');\r
+
+  \            \r
+
+  \            document.getElementById('convertBtn').disabled = false;\r
+
+  \            document.getElementById('stopBtn').style.display = 'none';\r
+
+  \            document.getElementById('downloadBtn').style.display = 'block';\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        function splitTextIntoChunks(text, maxSize) {\r
+
+  \            const chunks = [];\r
+
+  \            \r
+
+  \            // Split by sentences first for better audio quality\r
+
+  \            const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];\r
+
+  \            \r
+
+  \            let currentChunk = '';\r
+
+  \            \r
+
+  \            for (const sentence of sentences) {\r
+
+  \                // If the sentence itself is too long, split by words\r
+
+  \                if (sentence.length > maxSize) {\r
+
+  \                    const words = sentence.split(' ');\r
+
+  \                    let tempChunk = '';\r
+
+  \                    \r
+
+  \                    for (const word of words) {\r
+
+  \                        if ((tempChunk + word).length <= maxSize) {\r
+
+  \                            tempChunk += word + ' ';\r
+
+  \                        } else {\r
+
+  \                            if (tempChunk) chunks.push(tempChunk.trim());\r
+
+  \                            tempChunk = word + ' ';\r
+
+  \                        }\r
+
+  \                    }\r
+
+  \                    \r
+
+  \                    if (tempChunk) {\r
+
+  \                        if ((currentChunk + tempChunk).length <= maxSize) {\r
+
+  \                            currentChunk += tempChunk;\r
+
+  \                        } else {\r
+
+  \                            if (currentChunk)
+  chunks.push(currentChunk.trim());\r
+
+  \                            currentChunk = tempChunk;\r
+
+  \                        }\r
+
+  \                    }\r
+
+  \                } else {\r
+
+  \                    if ((currentChunk + sentence).length <= maxSize) {\r
+
+  \                        currentChunk += sentence;\r
+
+  \                    } else {\r
+
+  \                        if (currentChunk) chunks.push(currentChunk.trim());\r
+
+  \                        currentChunk = sentence;\r
+
+  \                    }\r
+
+  \                }\r
+
+  \            }\r
+
+  \            \r
+
+  \            if (currentChunk) chunks.push(currentChunk.trim());\r
+
+  \            \r
+
+  \            return chunks;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        async function fetchTTS(text, voice) {\r
+
+  \            // Using StreamElements free TTS API which returns MP3\r
+
+  \            const apiUrl =
+  'https://api.streamelements.com/kappa/v2/speech';\r
+
+  \            \r
+
+  \            const params = new URLSearchParams({\r
+
+  \                voice: voice,\r
+
+  \                text: text\r
+
+  \            });\r
+
+  \            \r
+
+  \            const response = await fetch(`${apiUrl}?${params.toString()}`);\r
+
+  \            \r
+
+  \            if (!response.ok) {\r
+
+  \                throw new Error(`API error: ${response.status}`);\r
+
+  \            }\r
+
+  \            \r
+
+  \            return await response.blob();\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        function updateProgress(percent) {\r
+
+  \            const progressFill = document.getElementById('progressFill');\r
+
+  \            progressFill.style.width = percent + '%';\r
+
+  \            progressFill.textContent = Math.round(percent) + '%';\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        function updateStatus(message) {\r
+
+  \            document.getElementById('statusText').textContent = message;\r
+
+  \        }\r
+
+  \r
+
+  \r
+
+  \        function resetUI() {\r
+
+  \            document.getElementById('convertBtn').disabled = false;\r
+
+  \            document.getElementById('stopBtn').style.display = 'none';\r
+
+  \            document.getElementById('progressSection').style.display =
+  'none';\r
+
+  \            updateProgress(0);\r
+
+  \        }\r
+
+  \    </script>\r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  NextXtalk"
+tags: null
+source_url: https://docs.google.com/document/d/1Ho9EmvlFFm2-hEOYjhRPWoGXCrfOwZpqa4H1-nDi-Bs/edit?usp=drivesdk
+document_type: text
+description: ﻿Works on any browser voice to text save as an MP3 —————— <!DOCTYPE
+  html> <html lang="en"> <head>     <meta charset="UTF-8">     <meta
+  name="viewport" content="width=device-width, initial-scale=1.0"> ...
+created_at: 2026-01-19T20:15:41.006Z
+updated_at: 2026-01-19T20:22:11.418Z

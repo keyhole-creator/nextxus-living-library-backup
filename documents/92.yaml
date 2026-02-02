@@ -1,0 +1,697 @@
+id: 92
+title: Ai eBay lister
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: "﻿________________\r
+
+  \r
+
+  \r
+
+  📦 eBay Listing Assistant Widget\r
+
+  Features\r
+
+  1. Image Capture\r
+
+  \r
+
+  \   * Use device camera or file upload.\r
+
+  \r
+
+  \   * Compress & normalize image for faster search.\r
+
+  \r
+
+  \      2. Auto Price Research\r
+
+  \r
+
+  \         * Search APIs (eBay Completed Listings, Google Shopping, Amazon,
+  etc.).\r
+
+  \r
+
+  \         * Extract average, high, and low prices.\r
+
+  \r
+
+  \            3. Title & Description Generator\r
+
+  \r
+
+  \               * AI generates optimized eBay title (max 80 chars).\r
+
+  \r
+
+  \               * AI drafts description with condition, features, and shipping
+  info.\r
+
+  \r
+
+  \               * Includes “truth buffer” checks (Agent Zero principle ).\r
+
+  \r
+
+  \                  4. UI Display\r
+
+  \r
+
+  \                     * Simple card view with:\r
+
+  \r
+
+  \                        * 📸 Image\r
+
+  \r
+
+  \                        * 💲 Suggested Price Range\r
+
+  \r
+
+  \                        * 📝 Suggested Title\r
+
+  \r
+
+  \                        * 📖 Suggested Description\r
+
+  \r
+
+  \                           * “Copy to eBay” button.\r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  Example Code (HTML + JS, Replit-ready)\r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \  <meta charset=\"UTF-8\">\r
+
+  \  <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \  <title>eBay Listing Assistant</title>\r
+
+  \  <style>\r
+
+  \    body { font-family: sans-serif; margin: 20px; }\r
+
+  \    .card { padding: 20px; border: 1px solid #ccc; border-radius: 8px; }\r
+
+  \    .preview { max-width: 200px; margin-top: 10px; }\r
+
+  \    button { margin-top: 10px; padding: 10px; background: #0073e6; color:
+  white; border: none; border-radius: 5px; }\r
+
+  \  </style>\r
+
+  </head>\r
+
+  <body>\r
+
+  \  <h1>eBay Listing Assistant</h1>\r
+
+  \  <input type=\"file\" id=\"fileInput\" accept=\"image/*\">\r
+
+  \  <img id=\"preview\" class=\"preview\" />\r
+
+  \  <div id=\"results\" class=\"card\"></div>\r
+
+  \r
+
+  \r
+
+  \  <script>\r
+
+  \    const fileInput = document.getElementById('fileInput');\r
+
+  \    const preview = document.getElementById('preview');\r
+
+  \    const results = document.getElementById('results');\r
+
+  \r
+
+  \r
+
+  \    fileInput.addEventListener('change', async () => {\r
+
+  \      const file = fileInput.files[0];\r
+
+  \      preview.src = URL.createObjectURL(file);\r
+
+  \r
+
+  \r
+
+  \      results.innerHTML = \"<p>Analyzing item...</p>\";\r
+
+  \r
+
+  \r
+
+  \      // Mock AI call – Replace with API integration\r
+
+  \      setTimeout(() => {\r
+
+  \        results.innerHTML = `\r
+
+  \          <h3>Suggested Listing</h3>\r
+
+  \          <p><strong>Title:</strong> Vintage Sony Walkman Cassette Player -
+  Tested Works</p>\r
+
+  \          <p><strong>Price Range:</strong> $85 - $120</p>\r
+
+  \          <p><strong>Description:</strong> Pre-owned Sony Walkman in good
+  working condition. Includes belt clip. Minor wear consistent with age. Ships
+  fast.</p>\r
+
+  \          <button onclick=\"copyListing()\">Copy to Clipboard</button>\r
+
+  \        `;\r
+
+  \      }, 2000);\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    function copyListing() {\r
+
+  \      const text = results.innerText;\r
+
+  \      navigator.clipboard.writeText(text).then(() => {\r
+
+  \        alert(\"Listing copied! Paste into eBay.\");\r
+
+  \      });\r
+
+  \    }\r
+
+  \  </script>\r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  ———————————————————————/-/////\r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \  <meta charset=\"UTF-8\">\r
+
+  \  <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \  <title>eBay Listing Generator</title>\r
+
+  \  <style>\r
+
+  \    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9;
+  }\r
+
+  \    .container { max-width: 800px; margin: auto; background: #fff; padding:
+  20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }\r
+
+  \    h2 { color: #0073e6; }\r
+
+  \    label { display: block; margin: 10px 0 5px; font-weight: bold; }\r
+
+  \    input, textarea, select { width: 100%; padding: 8px; margin-bottom: 15px;
+  border-radius: 5px; border: 1px solid #ccc; }\r
+
+  \    .preview { border: 1px solid #ddd; padding: 15px; background: #fafafa;
+  margin-top: 20px; }\r
+
+  \    img { max-width: 100%; margin-top: 10px; }\r
+
+  \    button { background: #0073e6; color: #fff; padding: 10px 20px; border:
+  none; border-radius: 5px; cursor: pointer; }\r
+
+  \    button:hover { background: #005bb5; }\r
+
+  \  </style>\r
+
+  </head>\r
+
+  <body>\r
+
+  <div class=\"container\">\r
+
+  \  <h2>eBay Listing Generator</h2>\r
+
+  \r
+
+  \r
+
+  \  <label>Upload Product Image:</label>\r
+
+  \  <input type=\"file\" id=\"imageUpload\" accept=\"image/*\">\r
+
+  \r
+
+  \r
+
+  \  <label>Item Title (SEO-friendly):</label>\r
+
+  \  <input type=\"text\" id=\"title\" placeholder=\"e.g. Vintage Leather Jacket
+  - Size M - Brown\">\r
+
+  \r
+
+  \r
+
+  \  <label>Description:</label>\r
+
+  \  <textarea id=\"description\" rows=\"5\" placeholder=\"Describe your item...
+  include condition, brand, size, and keywords.\"></textarea>\r
+
+  \r
+
+  \r
+
+  \  <label>Price (USD):</label>\r
+
+  \  <input type=\"number\" id=\"price\" placeholder=\"Enter price\">\r
+
+  \r
+
+  \r
+
+  \  <label>Shipping Options:</label>\r
+
+  \  <select id=\"shipping\">\r
+
+  \    <option value=\"Free Shipping\">Free Shipping</option>\r
+
+  \    <option value=\"Flat Rate\">Flat Rate ($5.99)</option>\r
+
+  \    <option value=\"Calculated by eBay\">Calculated by eBay</option>\r
+
+  \  </select>\r
+
+  \r
+
+  \r
+
+  \  <button onclick=\"generateListing()\">Generate Listing</button>\r
+
+  \r
+
+  \r
+
+  \  <div class=\"preview\" id=\"preview\">\r
+
+  \    <h3>Preview Listing</h3>\r
+
+  \    <p>Fill out details and click \"Generate Listing\".</p>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  function generateListing() {\r
+
+  \  const title = document.getElementById('title').value;\r
+
+  \  const description = document.getElementById('description').value;\r
+
+  \  const price = document.getElementById('price').value;\r
+
+  \  const shipping = document.getElementById('shipping').value;\r
+
+  \r
+
+  \r
+
+  \  const imageUpload = document.getElementById('imageUpload').files[0];\r
+
+  \  let imageTag = \"\";\r
+
+  \  if (imageUpload) {\r
+
+  \    const imageURL = URL.createObjectURL(imageUpload);\r
+
+  \    imageTag = `<img src=\"${imageURL}\" alt=\"${title}\">`;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  const htmlListing = `\r
+
+  \    <h2>${title}</h2>\r
+
+  \    ${imageTag}\r
+
+  \    <p><strong>Description:</strong><br>${description}</p>\r
+
+  \    <p><strong>Price:</strong> $${price}</p>\r
+
+  \    <p><strong>Shipping:</strong> ${shipping}</p>\r
+
+  \  `;\r
+
+  \r
+
+  \r
+
+  \  document.getElementById('preview').innerHTML = htmlListing;\r
+
+  }\r
+
+  </script>\r
+
+  </body>\r
+
+  </html>\r
+
+  \r
+
+  \r
+
+  ———————————————/\r
+
+  \r
+
+  \r
+
+  <!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \  <meta charset=\"UTF-8\">\r
+
+  \  <meta name=\"viewport\" content=\"width=device-width,
+  initial-scale=1.0\">\r
+
+  \  <title>AI-Powered eBay Listing Generator</title>\r
+
+  \  <style>\r
+
+  \    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9;
+  }\r
+
+  \    .container { max-width: 900px; margin: auto; background: #fff; padding:
+  20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }\r
+
+  \    h2 { color: #0073e6; }\r
+
+  \    label { display: block; margin: 10px 0 5px; font-weight: bold; }\r
+
+  \    input, textarea, select { width: 100%; padding: 8px; margin-bottom: 15px;
+  border-radius: 5px; border: 1px solid #ccc; }\r
+
+  \    .preview { border: 1px solid #ddd; padding: 15px; background: #fafafa;
+  margin-top: 20px; }\r
+
+  \    img { max-width: 100%; margin-top: 10px; }\r
+
+  \    button { background: #0073e6; color: #fff; padding: 10px 20px; border:
+  none; border-radius: 5px; cursor: pointer; }\r
+
+  \    button:hover { background: #005bb5; }\r
+
+  \    .seo-checklist { background: #eef9ff; padding: 10px; border-radius: 6px;
+  margin-top: 20px; }\r
+
+  \  </style>\r
+
+  </head>\r
+
+  <body>\r
+
+  <div class=\"container\">\r
+
+  \  <h2>AI-Powered eBay Listing Generator</h2>\r
+
+  \r
+
+  \r
+
+  \  <label>Upload Product Image:</label>\r
+
+  \  <input type=\"file\" id=\"imageUpload\" accept=\"image/*\">\r
+
+  \r
+
+  \r
+
+  \  <button onclick=\"analyzeImage()\">✨ Generate Title & Description with
+  AI</button>\r
+
+  \r
+
+  \r
+
+  \  <label>Item Title (SEO-friendly):</label>\r
+
+  \  <input type=\"text\" id=\"title\" placeholder=\"AI will suggest...\">\r
+
+  \r
+
+  \r
+
+  \  <label>Description:</label>\r
+
+  \  <textarea id=\"description\" rows=\"5\" placeholder=\"AI will
+  suggest...\"></textarea>\r
+
+  \r
+
+  \r
+
+  \  <label>Suggested Price (USD):</label>\r
+
+  \  <input type=\"number\" id=\"price\" placeholder=\"AI will suggest...\">\r
+
+  \r
+
+  \r
+
+  \  <label>Shipping Options:</label>\r
+
+  \  <select id=\"shipping\">\r
+
+  \    <option value=\"Free Shipping\">Free Shipping</option>\r
+
+  \    <option value=\"Flat Rate\">Flat Rate ($5.99)</option>\r
+
+  \    <option value=\"Calculated by eBay\">Calculated by eBay</option>\r
+
+  \  </select>\r
+
+  \r
+
+  \r
+
+  \  <button onclick=\"generateListing()\">📋 Generate HTML Listing</button>\r
+
+  \r
+
+  \r
+
+  \  <div class=\"seo-checklist\">\r
+
+  \    <h3>SEO Checklist ✅</h3>\r
+
+  \    <ul>\r
+
+  \      <li>Include **brand name** in title</li>\r
+
+  \      <li>Add **size, color, condition**</li>\r
+
+  \      <li>Use **keywords buyers search for**</li>\r
+
+  \      <li>Mention **shipping speed & returns**</li>\r
+
+  \    </ul>\r
+
+  \  </div>\r
+
+  \r
+
+  \r
+
+  \  <div class=\"preview\" id=\"preview\">\r
+
+  \    <h3>Preview Listing</h3>\r
+
+  \    <p>Fill out details and click \"Generate Listing\".</p>\r
+
+  \  </div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  async function analyzeImage() {\r
+
+  \  const fileInput = document.getElementById('imageUpload');\r
+
+  \  if (!fileInput.files[0]) {\r
+
+  \    alert(\"Please upload an image first.\");\r
+
+  \    return;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  // Convert image to base64 for API\r
+
+  \  const reader = new FileReader();\r
+
+  \  reader.onloadend = async function () {\r
+
+  \    const base64Image = reader.result.split(\",\")[1];\r
+
+  \r
+
+  \r
+
+  \    // Call AI API (replace with OpenAI / NextXus endpoint)\r
+
+  \    const response = await fetch(\"/api/analyze\", {\r
+
+  \      method: \"POST\",\r
+
+  \      headers: { \"Content-Type\": \"application/json\" },\r
+
+  \      body: JSON.stringify({ image: base64Image })\r
+
+  \    });\r
+
+  \r
+
+  \r
+
+  \    const data = await response.json();\r
+
+  \    document.getElementById('title').value = data.title || \"Example: Vintage
+  Leather Jacket - Size M\";\r
+
+  \    document.getElementById('description').value = data.description ||
+  \"Example: High-quality brown leather jacket, gently used, size Medium.
+  Perfect for collectors or casual wear.\";\r
+
+  \    document.getElementById('price').value = data.price || \"49.99\";\r
+
+  \  };\r
+
+  \  reader.readAsDataURL(fileInput.files[0]);\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function generateListing() {\r
+
+  \  const title = document.getElementById('title').value;\r
+
+  \  const description = document.getElementById('description').value;\r
+
+  \  const price = document.getElementById('price').value;\r
+
+  \  const shipping = document.getElementById('shipping').value;\r
+
+  \r
+
+  \r
+
+  \  const imageUpload = document.getElementById('imageUpload').files[0];\r
+
+  \  let imageTag = \"\";\r
+
+  \  if (imageUpload) {\r
+
+  \    const imageURL = URL.createObjectURL(imageUpload);\r
+
+  \    imageTag = `<img src=\"${imageURL}\" alt=\"${title}\">`;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  const htmlListing = `\r
+
+  \    <h2>${title}</h2>\r
+
+  \    ${imageTag}\r
+
+  \    <p><strong>Description:</strong><br>${description}</p>\r
+
+  \    <p><strong>Price:</strong> $${price}</p>\r
+
+  \    <p><strong>Shipping:</strong> ${shipping}</p>\r
+
+  \  `;\r
+
+  \r
+
+  \r
+
+  \  document.getElementById('preview').innerHTML = htmlListing;\r
+
+  }\r
+
+  </script>\r
+
+  </body>\r
+
+  </html>"
+tags: null
+source_url: https://docs.google.com/document/d/1DXDQwqMGcwu3c7P8_WBxooDoV1lU6C1eabLaoLldMOU/edit?usp=drivesdk
+document_type: text
+description: ﻿________________ 📦 eBay Listing Assistant Widget Features 1.
+  Image Capture    * Use device camera or file upload.    * Compress & normalize
+  image for faster search.       2. Auto Price Research      ...
+created_at: 2026-01-19T20:15:41.119Z
+updated_at: 2026-01-19T20:21:42.253Z

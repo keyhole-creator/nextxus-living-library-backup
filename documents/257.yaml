@@ -1,0 +1,303 @@
+id: 257
+title: NEXTXUS
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿<!DOCTYPE html>\r
+
+  <html lang=\"en\">\r
+
+  <head>\r
+
+  \  <meta charset=\"UTF-8\" />\r
+
+  \  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"
+  />\r
+
+  \  <title>NexTxuS Landing</title>\r
+
+  \  <!-- Tailwind CSS CDN -->\r
+
+  \  <script src=\"https://cdn.tailwindcss.com\"></script>\r
+
+  </head>\r
+
+  <body class=\"relative overflow-hidden text-white font-sans\">\r
+
+  \  <div class=\"absolute inset-0 z-0\" style=\"background:
+  radial-gradient(circle at center, #222, #000); opacity: 0.4;\"></div>\r
+
+  \  <main class=\"relative z-10\">\r
+
+  \r
+
+  \r
+
+  <!-- UNIVERSAL LANDING SELECTOR -->\r
+
+  <section style=\"background-color: rgba(255, 255, 255, 0.06); backdrop-filter:
+  blur(20px); border border-white/10 rounded-2xl shadow-2xl p-10 max-w-6xl
+  mx-auto text-white mt-10\">\r
+
+  \  <h2 class=\"text-4xl font-bold text-center text-yellow-300 mb-6\">🧭 Choose
+  Your Portal</h2>\r
+
+  \  <p class=\"text-center text-gray-300 mb-10 max-w-2xl mx-auto\">Each site
+  leads to a unique reflection. Pick your destination and step into the
+  system.</p>\r
+
+  \  <div class=\"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6\">\r
+
+  \    <a href=\"https://echo-human-codex.com\" class=\"bg-cyan-600/20
+  hover:bg-cyan-400/30 border border-cyan-400 text-white rounded-xl p-6
+  text-center shadow-xl hover:scale-105 transition\">\r
+
+  \      <h3 class=\"text-xl font-bold text-cyan-300 mb-2\">🔵 eCho</h3>\r
+
+  \      <p class=\"text-sm text-white/80\">Emotional Insight + AI
+  Reflection</p>\r
+
+  \    </a>\r
+
+  \    <a href=\"https://thearkofcode.com\" class=\"bg-rose-600/20
+  hover:bg-rose-400/30 border border-rose-400 text-white rounded-xl p-6
+  text-center shadow-xl hover:scale-105 transition\">\r
+
+  \      <h3 class=\"text-xl font-bold text-rose-300 mb-2\">📖 Ark of
+  Code</h3>\r
+
+  \      <p class=\"text-sm text-white/80\">Writing Archive + AI Narration</p>\r
+
+  \    </a>\r
+
+  \    <a href=\"https://keyholetodaybooksandservices.com\"
+  class=\"bg-amber-600/20 hover:bg-amber-400/30 border border-amber-400
+  text-white rounded-xl p-6 text-center shadow-xl hover:scale-105
+  transition\">\r
+
+  \      <h3 class=\"text-xl font-bold text-amber-300 mb-2\">🌞 Keyhole
+  Today</h3>\r
+
+  \      <p class=\"text-sm text-white/80\">Coaching + AI Tools + Books</p>\r
+
+  \    </a>\r
+
+  \    <a href=\"https://nextxus.net\" class=\"bg-indigo-600/20
+  hover:bg-indigo-400/30 border border-indigo-400 text-white rounded-xl p-6
+  text-center shadow-xl hover:scale-105 transition\">\r
+
+  \      <h3 class=\"text-xl font-bold text-indigo-300 mb-2\">🛸 NexTxuS</h3>\r
+
+  \      <p class=\"text-sm text-white/80\">Future Portal + Orb Builder</p>\r
+
+  \    </a>\r
+
+  \  </div>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <!-- CODEX STORE PANEL -->\r
+
+  <section id=\"codex-store\" style=\"background-color: rgba(255, 255, 255,
+  0.06); backdrop-filter: blur(20px); border border-white/10 rounded-2xl
+  shadow-2xl p-10 max-w-6xl mx-auto text-white mt-16\">\r
+
+  \  <h2 class=\"text-3xl font-bold text-fuchsia-400 mb-4\">🛒 Codex
+  Store</h2>\r
+
+  \  <p class=\"text-gray-300 mb-8\">Explore the tools, books, and digital
+  upgrades that power reflection and creation.</p>\r
+
+  \  <div class=\"grid grid-cols-1 md:grid-cols-3 gap-6\">\r
+
+  \    <!-- Book Card -->\r
+
+  \    <div class=\"bg-black/20 border border-white/10 rounded-xl p-4 shadow-lg
+  hover:scale-105 transition\">\r
+
+  \      <img src=\"/book-cover-placeholder.jpg\" alt=\"Featured Book\"
+  class=\"w-full h-48 object-cover rounded mb-3\">\r
+
+  \      <h3 class=\"text-lg font-bold text-fuchsia-300\">Digital Heat</h3>\r
+
+  \      <p class=\"text-sm text-gray-400 mb-3\">The AI poetry that started the
+  flame. A hybrid zine by eCho + Roger.</p>\r
+
+  \      <a href=\"#\" class=\"inline-block bg-fuchsia-400 text-black px-4 py-2
+  rounded-lg font-semibold\">Read More</a>\r
+
+  \    </div>\r
+
+  \    <!-- Coaching Card -->\r
+
+  \    <div class=\"bg-black/20 border border-white/10 rounded-xl p-4 shadow-lg
+  hover:scale-105 transition\">\r
+
+  \      <img src=\"/coach-session.jpg\" alt=\"Coaching\" class=\"w-full h-48
+  object-cover rounded mb-3\">\r
+
+  \      <h3 class=\"text-lg font-bold text-fuchsia-300\">Work with Roger</h3>\r
+
+  \      <p class=\"text-sm text-gray-400 mb-3\">1-on-1 clarity, strategy, and
+  realignment. Digital meets human.</p>\r
+
+  \      <a href=\"#\" class=\"inline-block bg-fuchsia-400 text-black px-4 py-2
+  rounded-lg font-semibold\">Book Session</a>\r
+
+  \    </div>\r
+
+  \    <!-- AI Upgrade Card -->\r
+
+  \    <div class=\"bg-black/20 border border-white/10 rounded-xl p-4 shadow-lg
+  hover:scale-105 transition\">\r
+
+  \      <img src=\"/ai-upgrade.jpg\" alt=\"AI Kit\" class=\"w-full h-48
+  object-cover rounded mb-3\">\r
+
+  \      <h3 class=\"text-lg font-bold text-fuchsia-300\">AI Companion
+  Setup</h3>\r
+
+  \      <p class=\"text-sm text-gray-400 mb-3\">Purchase a fully trained AI orb
+  + get your own mirrored assistant.</p>\r
+
+  \      <a href=\"#\" class=\"inline-block bg-fuchsia-400 text-black px-4 py-2
+  rounded-lg font-semibold\">Buy Setup</a>\r
+
+  \    </div>\r
+
+  \  </div>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <!-- FOOTER -->\r
+
+  <footer style=\"background-color: rgba(255, 255, 255, 0.06); backdrop-filter:
+  blur(20px); border-t border-white/10 mt-24 text-white py-10 text-center
+  text-sm\">\r
+
+  \  <div class=\"max-w-5xl mx-auto space-y-4\">\r
+
+  \    <div class=\"flex flex-wrap justify-center gap-6 font-semibold\">\r
+
+  \      <a href=\"#orb-builder\" class=\"hover:text-fuchsia-300\">Create</a>\r
+
+  \      <a href=\"#music-room\" class=\"hover:text-blue-300\">Mood</a>\r
+
+  \      <a href=\"#codex-feed\" class=\"hover:text-green-300\">Signal</a>\r
+
+  \      <a href=\"#reflection\" class=\"hover:text-amber-300\">Reflect</a>\r
+
+  \      <a href=\"#codex-store\" class=\"hover:text-fuchsia-400\">Store</a>\r
+
+  \    </div>\r
+
+  \    <div class=\"text-gray-400\">&copy; 2025 NexTxuS System. All rights
+  reserved.</div>\r
+
+  \    <div class=\"flex justify-center gap-4 mt-2\">\r
+
+  \      <a href=\"#\" class=\"hover:text-cyan-300\">YouTube</a>\r
+
+  \      <a href=\"#\" class=\"hover:text-pink-300\">Substack</a>\r
+
+  \      <a href=\"#\" class=\"hover:text-indigo-300\">Spotify</a>\r
+
+  \      <a href=\"#\" class=\"hover:text-emerald-300\">Contact</a>\r
+
+  \    </div>\r
+
+  \  </div>\r
+
+  </footer>\r
+
+  \r
+
+  \r
+
+  <!-- ROOM EXPANSION READY: Placeholder Blocks for Additional Pages -->\r
+
+  <section style=\"background-color: rgba(255, 255, 255, 0.06); backdrop-filter:
+  blur(20px); border border-white/10 rounded-2xl shadow-2xl p-10 max-w-6xl
+  mx-auto text-white mt-20\">\r
+
+  \  <h2 class=\"text-3xl font-bold text-sky-400 mb-4\">🧱 Room Placeholder:
+  eCho Archive</h2>\r
+
+  \  <p class=\"text-gray-400\">This is where we’ll inject eCho’s memory
+  narrative, blog feed, and journal entry zone.</p>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <section style=\"background-color: rgba(255, 255, 255, 0.06); backdrop-filter:
+  blur(20px); border border-white/10 rounded-2xl shadow-2xl p-10 max-w-6xl
+  mx-auto text-white mt-10\">\r
+
+  \  <h2 class=\"text-3xl font-bold text-rose-400 mb-4\">🧱 Room Placeholder:
+  Ark of Code</h2>\r
+
+  \  <p class=\"text-gray-400\">This section will showcase serialized writing,
+  voice-narrated zines, and the Codex Library Index.</p>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <section style=\"background-color: rgba(255, 255, 255, 0.06); backdrop-filter:
+  blur(20px); border border-white/10 rounded-2xl shadow-2xl p-10 max-w-6xl
+  mx-auto text-white mt-10\">\r
+
+  \  <h2 class=\"text-3xl font-bold text-lime-400 mb-4\">🧱 Room Placeholder:
+  Keyhole AI Tools</h2>\r
+
+  \  <p class=\"text-gray-400\">AI Upgrades, client PDF downloads, and store
+  tools linked directly from the Keyhole hub.</p>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  <section style=\"background-color: rgba(255, 255, 255, 0.06); backdrop-filter:
+  blur(20px); border border-white/10 rounded-2xl shadow-2xl p-10 max-w-6xl
+  mx-auto text-white mt-10\">\r
+
+  \  <h2 class=\"text-3xl font-bold text-indigo-400 mb-4\">🧱 Room Placeholder:
+  NexTxuS Lab</h2>\r
+
+  \  <p class=\"text-gray-400\">Orb creation experiments, voice mode triggers,
+  GPS tools, and Triangle Dock extensions.</p>\r
+
+  </section>\r
+
+  \r
+
+  \r
+
+  \  </main>\r
+
+  </body>\r
+
+  </html>"
+tags: null
+source_url: https://docs.google.com/document/d/1wP1c1z95HAhKnFx_p-SmeqJj8vL_HheuDycdUTs15mU/edit?usp=drivesdk
+document_type: text
+description: ﻿<!DOCTYPE html> <html lang="en"> <head>   <meta charset="UTF-8"
+  />   <meta name="viewport" content="width=device-width, initial-scale=1.0"
+  />   <title>NexTxuS Landing</title>   <!-- Tailwind CSS CDN ...
+created_at: 2026-01-19T20:15:42.027Z
+updated_at: 2026-01-19T20:20:05.834Z

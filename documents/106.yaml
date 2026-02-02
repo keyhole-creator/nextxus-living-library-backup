@@ -1,0 +1,169 @@
+id: 106
+title: code
+author: Roger Keyserling
+collection_id: 6
+summary: null
+full_text: "﻿!-- ***************** Client side
+  *********************************************-->     \r
+
+  \ <!-- Please copy and paste the following script into the header of the
+  article page.*** -->\r
+
+  \ \r
+
+  \ <script id=\"apiColbassJS\"  type
+  =\"text/javascript\"  data-BusinessName=\"keyholetodaybooksandservices.com\"   \
+  data-SubscriptionID=\"I-9V31PQ83V83A\" \r
+
+  \     data-languageCode=\"en-US\" data-nameVoice=\"en-US-colbass-D\"
+  data-speed=\"1\"
+  data-pitch=\"1\"  src=\"https://colbass.com/assets/api/v3/tts.js\"></script
+  >\r
+
+  \                    \r
+
+  < !-- A player block - copy and paste it below the brief of the article-->\r
+
+  <div id=\"colbass-tts-wrap\" selectorcolor=\"#000000\" selectorBody=\"\"
+  selectorBrief=\"\" selectorTitle=\"\" selectorExclude=\"\"
+  optionRun=\"1\"></div>\r
+
+  \                    \r
+
+  \                            \r
+
+  <!-- ***************** Server side
+  *********************************************-->   \r
+
+  <!--Please call this function whenever you create or update an
+  article.-->   \r
+
+  <!--In PHP - Please copy and paste the following code, then fill in the
+  parameters.-->   \r
+
+  <!--Pay attention to filling in the following parameters: urlArticle,
+  xmlString, category-->   \r
+
+  <!--Note: If you are using WordPress, please use the
+  strip_shortcodes(strip_tags()) function to clean tags from text-->   \r
+
+  \r
+
+  \r
+
+  function send_to_colbass(){\r
+
+  \        $apiUrl = 'https://colbass.com/api/CreateVoiceArticleNonBlock';\r
+
+  \        $data = array(\r
+
+  \                'BusinessName' => \"keyholetodaybooksandservices.com\",\r
+
+  \                'SubscriptionID' => \"4JcnxlZEIkbEKF\",\r
+
+  \                'urlArticle' => \"\",         //TODO: please fill in the URL
+  of article, for example: https://example.com/article/1.html';\r
+
+  \                'xmlString' => \"\",       //TODO: Please fill in the text of
+  the article. Please send the text without tags and put \". \" between texts
+  sections (text_of_title + \". \" + text_of_brief+\". \" + text_of_body) \r
+
+  \                'languageCode' => \"en-US\",\r
+
+  \                'nameVoice' => \"en-US-colbass-D\",\r
+
+  \                'speed' => 1,\r
+
+  \                'pitch' => 1,\r
+
+  \                'category' => \"\"         //TODO: Please fill in the
+  category of the article \r
+
+  \        );\r
+
+  \        $ch = curl_init($apiUrl);\r
+
+  \        $data = json_encode($data);\r
+
+  \        // Set cURL options\r
+
+  \        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  \r
+
+  \        curl_setopt($ch, CURLOPT_POST, true);           \r
+
+  \        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);  \r
+
+  \        curl_setopt($ch, CURLOPT_HTTPHEADER, array(\r
+
+  \                'Content-Type: application/json',\r
+
+  \        ));\r
+
+  \        try {\r
+
+  \        curl_exec($ch);\r
+
+  \        }\r
+
+  \        catch(Exception $e) {\r
+
+  \        }\r
+
+  \        curl_close($ch);\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Other company\r
+
+  \r
+
+  \r
+
+  <style>.ra-button {padding: .3em .9em; border-radius: .25em; background:
+  linear-gradient(#fff, #efefef); box-shadow: 0 1px .2em gray; display: inline
+  h-flex; align-items: center; cursor: pointer;} .ra-button svg {height: 1em;
+  margin: 0 .5em 0 0;}</style>\r
+
+  <div id=\"ra-player\"
+  data-skin=\"https://assets.readaloudwidget.com/embed/skins/default\"><div
+  class=\"ra-button\" onclick=\"readAloud(document.getElementById('ra-audio'),
+  document.getElementById('ra-player'))\"><svg viewBox=\"0 0 80 100\"><polygon
+  points=\"80,50 0,100 0,0 80,50\" fill=\"#484848\"/></svg> Listen to this
+  article</div></div>\r
+
+  <audio id=\"ra-audio\" data-lang=\"en-US\" data-voice=\"Amazon2 Matthew\"
+  data-key=\"3c56cd45bba45a1f1d477cfe4a3d86b2\"></audio>\r
+
+  <script>function readAloud(e,n){var
+  s=\"https://assets.readaloudwidget.com/embed/\",t=(/iPad|iPhone|iPod/.test(na\
+  vigator.userAgent)&&(e.src=s+\"sound/silence.mp3\",e.play(),\"undefined\"!=ty\
+  peof speechSynthesis&&speechSynthesis.speak(new SpeechSynthesisUtterance(\"
+  \"))),document.createElement(\"script\"));t.onload=function(){readAloudInit(e\
+  ,n)},t.src=s+\"js/readaloud.min.js\",document.head.appendChild(t)}</script>"
+tags: null
+source_url: https://docs.google.com/document/d/1y9jgU35m8wD6aFJOH1yQ0IaQEZC4t7kGq93Zmzbyjbo/edit?usp=drivesdk
+document_type: text
+description: ﻿!-- ***************** Client side
+  *********************************************-->       <!-- Please copy and
+  paste the following script into the header of the article page.***
+  -->    <script id="api...
+created_at: 2026-01-19T20:15:41.202Z
+updated_at: 2026-01-19T20:21:36.489Z

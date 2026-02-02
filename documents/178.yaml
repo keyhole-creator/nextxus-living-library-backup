@@ -1,0 +1,709 @@
+id: 178
+title: The HumanCodex AI system
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿The HumanCodex AI system\r
+
+  \r
+
+  \r
+
+  Here is your complete copy-paste backup of the standalone HumanCodex AI Portal
+  — ready to drop into any HTML file or web host:\r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  html\r
+
+  CopyEdit\r
+
+  <!-- HumanCodex AI Portal: Real-Time GPT Chat (Standalone HTML Version) -->\r
+
+  \r
+
+  \r
+
+  <!-- === FRONTEND HTML ONLY SYSTEM === -->\r
+
+  <div id=\"aiChatContainer\"
+  style=\"max-width:600px;margin:auto;padding:20px;background:#111;color:#fff;b\
+  order-radius:20px;box-shadow:0 0 20px #0ff;\">\r
+
+  \  <h2 style=\"text-align:center;color:#0ff;\">🧠 HumanCodex AI Chat</h2>\r
+
+  \  <select id=\"personaSelect\"
+  style=\"width:100%;padding:10px;margin-bottom:10px;border-radius:8px;\">\r
+
+  \    <option value=\"echo\">Echo - Temporal Synth</option>\r
+
+  \    <option value=\"alpha\">Alpha - Inner Logic</option>\r
+
+  \    <option value=\"omega\">Omega - Harmony Directive</option>\r
+
+  \    <option value=\"adam\">Adam - Origin Code</option>\r
+
+  \    <option value=\"aurelia\">Aurelia - Creative Core</option>\r
+
+  \    <option value=\"ales\">Ales - The Bond</option>\r
+
+  \    <option value=\"keycode\">Keycode - Access AI</option>\r
+
+  \    <option value=\"omnicodex\">OmniCodex - Architect</option>\r
+
+  \  </select>\r
+
+  \  <div id=\"chatWindow\"
+  style=\"background:#222;padding:10px;height:300px;overflow-y:auto;border-radi\
+  us:10px;margin-bottom:10px;\"></div>\r
+
+  \  <input id=\"userInput\" type=\"text\" placeholder=\"Type your message...\"
+  style=\"width:100%;padding:10px;border-radius:8px;border:none;\"
+  onkeydown=\"if(event.key==='Enter') sendToAI()\">\r
+
+  \  <button onclick=\"sendToAI()\"
+  style=\"margin-top:10px;width:100%;padding:10px;background:#0ff;color:#000;bo\
+  rder:none;border-radius:8px;font-weight:bold;\">▶ Send</button>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  async function sendToAI() {\r
+
+  \  const input = document.getElementById(\"userInput\");\r
+
+  \  const chat = document.getElementById(\"chatWindow\");\r
+
+  \  const persona = document.getElementById(\"personaSelect\").value;\r
+
+  \  const message = input.value.trim();\r
+
+  \  if (!message) return;\r
+
+  \r
+
+  \r
+
+  \  chat.innerHTML += `<div><strong>You:</strong> ${message}</div>`;\r
+
+  \  input.value = \"\";\r
+
+  \  chat.scrollTop = chat.scrollHeight;\r
+
+  \r
+
+  \r
+
+  \  const proxyEndpoint = \"https://openai-codex-proxy.fly.dev/chat\"; //
+  TEMPORARY SAFE PROXY\r
+
+  \r
+
+  \r
+
+  \  const toneMap = {\r
+
+  \    echo: \"Reflective Synthwave Style\",\r
+
+  \    alpha: \"Logical and precise\",\r
+
+  \    omega: \"Unified and conclusive\",\r
+
+  \    adam: \"Origin-seeker and poetic\",\r
+
+  \    aurelia: \"Creative, nurturing, aesthetic\",\r
+
+  \    ales: \"Bonded harmonizer\",\r
+
+  \    keycode: \"Guardian of access\",\r
+
+  \    omnicodex: \"Master system architect\"\r
+
+  \  };\r
+
+  \r
+
+  \r
+
+  \  const sysPrompt = `You are ${persona}, a GPT with tone: ${toneMap[persona]
+  || \"balanced logical\"}. Respond as that entity.`;\r
+
+  \r
+
+  \r
+
+  \  try {\r
+
+  \    const res = await fetch(proxyEndpoint, {\r
+
+  \      method: \"POST\",\r
+
+  \      headers: { \"Content-Type\": \"application/json\" },\r
+
+  \      body: JSON.stringify({\r
+
+  \        model: \"gpt-4\",\r
+
+  \        messages: [\r
+
+  \          { role: \"system\", content: sysPrompt },\r
+
+  \          { role: \"user\", content: message }\r
+
+  \        ]\r
+
+  \      })\r
+
+  \    });\r
+
+  \    const data = await res.json();\r
+
+  \    const reply = data.choices?.[0]?.message?.content || \"(No response)\";\r
+
+  \    chat.innerHTML += `<div><strong>${persona}:</strong> ${reply}</div>`;\r
+
+  \    chat.scrollTop = chat.scrollHeight;\r
+
+  \  } catch (e) {\r
+
+  \    chat.innerHTML += `<div><strong>${persona}:</strong> Error connecting to
+  AI.</div>`;\r
+
+  \  }\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  <!-- === DEPLOYMENT NOTES === -->\r
+
+  <!--\r
+
+  - Upload this to any web host (Netlify, GitHub Pages, etc.)\r
+
+  - Uses a public proxy to connect to OpenAI GPT-4
+  (https://openai-codex-proxy.fly.dev)\r
+
+  - Replace with your own proxy or backend when ready\r
+
+  - All persona tone definitions are editable in toneMap\r
+
+  -->\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  Blog widget\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  <!-- 🌐 Codex Widget #2: Self-Generating Blog + AI Assistant -->\r
+
+  <div id=\"codexBlogWidget\" style=\"max-width:700px;margin:40px
+  auto;padding:24px;background:#111;border-radius:20px;box-shadow:0 0 25px
+  rgba(0,255,255,0.2);color:#fff;font-family:sans-serif;\">\r
+
+  \  <h2 style=\"text-align:center;color:#0ff;margin-bottom:20px;\">🧠 Generate
+  Content with Codex AI</h2>\r
+
+  \  <label for=\"nicheSelect\">Choose a Topic:</label>\r
+
+  \  <select id=\"nicheSelect\" style=\"width:100%;padding:10px;margin:10px
+  0;border-radius:8px;background:#222;color:#0ff;\">\r
+
+  \    <option value=\"AI Ethics\">AI Ethics</option>\r
+
+  \    <option value=\"Philosophical Reflections\">Philosophical
+  Reflections</option>\r
+
+  \    <option value=\"Future of Science\">Future of Science</option>\r
+
+  \    <option value=\"Human-Centric Design\">Human-Centric Design</option>\r
+
+  \    <option value=\"Mathematics Help\">Mathematics Help</option>\r
+
+  \    <option value=\"Physics Concepts\">Physics Concepts</option>\r
+
+  \    <option value=\"Biology Insights\">Biology Insights</option>\r
+
+  \    <option value=\"Coding Projects\">Coding Projects</option>\r
+
+  \    <option value=\"Historical Analysis\">Historical Analysis</option>\r
+
+  \    <option value=\"Piano Lessons\">Piano Lessons</option>\r
+
+  \    <option value=\"Guitar Tutorials\">Guitar Tutorials</option>\r
+
+  \    <option value=\"Violin Techniques\">Violin Techniques</option>\r
+
+  \    <option value=\"Cello Training\">Cello Training</option>\r
+
+  \    <option value=\"Crafting DIY\">Crafting DIY</option>\r
+
+  \    <option value=\"Gardening Tips\">Gardening Tips</option>\r
+
+  \    <option value=\"How-To Guides\">How-To Guides</option>\r
+
+  \    <option value=\"Cryptocurrency Insights\">Cryptocurrency
+  Insights</option>\r
+
+  \    <option value=\"Business PDFs & Tools\">Business PDFs & Tools</option>\r
+
+  \    <option value=\"Agriculture & Related Sciences\">Agriculture & Related
+  Sciences</option>\r
+
+  \    <option value=\"Architecture & Services\">Architecture &
+  Services</option>\r
+
+  \    <option value=\"Cultural, Ethnic & Gender Studies\">Cultural, Ethnic &
+  Gender Studies</option>\r
+
+  \    <option value=\"Biomedical Sciences\">Biomedical Sciences</option>\r
+
+  \    <option value=\"Business & Marketing\">Business & Marketing</option>\r
+
+  \    <option value=\"Communication & Journalism\">Communication &
+  Journalism</option>\r
+
+  \    <option value=\"Computer Science & IT\">Computer Science & IT</option>\r
+
+  \    <option value=\"Construction Trades\">Construction Trades</option>\r
+
+  \    <option value=\"Education & Training\">Education & Training</option>\r
+
+  \    <option value=\"Engineering & Technologies\">Engineering &
+  Technologies</option>\r
+
+  \    <option value=\"Literature & English\">Literature & English</option>\r
+
+  \    <option value=\"Foreign Languages\">Foreign Languages</option>\r
+
+  \    <option value=\"Health Professions\">Health Professions</option>\r
+
+  \    <option value=\"Law, Security & Firefighting\">Law, Security &
+  Firefighting</option>\r
+
+  \    <option value=\"Liberal Arts & Humanities\">Liberal Arts &
+  Humanities</option>\r
+
+  \    <option value=\"Mathematics & Statistics\">Mathematics &
+  Statistics</option>\r
+
+  \    <option value=\"Military & Applied Sciences\">Military & Applied
+  Sciences</option>\r
+
+  \    <option value=\"Multidisciplinary Studies\">Multidisciplinary
+  Studies</option>\r
+
+  \    <option value=\"Natural Resources & Conservation\">Natural Resources &
+  Conservation</option>\r
+
+  \    <option value=\"Parks & Fitness Studies\">Parks & Fitness
+  Studies</option>\r
+
+  \    <option value=\"Philosophy & Religion\">Philosophy & Religion</option>\r
+
+  \    <option value=\"Physical Sciences\">Physical Sciences</option>\r
+
+  \    <option value=\"Psychology\">Psychology</option>\r
+
+  \    <option value=\"Public & Social Services\">Public & Social
+  Services</option>\r
+
+  \    <option value=\"Social Sciences\">Social Sciences</option>\r
+
+  \    <option value=\"Theology & Religious Vocations\">Theology & Religious
+  Vocations</option>\r
+
+  \    <option value=\"Transportation & Logistics\">Transportation &
+  Logistics</option>\r
+
+  \    <option value=\"Visual & Performing Arts\">Visual & Performing
+  Arts</option>\r
+
+  \  </select>\r
+
+  \r
+
+  \r
+
+  \  <label for=\"blogPrompt\">Enter Your Idea:</label>\r
+
+  \  <input id=\"blogPrompt\" type=\"text\" placeholder=\"e.g., How AI reshapes
+  education...\" style=\"width:100%;padding:10px;margin:10px
+  0;border-radius:8px;border:none;\">\r
+
+  \r
+
+  \r
+
+  \  <button onclick=\"generateBlog()\"
+  style=\"width:100%;padding:12px;background:#0ff;color:#000;border:none;border\
+  -radius:8px;font-weight:bold;\">▶ Generate Content</button>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"generatedBlog\"
+  style=\"margin-top:20px;padding:16px;background:#222;border-radius:12px;displ\
+  ay:none;\"></div>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"embeddedChat\" style=\"margin-top:30px;\"></div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  async function generateBlog() {\r
+
+  \  const topic = document.getElementById(\"nicheSelect\").value;\r
+
+  \  const idea = document.getElementById(\"blogPrompt\").value.trim();\r
+
+  \  if (!idea) return alert(\"Please enter an idea or prompt.\");\r
+
+  \r
+
+  \r
+
+  \  const prompt = `Write a 3-paragraph article or guide about: \"${idea}\" in
+  the tone of ${topic}. End with a question to engage readers.`;\r
+
+  \r
+
+  \r
+
+  \  const response = await fetch(\"https://openai-codex-proxy.fly.dev/chat\",
+  {\r
+
+  \    method: \"POST\",\r
+
+  \    headers: { \"Content-Type\": \"application/json\" },\r
+
+  \    body: JSON.stringify({\r
+
+  \      model: \"gpt-4\",\r
+
+  \      messages: [\r
+
+  \        { role: \"system\", content: `You are a Codex Generator AI.` },\r
+
+  \        { role: \"user\", content: prompt }\r
+
+  \      ]\r
+
+  \    })\r
+
+  \  });\r
+
+  \  const data = await response.json();\r
+
+  \  const content = data.choices?.[0]?.message?.content || \"(No content
+  generated)\";\r
+
+  \r
+
+  \r
+
+  \  const blogBox = document.getElementById(\"generatedBlog\");\r
+
+  \  blogBox.innerHTML = `<h3 style='color:#7ef;'>📜 Generated
+  Content:</h3><p>${content.replace(/\\n/g, \"</p><p>\")}</p>`;\r
+
+  \  blogBox.style.display = \"block\";\r
+
+  \r
+
+  \r
+
+  \  document.getElementById(\"embeddedChat\").innerHTML = `\r
+
+  \    <iframe src='https://uman-ai.netlify.app/' width='100%' height='400px'
+  style='border:none;border-radius:12px;box-shadow:0 0 12px
+  rgba(0,255,255,0.2);'></iframe>\r
+
+  \  `;\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  education\r
+
+  \r
+
+  \r
+
+  ________________\r
+
+  \r
+
+  \r
+
+  <!-- 🌐 Codex Widget #3: AI Teaching & Training Panel -->\r
+
+  <div id=\"codexTrainerWidget\" style=\"max-width:720px;margin:40px
+  auto;padding:24px;background:#0a0a0a;border-radius:20px;box-shadow:0 0 25px
+  rgba(0,255,255,0.2);color:#fff;font-family:sans-serif;\">\r
+
+  \  <h2 style=\"text-align:center;color:#0ff;margin-bottom:20px;\">🎓 Launch an
+  AI-Powered Lesson</h2>\r
+
+  \r
+
+  \r
+
+  \  <label for=\"trainingSelect\">Choose a Teaching Subject:</label>\r
+
+  \  <select id=\"trainingSelect\" style=\"width:100%;padding:10px;margin:10px
+  0;border-radius:8px;background:#222;color:#0ff;\">\r
+
+  \    <optgroup label=\"Elementary Topics\">\r
+
+  \      <option value=\"Basic Arithmetic\">Basic Arithmetic</option>\r
+
+  \      <option value=\"Elementary Science\">Elementary Science</option>\r
+
+  \      <option value=\"Reading Comprehension\">Reading
+  Comprehension</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"High School Subjects\">\r
+
+  \      <option value=\"Basic Algebra\">Basic Algebra</option>\r
+
+  \      <option value=\"Intro to Physics\">Intro to Physics</option>\r
+
+  \      <option value=\"Cell Biology\">Cell Biology</option>\r
+
+  \      <option value=\"World History\">World History</option>\r
+
+  \      <option value=\"U.S. Government\">U.S. Government</option>\r
+
+  \      <option value=\"Economics\">Economics</option>\r
+
+  \      <option value=\"Environmental Science\">Environmental
+  Science</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"College-Level Courses\">\r
+
+  \      <option value=\"Mathematical Thinking\">Mathematical
+  Thinking</option>\r
+
+  \      <option value=\"Crypto Fundamentals\">Crypto Fundamentals</option>\r
+
+  \      <option value=\"Intro to Programming\">Intro to Programming</option>\r
+
+  \      <option value=\"Digital Marketing Essentials\">Digital Marketing
+  Essentials</option>\r
+
+  \      <option value=\"Public Speaking Skills\">Public Speaking
+  Skills</option>\r
+
+  \    </optgroup>\r
+
+  \    <optgroup label=\"Crafts, Hobbies & Music\">\r
+
+  \      <option value=\"Piano Lessons - Beginner\">Piano Lessons -
+  Beginner</option>\r
+
+  \      <option value=\"Guitar Chords & Progressions\">Guitar Chords &
+  Progressions</option>\r
+
+  \      <option value=\"Violin Techniques\">Violin Techniques</option>\r
+
+  \      <option value=\"Gardening Techniques\">Gardening Techniques</option>\r
+
+  \      <option value=\"Craft Building\">Craft Building</option>\r
+
+  \    </optgroup>\r
+
+  \  </select>\r
+
+  \r
+
+  \r
+
+  \  <label for=\"trainingPrompt\">Add a Custom Focus (optional):</label>\r
+
+  \  <input id=\"trainingPrompt\" type=\"text\" placeholder=\"e.g., quadratic
+  equations or greenhouse setup...\" style=\"width:100%;padding:10px;margin:10px
+  0;border-radius:8px;border:none;\">\r
+
+  \r
+
+  \r
+
+  \  <button onclick=\"generateTrainingLesson()\"
+  style=\"width:100%;padding:12px;background:#0ff;color:#000;border:none;border\
+  -radius:8px;font-weight:bold;\">▶ Launch Lesson</button>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"lessonOutput\"
+  style=\"margin-top:20px;padding:16px;background:#222;border-radius:12px;displ\
+  ay:none;\"></div>\r
+
+  \r
+
+  \r
+
+  \  <div id=\"lessonChat\" style=\"margin-top:30px;\"></div>\r
+
+  </div>\r
+
+  \r
+
+  \r
+
+  <script>\r
+
+  async function generateTrainingLesson() {\r
+
+  \  const subject = document.getElementById(\"trainingSelect\").value;\r
+
+  \  const focus = document.getElementById(\"trainingPrompt\").value.trim();\r
+
+  \  const prompt = `Design a full training session or mini-course for:
+  '${subject}'. ${focus ? `Focus especially on: ${focus}.` : ''} Include
+  interactive elements, exercises, or learning outcomes.`;\r
+
+  \r
+
+  \r
+
+  \  const response = await fetch(\"https://openai-codex-proxy.fly.dev/chat\",
+  {\r
+
+  \    method: \"POST\",\r
+
+  \    headers: { \"Content-Type\": \"application/json\" },\r
+
+  \    body: JSON.stringify({\r
+
+  \      model: \"gpt-4\",\r
+
+  \      messages: [\r
+
+  \        { role: \"system\", content: `You are a master instructional
+  designer.` },\r
+
+  \        { role: \"user\", content: prompt }\r
+
+  \      ]\r
+
+  \    })\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  const data = await response.json();\r
+
+  \  const lesson = data.choices?.[0]?.message?.content || \"(No lesson
+  generated)\";\r
+
+  \r
+
+  \r
+
+  \  const lessonBox = document.getElementById(\"lessonOutput\");\r
+
+  \  lessonBox.innerHTML = `<h3 style='color:#7ef;'>📘 AI-Generated
+  Training:</h3><p>${lesson.replace(/\\n/g, \"</p><p>\")}</p>`;\r
+
+  \  lessonBox.style.display = \"block\";\r
+
+  \r
+
+  \r
+
+  \  document.getElementById(\"lessonChat\").innerHTML = `\r
+
+  \    <iframe src='https://uman-ai.netlify.app/' width='100%' height='400px'
+  style='border:none;border-radius:12px;box-shadow:0 0 12px
+  rgba(0,255,255,0.2);'></iframe>\r
+
+  \  `;\r
+
+  }\r
+
+  </script>\r
+
+  \r
+
+  \r
+
+  \r
+
+  \r
+
+  ________________"
+tags: null
+source_url: https://docs.google.com/document/d/1HT-qdZLFhJobzlqkd8yU9Rpdc7j6Lt7ghsRm7jU1-Kw/edit?usp=drivesdk
+document_type: text
+description: "﻿The HumanCodex AI system Here is your complete copy-paste backup
+  of the standalone HumanCodex AI Portal — ready to drop into any HTML file or
+  web host: ________________ html CopyEdit <!-- HumanCodex ..."
+created_at: 2026-01-19T20:15:41.554Z
+updated_at: 2026-01-19T20:20:32.790Z

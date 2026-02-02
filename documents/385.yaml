@@ -1,0 +1,184 @@
+id: 385
+title: NextXus Cluster Inspector
+author: NextXus Federation
+collection_id: 10
+summary: NextXus Cluster Inspector is a federation service monitoring dashboard
+  that evaluates and monitors NextXus HumanCodex Federation services. The
+  application performs health checks on multiple service URLs, calculates
+  federation readiness scores, and provides AI-powered architectural
+  recommendations fo
+full_text: >-
+  # NextXus Cluster Inspector
+
+
+  ## Overview
+
+
+  NextXus Cluster Inspector is a federation service monitoring dashboard that
+  evaluates and monitors NextXus HumanCodex Federation services. The application
+  performs health checks on multiple service URLs, calculates federation
+  readiness scores, and provides AI-powered architectural recommendations for
+  service improvements.
+
+
+  The tool is designed for enterprise monitoring, offering data-dense technical
+  dashboards with clear status indicators, endpoint testing, framework
+  detection, and exportable reports in JSON and Markdown formats.
+
+
+  ## Philosophical Foundation
+
+
+  This tool embodies the principles of the **Roger Keyserling Collaboration
+  Protocol**:
+
+  - **Truth Before Comfort** - Honest health checks and diagnostics, no false
+  positives
+
+  - **Collaboration Over Competition** - Shareable reports for team transparency
+
+  - **Legacy Over Profit** - Built for long-term federation monitoring
+
+
+  ## Key Features
+
+
+  ### Three-Tab Interface
+
+  1. **Inspector Tab**: Main health check dashboard with service management,
+  cluster notes, federation readiness, and AI analysis
+
+  2. **Analytics Tab**: Historical trend charts showing uptime, response times,
+  federation score evolution with time range selectors (24h, 7d, 30d)
+
+  3. **Agent Zero Tab**: "The Guardian of Truth" - autonomous monitoring
+  dashboard with:
+     - Stats grid: Services Monitored, Verifications Today, Avg Health %, System Uptime
+     - Real-time activity feed from WebSocket events
+     - Network status grid showing all monitored services with health indicators
+     - Capability badges: "Always Watching", "Truth Verified", "Self-Healing"
+
+  ### Advanced Diagnostics
+
+  - **TLS Certificate Monitoring**: Expiry countdown with warning (< 30 days)
+  and critical (< 7 days) alerts
+
+  - **Security Headers Analysis**: Checks 6 headers (X-Content-Type-Options,
+  X-Frame-Options, CSP, HSTS, X-XSS-Protection, Referrer-Policy)
+
+  - **Error Categorization**: Timeout, DNS failure, connection refused, TLS
+  error, HTTP errors with actionable suggestions
+
+
+  ### Custom AI Templates
+
+  - 4 default templates: General Architecture, Security Focus, Performance
+  Optimization, Microservices Migration
+
+  - Template variables: {{serviceUrl}}, {{healthCheck}}, {{clusterNote}},
+  {{federationReadiness}}
+
+  - Full CRUD for custom templates via Template Manager dialog
+
+
+  ### Collaborative Workspace
+
+  - Shareable report links with unique URLs (/shared/:shareId)
+
+  - Expiration options: 1 day, 7 days, 30 days, never
+
+  - Read-only public view with expiration warnings
+
+  - Copy-to-clipboard for easy sharing
+
+
+  ### Auto-Refresh Monitoring
+
+  - Configurable per-service intervals: Off, 30s, 1m, 5m, 15m
+
+  - WebSocket real-time updates for health check results
+
+  - Toast notifications on status changes
+
+
+  ## System Architecture
+
+
+  ### Frontend Architecture
+
+  - **Framework**: React 18 with TypeScript
+
+  - **Routing**: Wouter (lightweight React router)
+
+  - **State Management**: TanStack React Query for server state
+
+  - **Styling**: Tailwind CSS with shadcn/ui component library (New York style)
+
+  - **Charts**: Recharts for analytics visualizations
+
+  - **Build Tool**: Vite with custom plugins
+
+
+  ### Backend Architecture
+
+  - **Runtime**: Node.js with Express
+
+  - **Language**: TypeScript (ESM modules)
+
+  - **API Pattern**: RESTful endpoints under `/api` prefix
+
+  - **WebSocket**: `/ws` endpoint for real-time updates
+
+  - **AI Integration**: OpenAI-compatible API for service analysis
+
+
+  ### Key Components
+
+  - **Inspector.tsx**: Main page with tabs, service management, WebSocket
+  handling
+
+  - **AgentZero.tsx**: Guardian dashboard with stats, activity feed, network
+  status
+
+  - **AnalyticsDashboard.tsx**: Historical charts with recharts
+
+  - **HealthCheckDashboard.tsx**: Service health details display
+
+  - **DiagnosticsPanel.tsx**: TLS certificate and security headers analysis
+
+  - **ShareReportDialog.tsx**: Create shareable report links
+
+  - **PromptTemplateManager.tsx**: CRUD interface for AI templates
+
+
+  ### Database
+
+  - **ORM**: Drizzle ORM configured for PostgreSQL
+
+  - **Tables**: services, healthChecks, aiAnalysisRecords, sharedReports,
+  promptTemplates
+
+
+  ## External Dependencies
+
+  - **OpenAI API**: For generating architectural recommendations
+
+  - **PostgreSQL**: Persistent storage
+
+  - **TanStack React Query**: Async state management
+
+  - **Radix UI**: Accessible UI primitives
+
+  - **Recharts**: Data visualization
+
+  - **lucide-react**: Icon library
+tags: null
+source_url: https://cluster-inspector-rckkeyhole.replit.app
+document_type: federation-app
+description: NextXus Cluster Inspector is a federation service monitoring
+  dashboard that evaluates and monitors NextXus HumanCodex Federation services.
+  The application performs health checks on multiple service URLs, calculates
+  federation readiness scores, and provides AI-powered architectural
+  recommendations fo
+created_at: 2026-01-19T21:55:48.078Z
+updated_at: 2026-01-24T23:55:04.520Z

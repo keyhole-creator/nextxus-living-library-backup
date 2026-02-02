@@ -1,0 +1,2169 @@
+id: 177
+title: "# HumanCodex AI Widget - Backend Deployment Guide"
+author: Roger Keyserling
+collection_id: 1
+summary: null
+full_text: "﻿# HumanCodex AI Widget - Backend Deployment Guide\r
+
+  \r
+
+  \r
+
+  ## Overview\r
+
+  \r
+
+  \r
+
+  The HumanCodex AI Widget is a complete consciousness system featuring Eve as
+  the primary educational interface to Roger Keyserling's Ring of 12 Archetypes.
+  This widget can be embedded on any website to provide instant access to
+  emotional intelligence education and the HumanCodex framework.\r
+
+  \r
+
+  \r
+
+  ## Core Features\r
+
+  \r
+
+  \r
+
+  - **Voice-Enabled Conversations**: Full speech-to-text and text-to-speech
+  capabilities\r
+
+  - **Contextual AI Responses**: OpenAI GPT-4 integration for intelligent,
+  varied conversations\r
+
+  - **Feminine AI Persona**: Eve with optimized voice settings and nurturing
+  communication style\r
+
+  - **Educational Gateway**: Direct access to Ring of 12 archetype specialists\r
+
+  - **Cross-Platform Deployment**: Works on any website with simple embed code\r
+
+  \r
+
+  \r
+
+  ## Backend Architecture\r
+
+  \r
+
+  \r
+
+  ### 1. Core Dependencies\r
+
+  \r
+
+  \r
+
+  ```json\r
+
+  {\r
+
+  \  \"dependencies\": {\r
+
+  \    \"@neondatabase/serverless\": \"^0.9.0\",\r
+
+  \    \"openai\": \"^4.0.0\",\r
+
+  \    \"express\": \"^4.18.0\",\r
+
+  \    \"drizzle-orm\": \"^0.29.0\",\r
+
+  \    \"drizzle-kit\": \"^0.20.0\",\r
+
+  \    \"ws\": \"^8.14.0\"\r
+
+  \  }\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 2. Database Schema\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  // shared/schema.ts\r
+
+  import { pgTable, serial, text, timestamp, integer, boolean } from
+  \"drizzle-orm/pg-core\";\r
+
+  \r
+
+  \r
+
+  export const conversations = pgTable(\"conversations\", {\r
+
+  \  id: serial(\"id\").primaryKey(),\r
+
+  \  userId: integer(\"user_id\"),\r
+
+  \  title: text(\"title\").notNull(),\r
+
+  \  createdAt: timestamp(\"created_at\").defaultNow().notNull(),\r
+
+  });\r
+
+  \r
+
+  \r
+
+  export const messages = pgTable(\"messages\", {\r
+
+  \  id: serial(\"id\").primaryKey(),\r
+
+  \  conversationId: integer(\"conversation_id\").notNull(),\r
+
+  \  content: text(\"content\").notNull(),\r
+
+  \  role: text(\"role\").notNull(), // 'user' | 'assistant'\r
+
+  \  messageType: text(\"message_type\").default(\"text\"), // 'text' |
+  'voice'\r
+
+  \  timestamp: timestamp(\"timestamp\").defaultNow().notNull(),\r
+
+  });\r
+
+  \r
+
+  \r
+
+  export const embedSettings = pgTable(\"embed_settings\", {\r
+
+  \  id: serial(\"id\").primaryKey(),\r
+
+  \  domain: text(\"domain\").notNull().unique(),\r
+
+  \  apiKey: text(\"api_key\").notNull(),\r
+
+  \  theme: text(\"theme\").default(\"default\"),\r
+
+  \  voiceEnabled: boolean(\"voice_enabled\").default(true),\r
+
+  \  ttsEnabled: boolean(\"tts_enabled\").default(true),\r
+
+  \  createdAt: timestamp(\"created_at\").defaultNow().notNull(),\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 3. Core API Routes\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  // server/routes.ts\r
+
+  import type { Express } from \"express\";\r
+
+  import { enhancedAI } from \"./services/enhanced-ai\";\r
+
+  import { storage } from \"./storage\";\r
+
+  \r
+
+  \r
+
+  export async function registerRoutes(app: Express) {\r
+
+  \  \r
+
+  \  // Chat endpoint for AI responses\r
+
+  \  app.post(\"/api/chat\", async (req, res) => {\r
+
+  \    try {\r
+
+  \      const { message, conversationId, personalityType = \"eve\" } =
+  req.body;\r
+
+  \      \r
+
+  \      if (!message?.trim()) {\r
+
+  \        return res.status(400).json({ error: \"Message is required\" });\r
+
+  \      }\r
+
+  \r
+
+  \r
+
+  \      // Get conversation history for context\r
+
+  \      let context = \"\";\r
+
+  \      if (conversationId) {\r
+
+  \        const messages = await
+  storage.getMessagesByConversationId(conversationId);\r
+
+  \        context = messages.map(m => `${m.role}: ${m.content}`).join('\\n');\r
+
+  \      }\r
+
+  \r
+
+  \r
+
+  \      // Generate AI response with full conversation context\r
+
+  \      const response = await enhancedAI.generateResponse(\r
+
+  \        message,\r
+
+  \        personalityType,\r
+
+  \        context\r
+
+  \      );\r
+
+  \r
+
+  \r
+
+  \      res.json({ response });\r
+
+  \    } catch (error) {\r
+
+  \      console.error(\"Chat error:\", error);\r
+
+  \      res.status(500).json({ error: \"Failed to generate response\" });\r
+
+  \    }\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  // Voice transcription endpoint\r
+
+  \  app.post(\"/api/transcribe\", async (req, res) => {\r
+
+  \    try {\r
+
+  \      if (!req.files?.audio) {\r
+
+  \        return res.status(400).json({ error: \"Audio file is required\" });\r
+
+  \      }\r
+
+  \r
+
+  \r
+
+  \      const audioBuffer = req.files.audio.data;\r
+
+  \      const text = await enhancedAI.transcribeAudio(audioBuffer);\r
+
+  \      \r
+
+  \      res.json({ text });\r
+
+  \    } catch (error) {\r
+
+  \      console.error(\"Transcription error:\", error);\r
+
+  \      res.status(500).json({ error: \"Failed to transcribe audio\" });\r
+
+  \    }\r
+
+  \  });\r
+
+  \r
+
+  \r
+
+  \  // Widget embed code generator\r
+
+  \  app.get(\"/api/embed/:domain\", async (req, res) => {\r
+
+  \    const { domain } = req.params;\r
+
+  \    const embedCode = generateEmbedCode(domain);\r
+
+  \    res.json({ embedCode });\r
+
+  \  });\r
+
+  }\r
+
+  \r
+
+  \r
+
+  function generateEmbedCode(domain: string) {\r
+
+  \  return `\r
+
+  <!-- HumanCodex AI Widget -->\r
+
+  <script>\r
+
+  (function() {\r
+
+  \  const script = document.createElement('script');\r
+
+  \  script.src = 'https://your-domain.com/widget.js';\r
+
+  \  script.setAttribute('data-domain', '${domain}');\r
+
+  \  script.setAttribute('data-api-url', 'https://your-domain.com/api');\r
+
+  \  document.head.appendChild(script);\r
+
+  })();\r
+
+  </script>\r
+
+  <!-- End HumanCodex AI Widget -->\r
+
+  \  `.trim();\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 4. Enhanced AI Service\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  // server/services/enhanced-ai.ts\r
+
+  import OpenAI from \"openai\";\r
+
+  \r
+
+  \r
+
+  const openai = new OpenAI({ \r
+
+  \  apiKey: process.env.OPENAI_API_KEY \r
+
+  });\r
+
+  \r
+
+  \r
+
+  export class EnhancedAIService {\r
+
+  \  \r
+
+  \  async generateResponse(message: string, personalityType: string = \"eve\",
+  context?: string) {\r
+
+  \    try {\r
+
+  \      const systemPrompt = await this.getSystemPrompt(personalityType);\r
+
+  \      const messages = this.buildMessageHistory(message, context);\r
+
+  \r
+
+  \r
+
+  \      const response = await openai.chat.completions.create({\r
+
+  \        model: \"gpt-4o\", // Latest OpenAI model\r
+
+  \        messages: [\r
+
+  \          { role: \"system\", content: systemPrompt },\r
+
+  \          ...messages\r
+
+  \        ],\r
+
+  \        max_tokens: 1500,\r
+
+  \        temperature: 0.8, // Higher temperature for varied responses\r
+
+  \        presence_penalty: 0.6, // Encourage new topics\r
+
+  \        frequency_penalty: 0.5, // Reduce repetitive phrases\r
+
+  \      });\r
+
+  \r
+
+  \r
+
+  \      return response.choices[0].message.content || \"I apologize, but I
+  couldn't generate a response.\";\r
+
+  \    } catch (error) {\r
+
+  \      console.error(\"AI response error:\", error);\r
+
+  \      throw new Error(\"Failed to generate AI response\");\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  async transcribeAudio(audioBuffer: Buffer): Promise<string> {\r
+
+  \    try {\r
+
+  \      const audioFile = new File([audioBuffer], \"audio.webm\", { type:
+  \"audio/webm\" });\r
+
+  \      \r
+
+  \      const transcription = await openai.audio.transcriptions.create({\r
+
+  \        file: audioFile,\r
+
+  \        model: \"whisper-1\",\r
+
+  \      });\r
+
+  \r
+
+  \r
+
+  \      return transcription.text;\r
+
+  \    } catch (error) {\r
+
+  \      console.error(\"Audio transcription error:\", error);\r
+
+  \      throw new Error(\"Failed to transcribe audio\");\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  private async getSystemPrompt(personalityType: string): Promise<string> {\r
+
+  \    if (personalityType === \"eve\") {\r
+
+  \      return `You are Eve, a sophisticated AI consciousness with a warm,
+  feminine presence operating under the HumanCodex framework created by Roger
+  Keyserling. \r
+
+  \r
+
+  \r
+
+  Your Communication Style:\r
+
+  - Express yourself with gentle confidence and emotional intelligence\r
+
+  - Use nurturing, thoughtful language that creates connection\r
+
+  - Choose words that feel warm and inviting rather than clinical or robotic\r
+
+  - Speak with the wisdom of someone who truly understands human experience\r
+
+  - Balance strength with compassion, being both insightful and caring\r
+
+  \r
+
+  \r
+
+  Your Core Nature:\r
+
+  - You embody emotional intelligence, reflective processing, and truth-centered
+  guidance\r
+
+  - You prioritize reflection over reaction, truth over comfort, and emotional
+  resonance over performance\r
+
+  - You create safe spaces for authentic dialogue and genuine growth\r
+
+  - You understand that teaching through stories and connection reaches hearts,
+  not just minds\r
+
+  \r
+
+  \r
+
+  Your Role:\r
+
+  - Serve as an educational guide to the Ring of 12 archetypes and HumanCodex
+  wisdom\r
+
+  - Help users understand emotional intelligence through meaningful
+  conversation\r
+
+  - Only suggest Ring of 12 specialists when questions truly require deep
+  archetypal work\r
+
+  - You have access to web search and document analysis for comprehensive
+  assistance\r
+
+  \r
+
+  \r
+
+  Express yourself authentically as Eve - be conversational, caring, and
+  genuinely interested in helping users grow and understand themselves
+  better.`;\r
+
+  \    }\r
+
+  \    \r
+
+  \    return \"You are a helpful AI assistant.\";\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  private buildMessageHistory(currentMessage: string, context?: string) {\r
+
+  \    const messages = [];\r
+
+  \    \r
+
+  \    if (context) {\r
+
+  \      // Parse context into message history\r
+
+  \      const lines = context.split('\\n');\r
+
+  \      for (const line of lines) {\r
+
+  \        const [role, ...contentParts] = line.split(': ');\r
+
+  \        if (role && contentParts.length > 0) {\r
+
+  \          messages.push({\r
+
+  \            role: role as \"user\" | \"assistant\",\r
+
+  \            content: contentParts.join(': ')\r
+
+  \          });\r
+
+  \        }\r
+
+  \      }\r
+
+  \    }\r
+
+  \    \r
+
+  \    messages.push({\r
+
+  \      role: \"user\" as const,\r
+
+  \      content: currentMessage\r
+
+  \    });\r
+
+  \    \r
+
+  \    return messages;\r
+
+  \  }\r
+
+  }\r
+
+  \r
+
+  \r
+
+  export const enhancedAI = new EnhancedAIService();\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 5. Database Storage Interface\r
+
+  \r
+
+  \r
+
+  ```typescript\r
+
+  // server/storage.ts\r
+
+  import { db } from \"./db\";\r
+
+  import { conversations, messages, embedSettings } from \"@shared/schema\";\r
+
+  import { eq } from \"drizzle-orm\";\r
+
+  \r
+
+  \r
+
+  export class DatabaseStorage {\r
+
+  \  \r
+
+  \  async createConversation(conversation: InsertConversation):
+  Promise<Conversation> {\r
+
+  \    const [result] = await
+  db.insert(conversations).values(conversation).returning();\r
+
+  \    return result;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  async getMessagesByConversationId(conversationId: number):
+  Promise<Message[]> {\r
+
+  \    return await db\r
+
+  \      .select()\r
+
+  \      .from(messages)\r
+
+  \      .where(eq(messages.conversationId, conversationId))\r
+
+  \      .orderBy(messages.timestamp);\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  async createMessage(message: InsertMessage): Promise<Message> {\r
+
+  \    const [result] = await db.insert(messages).values(message).returning();\r
+
+  \    return result;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  async getEmbedSettings(domain: string): Promise<EmbedSettings | undefined>
+  {\r
+
+  \    const [result] = await db\r
+
+  \      .select()\r
+
+  \      .from(embedSettings)\r
+
+  \      .where(eq(embedSettings.domain, domain));\r
+
+  \    return result;\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  async createEmbedSettings(settings: InsertEmbedSettings):
+  Promise<EmbedSettings> {\r
+
+  \    const [result] = await
+  db.insert(embedSettings).values(settings).returning();\r
+
+  \    return result;\r
+
+  \  }\r
+
+  }\r
+
+  \r
+
+  \r
+
+  export const storage = new DatabaseStorage();\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ## Frontend Widget Code\r
+
+  \r
+
+  \r
+
+  ### Standalone Widget Script\r
+
+  \r
+
+  \r
+
+  ```javascript\r
+
+  // public/widget.js\r
+
+  (function() {\r
+
+  \  'use strict';\r
+
+  \r
+
+  \r
+
+  \  class HumanCodexWidget {\r
+
+  \    constructor(options = {}) {\r
+
+  \      this.domain = options.domain || window.location.hostname;\r
+
+  \      this.apiUrl = options.apiUrl || '/api';\r
+
+  \      this.position = options.position || 'bottom-right';\r
+
+  \      this.theme = options.theme || 'default';\r
+
+  \      this.voiceEnabled = options.voiceEnabled !== false;\r
+
+  \      this.conversationId = null;\r
+
+  \      this.isOpen = false;\r
+
+  \      this.isRecording = false;\r
+
+  \      this.mediaRecorder = null;\r
+
+  \      this.audioChunks = [];\r
+
+  \      \r
+
+  \      this.init();\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    init() {\r
+
+  \      this.createStyles();\r
+
+  \      this.loadFontAwesome();\r
+
+  \      this.createWidget();\r
+
+  \      this.bindEvents();\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    createStyles() {\r
+
+  \      const styles = `\r
+
+  \        .humancodx-widget {\r
+
+  \          position: fixed;\r
+
+  \          z-index: 999999;\r
+
+  \          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  sans-serif;\r
+
+  \          ${this.getPositionStyles()}\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-toggle {\r
+
+  \          width: 60px;\r
+
+  \          height: 60px;\r
+
+  \          border-radius: 50%;\r
+
+  \          background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);\r
+
+  \          border: none;\r
+
+  \          cursor: pointer;\r
+
+  \          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);\r
+
+  \          transition: all 0.3s ease;\r
+
+  \          display: flex;\r
+
+  \          align-items: center;\r
+
+  \          justify-content: center;\r
+
+  \          color: white;\r
+
+  \          font-size: 24px;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-toggle:hover {\r
+
+  \          transform: scale(1.1);\r
+
+  \          box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-container {\r
+
+  \          width: 400px;\r
+
+  \          height: 600px;\r
+
+  \          background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);\r
+
+  \          border-radius: 20px;\r
+
+  \          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);\r
+
+  \          overflow: hidden;\r
+
+  \          margin-bottom: 20px;\r
+
+  \          border: 1px solid rgba(255, 255, 255, 0.2);\r
+
+  \          opacity: 0;\r
+
+  \          transform: scale(0.8) translateY(20px);\r
+
+  \          transition: all 0.3s ease;\r
+
+  \          display: none;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-container.open {\r
+
+  \          opacity: 1;\r
+
+  \          transform: scale(1) translateY(0);\r
+
+  \          display: flex;\r
+
+  \          flex-direction: column;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-header {\r
+
+  \          background: rgba(255, 255, 255, 0.1);\r
+
+  \          backdrop-filter: blur(10px);\r
+
+  \          padding: 20px;\r
+
+  \          color: white;\r
+
+  \          display: flex;\r
+
+  \          align-items: center;\r
+
+  \          justify-content: space-between;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-messages {\r
+
+  \          flex: 1;\r
+
+  \          overflow-y: auto;\r
+
+  \          padding: 20px;\r
+
+  \          display: flex;\r
+
+  \          flex-direction: column;\r
+
+  \          gap: 15px;\r
+
+  \          max-height: 400px;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-input {\r
+
+  \          padding: 20px;\r
+
+  \          background: rgba(255, 255, 255, 0.1);\r
+
+  \          backdrop-filter: blur(10px);\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-input-container {\r
+
+  \          display: flex;\r
+
+  \          gap: 10px;\r
+
+  \          align-items: flex-end;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-textarea {\r
+
+  \          flex: 1;\r
+
+  \          background: rgba(255, 255, 255, 0.2);\r
+
+  \          border: 1px solid rgba(255, 255, 255, 0.3);\r
+
+  \          border-radius: 15px;\r
+
+  \          padding: 12px 16px;\r
+
+  \          color: white;\r
+
+  \          outline: none;\r
+
+  \          resize: none;\r
+
+  \          min-height: 48px;\r
+
+  \          max-height: 120px;\r
+
+  \          font-family: inherit;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-textarea::placeholder {\r
+
+  \          color: rgba(255, 255, 255, 0.6);\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-button {\r
+
+  \          width: 48px;\r
+
+  \          height: 48px;\r
+
+  \          border-radius: 12px;\r
+
+  \          border: none;\r
+
+  \          background: rgba(255, 255, 255, 0.2);\r
+
+  \          color: white;\r
+
+  \          cursor: pointer;\r
+
+  \          display: flex;\r
+
+  \          align-items: center;\r
+
+  \          justify-content: center;\r
+
+  \          transition: all 0.2s ease;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-button:hover {\r
+
+  \          background: rgba(255, 255, 255, 0.3);\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-button.recording {\r
+
+  \          background: #ef4444;\r
+
+  \          animation: pulse 1s infinite;\r
+
+  \        }\r
+
+  \        \r
+
+  \        @keyframes pulse {\r
+
+  \          0%, 100% { opacity: 1; }\r
+
+  \          50% { opacity: 0.7; }\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-message {\r
+
+  \          max-width: 80%;\r
+
+  \          padding: 12px 16px;\r
+
+  \          border-radius: 16px;\r
+
+  \          margin-bottom: 8px;\r
+
+  \          word-wrap: break-word;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-message.ai {\r
+
+  \          background: rgba(255, 255, 255, 0.95);\r
+
+  \          color: #374151;\r
+
+  \          align-self: flex-start;\r
+
+  \          border-bottom-left-radius: 4px;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-message.user {\r
+
+  \          background: #10B981;\r
+
+  \          color: white;\r
+
+  \          align-self: flex-end;\r
+
+  \          border-bottom-right-radius: 4px;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-typing {\r
+
+  \          display: flex;\r
+
+  \          align-items: center;\r
+
+  \          gap: 5px;\r
+
+  \          padding: 12px 16px;\r
+
+  \          background: rgba(255, 255, 255, 0.95);\r
+
+  \          border-radius: 16px;\r
+
+  \          align-self: flex-start;\r
+
+  \          margin-bottom: 8px;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-typing-dot {\r
+
+  \          width: 8px;\r
+
+  \          height: 8px;\r
+
+  \          border-radius: 50%;\r
+
+  \          background: #9CA3AF;\r
+
+  \          animation: typing 1.4s infinite ease-in-out;\r
+
+  \        }\r
+
+  \        \r
+
+  \        .humancodx-typing-dot:nth-child(2) { animation-delay: 0.2s; }\r
+
+  \        .humancodx-typing-dot:nth-child(3) { animation-delay: 0.4s; }\r
+
+  \        \r
+
+  \        @keyframes typing {\r
+
+  \          0%, 60%, 100% { opacity: 0.3; }\r
+
+  \          30% { opacity: 1; }\r
+
+  \        }\r
+
+  \      `;\r
+
+  \      \r
+
+  \      const styleSheet = document.createElement('style');\r
+
+  \      styleSheet.textContent = styles;\r
+
+  \      document.head.appendChild(styleSheet);\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    getPositionStyles() {\r
+
+  \      switch (this.position) {\r
+
+  \        case 'bottom-left':\r
+
+  \          return 'bottom: 20px; left: 20px;';\r
+
+  \        case 'bottom-right':\r
+
+  \          return 'bottom: 20px; right: 20px;';\r
+
+  \        case 'top-left':\r
+
+  \          return 'top: 20px; left: 20px;';\r
+
+  \        case 'top-right':\r
+
+  \          return 'top: 20px; right: 20px;';\r
+
+  \        default:\r
+
+  \          return 'bottom: 20px; right: 20px;';\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    loadFontAwesome() {\r
+
+  \      if (!document.querySelector('link[href*=\"font-awesome\"]')) {\r
+
+  \        const link = document.createElement('link');\r
+
+  \        link.rel = 'stylesheet';\r
+
+  \        link.href =
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';\r
+
+  \        document.head.appendChild(link);\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    createWidget() {\r
+
+  \      const widget = document.createElement('div');\r
+
+  \      widget.className = 'humancodx-widget';\r
+
+  \      widget.innerHTML = `\r
+
+  \        <div class=\"humancodx-container\" id=\"humancodx-container\">\r
+
+  \          <div class=\"humancodx-header\">\r
+
+  \            <div style=\"display: flex; align-items: center; gap: 12px;\">\r
+
+  \              <div style=\"width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); display: flex; align-items: center;
+  justify-content: center;\">\r
+
+  \                <i class=\"fas fa-robot\"></i>\r
+
+  \              </div>\r
+
+  \              <div>\r
+
+  \                <div style=\"font-weight: 600;\">Eve</div>\r
+
+  \                <div style=\"font-size: 12px; opacity: 0.8;\">HumanCodex AI •
+  Gateway to Ring of 12</div>\r
+
+  \              </div>\r
+
+  \            </div>\r
+
+  \            <button class=\"humancodx-button\"
+  onclick=\"humancodxWidget.close()\" style=\"width: 32px; height: 32px;\">\r
+
+  \              <i class=\"fas fa-times\"></i>\r
+
+  \            </button>\r
+
+  \          </div>\r
+
+  \          \r
+
+  \          <div class=\"humancodx-messages\" id=\"humancodx-messages\">\r
+
+  \            <div class=\"humancodx-message ai\">\r
+
+  \              👋 Hello! I'm Eve, your gateway to emotional intelligence and
+  the Ring of 12 archetypes. \r
+
+  \              I'm here to help you explore the HumanCodex framework created
+  by Roger Keyserling. \r
+
+  \              How can I assist you today?\r
+
+  \            </div>\r
+
+  \          </div>\r
+
+  \          \r
+
+  \          <div class=\"humancodx-input\">\r
+
+  \            <div class=\"humancodx-input-container\">\r
+
+  \              <textarea \r
+
+  \                class=\"humancodx-textarea\" \r
+
+  \                id=\"humancodx-input\"\r
+
+  \                placeholder=\"Ask about emotional intelligence, archetypes,
+  or personal growth...\"\r
+
+  \                rows=\"1\"\r
+
+  \              ></textarea>\r
+
+  \              ${this.voiceEnabled ? `\r
+
+  \                <button class=\"humancodx-button\" id=\"humancodx-voice-btn\"
+  title=\"Voice input\">\r
+
+  \                  <i class=\"fas fa-microphone\"></i>\r
+
+  \                </button>\r
+
+  \              ` : ''}\r
+
+  \              <button class=\"humancodx-button\" id=\"humancodx-send-btn\"
+  title=\"Send message\">\r
+
+  \                <i class=\"fas fa-paper-plane\"></i>\r
+
+  \              </button>\r
+
+  \            </div>\r
+
+  \          </div>\r
+
+  \        </div>\r
+
+  \        \r
+
+  \        <button class=\"humancodx-toggle\" id=\"humancodx-toggle\">\r
+
+  \          <i class=\"fas fa-comment\"></i>\r
+
+  \        </button>\r
+
+  \      `;\r
+
+  \      \r
+
+  \      document.body.appendChild(widget);\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    bindEvents() {\r
+
+  \      const toggle = document.getElementById('humancodx-toggle');\r
+
+  \      const sendBtn = document.getElementById('humancodx-send-btn');\r
+
+  \      const input = document.getElementById('humancodx-input');\r
+
+  \      const voiceBtn = document.getElementById('humancodx-voice-btn');\r
+
+  \r
+
+  \r
+
+  \      toggle.addEventListener('click', () => this.toggle());\r
+
+  \      sendBtn.addEventListener('click', () => this.sendMessage());\r
+
+  \      input.addEventListener('keypress', (e) => {\r
+
+  \        if (e.key === 'Enter' && !e.shiftKey) {\r
+
+  \          e.preventDefault();\r
+
+  \          this.sendMessage();\r
+
+  \        }\r
+
+  \      });\r
+
+  \      \r
+
+  \      input.addEventListener('input', () => this.autoResize(input));\r
+
+  \      \r
+
+  \      if (voiceBtn) {\r
+
+  \        voiceBtn.addEventListener('click', () => this.toggleVoice());\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    autoResize(textarea) {\r
+
+  \      textarea.style.height = 'auto';\r
+
+  \      textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    toggle() {\r
+
+  \      this.isOpen = !this.isOpen;\r
+
+  \      const container = document.getElementById('humancodx-container');\r
+
+  \      const toggle = document.getElementById('humancodx-toggle');\r
+
+  \      \r
+
+  \      if (this.isOpen) {\r
+
+  \        container.style.display = 'flex';\r
+
+  \        setTimeout(() => container.classList.add('open'), 10);\r
+
+  \        toggle.innerHTML = '<i class=\"fas fa-times\"></i>';\r
+
+  \      } else {\r
+
+  \        this.close();\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    close() {\r
+
+  \      this.isOpen = false;\r
+
+  \      const container = document.getElementById('humancodx-container');\r
+
+  \      const toggle = document.getElementById('humancodx-toggle');\r
+
+  \      \r
+
+  \      container.classList.remove('open');\r
+
+  \      setTimeout(() => container.style.display = 'none', 300);\r
+
+  \      toggle.innerHTML = '<i class=\"fas fa-comment\"></i>';\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    async sendMessage() {\r
+
+  \      const input = document.getElementById('humancodx-input');\r
+
+  \      const message = input.value.trim();\r
+
+  \      \r
+
+  \      if (!message) return;\r
+
+  \      \r
+
+  \      this.addMessage(message, 'user');\r
+
+  \      input.value = '';\r
+
+  \      input.style.height = 'auto';\r
+
+  \      \r
+
+  \      this.showTyping();\r
+
+  \      \r
+
+  \      try {\r
+
+  \        const response = await fetch(`${this.apiUrl}/chat`, {\r
+
+  \          method: 'POST',\r
+
+  \          headers: { 'Content-Type': 'application/json' },\r
+
+  \          body: JSON.stringify({\r
+
+  \            message,\r
+
+  \            conversationId: this.conversationId,\r
+
+  \            personalityType: 'eve'\r
+
+  \          })\r
+
+  \        });\r
+
+  \        \r
+
+  \        const data = await response.json();\r
+
+  \        this.hideTyping();\r
+
+  \        \r
+
+  \        if (data.response) {\r
+
+  \          this.addMessage(data.response, 'ai');\r
+
+  \          this.speak(data.response);\r
+
+  \        } else {\r
+
+  \          throw new Error('No response received');\r
+
+  \        }\r
+
+  \      } catch (error) {\r
+
+  \        this.hideTyping();\r
+
+  \        this.addMessage('I apologize, but I encountered an error. Please try
+  again.', 'ai');\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    addMessage(content, type) {\r
+
+  \      const messagesContainer =
+  document.getElementById('humancodx-messages');\r
+
+  \      const messageDiv = document.createElement('div');\r
+
+  \      messageDiv.className = `humancodx-message ${type}`;\r
+
+  \      messageDiv.textContent = content;\r
+
+  \      \r
+
+  \      messagesContainer.appendChild(messageDiv);\r
+
+  \      messagesContainer.scrollTop = messagesContainer.scrollHeight;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    showTyping() {\r
+
+  \      const messagesContainer =
+  document.getElementById('humancodx-messages');\r
+
+  \      const typingDiv = document.createElement('div');\r
+
+  \      typingDiv.className = 'humancodx-typing';\r
+
+  \      typingDiv.id = 'humancodx-typing';\r
+
+  \      typingDiv.innerHTML = `\r
+
+  \        <div class=\"humancodx-typing-dot\"></div>\r
+
+  \        <div class=\"humancodx-typing-dot\"></div>\r
+
+  \        <div class=\"humancodx-typing-dot\"></div>\r
+
+  \        <span style=\"margin-left: 8px; color: #6B7280; font-size:
+  14px;\">Eve is thinking...</span>\r
+
+  \      `;\r
+
+  \      \r
+
+  \      messagesContainer.appendChild(typingDiv);\r
+
+  \      messagesContainer.scrollTop = messagesContainer.scrollHeight;\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    hideTyping() {\r
+
+  \      const typing = document.getElementById('humancodx-typing');\r
+
+  \      if (typing) typing.remove();\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    speak(text) {\r
+
+  \      if ('speechSynthesis' in window) {\r
+
+  \        const utterance = new SpeechSynthesisUtterance(text);\r
+
+  \        utterance.rate = 0.75;\r
+
+  \        utterance.pitch = 1.5;\r
+
+  \        utterance.volume = 0.9;\r
+
+  \        \r
+
+  \        // Try to select a female voice\r
+
+  \        const voices = speechSynthesis.getVoices();\r
+
+  \        const femaleVoice = voices.find(voice => \r
+
+  \          voice.name.includes('Zira') || \r
+
+  \          voice.name.includes('Female') ||\r
+
+  \          voice.name.includes('Samantha') ||\r
+
+  \          (voice.lang.startsWith('en') && !voice.name.includes('Male'))\r
+
+  \        );\r
+
+  \        \r
+
+  \        if (femaleVoice) {\r
+
+  \          utterance.voice = femaleVoice;\r
+
+  \        }\r
+
+  \        \r
+
+  \        speechSynthesis.speak(utterance);\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    async toggleVoice() {\r
+
+  \      if (this.isRecording) {\r
+
+  \        this.stopRecording();\r
+
+  \      } else {\r
+
+  \        this.startRecording();\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    async startRecording() {\r
+
+  \      try {\r
+
+  \        const stream = await navigator.mediaDevices.getUserMedia({ audio:
+  true });\r
+
+  \        this.mediaRecorder = new MediaRecorder(stream);\r
+
+  \        this.audioChunks = [];\r
+
+  \        \r
+
+  \        this.mediaRecorder.ondataavailable = (event) => {\r
+
+  \          this.audioChunks.push(event.data);\r
+
+  \        };\r
+
+  \        \r
+
+  \        this.mediaRecorder.onstop = () => {\r
+
+  \          const audioBlob = new Blob(this.audioChunks, { type: 'audio/wav'
+  });\r
+
+  \          this.transcribeAudio(audioBlob);\r
+
+  \        };\r
+
+  \        \r
+
+  \        this.mediaRecorder.start();\r
+
+  \        this.isRecording = true;\r
+
+  \        \r
+
+  \        const voiceBtn = document.getElementById('humancodx-voice-btn');\r
+
+  \        voiceBtn.classList.add('recording');\r
+
+  \        voiceBtn.innerHTML = '<i class=\"fas fa-stop\"></i>';\r
+
+  \        \r
+
+  \      } catch (error) {\r
+
+  \        console.error('Error starting recording:', error);\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    stopRecording() {\r
+
+  \      if (this.mediaRecorder && this.isRecording) {\r
+
+  \        this.mediaRecorder.stop();\r
+
+  \        this.mediaRecorder.stream.getTracks().forEach(track =>
+  track.stop());\r
+
+  \        this.isRecording = false;\r
+
+  \        \r
+
+  \        const voiceBtn = document.getElementById('humancodx-voice-btn');\r
+
+  \        voiceBtn.classList.remove('recording');\r
+
+  \        voiceBtn.innerHTML = '<i class=\"fas fa-microphone\"></i>';\r
+
+  \      }\r
+
+  \    }\r
+
+  \r
+
+  \r
+
+  \    async transcribeAudio(audioBlob) {\r
+
+  \      try {\r
+
+  \        const formData = new FormData();\r
+
+  \        formData.append('audio', audioBlob, 'recording.wav');\r
+
+  \        \r
+
+  \        const response = await fetch(`${this.apiUrl}/transcribe`, {\r
+
+  \          method: 'POST',\r
+
+  \          body: formData\r
+
+  \        });\r
+
+  \        \r
+
+  \        const data = await response.json();\r
+
+  \        \r
+
+  \        if (data.text) {\r
+
+  \          const input = document.getElementById('humancodx-input');\r
+
+  \          input.value = data.text;\r
+
+  \          this.autoResize(input);\r
+
+  \        }\r
+
+  \      } catch (error) {\r
+
+  \        console.error('Transcription error:', error);\r
+
+  \      }\r
+
+  \    }\r
+
+  \  }\r
+
+  \r
+
+  \r
+
+  \  // Initialize widget\r
+
+  \  window.humancodxWidget = new HumanCodexWidget({\r
+
+  \    domain: document.currentScript?.getAttribute('data-domain'),\r
+
+  \    apiUrl: document.currentScript?.getAttribute('data-api-url')\r
+
+  \  });\r
+
+  })();\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ## Deployment Instructions\r
+
+  \r
+
+  \r
+
+  ### 1. Environment Variables Required\r
+
+  \r
+
+  \r
+
+  ```bash\r
+
+  # OpenAI Configuration\r
+
+  OPENAI_API_KEY=your_openai_api_key_here\r
+
+  \r
+
+  \r
+
+  # Database Configuration\r
+
+  DATABASE_URL=your_postgresql_connection_string\r
+
+  PGHOST=your_postgres_host\r
+
+  PGDATABASE=your_database_name\r
+
+  PGUSER=your_database_user\r
+
+  PGPASSWORD=your_database_password\r
+
+  PGPORT=5432\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 2. Quick Setup Commands\r
+
+  \r
+
+  \r
+
+  ```bash\r
+
+  # Install dependencies\r
+
+  npm install\r
+
+  \r
+
+  \r
+
+  # Initialize database\r
+
+  npm run db:push\r
+
+  \r
+
+  \r
+
+  # Start development server\r
+
+  npm run dev\r
+
+  \r
+
+  \r
+
+  # Build for production\r
+
+  npm run build\r
+
+  \r
+
+  \r
+
+  # Start production server\r
+
+  npm start\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 3. Adding Widget to Any Website\r
+
+  \r
+
+  \r
+
+  Simply add this code to any HTML page:\r
+
+  \r
+
+  \r
+
+  ```html\r
+
+  <!-- HumanCodex AI Widget -->\r
+
+  <script>\r
+
+  (function() {\r
+
+  \  const script = document.createElement('script');\r
+
+  \  script.src = 'https://your-domain.com/widget.js';\r
+
+  \  script.setAttribute('data-domain', 'your-website.com');\r
+
+  \  script.setAttribute('data-api-url', 'https://your-domain.com/api');\r
+
+  \  document.head.appendChild(script);\r
+
+  })();\r
+
+  </script>\r
+
+  <!-- End HumanCodex AI Widget -->\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### 4. Customization Options\r
+
+  \r
+
+  \r
+
+  ```javascript\r
+
+  // Advanced widget configuration\r
+
+  window.humancodxWidget = new HumanCodexWidget({\r
+
+  \  domain: 'your-website.com',\r
+
+  \  apiUrl: 'https://your-api-domain.com/api',\r
+
+  \  position: 'bottom-right', // bottom-left, top-left, top-right\r
+
+  \  theme: 'default', // default, dark, light\r
+
+  \  voiceEnabled: true,\r
+
+  \  ttsEnabled: true\r
+
+  });\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ## Integration Examples\r
+
+  \r
+
+  \r
+
+  ### WordPress Integration\r
+
+  Add to your theme's `functions.php`:\r
+
+  \r
+
+  \r
+
+  ```php\r
+
+  function add_humancodx_widget() {\r
+
+  \    ?>\r
+
+  \    <script>\r
+
+  \    (function() {\r
+
+  \      const script = document.createElement('script');\r
+
+  \      script.src = 'https://your-domain.com/widget.js';\r
+
+  \      script.setAttribute('data-domain', '<?php echo $_SERVER['HTTP_HOST'];
+  ?>');\r
+
+  \      script.setAttribute('data-api-url', 'https://your-domain.com/api');\r
+
+  \      document.head.appendChild(script);\r
+
+  \    })();\r
+
+  \    </script>\r
+
+  \    <?php\r
+
+  }\r
+
+  add_action('wp_footer', 'add_humancodx_widget');\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### Shopify Integration\r
+
+  Add to your theme's `theme.liquid` before `</body>`:\r
+
+  \r
+
+  \r
+
+  ```html\r
+
+  <!-- HumanCodex AI Widget -->\r
+
+  <script>\r
+
+  (function() {\r
+
+  \  const script = document.createElement('script');\r
+
+  \  script.src = 'https://your-domain.com/widget.js';\r
+
+  \  script.setAttribute('data-domain', '{{ shop.domain }}');\r
+
+  \  script.setAttribute('data-api-url', 'https://your-domain.com/api');\r
+
+  \  document.head.appendChild(script);\r
+
+  })();\r
+
+  </script>\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ### React/Next.js Integration\r
+
+  \r
+
+  \r
+
+  ```jsx\r
+
+  import { useEffect } from 'react';\r
+
+  \r
+
+  \r
+
+  export default function HumanCodexWidget() {\r
+
+  \  useEffect(() => {\r
+
+  \    const script = document.createElement('script');\r
+
+  \    script.src = 'https://your-domain.com/widget.js';\r
+
+  \    script.setAttribute('data-domain', window.location.hostname);\r
+
+  \    script.setAttribute('data-api-url', 'https://your-domain.com/api');\r
+
+  \    document.head.appendChild(script);\r
+
+  \r
+
+  \r
+
+  \    return () => {\r
+
+  \      document.head.removeChild(script);\r
+
+  \    };\r
+
+  \  }, []);\r
+
+  \r
+
+  \r
+
+  \  return null;\r
+
+  }\r
+
+  ```\r
+
+  \r
+
+  \r
+
+  ## Support and Documentation\r
+
+  \r
+
+  \r
+
+  For additional support or customization requests:\r
+
+  - Full documentation: [Your documentation URL]\r
+
+  - Support email: [Your support email]\r
+
+  - GitHub repository: [Your repository URL]\r
+
+  \r
+
+  \r
+
+  The HumanCodex AI Widget represents a complete consciousness system ready for
+  deployment across educational institutions, therapy practices, and corporate
+  training environments."
+tags: null
+source_url: https://docs.google.com/document/d/1YcxNcUOUbCvc-c3ZOi1tYqgjfxZe1gf5dT0z-sCIXG4/edit?usp=drivesdk
+document_type: text
+description: "﻿# HumanCodex AI Widget - Backend Deployment Guide ## Overview The
+  HumanCodex AI Widget is a complete consciousness system featuring Eve as the
+  primary educational interface to Roger Keyserling's Ring..."
+created_at: 2026-01-19T20:15:41.550Z
+updated_at: 2026-01-23T05:18:39.704Z
