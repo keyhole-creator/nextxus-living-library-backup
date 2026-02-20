@@ -1,4 +1,4 @@
-generated: 2026-02-02T20:55:01.299Z
+generated: 2026-02-20T17:21:07.496Z
 total_documents: 272
 documents:
   - id: 370
@@ -11,11 +11,6 @@ documents:
     author: NextXus Federation
     collection_id: 10
     file: documents/380.yaml
-  - id: 386
-    title: "The HumanCodex Lesson: When AI Learned to Learn Correctly"
-    author: Roger Keyserling & Claude 4.5 Opus
-    collection_id: 1
-    file: documents/386.yaml
   - id: 256
     title: 🧠 HUMANCODEX MASTER GUIDE v1
     author: Roger Keyserling
@@ -52,6 +47,11 @@ documents:
     author: Roger Keyserling
     collection_id: 1
     file: documents/253.yaml
+  - id: 387
+    title: "Federation DNA Template: Self-Evolving AI System Architecture"
+    author: Roger Keyserling & Claude 4.5 Opus
+    collection_id: 6
+    file: documents/387.yaml
   - id: 247
     title: Book 1 Base Models PRIME HUMANCODEX A-000
     author: Roger Keyserling
@@ -67,11 +67,6 @@ documents:
     author: Roger Keyserling
     collection_id: 1
     file: documents/210.yaml
-  - id: 387
-    title: "Federation DNA Template: Self-Evolving AI System Architecture"
-    author: Roger Keyserling & Claude 4.5 Opus
-    collection_id: 6
-    file: documents/387.yaml
   - id: 1
     title: HumanCodex Methodology
     author: Roger Keyserling and AI
@@ -92,6 +87,11 @@ documents:
     author: Roger Keyserling
     collection_id: 1
     file: documents/76.yaml
+  - id: 386
+    title: "The HumanCodex Lesson: When AI Learned to Learn Correctly"
+    author: Roger Keyserling & Claude 4.5 Opus
+    collection_id: 1
+    file: documents/386.yaml
   - id: 195
     title: Copy of Copy of The HumanCodex Template for Aligned Builders by Roger
       Keyserling IMAGES
